@@ -1,0 +1,800 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+{% endblock head_link %}
+{% block header %}
+    <li><a href=""><i class="fa fa-hdd-o"></i>{% trans "审计设备" %}</a></li>
+    <li class="active"><i class="fa fa-hdd-o"></i>{% trans "群组" %}</li>
+{% endblock header %}
+{% block row %}
+    <div>
+        <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+        <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-hdd-o"></i>{% trans "群组" %}</h6>
+                    <p class="penel-heading-inlink-block penel-heading-right" >
+                        {% if request.user.administrator_permission == 6 or request.user.administrator_permission == 0%}
+                            <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="open_form();device_add_ajax();"><i class="fa fa-plus"></i>{% trans "添加" %}</button>
+                        {% endif %}
+
+                    </p>
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped" id="datatable-default-2">
+                        <thead>
+                            <tr>
+                                <th>{% trans "群组名称" %}</th>
+                                <th>{% trans "管理域名" %}</th>
+                                <th>{% trans "设备数量" %}</th>
+                                <th>{% trans "操作" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for gp in group %}
+                                <tr class="gradeA">
+                                    <td> {{gp.group_name}} </td>
+                                    <td> {{gp.account_group_name}} </td>
+                                    <td> {{gp.device_count}} </td>
+                                    <td class="table-botton-pad">
+                                        {% if request.user.administrator_permission == 6 or request.user.administrator_permission == 0%}
+                                            <a class="btn btn-default table-btn-btnpad" onclick="open_form1('{{gp.group_name}}','{{gp.account_group_name}}','{{request.user.administrator_permission}}','{{gp.pk}}');add_device_ajax('{{gp.pk}}');remove_device_ajax('{{gp.pk}}');">
+                                            {% trans "查看" %}
+                                            </a>
+                                        {% else %}
+                                            <a class="btn btn-default table-btn-btnpad" onclick="open_form1('{{gp.group_name}}','{{gp.account_group_name}}','{{request.user.administrator_permission}}','{{gp.pk}}');remove_device_ajax('{{gp.pk}}');">
+                                            {% trans "查看" %}
+                                            </a>
+                                        {% endif %}
+
+                                        {% if gp.group_name == "DefaultGroup" and gp.account_group_name == "admin" %}
+
+                                        {% else %}
+                                            {% if gp.group_name == gp.account_group_name  %}
+
+                                            {% else %}
+                                                {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6  %}
+                                                    <a class="btn btn-default table-btn-btnpad" href="{% url 'audit_device_group_del' %}?group_id={{gp.pk}}">
+                                                        {% trans "删除" %}
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+                                        {% endif %}
+
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <a class=" modal-with-form " href="#modalForm" id="open_form" hidden="True">Open Form</a>
+        <!-- Modal Form -->
+        <div id="modalForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span >{% trans "添加群组" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+                </div>
+
+                <div class="panel-body bk-noradius" >
+                    <div class="form-group" >
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "应用于" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select class="form-control select-icon" name="apply_for" id="apply_for">
+                                    {% for acl in accountgp_list %}
+                                        <option value="{{acl.groupname}}">{{acl.groupname}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "群组名称" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <input type="text" class="form-control" id="add_group_name">
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "准入规则" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select class="form-control select-icon" name="role_type" id="role_type">
+                                    <option value="1">{% trans "按型号分组" %}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;" >
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "具体约束" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select class="form-control select-icon" name="role" id="role">
+
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <ul class="nav nav-tabs drag">
+                        <li class="active">
+                            <a href="#add_group" data-toggle="tab" ><span class="fa fa-plus tab-icon-color"></span> {% trans "加入群组" %}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content drag">
+                        <div id="add_group" class="tab-pane active">
+                            <table class="table table-bordered table-striped" id="datatable-default-3">
+                                <thead>
+                                    <tr>
+                                        <th>{% trans "名称/MAC地址" %}</th>
+                                        <th>{% trans "MAC地址" %}</th>
+                                        <th>{% trans "加入" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="device_add_table">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-default " onclick="create_group();">{% trans "应用" %}</button>
+                            <button class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <a class=" modal-with-form " href="#modalForm1" id="open_form1" hidden="True">Open Form1</a>
+        <!-- Modal Form -->
+        <div id="modalForm1" class="modal-block modal-block-primary mfp-hide config-window-width ">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span >{% trans "查看群组" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+                </div>
+
+                <div class="panel-body bk-noradius" >
+                    <div class="form-group" >
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "群组名称" %}:</span>
+                            </div>
+                            <div class="col-md-6 " style="padding-left:0px;">
+                                <input type="text" class="form-control  mrd" id="fix_group_name" disabled="disabled">
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "应用于" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select class="form-control select-icon " name="apply_for" id="apply_for_modify" disabled="disabled" >
+                                    {% for acl in accountgp_list %}
+                                        <option value="{{acl.groupname}}">{{acl.groupname}}</option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "准入规则" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select class="form-control select-icon mrd" name="role_type" id="role_type_modify" disabled="disabled">
+                                    <option value="1">{% trans "按型号分组" %}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "具体约束" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select class="form-control select-icon mrd" name="role" id="role_modify" disabled="disabled">
+
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "自动升级" %}:</span>
+                            </div>
+                            <div class="switch-div" >
+                                <div class="switch-button">
+                                    <input type="checkbox" name="auto" checked="checked"  id="auto" disabled="disabled"/>
+                                    <label for="auto"></label>
+                                </div>
+                            </div>
+
+                            <div class="col-md-3">
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <ul class="nav nav-tabs drag" id="d-1">
+                        <li class="active">
+                            <a href="#remove_device" data-toggle="tab" ><span class="fa fa-minus tab-icon-color"></span> {% trans "移出群组" %}</a>
+                        </li>
+                        <li >
+                            <a href="#add_device" data-toggle="tab" ><span class="fa fa-plus tab-icon-color"></span> {% trans "加入群组" %}</a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav nav-tabs drag" id="d-2" hidden="hidden">
+                        <li class="active">
+                            <a href="#remove_device" data-toggle="tab" ><span class="fa fa-minus tab-icon-color"></span> {% trans "群组成员" %}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content drag">
+                        <div id="remove_device" class="tab-pane active">
+                            <table class="table table-bordered table-striped" id="datatable-default-remove_device">
+                                <thead>
+                                    <tr>
+                                        <th>{% trans "名称/MAC地址" %}</th>
+                                        <th>{% trans "MAC地址" %}</th>
+                                        <th>{% trans "移出" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="remove_device_table">
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div id="add_device" class="tab-pane">
+                            <table class="table table-bordered table-striped" id="datatable-default-add_device">
+                                <thead>
+                                    <tr>
+                                        <th>{% trans "名称/MAC地址" %}</th>
+                                        <th>{% trans "MAC地址" %}</th>
+                                        <th>{% trans "加入" %}</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="add_device_table">
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel-footer">
+                    <div class="row">
+                        {% if request.user.administrator_permission == 6%}
+                            <div class="col-md-12 text-center">
+                                <button class="btn btn-default " onclick="modify_device_group();" >{% trans "应用" %}</button>
+                                <button class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                            </div>
+                        {% endif %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock row %}
+{% block foot_js %}
+    {% if request.user.administrator_permission == 6 %}
+        <script>
+            $('.mrd').removeAttr('disabled','disabled');
+        </script>
+    {% endif %}
+    {% if request.user.administrator_permission == 6 or request.user.administrator_permission == 3 %}
+        <script>
+            $('#auto').removeAttr('disabled','disabled');
+        </script>
+    {% endif %}
+    <script>
+    function open_form(){
+        // bk-bg-danger
+        $('#open_form').click();
+        add_group_device_list = {"groupname":'',"mac":{}};
+        $('#add_group_name').val('');
+        add_role();
+
+    }
+    function add_role() {
+        $.getJSON('{% url "get_role_list" %}?role_type=1',function (ret) {
+            // body...
+            var a = '';
+            if(JSON.stringify(ret) == "[]"){
+                a = "<option value=\"null\">{% trans '无可选型号' %}</option>";
+            }else{
+                for(var i in ret){
+                    a = a + "<option value="+ ret[i] +">"+ ret[i] +"</option>";
+                }
+            }
+            $('#role').html(a);
+        });
+    }
+    function add_role_modify(id) {
+        $.getJSON('{% url "get_role_list" %}?role_type=1&id='+id,function (ret) {
+            // body...
+            var a = '';
+            if(JSON.stringify(ret) == "[]"){
+                a = "<option value=\"null\">{% trans '无可选型号' %}</option>";
+            }else{
+                for(var i in ret){
+                    a = a + "<option value="+ ret[i] +">"+ ret[i] +"</option>";
+                }
+            }
+            $('#role_modify').html("");
+            $('#role_modify').html(a);
+
+        });
+    }
+
+    function open_form1(name,area_name,administrator_permission,id){
+        if(name == "DefaultGroup" && area_name == "admin"){
+            $('#d-1').attr('hidden','hidden');
+            $('#d-2').removeAttr('hidden','hidden');
+        }else if(administrator_permission == 6){
+            $('#d-2').attr('hidden','hidden');
+            $('#d-1').removeAttr('hidden','hidden');
+        }else{
+            $('#d-1').attr('hidden','hidden');
+            $('#d-2').removeAttr('hidden','hidden');
+        }
+
+        add_role_modify(id);
+        $('#fix_group_name').val(name);
+        $('#role_type_modify').val('');
+        $('#role_modify').val('');
+        $('#apply_for_modify').val('');
+        $('#auto').data('gp_id',id);
+        $.getJSON("{% url 'get_audit_group' %}?id="+id,function (ret) {
+            // body...
+            if(ret.auto_update == 'on'){
+                $('#auto').attr('checked','checked');
+            }else{
+                $('#auto').removeAttr('checked','checked');
+            }
+            $('#role_type_modify').val(ret.role.split(',')[0]);
+            $('#apply_for_modify').val(ret.account_group_name);
+            setTimeout(function () {
+                // body...
+                $('#role_modify').val(ret.role.split(',')[1]);
+            },50);
+        });
+        $('#open_form1').click();
+        modify_device = {"id":id,"groupname":'',"area_name":area_name,"remove_device_mac":{},"add_device_mac":{},"setting":{}};
+    }
+    $('#role_type').on('change',function () {
+        // body...
+        var val = $(this).val();
+        if(val == '1'){
+            add_role();
+        }
+    });
+    </script>
+    <script>
+    $('#auto').change(function () {
+        // body...
+        var gp_id = $(this).data('gp_id');
+        var value = 'off';
+        if($(this).attr('checked')){
+            value = 'on';
+        }else{
+            value = 'off';
+        }
+        $.post('{% url "audit_device_auto_update" %}', {'gp_id': gp_id,'value':value}, function(ret) {
+            /*optional stuff to do after success */
+            alert(ret);
+        });
+        // $.getJSON('{% url "audit_device_auto_update" %}?gp_id=' + gp_id + '&value=' + value,function (ret) {
+        //     // body...
+        //     alert(ret);
+        // })
+    });
+    </script>
+
+
+
+    <script>
+        var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+        $('#position-4-success').click(function() {
+            var errors = $(this).attr('data-a');
+            var notice = new PNotify({
+                title: "{% trans '提示信息' %}",
+                text: errors,
+                type: 'success',
+                addclass: 'stack-bar-top',
+                stack: stack_bar_top,
+                width: "100%"
+            });
+        });
+        $('#position-4-error').click(function() {
+            var errors = $(this).attr('data-a');
+            var notice = new PNotify({
+                title: "{% trans '提示信息' %}",
+                text: errors,
+                type: 'error',
+                addclass: 'stack-bar-top',
+                stack: stack_bar_top,
+                width: "100%"
+            });
+        });
+    </script>
+    <script>
+        (function( $ ) {
+
+         'use strict';
+
+         var datatableInit = function() {
+
+             $('#datatable-default-2').DataTable({
+                "pagingType": "simple_numbers",
+                "processing": true,
+                "searching": true,
+                "autoWidth": true,
+                "deferRender": true,
+                'language':{
+                    "sProcessing":   "{% trans '处理中...' %}",
+                    "sLengthMenu":   '{% trans "显示" %} <select>'+
+                                     '<option value="5">5</option>'+
+                                     '<option value="10">10</option>'+
+                                     '<option value="20">20</option>'+
+                                     '<option value="50">50</option>'+
+                                     '</select> {% trans "记录" %}',
+                    "sZeroRecords":  "{% trans '没有匹配结果' %}",
+                    "sInfo":         "{% trans '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项' %}",
+                    "sInfoEmpty":    "{% trans '显示第 0 至 0 项结果，共 0 项' %}",
+                    "sInfoFiltered": "({% trans '由 _MAX_ 项结果过滤' %})",
+                    "sInfoPostFix":  "",
+                    "sSearch":       '{% trans "搜索 : " %}',
+                    "sUrl":          "",
+                    "sEmptyTable":     "{% trans '表中数据为空' %}",
+                    "sLoadingRecords": "{% trans '载入中...' %}",
+                    "sInfoThousands":  ",",
+                    "oPaginate": {
+                        "sFirst":    "<span class=\"fa fa-angle-double-left\"></span>",
+                        "sPrevious": "<span class=\"fa fa-angle-left\"></span>",
+                        "sNext":     "<span class=\"fa fa-angle-right\"></span>",
+                        "sLast":     "<span class=\"fa fa-angle-double-right\"></span>"
+                    },
+                    // "oAria": {
+                    //     "sSortAscending":  ": 以升序排列此列",
+                    //     "sSortDescending": ": 以降序排列此列"
+                    // }
+                },
+             });
+
+         };
+         $(function() {
+             datatableInit();
+         });
+        }).apply( this, [ jQuery ]);
+    </script>
+    <script>
+        function device_add_ajax(){
+            var table = $('#datatable-default-3').DataTable({
+                "pagingType": "simple_numbers",
+                "processing": true,
+                "searching": true,
+                "autoWidth": true,
+                "deferRender": true,
+                "dom":"<'row'<'col-sm-6  modal_table_fix_1'l><'col-sm-6 modal_table_fix_2'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                'language':{
+                    "sProcessing":   "{% trans '处理中...' %}",
+                    "sLengthMenu":   '{% trans "显示" %} <select>'+
+                                     '<option value="5">5</option>'+
+                                     '<option value="10">10</option>'+
+                                     '<option value="20">20</option>'+
+                                     '<option value="50">50</option>'+
+                                     '</select> {% trans "记录" %}',
+                    "sZeroRecords":  "{% trans '没有匹配结果' %}",
+                    "sInfo":         "{% trans '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项' %}",
+                    "sInfoEmpty":    "{% trans '显示第 0 至 0 项结果，共 0 项' %}",
+                    "sInfoFiltered": "({% trans '由 _MAX_ 项结果过滤' %})",
+                    "sInfoPostFix":  "",
+                    "sSearch":       '{% trans "搜索 : " %}',
+                    "sUrl":          "",
+                    "sEmptyTable":     "{% trans '表中数据为空' %}",
+                    "sLoadingRecords": "{% trans '载入中...' %}",
+                    "sInfoThousands":  ",",
+                    "oPaginate": {
+                        "sFirst":    "<span class=\"fa fa-angle-double-left\"></span>",
+                        "sPrevious": "<span class=\"fa fa-angle-left\"></span>",
+                        "sNext":     "<span class=\"fa fa-angle-right\"></span>",
+                        "sLast":     "<span class=\"fa fa-angle-double-right\"></span>"
+                    },
+                    // "oAria": {
+                    //     "sSortAscending":  ": 以升序排列此列",
+                    //     "sSortDescending": ": 以降序排列此列"
+                    // }
+                },
+                // "lengthMenu": [ 5,],
+                // 'data': data,
+                'retrieve':true,
+                'destroy':true,
+                "columns": [
+                    { "data": "name" },
+                    { "data": "mac" },
+                    { "data": "action" },
+                ],
+                "createdRow": function ( row, data, index ) {
+                    $('td', row).eq(2).html("<div class=\"switch-div\" ><div class=\"switch-button\"><input type=\"checkbox\"   id=" + "add-" + data.mac +" onclick = \"add_device('"+ data.mac +"')\"  /><label for=" + "add-" + data.mac +"></label></div></div>");
+                }
+
+
+            });
+            // alert(table.api().ajax.url());
+            $('#datatable-default-3_filter').addClass("modal_table_fix_2");
+            table.ajax.url("{% url 'auditdevice_add_ajax' %}").load();
+
+        }
+        function add_device_ajax(id){
+            var table = $('#datatable-default-add_device').DataTable({
+                "pagingType": "simple_numbers",
+                "processing": true,
+                "searching": true,
+                "autoWidth": true,
+                "deferRender": true,
+                "dom":"<'row'<'col-sm-6  modal_table_fix_1'l><'col-sm-6 modal_table_fix_2'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                'language':{
+                    "sProcessing":   "{% trans '处理中...' %}",
+                    "sLengthMenu":   '{% trans "显示" %} <select>'+
+                                     '<option value="5">5</option>'+
+                                     '<option value="10">10</option>'+
+                                     '<option value="20">20</option>'+
+                                     '<option value="50">50</option>'+
+                                     '</select> {% trans "记录" %}',
+                    "sZeroRecords":  "{% trans '没有匹配结果' %}",
+                    "sInfo":         "{% trans '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项' %}",
+                    "sInfoEmpty":    "{% trans '显示第 0 至 0 项结果，共 0 项' %}",
+                    "sInfoFiltered": "({% trans '由 _MAX_ 项结果过滤' %})",
+                    "sInfoPostFix":  "",
+                    "sSearch":       '{% trans "搜索 : " %}',
+                    "sUrl":          "",
+                    "sEmptyTable":     "{% trans '表中数据为空' %}",
+                    "sLoadingRecords": "{% trans '载入中...' %}",
+                    "sInfoThousands":  ",",
+                    "oPaginate": {
+                        "sFirst":    "<span class=\"fa fa-angle-double-left\"></span>",
+                        "sPrevious": "<span class=\"fa fa-angle-left\"></span>",
+                        "sNext":     "<span class=\"fa fa-angle-right\"></span>",
+                        "sLast":     "<span class=\"fa fa-angle-double-right\"></span>"
+                    },
+                    // "oAria": {
+                    //     "sSortAscending":  ": 以升序排列此列",
+                    //     "sSortDescending": ": 以降序排列此列"
+                    // }
+                },
+                // "lengthMenu": [ 5,],
+                // 'data': data,
+                // "deferRender": true,
+                'retrieve':true,
+                'destroy':true,
+                "columns": [
+                    { "data": "name" },
+                    { "data": "mac" },
+                    { "data": "action" },
+                ],
+
+                "createdRow": function ( row, data, index ) {
+                    $('td', row).eq(2).html("<div class=\"switch-div\" ><div class=\"switch-button\"><input type=\"checkbox\"   id=" + "add_device-" + data.mac +" onclick = \"add_device_modify('"+ data.mac +"')\"  /><label for=" + "add_device-" + data.mac +"></label></div></div>");
+
+                }
+
+
+            });
+            // alert(table.api().ajax.url());
+            $('#datatable-default-add_device_filter').addClass("modal_table_fix_2");
+            table.ajax.url("{% url 'add_audit_device_ajax' %}?group_id=" + id).load();
+
+        }
+        function remove_device_ajax(id){
+            var table = $('#datatable-default-remove_device').DataTable({
+                "pagingType": "simple_numbers",
+                "processing": true,
+                "searching": true,
+                "autoWidth": true,
+                "deferRender": true,
+                "dom":"<'row'<'col-sm-6  modal_table_fix_1'l><'col-sm-6 modal_table_fix_2'f>>" +"<'row'<'col-sm-12'tr>>" +"<'row'<'col-sm-5'i><'col-sm-7'p>>",
+                'language':{
+                    "sProcessing":   "{% trans '处理中...' %}",
+                    "sLengthMenu":   '{% trans "显示" %} <select>'+
+                                     '<option value="5">5</option>'+
+                                     '<option value="10">10</option>'+
+                                     '<option value="20">20</option>'+
+                                     '<option value="50">50</option>'+
+                                     '</select> {% trans "记录" %}',
+                    "sZeroRecords":  "{% trans '没有匹配结果' %}",
+                    "sInfo":         "{% trans '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项' %}",
+                    "sInfoEmpty":    "{% trans '显示第 0 至 0 项结果，共 0 项' %}",
+                    "sInfoFiltered": "({% trans '由 _MAX_ 项结果过滤' %})",
+                    "sInfoPostFix":  "",
+                    "sSearch":       '{% trans "搜索 : " %}',
+                    "sUrl":          "",
+                    "sEmptyTable":     "{% trans '表中数据为空' %}",
+                    "sLoadingRecords": "{% trans '载入中...' %}",
+                    "sInfoThousands":  ",",
+                    "oPaginate": {
+                        "sFirst":    "<span class=\"fa fa-angle-double-left\"></span>",
+                        "sPrevious": "<span class=\"fa fa-angle-left\"></span>",
+                        "sNext":     "<span class=\"fa fa-angle-right\"></span>",
+                        "sLast":     "<span class=\"fa fa-angle-double-right\"></span>"
+                    },
+                    // "oAria": {
+                    //     "sSortAscending":  ": 以升序排列此列",
+                    //     "sSortDescending": ": 以降序排列此列"
+                    // }
+                },
+                // "lengthMenu": [ 5,],
+                // 'data': data,
+                // "deferRender": true,
+                'retrieve':true,
+                'destroy':true,
+                "columns": [
+                    { "data": "name" },
+                    { "data": "mac" },
+                    { "data": "action" },
+                ],
+                "createdRow": function ( row, data, index ) {
+                    if(data.administrator_permission == 6){
+                        if(data.sign == "off"){
+
+                        }else{
+                            $('td', row).eq(2).html("<div class=\"switch-div\" ><div class=\"switch-button\"><input type=\"checkbox\"   id=" + "remove_device-" + data.mac +" onclick = \"remove_device('"+ data.mac +"')\"  /><label for=" + "remove_device-" + data.mac +"></label></div></div>");
+                        };
+                    }
+
+                }
+            });
+            // alert(table.api().ajax.url());
+            $('#datatable-default-remove_device_filter').addClass("modal_table_fix_2");
+            table.ajax.url("{% url 'remove_audit_device_ajax' %}?group_id=" + id).load();
+        }
+        function modify_device_group() {
+            var name = $('#fix_group_name').val();
+            var apply = $('#apply_for_modify').val();
+            var role_type = $('#role_type_modify').val();
+            var role = $('#role_modify').val();
+            // modify_device = {"id":id,"groupname":'',"area_name":area_name,"remove_device_mac":{},"add_device_mac":{},"setting":{}};
+            console.log(apply,role_type,role);
+            if ($.trim(name) == '' || apply == null || role_type == null || role == null){
+                alert("{% trans '不能输入空值' %}");
+            }else{
+                modify_device['groupname'] = name;
+                // modify_device['setting']['apply'] = apply;
+                modify_device['setting']['role_type'] = role_type;
+                modify_device['setting']['role'] = role;
+                // console.log(JSON.stringify(modify_device));
+                $.post("{% url 'modify_aduit_device_group_ajax' %}",{'modify_device':JSON.stringify(modify_device)},function (ret) {
+                        if(ret.error_type == "failed"){
+                            alert(ret.error_msg);
+                        }else if(ret.error_type == "success"){
+                            location.reload();
+                        }
+                });
+            }
+        }
+    </script>
+    <script>
+        function remove_device(mac) {
+            var id = "#remove_device-" + mac;
+            if($(id).attr('checked') == 'checked'){
+                modify_device["remove_device_mac"][mac] = mac;
+            }else{
+                delete modify_device["remove_device_mac"][mac];
+            }
+            console.log(modify_device);
+        }
+        function add_device_modify(mac) {
+            var id = "#add_device-" + mac;
+            if($(id).attr('checked') == 'checked'){
+                modify_device["add_device_mac"][mac] = mac;
+            }else{
+                delete modify_device["add_device_mac"][mac];
+            }
+            console.log(modify_device);
+        }
+
+    </script>
+    <script>
+        function add_device(mac) {
+            var id = "#add-" + mac;
+            if($(id).attr('checked') == 'checked'){
+                add_group_device_list["mac"][mac] = mac;
+            }else{
+                delete add_group_device_list["mac"][mac];
+            }
+
+        }
+        function create_group() {
+            var name = $('#add_group_name').val();
+            var role_type = $('#role_type').val();
+            var role = $('#role').val();
+            var apply_for = $('#apply_for').val();
+            if ($.trim(name) == ''){
+                alert("{% trans '请输入群组名称' %}");
+            }else if(role == 'null'){
+                alert("{% trans '无可用约束,无法创建' %}");
+            }else{
+                add_group_device_list['groupname'] = name;
+                add_group_device_list['role_type'] = role_type;
+                add_group_device_list['role'] = role;
+                add_group_device_list['apply_for'] = apply_for;
+
+                // b = add_group_device_list.toJSONString();
+                // console.log(b);
+                // var a = Object.prototype.toString
+                // console.log(a.call(b).toLowerCase());
+                console.log(JSON.stringify(add_group_device_list));
+                $.post("{% url 'add_audit_device_group_ajax' %}",{'add_group_device_list':JSON.stringify(add_group_device_list)},function (ret) {
+                        if(ret.error_type == "failed"){
+                            alert(ret.error_msg);
+                        }else if(ret.error_type == "success"){
+                            location.reload();
+                        }
+                });
+            }
+        }
+    </script>
+    <script>
+        //一定要放在最下面
+        $(function(){
+
+            var error = {{error_json|safe}};
+
+            if(error.error_type == "failed"){
+                $("#position-4-error").click();
+            };
+            if(error.error_type == "success"){
+                $('#position-4-success').click();
+            }
+        });
+    </script>
+{% endblock foot_js %}

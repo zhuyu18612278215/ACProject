@@ -1,0 +1,908 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+    <link rel="stylesheet" href="{% static 'main/jquery-pretty-radio-checkbox/css/jquery-labelauty.css' %} ">
+    <link rel="stylesheet" href="{% static 'main/select2-4.0.6-rc.1/dist/css/select2.min.css' %}">
+    <link href="{% static 'main/bootstrap-slider/css/bootstrap-slider.css' %}" rel="stylesheet">
+    <style>
+        ul.dowebok { list-style-type: none;}
+        ul.dowebok > li { display: inline-block;}
+        ul.dowebok > li { margin: 0;}
+        ul.dowebok > input.labelauty + label { font: 12px "Microsoft Yahei";}
+    </style>
+
+{% endblock head_link %}
+{% block header %}
+    <li><a href=""><i class="fa fa-hdd-o"></i>{% trans "非经设备" %}</a></li>
+    <li class="active"><i class="fa fa-wifi"></i>{% trans "无线" %}</li>
+{% endblock header %}
+{% block row %}
+    <div>
+        <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+        <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-wifi"></i>{% trans "无线配置" %}</h6>
+                    <p class="penel-heading-inlink-block penel-heading-right" >
+                        {% if request.user.administrator_permission == 2 or request.user.administrator_permission == 3 or request.user.administrator_permission == 5 or request.user.administrator_permission == 6 or request.user.administrator_permission == 0%}
+                            <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="open_form();choose_ap_group_ajax();"><i class="fa fa-plus"></i>{% trans "添加" %}</button>
+                        {% endif %}
+
+                    </p>
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped" id="datatable-default-2">
+                        <thead>
+                            <tr>
+                                <th>{% trans "无线网络" %}</th>
+                                <th>{% trans "管理域名/群组名称" %}</th>
+                                <th>{% trans "安全类型 " %}</th>
+                                <th>{% trans "来宾策略" %}</th>
+                                <th>{% trans "操作" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for wl in wlan %}
+                                <tr class="gradeA">
+                                    <td> {{wl.wlan_ssid}} </td>
+                                    <td> {{wl.group_id.account_group_name}}/{{wl.group_id.group_name}} </td>
+                                    <td> {{wl.sec_type}} </td>
+                                    <td> {{wl.auth_type}} </td>
+                                    <td class="table-botton-pad">
+                                        <a class="btn btn-default table-btn-btnpad" onclick="open_form1({{wl.pk}});">
+                                            {% trans "查看" %}
+                                        </a>
+                                        {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6 or request.user.administrator_permission == 5 or request.user.administrator_permission == 3 or request.user.administrator_permission == 2 %}
+                                            <a class="btn btn-default table-btn-btnpad" href="{% url 'nonoperate_wlan_del' %}?wlan_id={{wl.pk}}">
+                                                {% trans "删除" %}
+                                            </a>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if request.user.administrator_permission == 6 %}
+    <div class="row" style="width:60%;float:left;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-toggle-on"></i>{% trans "接入点MAC过滤" %}</h6>
+                    <p class="penel-heading-inlink-block penel-heading-right" >
+                        <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="open_form_black_list();black_list_add_table();"><i class="fa fa-plus"></i>{% trans "添加" %}</button>
+                    </p>
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped" id="datatable-black-list">
+                        <thead>
+                            <tr>
+                                <th>{% trans "名称/MAC地址" %}</th>
+                                <th>{% trans "操作" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+    {% if request.user.administrator_permission == 6 or request.user.administrator_permission == 5 or request.user.administrator_permission == 3 or request.user.administrator_permission == 2 %}
+        <div class="row" style="width:40%;float:right;">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="panel bk-bg-white">
+                    <div class="panel-heading">
+                        <h6><i class="fa fa-gear"></i>{% trans "非经策略" %}</h6>
+                        <div class="panel-actions">
+                            <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                            <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                        </div>
+                    </div>
+                    <div class="panel-body">
+                        <fieldset class="auto-update-fieldset">
+                            <legend class="auto-update-legend">{% trans "自动升级" %}</legend>
+                            <div class="flex-box margin-l-5 margin-r-5">
+                                <div class="flex-item margin-t-5">
+                                    <div>
+                                        <label for="update_rule">{% trans "升级规则" %}</label>
+                                    </div>
+                                    <div class="flex-7 ">
+                                        <select data-option-type="nonoperate" class="form-control " name="rules[]" id="update_rule" multiple="multiple"></select>
+                                    </div>
+                                </div>
+                                <div class="flex-item margin-t-5 margin-b-5">
+                                    <div>
+                                        <label for="">{% trans "快捷操作" %}</label>
+                                    </div>
+                                    <div class="flex-7">
+                                        <button type="button" class="btn btn-default" id="update_rule_every_one">{% trans "全选" %}</button>
+                                        <button type="button" class="btn btn-default margin-l-5" id="update_rule_clear">{% trans "清空" %}</button>
+                                    </div>
+                                </div>
+                                <div class="flex-item margin-b-5">
+                                    <div>
+                                        <label >{% trans "确定修改" %}</label>
+                                    </div>
+                                    <div class="flex-7">
+                                        <button type="button" class="btn btn-default" id="update_rule_submit">{% trans "提交" %}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+
+
+
+
+    <div class="panel-body">
+        <a class=" modal-with-form " href="#modalForm" id="open_form" hidden="True">Open Form</a>
+        <!-- Modal Form -->
+        <div id="modalForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span >{% trans "添加无线网络" %}</span> <a href="#" class=" modal-dismiss close-icon-right " id="close_create"><span class="fa fa-times tab-icon-color"></span></a></h2>
+                </div>
+
+                <div class="panel-body bk-noradius" >
+                    <form id="create_wlan">
+                    <div class="form-group" >
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "AP群组" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select name="group_id" id="group_id" class="form-control select-icon">
+
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <ul class="nav nav-tabs drag">
+                        <li class="active">
+                            <a href="#info" data-toggle="tab" ><span class="fa fa-list tab-icon-color"></span> {% trans "基本信息" %}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content drag penel-body-content">
+                        <div id="info" class="tab-pane active " >
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "应用于" %}</span>
+                                </div>
+                                <div class="col-md-9">
+                                    <ul class="dowebok" style="padding-left:0px">
+                                        <li><input type="radio" id="radios_enable_both" name="radios_enable" data-labelauty=" {% trans '全部' %} " checked="checked" value="both" class="labelauty"></li>
+                                        <li><input type="radio" id="radios_enable_2g" name="radios_enable" data-labelauty=" 2G " value="2g" class="labelauty"></li>
+                                        <li><input type="radio" id="radios_enable_5g" name="radios_enable" data-labelauty=" 5G " value="5g" class="labelauty"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "信号名称" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="ssid" class="form-control" id="ssid" required="required">
+                                </div>
+                                <div class="col-md-3">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "安全" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input id="ex6" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]"  data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide" name="safe" />
+                                    &nbsp;&nbsp;
+
+                                </div>
+                                <div class="col-md-3">
+                                    <span id="ex6CurrentSliderValLabel"><span id="ex6SliderVal" style="color:white;background-color:#EE3439">{% trans "弱" %}</span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" id="passphrase_hide" hidden="hidden">
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "连接密码" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="password" name="passphrase" class="form-control" id="passphrase" maxlength="64">
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="passwd-eye fa fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "下载限速" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="position:relative;">
+                                        <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                        <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="download_speed_select">
+                                            <option value="Unlimited" selected="selected">Unlimited</option>
+                                            <option value="128K">128K</option>
+                                            <option value="256K">256K</option>
+                                            <option value="512K">512K</option>
+                                            <option value="1M">1M</option>
+                                            <option value="2M">2M</option>
+                                            <option value="4M">4M</option>
+                                            <option value="8M">8M</option>
+                                        </select></span><input name="download_speed" id="download_speed" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control" value="Unlimited">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="penel-body-title-font">bps</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "上传限速" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="position:relative;">
+                                        <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                        <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="upload_speed_select">
+                                            <option value="Unlimited" selected="selected">Unlimited</option>
+                                            <option value="128K">128K</option>
+                                            <option value="256K">256K</option>
+                                            <option value="512K">512K</option>
+                                            <option value="1M">1M</option>
+                                            <option value="2M">2M</option>
+                                            <option value="4M">4M</option>
+                                            <option value="8M">8M</option>
+                                        </select></span><input name="upload_speed" id="upload_speed" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control" value="Unlimited">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="penel-body-title-font">bps</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "来宾策略" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="guest_enabled" id="guest_enabled"/>
+                                            <label for="guest_enabled"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <select name="auth_type" id="auth_type" class="form-control select-icon">
+
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+
+                                </div>
+                            </div>
+                            <div id="localwechat" style="display:none;">
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "应用ID" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_appid" class="form-control" id="wechat_appid" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "应用秘钥" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_appkey" class="form-control" id="wechat_appkey" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "门店id" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_shopid" class="form-control" id="wechat_shopid" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "密钥" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_secretkey" class="form-control" id="wechat_secretkey" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "强制关注" %}</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="switch-div" >
+                                            <div class="switch-button">
+                                                <input type="checkbox" name="wechat_forcefollow" id="wechat_forcefollow"/>
+                                                <label for="wechat_forcefollow"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+
+                                    </div>
+                                    <div class="col-md-1">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="external_auth_server" style="display:none;">
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font" style="padding-right:0px;">
+                                        <span >{% trans "登录页URL" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="auth_server_loginurl" class="form-control" id="auth_server_loginurl" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font" style="padding-right:0px;">
+                                        <span >{% trans "认证后跳转" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="auth_server_portalurl" class="form-control" id="auth_server_portalurl">
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "隐藏信号" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="hidden_ssid" id="hidden_ssid"/>
+                                            <label for="hidden_ssid"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font" style="padding-right: 0px;">
+                                    <span >{% trans "启用VLAN" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="vlan_enabled" id="vlan_enabled"/>
+                                            <label for="vlan_enabled"></label>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" id="vlan_hide" hidden="hidden">
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "VLAN ID" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="vlan" class="form-control" id="vlan">
+                                </div>
+                                <div class="col-md-3">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "启用" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="wlan_service" checked="checked" id="wlan_service"/>
+                                            <label for="wlan_service"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                </form>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-default " type="button" onclick="wlan_ajax();">{% trans "应用" %}</button>
+                            <button class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <a class=" modal-with-form " href="#modalForm1" id="open_form1" hidden="True">Open Form1</a>
+        <!-- Modal Form -->
+        <div id="modalForm1" class="modal-block modal-block-primary mfp-hide config-window-width ">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span >{% trans "编辑无线网络" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+                </div>
+
+                <div class="panel-body bk-noradius" >
+                    <form id="modify_wlan">
+                    <div class="form-group" >
+                        <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                            <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                                <span>{% trans "AP群组" %}:</span>
+                            </div>
+                            <div class="col-md-6" style="padding-left:0px;">
+                                <select name="group_id" id="group_id_m" class="form-control select-icon" readonly="readonly">
+
+                                </select>
+                            </div>
+                            <div class="col-md-3">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                    <ul class="nav nav-tabs drag">
+                        <li class="active">
+                            <a href="#info" data-toggle="tab" ><span class="fa fa-list tab-icon-color"></span> {% trans "基本信息" %}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content drag penel-body-content">
+                        <div id="info_m" class="tab-pane active " >
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "应用于" %}</span>
+                                </div>
+                                <div class="col-md-9">
+                                    <ul class="dowebok" style="padding-left:0px">
+                                        <li><input type="radio" id="radios_enable_both_m" name="radios_enable" data-labelauty=" {% trans '全部' %} " checked="checked" value="both" class="labelauty"></li>
+                                        <li><input type="radio" id="radios_enable_2g_m" name="radios_enable" data-labelauty=" 2G " value="2g" class="labelauty"></li>
+                                        <li><input type="radio" id="radios_enable_5g_m" name="radios_enable" data-labelauty=" 5G " value="5g" class="labelauty"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "信号名称" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="ssid" class="form-control" id="ssid_m" required="required">
+                                </div>
+                                <div class="col-md-3">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "安全" %}</span>
+                                </div>
+                                <div class="col-md-6" id="ff">
+                                    <input id="ex6_m" type="text" data-provide="slider" data-slider-ticks="[1, 2, 3]"  data-slider-min="1" data-slider-max="3" data-slider-step="1" data-slider-value="1" data-slider-tooltip="hide" name="safe" />
+                                    &nbsp;&nbsp;
+
+                                </div>
+                                <div class="col-md-3">
+                                    <span id="ex6_mCurrentSliderValLabel"><span id="ex6_mSliderVal" style="color:white;background-color:#EE3439">{% trans "弱" %}</span></span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" id="passphrase_hide_m" hidden="hidden">
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "连接密码" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="password" name="passphrase" class="form-control" id="passphrase_m" maxlength="64">
+                                </div>
+                                <div class="col-md-3">
+                                    <i class="passwd-eye fa fa-eye-slash"></i>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "下载限速" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="position:relative;">
+                                        <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                        <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="download_speed_m_select">
+                                            <option value="Unlimited" selected="selected">Unlimited</option>
+                                            <option value="128K">128K</option>
+                                            <option value="256K">256K</option>
+                                            <option value="512K">512K</option>
+                                            <option value="1M">1M</option>
+                                            <option value="2M">2M</option>
+                                            <option value="4M">4M</option>
+                                            <option value="8M">8M</option>
+                                        </select></span><input name="download_speed" id="download_speed_m" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control" value="Unlimited">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="penel-body-title-font">bps</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "上传限速" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <div style="position:relative;">
+                                        <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                        <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="upload_speed_m_select">
+                                            <option value="Unlimited" selected="selected">Unlimited</option>
+                                            <option value="128K">128K</option>
+                                            <option value="256K">256K</option>
+                                            <option value="512K">512K</option>
+                                            <option value="1M">1M</option>
+                                            <option value="2M">2M</option>
+                                            <option value="4M">4M</option>
+                                            <option value="8M">8M</option>
+                                        </select></span><input name="upload_speed" id="upload_speed_m" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control" value="Unlimited">
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <span class="penel-body-title-font">bps</span>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "来宾策略" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="guest_enabled" id="guest_enabled_m"/>
+                                            <label for="guest_enabled_m"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <select name="auth_type" id="auth_type_m" class="form-control select-icon">
+
+                                    </select>
+                                </div>
+                                <div class="col-md-1">
+
+                                </div>
+                            </div>
+                            <div id="localwechat_m" style="display:none;">
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "应用ID" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_appid" class="form-control" id="wechat_appid_m" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "应用秘钥" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_appkey" class="form-control" id="wechat_appkey_m" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "门店id" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_shopid" class="form-control" id="wechat_shopid_m" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "密钥" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="wechat_secretkey" class="form-control" id="wechat_secretkey_m" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <span >{% trans "强制关注" %}</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="switch-div" >
+                                            <div class="switch-button">
+                                                <input type="checkbox" name="wechat_forcefollow" id="wechat_forcefollow_m"/>
+                                                <label for="wechat_forcefollow_m"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-5">
+
+                                    </div>
+                                    <div class="col-md-1">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="external_auth_server_m" style="display:none;">
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font" style="padding-right:0px;">
+                                        <span >{% trans "登录页URL" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="auth_server_loginurl" class="form-control" id="auth_server_loginurl_m" >
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                    <div class="col-md-3 penel-body-title-font" style="padding-right:0px;">
+                                        <span >{% trans "认证后跳转" %}</span>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="text" name="auth_server_portalurl" class="form-control" id="auth_server_portalurl_m">
+                                    </div>
+                                    <div class="col-md-3">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "隐藏信号" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="hidden_ssid" id="hidden_ssid_m"/>
+                                            <label for="hidden_ssid_m"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font" style="padding-right: 0px;">
+                                    <span >{% trans "启用VLAN" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="vlan_enabled" id="vlan_enabled_m"/>
+                                            <label for="vlan_enabled_m"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" id="vlan_hide_m" hidden="hidden">
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "VLAN ID" %}</span>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="vlan" class="form-control" id="vlan_m">
+                                </div>
+                                <div class="col-md-3">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3 penel-body-title-font">
+                                    <span >{% trans "启用" %}</span>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="switch-div" >
+                                        <div class="switch-button">
+                                            <input type="checkbox" name="wlan_service" checked="checked" id="wlan_service_m"/>
+                                            <label for="wlan_service_m"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                </form>
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-default " type="button" id="modify_button">{% trans "应用" %}</button>
+                            <button class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <a class=" modal-with-form " href="#modalForm_black_list" id="open_form_black_list" hidden="True"></a>
+        <!-- Modal Form -->
+        <div id="modalForm_black_list" class="modal-block modal-block-primary mfp-hide config-window-width ">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span >{% trans "AP黑名单" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+                </div>
+
+                <div class="panel-body bk-noradius" >
+                    <table class="table table-bordered table-striped" id="datatable-black-list-add">
+                        <thead>
+                            <tr>
+                                <th>{% trans "名称/MAC地址" %}</th>
+                                <th>{% trans "操作" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-default " type="button" id="blacklist_add">{% trans "应用" %}</button>
+                            <button class="btn btn-default modal-dismiss" id="blacklist_add_cancel">{% trans "取消" %}</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+{% endblock row %}
+{% block foot_js %}
+<script src=" {% static 'main/jquery-pretty-radio-checkbox/js/jquery-labelauty.js' %} "></script>
+<script type='text/javascript' src="{% static 'main/bootstrap-slider/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'main/select2-4.0.6-rc.1/dist/js/select2.min.js' %}"></script>
+<script src="{% static 'main/app-js/auto_update.js' %}"></script>
+<script src="{% static 'main/app-js/wlan.js' %}"></script>
+<script>
+  $(document).ready(function(){
+    pageWords = {
+      // allDeviceListPageSharedJS trans
+      // serialNumAlertInfo:'{% trans "序列号不能为空" %}',
+      // macAlertInfo:'{% trans "MAC 不能为空" %}',
+      // macLenghtErrorAlertInfo:'{% trans "MAC 有效字符不为12" %}',
+      // errorListDownload:'{% trans "错误列表下载" %}',
+      // fileTypeError:'{% trans "文件类型错误" %}',
+      // fileNotFound:'{% trans "未选择文件" %}',
+      // acAddressErrorInfo:'{% trans "AC地址不合法" %}',
+      // table trans
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+      // every
+      promptInfo:'{% trans "提示信息" %}',
+
+      // wlan
+      ssidEmptyError:'{% trans "信号名称不能为空" %}',
+      speedLimitEmptyError:'{% trans "限速不能为空" %}',
+      vlanEmptyError:'{% trans "vlan不能为空" %}',
+      vlanValueError:'{% trans "vlan必须是1-4094范围内的整数" %}',
+      passwdEmptyError:'{% trans "密码不能为空" %}',
+      passwdValueError:'{% trans "密码必须是8-64位的ASCII码字符" %}',
+      weixinEmptyError:'{% trans "微信配置不能为空" %}',
+      applyPasswdEmptyError:'{% trans "强制关注时,应用秘钥不能为空" %}',
+      serverConfigEmptyError:'{% trans "认证服务器配置不能为空" %}',
+
+      // passwd check
+      low:'{% trans "弱" %}',
+      med:'{% trans "中" %}',
+      strong:'{% trans "强" %}',
+
+      wlanChooseGroupEmptyError:'{% trans "没有选择群组" %}',
+      delete:'{% trans "删除" %}',
+      pleaseChooseGroup:'{% trans "请选择群组" %}',
+      wlanAlreadyFull:'{% trans "已满4个WLAN" %}',
+
+      'no_authentication':'{% trans "无认证" %}',
+      'account':'{% trans "账号/密码" %}',
+      'phonesms':'{% trans "短信认证" %}',
+      'wechatauth':'{% trans "微信认证" %}',
+      'smsandwechat':'{% trans "短信+微信认证" %}',
+      'voucher_auth':'{% trans "卡券认证" %}',
+      'localwechat':'{% trans "本地微信" %}',
+      'external_auth_server':'{% trans "外部认证服务器" %}',
+    };
+  });
+</script>
+
+<script src="{% static 'main/app-js/nonOperateWlanPage.js' %}"></script>
+<script>
+  //一定要放在最下面
+  $(function(){
+
+    var error = JSON.parse('{{error_json|safe}}');
+
+    if(error.error_type == "failed"){
+        $("#position-4-error").click();
+    };
+    if(error.error_type == "success"){
+        $('#position-4-success').click();
+    }
+  });
+</script>
+{% endblock foot_js %}

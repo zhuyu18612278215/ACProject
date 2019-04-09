@@ -1,0 +1,129 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+{% endblock head_link %}
+{% block header %}
+    <li class="active"><i class="fa fa-hdd-o"></i>{% trans "非经设备" %}</li>
+{% endblock header %}
+{% block row %}
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel panel-default bk-bg-white" >
+            <div class="panel-heading bk-bg-white ">
+                <h6><i class="fa fa-hdd-o red"></i><span class="break"></span>{% trans "场所信息" %}</h6>
+                <p class="penel-heading-inlink-block penel-heading-right" >
+                    <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="xinyangOpenExportDevice();"><i class="fa fa-plus"></i>{% trans "导出" %}</button>
+                </p>
+                <div class="panel-actions">
+                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                    <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped" id="datatable-byzoroXinyang">
+                    <thead>
+                        <tr>
+                            <th>{% trans "场所名称" %}</th>
+                            <th>{% trans "场所编码" %}</th>
+                            <th>{% trans "所属区县" %}</th>
+                            <th>{% trans "所属派出所" %}</th>
+                            <th>{% trans "设备状态" %}</th>
+                            <th>{% trans "场所状态" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm_exportdevice" id="xinyangOpenExportDevice" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm_exportdevice" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "导出" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="col-md-12 config-window-message-div-padding penel-body-div-marign-bottom" style="margin-top:10px;">
+                    <div class="col-md-5 penel-body-title-font">
+                        <span> {% trans "导出类型: " %}</span>
+                    </div>
+                    <div class="col-md-5 penel-body-title-font">
+                        <select name="sort_type" id="export_sort_type" class="form-control select-icon">
+                            <option value="1">{% trans "导出当前数据" %}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a id="xinyangExportDeviceButton" href="#" class="btn btn-default">{% trans "确定" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+{% endblock row %}
+{% block foot_js %}
+<script src="{% static 'main/app-js/device_list.js' %}"></script>
+<script>
+  $(document).ready(function() {
+    button_word = {
+      'all': '{% trans "全部" %}',
+      'online': '{% trans "在线" %}',
+      'offline': '{% trans "离线" %}',
+    };
+    pageWords = {
+      // allDeviceListPageSharedJS trans
+      serialNumAlertInfo: '{% trans "序列号不能为空" %}',
+      macAlertInfo: '{% trans "MAC 不能为空" %}',
+      macLenghtErrorAlertInfo: '{% trans "MAC 有效字符不为12" %}',
+      errorListDownload: '{% trans "错误列表下载" %}',
+      fileTypeError: '{% trans "文件类型错误" %}',
+      fileNotFound: '{% trans "未选择文件" %}',
+      // every
+      acAddressErrorInfo: '{% trans "AC地址不合法" %}',
+      // table trans
+      processing: '{% trans "处理中..." %}',
+      show: '{% trans "显示" %}',
+      record: '{% trans "记录" %}',
+      sZeroRecords: '{% trans "没有匹配结果" %}',
+      sInfo: '{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty: '{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered: '({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch: '{% trans "搜索 : " %}',
+      sEmptyTable: '{% trans "表中数据为空" %}',
+      sLoadingRecords: '{% trans "载入中..." %}',
+
+      // shared
+      online: '{% trans "在线" %}',
+      timeOut: '{% trans "超时" %}',
+      offline: '{% trans "离线" %}',
+      retired: '{% trans "退服" %}',
+      removed: '{% trans "已移除" %}',
+      reboot: '{% trans "重启" %}',
+      update: '{% trans "升级" %}',
+      privateip: '{% trans "私网地址" %}',
+      vpnip: '{% trans "远程地址" %}',
+      remove: '{% trans "移除" %}',
+      jump: '{% trans "跳转至" %}',
+      promptInfo: '{% trans "提示信息" %}',
+      fix: '{% trans "修改" %}',
+
+    };
+    OEMLimitType = '{{oemlimit.oem_type}}';
+  });
+</script>
+<script src="{% static 'main/app-js/nonOperateByzoroXinyangListPage.js' %}"></script>
+
+{% endblock foot_js %}

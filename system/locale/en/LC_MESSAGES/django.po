@@ -1,0 +1,1809 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-22 14:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/OEMSettingPage.html:17 templates/system-account.html:153
+msgid "语言"
+msgstr "Language:"
+
+#: templates/OEMSettingPage.html:35
+msgid "AC升级地址定制"
+msgstr "AC upgrade address customization"
+
+#: templates/OEMSettingPage.html:42
+msgid "用户自由修改"
+msgstr "User free to modify"
+
+#: templates/OEMSettingPage.html:48
+msgid "OEM选项指定"
+msgstr "OEM option specification"
+
+#: templates/OEMSettingPage.html:54 templates/system-service.html:520
+msgid "升级地址"
+msgstr "Upgrade URL"
+
+#: templates/OEMSettingPage.html:62
+msgid "AC升级方式定制"
+msgstr "AC upgrade method customization"
+
+#: templates/OEMSettingPage.html:69
+msgid "点击后自动升级"
+msgstr "Automatically upgrade after clicking"
+
+#: templates/OEMSettingPage.html:75
+msgid "生成下载URL"
+msgstr "Generate download URL"
+
+#: templates/OEMSettingPage.html:86
+msgid "特殊OEM选项定制"
+msgstr "Special OEM option customization"
+
+#: templates/OEMSettingPage.html:91 templates/OEMSettingPage.html.py:236
+msgid "请选择"
+msgstr "Please Choose"
+
+#: templates/OEMSettingPage.html:92
+msgid "百卓信阳"
+msgstr "Byzoro Xinyang"
+
+#: templates/OEMSettingPage.html:93
+msgid "WISOEM"
+msgstr "WISOEM"
+
+#: templates/OEMSettingPage.html:103
+msgid "logo显示控制定制"
+msgstr "Logo display control customization"
+
+#: templates/OEMSettingPage.html:108 templates/OEMSettingPage.html.py:250
+msgid "隐藏"
+msgstr "Hide"
+
+#: templates/OEMSettingPage.html:109 templates/OEMSettingPage.html.py:251
+#: templates/system-account.html:791 templates/system-service.html:798
+#: templates/system-status.html:273
+msgid "显示"
+msgstr "Dispaly"
+
+#: templates/OEMSettingPage.html:119
+msgid "自定义logo控制定制"
+msgstr "Custom logo control customization"
+
+#: templates/OEMSettingPage.html:124
+msgid "使用默认Logo"
+msgstr "Use the default logo"
+
+#: templates/OEMSettingPage.html:125
+msgid "使用自定义图片"
+msgstr "Use a custom image"
+
+#: templates/OEMSettingPage.html:135
+msgid "logo自定义图片 (高度85px,最大宽度154px)"
+msgstr "Logo custom image (height 85px, maximum width 154px)"
+
+#: templates/OEMSettingPage.html:140
+msgid "选择一张图片"
+msgstr "Choose an image"
+
+#: templates/OEMSettingPage.html:149
+msgid "自定义UI配色定制"
+msgstr "Custom UI color matching customization"
+
+#: templates/OEMSettingPage.html:156
+msgid "默认UI颜色"
+msgstr "Default UI color"
+
+#: templates/OEMSettingPage.html:162
+msgid "OEM选项指定颜色"
+msgstr "OEM option specifies color"
+
+#: templates/OEMSettingPage.html:168
+msgid "自定义UI主要颜色(请输入css可用颜色代码,例如 #FFF,red,rgba(0,0,0,0)等等)"
+msgstr ""
+"Custom UI main color (please enter css available color code, such as #FFF,"
+"red, rgba(0,0,0,0), etc.)"
+
+#: templates/OEMSettingPage.html:169
+msgid "自定义UI主要颜色"
+msgstr "Custom UI main color"
+
+#: templates/OEMSettingPage.html:172
+msgid "自定义UI次要颜色(请输入css可用颜色代码,例如 #FFF,red,rgba(0,0,0,0)等等)"
+msgstr ""
+"Custom UI secondary color (please enter css available color code, such as "
+"#FFF, red, rgba(0,0,0,0), etc.)"
+
+#: templates/OEMSettingPage.html:173
+msgid "自定义UI次要颜色"
+msgstr "Custom UI secondary color"
+
+#: templates/OEMSettingPage.html:180
+msgid "自定义一级菜单显示"
+msgstr "Custom first level menu display"
+
+#: templates/OEMSettingPage.html:185
+msgid "显示接入点页面"
+msgstr "Display access point page"
+
+#: templates/OEMSettingPage.html:188
+msgid "显示探针页面"
+msgstr "Display probe page"
+
+#: templates/OEMSettingPage.html:191
+msgid "显示非经页面"
+msgstr "Show non-business pages"
+
+#: templates/OEMSettingPage.html:194
+msgid "显示系统页面"
+msgstr "Display system page"
+
+#: templates/OEMSettingPage.html:197
+msgid "显示支持页面"
+msgstr "Display support page"
+
+#: templates/OEMSettingPage.html:204
+msgid "自定义来宾策略选项"
+msgstr "Customize guest policy options"
+
+#: templates/OEMSettingPage.html:209
+msgid "显示通用配置页面"
+msgstr "Display general configuration page"
+
+#: templates/OEMSettingPage.html:212
+msgid "显示认证帐号页面"
+msgstr "Display authentication account page"
+
+#: templates/OEMSettingPage.html:215
+msgid "显示短信网关页面"
+msgstr "Display SMS Gateway page"
+
+#: templates/OEMSettingPage.html:218
+msgid "显示微信认证页面"
+msgstr "Show WeChat authentication page"
+
+#: templates/OEMSettingPage.html:221
+msgid "显示卡券认证页面"
+msgstr "Display card certificate authentication page"
+
+#: templates/OEMSettingPage.html:224
+msgid "显示门户自定义页面"
+msgstr "Display portal custom page"
+
+#: templates/OEMSettingPage.html:231
+msgid "默认语言"
+msgstr "Default language"
+
+#: templates/OEMSettingPage.html:245
+msgid "多账户显示控制"
+msgstr "Multiple account display control"
+
+#: templates/OEMSettingPage.html:261 templates/system-service.html:528
+msgid "保存配置"
+msgstr "Save Config"
+
+#: templates/OEMSettingPage.html:271
+msgid "无自定义Logo,设置使用自定义图片无效,将使用默认图片"
+msgstr ""
+"No custom logo, setting custom image is invalid, will use default image"
+
+#: templates/OEMSettingPage.html:272
+msgid "存在自定义Logo,可以设置使用自定义图片"
+msgstr "There is a custom logo, you can set to use a custom image"
+
+#: templates/OEMSettingPage.html:273
+msgid "保存成功"
+msgstr "Saved successfully"
+
+#: templates/OEMSettingPage.html:274
+msgid "保存失败"
+msgstr "Save failed"
+
+#: templates/OEMSettingPage.html:275
+msgid "AC升级地址指定时不可为空"
+msgstr "The AC upgrade address cannot be empty when specified"
+
+#: templates/OEMSettingPage.html:276
+msgid "自定义UI配色时不可为空"
+msgstr "Cannot be empty when custom UI color matching"
+
+#: templates/support.html:9
+msgid "支持"
+msgstr "Support"
+
+#: templates/support.html:10
+msgid "实用工具"
+msgstr "Utility"
+
+#: templates/support.html:17 templates/support.html.py:33
+#: templates/support.html:47
+msgid "MAC查询工具"
+msgstr "MAC Query Tools"
+
+#: templates/support.html:34
+msgid "根据MAC地址前3部分,查询设备所属厂商."
+msgstr ""
+"According to the first three parts of the MAC address , query which "
+"manufacturer the device belongs to."
+
+#: templates/support.html:35
+msgid ""
+"如MAC地址 00-19-E0-00-00-01 前3部分 00-19-E0,查询可知对应厂商为 普联技术有限"
+"公司."
+msgstr ""
+"such as MAC address is 00-19-E0-00-00-01 , the first three parts are 00-19-"
+"E0 ,the result of the query can tell you the corresponding manufacturer "
+"which is TP-LINK Technologies Co., Ltd. ."
+
+#: templates/support.html:52
+msgid "请输入MAC地址的前三个字节:"
+msgstr "Please input 3 bytes of the Mac"
+
+#: templates/support.html:59
+msgid "如4C48DA"
+msgstr "Such as 4C48DA"
+
+#: templates/support.html:84 templates/system-service.html:626
+#: templates/system-service.html.py:692 templates/system-status.html:164
+#: templates/system-status.html.py:230
+msgid "确认"
+msgstr "OK"
+
+#: templates/support.html:85 templates/system-service.html:591
+#: templates/system-service.html.py:627 templates/system-service.html:657
+#: templates/system-service.html.py:693 templates/system-status.html:129
+#: templates/system-status.html.py:165 templates/system-status.html:195
+#: templates/system-status.html.py:231
+msgid "取消"
+msgstr "Cancel"
+
+#: templates/support.html:100 templates/system-account.html:780
+#: templates/system-service.html:769 templates/system-status.html:244
+msgid "请输入MAC地址的前三个字节"
+msgstr "Please input 3 bytes of the Mac"
+
+#: templates/system-account.html:9 templates/system-service.html:16
+#: templates/system-status.html:16
+msgid "系统"
+msgstr "System"
+
+#: templates/system-account.html:10 templates/system-account.html.py:43
+msgid "账户"
+msgstr "Account"
+
+#: templates/system-account.html:17
+msgid "帐户管理"
+msgstr "Account management"
+
+#: templates/system-account.html:20
+msgid "添加"
+msgstr "Add"
+
+#: templates/system-account.html:24 templates/system-account.html.py:472
+msgid "创建管理域"
+msgstr "Creating the admin domain"
+
+#: templates/system-account.html:25 templates/system-account.html.py:510
+msgid "加入管理域"
+msgstr "Join the admin domain"
+
+#: templates/system-account.html:30 templates/system-account.html.py:557
+msgid "邀请用户"
+msgstr "Invite users"
+
+#: templates/system-account.html:44
+msgid "类型"
+msgstr "Type"
+
+#: templates/system-account.html:45 templates/system-service.html:505
+msgid "管理域名"
+msgstr "Domain Names"
+
+#: templates/system-account.html:46 templates/system-account.html.py:188
+msgid "用户单位"
+msgstr "User unit"
+
+#: templates/system-account.html:47 templates/system-account.html.py:201
+msgid "联系电话"
+msgstr "Telephone"
+
+#: templates/system-account.html:48 templates/system-status.html:17
+msgid "状态"
+msgstr "Status"
+
+#: templates/system-account.html:50 templates/system-service.html:507
+msgid "操作"
+msgstr "Operate"
+
+#: templates/system-account.html:71
+msgid "已分组"
+msgstr "Grouped"
+
+#: templates/system-account.html:85
+msgid "删除"
+msgstr "Delete"
+
+#: templates/system-account.html:89 templates/system-account.html.py:109
+msgid "编辑"
+msgstr "Edit"
+
+#: templates/system-account.html:96 templates/system-account.html.py:115
+msgid "同意"
+msgstr "Agree"
+
+#: templates/system-account.html:99 templates/system-account.html.py:118
+msgid "拒绝"
+msgstr "Refuse"
+
+#: templates/system-account.html:103
+msgid "移除"
+msgstr "Remove"
+
+#: templates/system-account.html:137
+msgid "我的账户"
+msgstr "My Account"
+
+#: templates/system-account.html:147
+msgid "基本信息"
+msgstr "Basic Information"
+
+#: templates/system-account.html:150
+msgid "修改密码"
+msgstr "Change Password"
+
+#: templates/system-account.html:162
+msgid "用户名"
+msgstr "Username"
+
+#: templates/system-account.html:175
+msgid "电子邮箱"
+msgstr "Email"
+
+#: templates/system-account.html:214
+msgid "头像"
+msgstr "Avatar"
+
+#: templates/system-account.html:240 templates/system-account.html.py:300
+#: templates/system-account.html:325 templates/system-service.html:166
+#: templates/system-service.html.py:257 templates/system-service.html:494
+msgid "提交"
+msgstr "Submit"
+
+#: templates/system-account.html:254
+msgid "原密码"
+msgstr "Old Password"
+
+#: templates/system-account.html:267
+msgid "新密码"
+msgstr "New Password"
+
+#: templates/system-account.html:285 templates/system-account.html.py:417
+#: templates/system-account.html:677
+msgid "确认密码"
+msgstr "Confirm Password"
+
+#: templates/system-account.html:312
+msgid "语言偏好:"
+msgstr "Language:"
+
+#: templates/system-account.html:351
+msgid "添加本地账户"
+msgstr "Add local account"
+
+#: templates/system-account.html:359 templates/system-account.html.py:480
+#: templates/system-account.html:526 templates/system-account.html.py:573
+#: templates/system-account.html:619 templates/system-account.html.py:749
+msgid "角色"
+msgstr "Role"
+
+#: templates/system-account.html:364 templates/system-account.html.py:624
+msgid "管理员"
+msgstr "Admin"
+
+#: templates/system-account.html:365 templates/system-account.html.py:368
+#: templates/system-account.html:625 templates/system-account.html.py:628
+msgid "本地用户"
+msgstr "Local user"
+
+#: templates/system-account.html:376 templates/system-account.html.py:636
+msgid "语言偏好"
+msgstr "Language"
+
+#: templates/system-account.html:389 templates/system-account.html.py:565
+#: templates/system-account.html:649 templates/system-account.html.py:741
+msgid "账户名"
+msgstr "Account"
+
+#: templates/system-account.html:397 templates/system-account.html.py:657
+msgid "密码"
+msgstr "Password"
+
+#: templates/system-account.html:425 templates/system-account.html.py:685
+msgid "邮件推送"
+msgstr "Push mail"
+
+#: templates/system-account.html:445 templates/system-account.html.py:705
+msgid "管理员密码"
+msgstr "Admin password"
+
+#: templates/system-account.html:458 templates/system-account.html.py:496
+#: templates/system-account.html:543 templates/system-account.html.py:596
+#: templates/system-account.html:718 templates/system-account.html.py:766
+#: templates/system-service.html:477
+msgid "应用"
+msgstr "Apply"
+
+#: templates/system-account.html:484
+msgid "超级用户"
+msgstr "Super user"
+
+#: templates/system-account.html:518
+msgid "管理域名称"
+msgstr "Domain Names"
+
+#: templates/system-account.html:530 templates/system-account.html.py:578
+#: templates/system-account.html:753
+msgid "管理用户"
+msgstr "Admin user"
+
+#: templates/system-account.html:531 templates/system-account.html.py:579
+#: templates/system-account.html:582 templates/system-account.html.py:754
+msgid "普通用户"
+msgstr "General user"
+
+#: templates/system-account.html:610
+msgid "编辑本地账户"
+msgstr "Edit local account"
+
+#: templates/system-account.html:732
+msgid "编辑注册账户"
+msgstr "Edit registry account "
+
+#: templates/system-account.html:781 templates/system-service.html:770
+#: templates/system-status.html:245
+msgid "密码不能为空"
+msgstr "Password can not be blank"
+
+#: templates/system-account.html:782 templates/system-service.html:771
+#: templates/system-status.html:246
+msgid "密码长度应为6-18位"
+msgstr "Password length should be 6-18 digits"
+
+#: templates/system-account.html:783 templates/system-service.html:772
+#: templates/system-status.html:247 views.py:178 views.py:462 views.py:552
+msgid "两次密码不一致"
+msgstr "Password twice inconsistent"
+
+#: templates/system-account.html:784 templates/system-service.html:773
+#: templates/system-status.html:248
+msgid "用户名应为6-18位的数字,字母,下划线"
+msgstr "Username should be 6-18 digits, letter, underline"
+
+#: templates/system-account.html:785 templates/system-service.html:774
+#: templates/system-status.html:249
+msgid "管理员密码不能为空"
+msgstr "Admin password can not be empty"
+
+#: templates/system-account.html:787 templates/system-service.html:794
+#: templates/system-status.html:269
+msgid "提示信息"
+msgstr "Prompt Message"
+
+#: templates/system-account.html:790 templates/system-service.html:797
+#: templates/system-status.html:272
+msgid "处理中..."
+msgstr "Processing..."
+
+#: templates/system-account.html:792 templates/system-service.html:799
+#: templates/system-status.html:274
+msgid "记录"
+msgstr "Records"
+
+#: templates/system-account.html:793 templates/system-service.html:800
+#: templates/system-status.html:275
+msgid "没有匹配结果"
+msgstr "No matching results"
+
+#: templates/system-account.html:794 templates/system-service.html:801
+#: templates/system-status.html:276
+msgid "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项"
+msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+
+#: templates/system-account.html:795 templates/system-service.html:802
+#: templates/system-status.html:277
+msgid "显示第 0 至 0 项结果，共 0 项"
+msgstr "Showing 0 to 0 of 0 entries"
+
+#: templates/system-account.html:796 templates/system-service.html:803
+#: templates/system-status.html:278
+msgid "由 _MAX_ 项结果过滤"
+msgstr "filtered from _MAX_ total entries"
+
+#: templates/system-account.html:797 templates/system-service.html:804
+#: templates/system-status.html:279
+msgid "搜索 : "
+msgstr "Search : "
+
+#: templates/system-account.html:798 templates/system-service.html:805
+#: templates/system-status.html:280
+msgid "表中数据为空"
+msgstr "The data in the table is empty"
+
+#: templates/system-account.html:799 templates/system-service.html:806
+#: templates/system-status.html:281
+msgid "载入中..."
+msgstr "Loading..."
+
+#: templates/system-service.html:17
+msgid "服务"
+msgstr "Service"
+
+#: templates/system-service.html:28
+msgid "基础配置"
+msgstr "Basic"
+
+#: templates/system-service.html:39
+msgid "国家码"
+msgstr "Country code"
+
+#: templates/system-service.html:43
+msgid "阿尔巴尼亚"
+msgstr "Albania"
+
+#: templates/system-service.html:44
+msgid "阿尔及利亚"
+msgstr "Algeria"
+
+#: templates/system-service.html:45
+msgid "阿根廷"
+msgstr "Argentina"
+
+#: templates/system-service.html:46
+msgid "亚美尼亚"
+msgstr "Armenia"
+
+#: templates/system-service.html:47
+msgid "阿鲁巴"
+msgstr "Aruba"
+
+#: templates/system-service.html:48
+msgid "澳大利亚"
+msgstr "Australia"
+
+#: templates/system-service.html:49
+msgid "奥地利"
+msgstr "Austria"
+
+#: templates/system-service.html:50
+msgid "阿塞拜疆"
+msgstr "Azerbaijan"
+
+#: templates/system-service.html:51
+msgid "巴林"
+msgstr "Bahrain"
+
+#: templates/system-service.html:52
+msgid "孟加拉"
+msgstr "Bangladesh"
+
+#: templates/system-service.html:53
+msgid "巴巴多斯"
+msgstr "Barbados"
+
+#: templates/system-service.html:54
+msgid "白俄罗斯"
+msgstr "Belarus"
+
+#: templates/system-service.html:55
+msgid "比利时"
+msgstr "Belgium"
+
+#: templates/system-service.html:56
+msgid "伯利兹"
+msgstr "Belize"
+
+#: templates/system-service.html:57
+msgid "玻利维亚"
+msgstr "Bolivia"
+
+#: templates/system-service.html:58
+msgid "波斯尼亚和黑塞哥维那"
+msgstr "Bosnia and Herzegovina"
+
+#: templates/system-service.html:59
+msgid "巴西"
+msgstr "Brazil"
+
+#: templates/system-service.html:60
+msgid "文莱"
+msgstr "Brunei Darussalam"
+
+#: templates/system-service.html:61
+msgid "保加利亚"
+msgstr "Bulgaria"
+
+#: templates/system-service.html:62
+msgid "柬埔寨"
+msgstr "Cambodia"
+
+#: templates/system-service.html:63
+msgid "加拿大"
+msgstr "Canada"
+
+#: templates/system-service.html:64
+msgid "智利"
+msgstr "Chile"
+
+#: templates/system-service.html:65
+msgid "中国"
+msgstr "China"
+
+#: templates/system-service.html:66
+msgid "哥伦比亚"
+msgstr "Colombia"
+
+#: templates/system-service.html:67
+msgid "哥斯达黎加"
+msgstr "Costa rica"
+
+#: templates/system-service.html:68
+msgid "克罗地亚"
+msgstr "Croatia"
+
+#: templates/system-service.html:69
+msgid "塞浦路斯"
+msgstr "Cyprus"
+
+#: templates/system-service.html:70
+msgid "捷克"
+msgstr "Czech Republic"
+
+#: templates/system-service.html:71
+msgid "丹麦"
+msgstr "Denmark"
+
+#: templates/system-service.html:72
+msgid "多明尼加共和国"
+msgstr "Dominican Republic"
+
+#: templates/system-service.html:73
+msgid "厄瓜多尔"
+msgstr "Ecuador"
+
+#: templates/system-service.html:74
+msgid "埃及"
+msgstr "Egypt"
+
+#: templates/system-service.html:75
+msgid "萨尔瓦多"
+msgstr "El Salvador"
+
+#: templates/system-service.html:76
+msgid "爱沙尼亚"
+msgstr "Estonia"
+
+#: templates/system-service.html:77
+msgid "芬兰"
+msgstr "Finland"
+
+#: templates/system-service.html:78
+msgid "法国"
+msgstr "France"
+
+#: templates/system-service.html:79
+msgid "格鲁吉亚"
+msgstr "Georgia"
+
+#: templates/system-service.html:80
+msgid "德国"
+msgstr "Germany"
+
+#: templates/system-service.html:81
+msgid "希腊"
+msgstr "Greece"
+
+#: templates/system-service.html:82
+msgid "格陵兰"
+msgstr "Greenland"
+
+#: templates/system-service.html:83
+msgid "格林纳达"
+msgstr "Grenada"
+
+#: templates/system-service.html:84
+msgid "关岛"
+msgstr "Guam"
+
+#: templates/system-service.html:85
+msgid "危地马拉"
+msgstr "Guatemala"
+
+#: templates/system-service.html:86
+msgid "海地"
+msgstr "Haiti"
+
+#: templates/system-service.html:87
+msgid "洪都拉斯"
+msgstr "Honduras"
+
+#: templates/system-service.html:88
+msgid "香港"
+msgstr "Hong Kong"
+
+#: templates/system-service.html:89
+msgid "匈牙利"
+msgstr "Hungary"
+
+#: templates/system-service.html:90
+msgid "冰岛"
+msgstr "Iceland"
+
+#: templates/system-service.html:91
+msgid "印度"
+msgstr "India"
+
+#: templates/system-service.html:92
+msgid "印度尼西亚"
+msgstr "Indonesia"
+
+#: templates/system-service.html:93
+msgid "伊朗"
+msgstr "Iran"
+
+#: templates/system-service.html:94
+msgid "爱尔兰"
+msgstr "Ireland"
+
+#: templates/system-service.html:95
+msgid "以色列"
+msgstr "Israel"
+
+#: templates/system-service.html:96
+msgid "意大利"
+msgstr "Italy"
+
+#: templates/system-service.html:97
+msgid "牙买加"
+msgstr "Jamaica"
+
+#: templates/system-service.html:98
+msgid "日本"
+msgstr "Japan"
+
+#: templates/system-service.html:99
+msgid "约旦"
+msgstr "Jordan"
+
+#: templates/system-service.html:100
+msgid "哈萨克斯坦"
+msgstr "Kazakhstan"
+
+#: templates/system-service.html:101
+msgid "肯尼亚"
+msgstr "Kenya"
+
+#: templates/system-service.html:102
+msgid "韩国"
+msgstr "Korea Republic"
+
+#: templates/system-service.html:103
+msgid "科威特"
+msgstr "Kuwait"
+
+#: templates/system-service.html:104
+msgid "拉脱维亚"
+msgstr "Latvia"
+
+#: templates/system-service.html:105
+msgid "黎巴嫩"
+msgstr "Lebanon"
+
+#: templates/system-service.html:106
+msgid "列支敦士登"
+msgstr "Liechtenstein"
+
+#: templates/system-service.html:107
+msgid "立陶宛"
+msgstr "Lithuania"
+
+#: templates/system-service.html:108
+msgid "卢森堡"
+msgstr "Luxembourg"
+
+#: templates/system-service.html:109
+msgid "澳门"
+msgstr "Macau"
+
+#: templates/system-service.html:110
+msgid "马其顿"
+msgstr "Macedonia"
+
+#: templates/system-service.html:111
+msgid "马来西亚"
+msgstr "Malaysia"
+
+#: templates/system-service.html:112
+msgid "马耳他"
+msgstr "Malta"
+
+#: templates/system-service.html:113
+msgid "墨西哥"
+msgstr "Mexico"
+
+#: templates/system-service.html:114
+msgid "摩纳哥"
+msgstr "Monaco"
+
+#: templates/system-service.html:115
+msgid "黑山"
+msgstr "Montenegro"
+
+#: templates/system-service.html:116
+msgid "摩洛哥"
+msgstr "Morocco"
+
+#: templates/system-service.html:117
+msgid "尼泊尔"
+msgstr "Nepal"
+
+#: templates/system-service.html:118
+msgid "荷兰"
+msgstr "Netherlands"
+
+#: templates/system-service.html:119
+msgid "荷属安的列斯"
+msgstr "Netherlands Antilles"
+
+#: templates/system-service.html:120
+msgid "新西兰"
+msgstr "New Zealand"
+
+#: templates/system-service.html:121
+msgid "朝鲜"
+msgstr "North Korea"
+
+#: templates/system-service.html:122
+msgid "挪威"
+msgstr "Norway"
+
+#: templates/system-service.html:123
+msgid "阿曼"
+msgstr "Oman"
+
+#: templates/system-service.html:124
+msgid "巴基斯坦"
+msgstr "Pakistan"
+
+#: templates/system-service.html:125
+msgid "巴拿马"
+msgstr "Panama"
+
+#: templates/system-service.html:126
+msgid "巴布亚新几内亚"
+msgstr "Papua New Guinea"
+
+#: templates/system-service.html:127
+msgid "秘鲁"
+msgstr "Peru"
+
+#: templates/system-service.html:128
+msgid "菲律宾"
+msgstr "Philippines"
+
+#: templates/system-service.html:129
+msgid "波兰"
+msgstr "Poland"
+
+#: templates/system-service.html:130
+msgid "葡萄牙"
+msgstr "Portugal"
+
+#: templates/system-service.html:131
+msgid "波多黎各"
+msgstr "Puerto Rico"
+
+#: templates/system-service.html:132
+msgid "卡塔尔"
+msgstr "Qatar"
+
+#: templates/system-service.html:133
+msgid "塞尔维亚共和国"
+msgstr "Republic of Serbia"
+
+#: templates/system-service.html:134
+msgid "罗马尼亚"
+msgstr "Romania"
+
+#: templates/system-service.html:135
+msgid "俄罗斯"
+msgstr "Russia"
+
+#: templates/system-service.html:136
+msgid "卢旺达"
+msgstr "Rwanda"
+
+#: templates/system-service.html:137
+msgid "沙特阿拉伯"
+msgstr "Saudi Arabia"
+
+#: templates/system-service.html:138
+msgid "新加坡"
+msgstr "Singapore"
+
+#: templates/system-service.html:139
+msgid "斯洛伐克"
+msgstr "Slovakia"
+
+#: templates/system-service.html:140
+msgid "斯洛文尼亚"
+msgstr "Slovenia"
+
+#: templates/system-service.html:141
+msgid "南非"
+msgstr "South africa"
+
+#: templates/system-service.html:142
+msgid "西班牙"
+msgstr "Spain"
+
+#: templates/system-service.html:143
+msgid "斯里兰卡"
+msgstr "Sri Lanka"
+
+#: templates/system-service.html:144
+msgid "瑞典"
+msgstr "Sweden"
+
+#: templates/system-service.html:145
+msgid "瑞士"
+msgstr "Switzerland"
+
+#: templates/system-service.html:146
+msgid "阿拉伯叙利亚共和国"
+msgstr "Syrian Arab Republic"
+
+#: templates/system-service.html:147
+msgid "台湾"
+msgstr "Taiwan"
+
+#: templates/system-service.html:148
+msgid "泰国"
+msgstr "Thailand"
+
+#: templates/system-service.html:149
+msgid "特立尼达和多巴哥"
+msgstr "Trinidad and Tobago"
+
+#: templates/system-service.html:150
+msgid "突尼斯"
+msgstr "Tunisia"
+
+#: templates/system-service.html:151
+msgid "土耳其"
+msgstr "Turkey"
+
+#: templates/system-service.html:152
+msgid "乌干达"
+msgstr "Uganda"
+
+#: templates/system-service.html:153
+msgid "乌克兰"
+msgstr "Ukraine"
+
+#: templates/system-service.html:154
+msgid "阿拉伯联合酋长国"
+msgstr "United Arab Emirates"
+
+#: templates/system-service.html:155
+msgid "英国"
+msgstr "United Kingdom"
+
+#: templates/system-service.html:156
+msgid "美国"
+msgstr "United States"
+
+#: templates/system-service.html:157
+msgid "乌拉圭"
+msgstr "Uruguay"
+
+#: templates/system-service.html:158
+msgid "乌兹别克斯坦"
+msgstr "Uzbekistan"
+
+#: templates/system-service.html:159
+msgid "委内瑞拉"
+msgstr "Venezuela"
+
+#: templates/system-service.html:160
+msgid "越南"
+msgstr "Viet Nam"
+
+#: templates/system-service.html:161
+msgid "也门"
+msgstr "Yemen"
+
+#: templates/system-service.html:162
+msgid "津巴布韦"
+msgstr "Zimbabwe"
+
+#: templates/system-service.html:174
+msgid "时区"
+msgstr "Time zone"
+
+#: templates/system-service.html:178
+msgid "国际日期变更线西"
+msgstr "International Date Line West"
+
+#: templates/system-service.html:179
+msgid "中途岛, 萨摩亚"
+msgstr "Midway Island, Samoa"
+
+#: templates/system-service.html:180
+msgid "夏威夷"
+msgstr "Hawaii"
+
+#: templates/system-service.html:181
+msgid "阿拉斯加"
+msgstr "Alaska"
+
+#: templates/system-service.html:182
+msgid "太平洋时间 (美国 &amp; 加拿大)"
+msgstr "Pacific Time (USA &amp; Canada)"
+
+#: templates/system-service.html:183
+msgid "亚利桑那州"
+msgstr "Arizona"
+
+#: templates/system-service.html:184
+msgid "奇瓦瓦, 拉巴斯, 马萨特兰"
+msgstr "Chihuahua, La Paz, Mazatlan"
+
+#: templates/system-service.html:185
+msgid "山地区时间 (美国 &amp; 加拿大)"
+msgstr "Mountain Time (USA &amp; Canada)"
+
+#: templates/system-service.html:186
+msgid "美国中部"
+msgstr "Central America"
+
+#: templates/system-service.html:187
+msgid "中部时间 (美国 &amp; 加拿大)"
+msgstr "Central Time (USA &amp; Canada)"
+
+#: templates/system-service.html:188
+msgid "瓜达拉哈拉, 墨西哥城, 蒙特雷"
+msgstr "Guadalajara, Mexico City, Monterrey"
+
+#: templates/system-service.html:189
+msgid "萨斯喀彻温省"
+msgstr "Saskatchewan"
+
+#: templates/system-service.html:190
+msgid "波哥大, 利马, 基多"
+msgstr "Bogota, Lima, Quito"
+
+#: templates/system-service.html:191
+msgid "东部时间 (美国 &amp; 加拿大)"
+msgstr "Eastern Time (USA &amp; Canada)"
+
+#: templates/system-service.html:192
+msgid "印第安娜 (东)"
+msgstr "Indiana"
+
+#: templates/system-service.html:193
+msgid "大西洋时间 (加拿大)"
+msgstr "Atlantic Time (Canada)"
+
+#: templates/system-service.html:194
+msgid "加拉加斯, 拉巴斯"
+msgstr "Caracas, La Paz"
+
+#: templates/system-service.html:195
+msgid "圣地亚哥"
+msgstr "Santiago"
+
+#: templates/system-service.html:196
+msgid "纽芬兰岛"
+msgstr "Newfoundland"
+
+#: templates/system-service.html:197
+msgid "巴西利亚"
+msgstr "Brasilia"
+
+#: templates/system-service.html:198
+msgid "布宜诺斯艾利斯, 乔治敦"
+msgstr "Buenos Aires, Georgetown"
+
+#: templates/system-service.html:199
+msgid "格陵兰岛"
+msgstr "Greenland"
+
+#: templates/system-service.html:200
+msgid "中大西洋"
+msgstr "Mid-Atlantic"
+
+#: templates/system-service.html:201
+msgid "亚速尔群岛"
+msgstr "Azores"
+
+#: templates/system-service.html:202
+msgid "佛得角群岛"
+msgstr "Cape Verde Is."
+
+#: templates/system-service.html:203
+msgid "卡萨布兰卡, 蒙罗维亚"
+msgstr "Casablanca, Monrovia"
+
+#: templates/system-service.html:204
+msgid "爱丁堡, 格林尼治平均时间：都柏林, 里斯本, 伦敦"
+msgstr "Edinburgh, Greenwich Mean Time:Dublin, Lisbon, London"
+
+#: templates/system-service.html:205
+msgid "阿姆斯特丹, 柏林, 伯尔尼, 罗马, 斯德哥尔摩, 维也纳"
+msgstr "Amsterdam, Berlin, Bern, Rome, Stockholm, Vienna"
+
+#: templates/system-service.html:206
+msgid "贝尔格莱德, 布拉迪斯拉发, 布达佩斯, 卢布尔雅那, 布拉格"
+msgstr "Belgrade, Bratislava, Budapest, Ljubljana, Prague"
+
+#: templates/system-service.html:207
+msgid "布鲁塞尔, 哥本哈根, 马德里, 巴黎"
+msgstr "Brussels, Copenhagen, Madrid, Paris"
+
+#: templates/system-service.html:208
+msgid "萨拉热窝, 斯科普里, 华沙, 萨格勒布"
+msgstr "Sarajevo, Skopje, Warsaw, Zagreb"
+
+#: templates/system-service.html:209
+msgid "非洲中西部"
+msgstr "West Central Africa"
+
+#: templates/system-service.html:210
+msgid "雅典, 伊斯坦布尔, 明斯克"
+msgstr "Athens, Istanbul, Minsk"
+
+#: templates/system-service.html:211
+msgid "布加勒斯特"
+msgstr "Bucharest"
+
+#: templates/system-service.html:212
+msgid "开罗"
+msgstr "Cairo"
+
+#: templates/system-service.html:213
+msgid "哈拉雷, 比勒陀利亚"
+msgstr "Harare, Pretoria"
+
+#: templates/system-service.html:214
+msgid "赫尔辛基, 基辅, 里加, 索非亚, 塔林, 维尔纽斯"
+msgstr "Helsinki, Kyiv, Riga, Sofia, Tallinn, Vilnius"
+
+#: templates/system-service.html:215
+msgid "耶路撒冷"
+msgstr "Jerusalem"
+
+#: templates/system-service.html:216
+msgid "巴格达"
+msgstr "Baghdad"
+
+#: templates/system-service.html:217
+msgid "科威特, 利雅得"
+msgstr "Kuwait, Riyadh"
+
+#: templates/system-service.html:218
+msgid "莫斯科, 圣彼得堡, 伏尔加格勒"
+msgstr "Moscow, St. Petersburg, Volgograd"
+
+#: templates/system-service.html:219
+msgid "内罗毕"
+msgstr "Nairobi"
+
+#: templates/system-service.html:220
+msgid "德黑兰"
+msgstr "Tehran"
+
+#: templates/system-service.html:221
+msgid "阿布扎比, 马斯喀特"
+msgstr "Abu Dhabi, Muscat"
+
+#: templates/system-service.html:222
+msgid "巴库, 第比利斯, 埃里温"
+msgstr "Baku, Tbilisi, Yerevan"
+
+#: templates/system-service.html:223
+msgid "喀布尔"
+msgstr "Kabul"
+
+#: templates/system-service.html:224
+msgid "叶卡捷琳堡"
+msgstr "Ekaterinburg"
+
+#: templates/system-service.html:225
+msgid "伊斯兰堡, 卡拉奇, 塔什干"
+msgstr "Islamabad, Karachi, Tashkent"
+
+#: templates/system-service.html:226
+msgid "金奈, 加尔各答, 孟买, 新德里"
+msgstr "Chennai, Kolkata, Mumbai, New Delhi"
+
+#: templates/system-service.html:227
+msgid "加德满都"
+msgstr "Kathmandu"
+
+#: templates/system-service.html:228
+msgid "阿拉木图, 新西伯利亚"
+msgstr "Almaty, Novosibirsk"
+
+#: templates/system-service.html:229
+msgid "阿斯塔纳, 达卡"
+msgstr "Astana, Dhaka"
+
+#: templates/system-service.html:230
+msgid "科伦坡"
+msgstr "Sri Jayawardenepura"
+
+#: templates/system-service.html:231
+msgid "仰光"
+msgstr "Rangoon"
+
+#: templates/system-service.html:232
+msgid "曼谷, 河内, 雅加达"
+msgstr "Bangkok, Hanoi, Jakarta"
+
+#: templates/system-service.html:233
+msgid "克拉斯诺亚尔斯克"
+msgstr "Krasnoyarsk"
+
+#: templates/system-service.html:234
+msgid "北京, 重庆, 香港, 乌鲁木齐"
+msgstr "Beijing, Chongqing, Hong Kong, Urumqi"
+
+#: templates/system-service.html:235
+msgid "伊尔库茨克, 乌兰巴托"
+msgstr "Irkutsk, Ulaan Bataar"
+
+#: templates/system-service.html:236
+msgid "吉隆坡, 新加坡"
+msgstr "Kuala Lumpur, Singapore"
+
+#: templates/system-service.html:237
+msgid "珀斯"
+msgstr "Perth"
+
+#: templates/system-service.html:238
+msgid "台北"
+msgstr "Taipei"
+
+#: templates/system-service.html:239
+msgid "大阪, 札幌, 东京"
+msgstr "Osaka, Sapporo, Tokyo"
+
+#: templates/system-service.html:240
+msgid "首尔"
+msgstr "Seoul"
+
+#: templates/system-service.html:241
+msgid "雅库茨克"
+msgstr "Yakutsk"
+
+#: templates/system-service.html:242
+msgid "阿德莱德"
+msgstr "Adelaide"
+
+#: templates/system-service.html:243
+msgid "达尔文"
+msgstr "Darwin"
+
+#: templates/system-service.html:244
+msgid "布里斯班"
+msgstr "Brisbane"
+
+#: templates/system-service.html:245
+msgid "堪培拉, 墨尔本, 悉尼"
+msgstr "Canberra, Melbourne, Sydney"
+
+#: templates/system-service.html:246
+msgid "关岛, 莫尔斯比港"
+msgstr "Guam, Port Moresby"
+
+#: templates/system-service.html:247
+msgid "霍巴特"
+msgstr "Hobart"
+
+#: templates/system-service.html:248
+msgid "海参崴"
+msgstr "Vladivostok"
+
+#: templates/system-service.html:249
+msgid "马加丹, 新喀里多尼亚, 所罗门群岛"
+msgstr "Magadan, New Caledonia, Solomon Is."
+
+#: templates/system-service.html:250
+msgid "奥克兰, 惠灵顿"
+msgstr "Auckland, Wellington"
+
+#: templates/system-service.html:251
+msgid "斐济, 堪察加半岛, 马绍尔群岛"
+msgstr "Fiji, Kamchatka, Marshall Is."
+
+#: templates/system-service.html:252
+msgid "努库阿洛法"
+msgstr "Nuku'alofa"
+
+#: templates/system-service.html:269
+msgid "服务配置"
+msgstr "Service configuration"
+
+#: templates/system-service.html:279 templates/system-service.html.py:316
+msgid "系统版本服务器"
+msgstr "System version server"
+
+#: templates/system-service.html:282 templates/system-service.html.py:401
+msgid "邮件服务器"
+msgstr "Email server"
+
+#: templates/system-service.html:285 templates/system-service.html.py:487
+msgid "设备版本服务器"
+msgstr "Device version server"
+
+#: templates/system-service.html:289
+msgid "配置下发控制"
+msgstr "Configure delivery control"
+
+#: templates/system-service.html:294
+msgid "GPON升级服务器"
+msgstr "GPON Upgrade Server"
+
+#: templates/system-service.html:302
+msgid "系统当前版本"
+msgstr "The current version"
+
+#: templates/system-service.html:322 templates/system-service.html.py:492
+msgid "如 http://115.28.241.216:81/"
+msgstr "Such as http://115.28.241.216:81/"
+
+#: templates/system-service.html:327
+msgid "最新版本"
+msgstr "Newest Version"
+
+#: templates/system-service.html:334
+msgid "升级"
+msgstr "Upgrade"
+
+#: templates/system-service.html:343
+msgid "本地升级"
+msgstr "Local Upgrade"
+
+#: templates/system-service.html:349
+msgid "上传"
+msgstr "Upload"
+
+#: templates/system-service.html:359
+msgid "系统备份"
+msgstr "System backup"
+
+#: templates/system-service.html:363 templates/system-service.html.py:382
+msgid "导出"
+msgstr "Export"
+
+#: templates/system-service.html:366 templates/system-service.html.py:385
+msgid "导入"
+msgstr "Import"
+
+#: templates/system-service.html:378
+msgid "系统配置"
+msgstr "System Configuration"
+
+#: templates/system-service.html:412
+msgid "启用 SSL"
+msgstr "Enable SSL"
+
+#: templates/system-service.html:429
+msgid "端口"
+msgstr "Port"
+
+#: templates/system-service.html:440
+msgid "指定发件人地址"
+msgstr "Specify the sender address"
+
+#: templates/system-service.html:451
+msgid "指定发件人密码"
+msgstr "Specify the sender password"
+
+#: templates/system-service.html:462
+msgid "发送测试邮件到"
+msgstr "Send test email to"
+
+#: templates/system-service.html:468
+msgid "发送"
+msgstr "Send"
+
+#: templates/system-service.html:506
+msgid "下发状态"
+msgstr "Delivery status"
+
+#: templates/system-service.html:524
+msgid "升级文件"
+msgstr "Upgrade File"
+
+#: templates/system-service.html:529
+msgid "保存"
+msgstr "Save"
+
+#: templates/system-service.html:544 templates/system-status.html:82
+msgid "正在升级"
+msgstr "Upgrading"
+
+#: templates/system-service.html:573 templates/system-status.html:111
+msgid "导出备份"
+msgstr "Export"
+
+#: templates/system-service.html:579 templates/system-status.html:117
+msgid "备份导出中,请稍候"
+msgstr "Backup file is exporting.... please wait for a moment."
+
+#: templates/system-service.html:582 templates/system-status.html:120
+msgid "备份已导出,点击下载"
+msgstr "Backup file has been exported,please click and download"
+
+#: templates/system-service.html:601 templates/system-service.html.py:608
+#: templates/system-status.html:139 templates/system-status.html.py:146
+msgid "导入备份"
+msgstr "Import"
+
+#: templates/system-service.html:617 templates/system-status.html:155
+msgid "系统恢复中,请稍候"
+msgstr "System is recovering.... please wait for a moment."
+
+#: templates/system-service.html:639 templates/system-status.html:177
+msgid "导出配置"
+msgstr "Export"
+
+#: templates/system-service.html:645 templates/system-status.html:183
+msgid "配置导出中,请稍候"
+msgstr "Configuration file is exporting.... please wait for a moment."
+
+#: templates/system-service.html:648 templates/system-status.html:186
+msgid "配置已导出,点击下载"
+msgstr "Configuration file has been exported,please click and download"
+
+#: templates/system-service.html:667 templates/system-service.html.py:674
+#: templates/system-status.html:205 templates/system-status.html.py:212
+msgid "导入配置"
+msgstr "Import"
+
+#: templates/system-service.html:683 templates/system-status.html:221
+msgid "配置导入中,请稍候"
+msgstr "Configuration file is importing.... please wait for a moment."
+
+#: templates/system-service.html:706
+msgid "系统版本下载链接"
+msgstr "System version download link"
+
+#: templates/system-service.html:712
+msgid "点击链接下载系统升级版本"
+msgstr "Click on the link to download the system upgrade version"
+
+#: templates/system-service.html:775 templates/system-status.html:250
+msgid "服务器地址不能为空"
+msgstr "Server address cannot be empty"
+
+#: templates/system-service.html:776 templates/system-status.html:251
+msgid "文件名称不能为空"
+msgstr "File name cannot be empty"
+
+#: templates/system-service.html:777 templates/system-status.html:252
+msgid "导出失败"
+msgstr "Export failed"
+
+#: templates/system-service.html:778 templates/system-status.html:253
+#: views.py:1150 views.py:1176 views.py:1301 views.py:1327
+msgid "文件不合法"
+msgstr "Configuration file is illegal"
+
+#: templates/system-service.html:779 templates/system-status.html:254
+msgid "未选择文件"
+msgstr "File not selected"
+
+#: templates/system-service.html:780 templates/system-status.html:255
+msgid "邮件服务器不能为空"
+msgstr "The mail server can not be empty"
+
+#: templates/system-service.html:781 templates/system-status.html:256
+msgid "端口不能为空"
+msgstr "The prot can not be empty"
+
+#: templates/system-service.html:782 templates/system-status.html:257
+msgid "指定发件人地址不能为空"
+msgstr "Specifies that the sender address can not be empty"
+
+#: templates/system-service.html:783 templates/system-status.html:258
+msgid "指定发件人密码不能为空"
+msgstr "Specifies that the sender password can not be empty"
+
+#: templates/system-service.html:784 templates/system-status.html:259
+msgid "测试邮件邮箱不能为空"
+msgstr "Test Mail Mailbox can not be empty"
+
+#: templates/system-service.html:785 templates/system-status.html:260
+msgid "没有最新版本可用"
+msgstr "No latest version available"
+
+#: templates/system-service.html:786 templates/system-status.html:261
+msgid "地址不能为空"
+msgstr "Server address can not be empty"
+
+#: templates/system-service.html:787 templates/system-service.html.py:833
+#: templates/system-status.html:262
+msgid "版本下载中,请稍后"
+msgstr "Version downloading,Please wait"
+
+#: templates/system-service.html:788 templates/system-service.html.py:839
+#: templates/system-status.html:263
+msgid "版本下载成功,正在升级"
+msgstr "The version is downloaded successfully and is being upgraded"
+
+#: templates/system-service.html:789 templates/system-status.html:264
+msgid "文件名含有中文"
+msgstr "The file name contains Chinese"
+
+#: templates/system-service.html:790 templates/system-status.html:265
+msgid "正在上传文件,请耐心等待"
+msgstr "Uploading... please wait for a moment"
+
+#: templates/system-service.html:791 templates/system-status.html:266
+msgid "版本上传成功,正在升级"
+msgstr "Version upload successful, is being upgraded"
+
+#: templates/system-service.html:792 templates/system-status.html:267
+msgid "开启"
+msgstr "Open"
+
+#: templates/system-service.html:808
+msgid "网络错误"
+msgstr "Network Error"
+
+#: templates/system-status.html:28
+msgid "系统状态"
+msgstr "System Status"
+
+#: templates/system-status.html:40
+msgid "CPU占用率:"
+msgstr "CPU Usage"
+
+#: templates/system-status.html:46
+msgid "内存利用率"
+msgstr "Memory Usage"
+
+#: templates/system-status.html:53
+msgid "磁盘空间利用率"
+msgstr "Disk Space"
+
+#: templates/system-status.html:59
+msgid "缓存利用率"
+msgstr "Cache Usage"
+
+#: templates/system-status.html:65
+msgid "报文响应时间"
+msgstr "Packet Response time"
+
+#: views.py:89
+msgid "MAC地址不合法"
+msgstr "Mac address is invalid."
+
+#: views.py:141 views.py:172 views.py:302
+msgid "创建失败"
+msgstr "Create failed"
+
+#: views.py:169 views.py:300
+msgid "创建成功"
+msgstr "Create success"
+
+#: views.py:174 views.py:458
+msgid "管理员密码错误"
+msgstr "Admin password is wrong"
+
+#: views.py:176 views.py:460 views.py:527
+msgid "邮箱已存在"
+msgstr "The Email already exists"
+
+#: views.py:180 views.py:464
+msgid "用户名已存在"
+msgstr "The Username already exists"
+
+#: views.py:182 views.py:466 views.py:485
+msgid "您不是管理员"
+msgstr "You are not an administrator"
+
+#: views.py:257
+msgid "删除成功"
+msgstr "Deleted Successfully"
+
+#: views.py:259 views.py:992
+msgid "删除失败"
+msgstr "Delete Failed"
+
+#: views.py:304
+msgid "不符合创建要求"
+msgstr "Does not meet the requirements created"
+
+#: views.py:306
+msgid "管理域已存在"
+msgstr "The Admin domain already exists"
+
+#: views.py:325
+msgid "加入成功"
+msgstr "Join success"
+
+#: views.py:327
+msgid "加入失败"
+msgstr "Join failed"
+
+#: views.py:329
+msgid "不符合加入要求"
+msgstr "Does not meet the requirements to join"
+
+#: views.py:331
+msgid "管理域不存在"
+msgstr "The Admin domain does not exists"
+
+#: views.py:350
+msgid "邀请成功"
+msgstr "Invite success"
+
+#: views.py:352
+msgid "邀请失败"
+msgstr "Invite failed"
+
+#: views.py:354
+msgid "不符合邀请要求"
+msgstr "Does not meet the requirements of the invitation"
+
+#: views.py:356
+msgid "用户不存在"
+msgstr "User does not exist"
+
+#: views.py:372 views.py:387 views.py:402
+msgid "操作成功"
+msgstr "Operation success"
+
+#: views.py:374 views.py:389 views.py:404
+msgid "操作失败"
+msgstr "Operation failed"
+
+#: views.py:425 views.py:456 views.py:523 views.py:539 views.py:550
+#: views.py:659 views.py:694 views.py:1612 views.py:1634
+msgid "修改失败"
+msgstr "Fail to edit!"
+
+#: views.py:453 views.py:482 views.py:520 views.py:547 views.py:656
+#: views.py:691 views.py:1608 views.py:1631
+msgid "修改成功"
+msgstr "Modify Successfully!"
+
+#: views.py:525
+msgid "图片不符合要求"
+msgstr "Image does not meet the requirements"
+
+#: views.py:554
+msgid "原密码错误"
+msgstr "Old password is wrong"
+
+#: views.py:696
+msgid "端口号必须为数字"
+msgstr "The port must be a number"
+
+#: views.py:714 views.py:715
+msgid "邮件服务器测试"
+msgstr "Email server test"
+
+#: views.py:724
+msgid "邮件发送成功"
+msgstr "Email sent successfully"
+
+#: views.py:727
+msgid "邮件发送失败"
+msgstr "E-mail failed to send"
+
+#: views.py:794 views.py:901
+msgid "正在升级中"
+msgstr "Upgrading"
+
+#: views.py:836 views.py:841 views.py:942 views.py:948
+msgid "版本校验失败"
+msgstr "Version check fails"
+
+#: views.py:846
+msgid "下载失败"
+msgstr "Download failed"
+
+#: views.py:910 views.py:1148 views.py:1299
+msgid "没有选择文件"
+msgstr "No file selected"
+
+#: views.py:919 views.py:924 views.py:953
+msgid "上传文件错误"
+msgstr "Upload file error"
+
+#: views.py:956
+msgid "文件解压失败"
+msgstr "File decompression failed"
+
+#: views.py:974
+msgid "升级失败"
+msgstr "Upgrade failed"
+
+#: views.py:1053
+msgid "修改成功！"
+msgstr "Modify Successfully!"
+
+#: views.py:1056
+msgid "修改失败！"
+msgstr "Fail to edit!"
+
+#: views.py:1164 views.py:1315
+msgid "文件写入失败"
+msgstr "File write failed"
+
+#: views.py:1169 views.py:1320
+msgid "上传文件失败"
+msgstr "Upload file failed"
+
+#: views.py:1195 views.py:1203 views.py:1220 views.py:1346 views.py:1354
+#: views.py:1371
+msgid "md5校验失败"
+msgstr "md5 check fails"
+
+#: views.py:1218 views.py:1369
+msgid "配置恢复成功"
+msgstr "Recovery Successfully"
+
+#: views.py:1225 views.py:1376
+msgid "配置恢复失败"
+msgstr "Recovery Failed"
+
+#~ msgid "支持 | 设备云平台"
+#~ msgstr "Support | Wicloud"
+
+#~ msgid "概要"
+#~ msgstr "Overview"
+
+#~ msgid "探针"
+#~ msgstr "Probe"
+
+#~ msgid "群组"
+#~ msgstr "Group"
+
+#~ msgid "账户 | 设备云平台"
+#~ msgstr "Account | Wicloud"
+
+#~ msgid "公司名称"
+#~ msgstr "Company"
+
+#~ msgid "服务 | 设备云平台"
+#~ msgstr "Service | Wicloud"
+
+#~ msgid "主页"
+#~ msgstr "Home"
+
+#~ msgid "显示 _MENU_ 项结果"
+#~ msgstr "Show _MENU_ entries"
+
+#~ msgid "文件上传失败"
+#~ msgstr "File upload failed"
+
+#~ msgid "升级成功"
+#~ msgstr "Update successed"

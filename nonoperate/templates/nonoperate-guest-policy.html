@@ -1,0 +1,1042 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+    <style>
+        fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid silver;}
+        legend{padding:.5em;border:0;width:auto;margin-bottom:10px;}
+    </style>
+
+{% endblock head_link %}
+{% block header %}
+    <li><a href=""><i class="fa fa-hdd-o"></i>{% trans "非经设备" %}</a></li>
+    <li class="active"><i class="fa fa-briefcase"></i>{% trans "来宾策略" %}</li>
+{% endblock header %}
+{% block row %}
+    <div>
+        <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+        <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-briefcase"></i>{% trans "来宾策略" %}</h6>
+
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <fieldset class="builtIn">
+                        <legend class="penel-body-title-font">{% trans "内置 认证服务器" %}</legend>
+                        <div>
+                            <ul class="nav nav-tabs">
+                                <li class="common-config guestCommonOptionControl"><a href="#portal-general" data-toggle="tab">{% trans "通用配置" %}</a></li>
+                                <li class="account-config guestAccountOptionControl"><a href="#portal-account" data-toggle="tab">{% trans "认证帐号" %}</a></li>
+                                <li class="guestSMSOptionControl"><a href="#portal-smsgateway" data-toggle="tab">{% trans "短信网关" %}</a></li>
+                                <li class="guestWXOptionControl"><a href="#portal-wechat" data-toggle="tab">{% trans "微信认证配置" %}</a></li>
+                                <li class="guestCardOptionControl"><a href="#portal-voucher" data-toggle="tab">{% trans "卡券认证" %}</a></li>
+                                <li class="guestCustomizeOptionControl"><a href="#portal-custom" data-toggle="tab">{% trans "门户自定义" %}</a></li>
+                            </ul>
+                        </div>
+                        <div class="tab-content " style="float:left; width:100%;">
+                            <div class="tab-pane common-config guestCommonOptionControl" id="portal-general">
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" style="padding-right:0px; padding-left:0px;">{% trans "认证后跳转" %}</span>
+                                    <div class="col-md-4 penel-body-title-font">
+                                        <input type="radio" name="jump" checked="checked" value="original" id="original">&nbsp;&nbsp;
+                                        <label  for="original" style="font-weight:400;">{% trans "原始页面" %}</label>
+                                    </div>
+                                    <div class="col-md-6 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <input type="radio" name="jump" value="custom" id="custom">&nbsp;&nbsp;
+                                        <label for="custom" style="font-weight:400;">{% trans "自定义门户页面" %}</label>
+                                    </div>
+                                    <div class="col-md-3 penel-body-title-font">
+                                        <input type="text" name="protal" id="custom_portal" class="form-control" disabled="disabled">
+                                    </div>
+                                    <div class="col-md-4 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane account-config guestAccountOptionControl" id="portal-account">
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" style="padding-right:0px; ">{% trans "账号" %}</span>
+                                    <div class="col-md-4 penel-body-title-font">
+                                        <input class="account-name system-confi-input form-control" id="auth-user" name="admin-name" type="text" onkeyup="this.value=this.value.replace(/^ +| +$/g,'');" value="admin">
+                                    </div>
+                                    <div class="col-md-6 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom Password">
+                                    <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "密码" %}</span>
+                                    <div class="col-md-4 penel-body-title-font">
+                                        <input id="Password" name="admin-pass" type="password" maxlength="64" class="form-control" onKeyUp=" pwStrength(this.value)" onBlur="pwStrength(this.value);" value="">
+                                    </div>
+                                    <div class="col-md-4 penel-body-title-font">
+                                        <div class="form-group">
+                                            <div id="pwd_strong" >
+                                                <div class="col-md-3 " align="center" id="strength_L" style="background-color:#eee">{% trans "弱" %}</div>
+                                                <div class="col-md-3 " align="center" id="strength_M" style="background-color:#eee">{% trans "中" %}</div>
+                                                <div class="col-md-3 "  align="center" id="strength_H" style="background-color:#eee">{% trans "强" %}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-2 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-2 penel-body-title-font"></div>
+                                    <div class="col-md-4 penel-body-title-font"></div>
+                                    <div class="col-md-2 penel-body-title-font">
+                                        <input type="button" class="btn btn-default table-btn-btnpad form-control button-border" value="{% trans '显示/隐藏列表' %}" id="auth-user-list">
+                                    </div>
+                                    <div class="col-md-1 penel-body-title-font" style="padding-left:0px;">
+                                        <input type="button" class="a-line btn btn-default table-btn-btnpad form-control button-border" id="auth-add" value="{% trans '添加' %}">
+                                    </div>
+                                    <div class="col-md-3 penel-body-title-font"></div>
+
+                                </div>
+                                <div id="AuthUserDataTable" hidden="hidden">
+                                    <div class="col-md-2">
+
+                                    </div>
+                                    <div class="col-md-8" id="exex">
+
+                                    </div>
+                                    <div class="col-md-2">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="tab-pane guestSMSOptionControl" id="portal-smsgateway">
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div  class="sms_config">
+                                        <span class="col-md-2 penel-body-title-font configs" style="padding-right:0px; padding-left:0px;">{% trans "短信网关" %}</span>
+                                    </div>
+
+                                    <div class="col-md-4 penel-body-title-font">
+                                    <div class="select-style">
+                                        <select class="smsgateway_select">
+                                            <option value="select" text="请选择" style="display: none;">{% trans "请选择" %}</option>
+                                            <option value="alidayu" text="阿里大于">{% trans "阿里大于" %}</option>
+                                            <option value="aliyun" text="阿里云">{% trans "阿里云" %}</option>
+                                            <option value="ihuyi" text="互亿无线">{% trans "互亿无线" %}</option>
+                                            <option value="yunpian">{% trans "云片" %}</option>
+                                        </select>
+                                    </div>
+
+                                    </div>
+                                    <div class="col-md-6 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                                <div class="alidayu">
+                                    <div class="sms_alidayu">
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>App Key:</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <input type="text"  class="sms_appkey_input form-control">
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>App Secret:</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <input type="password"  class="sms_secret_input form-control">
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>{% trans "签名" %}</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <input type="text"  class="sms_signName_input form-control">
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>{% trans "中文模板ID" %}</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <input type="text"  class="sms_templateNamecn_input form-control">
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>{% trans "英文模板ID" %}</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <input type="text"  class="sms_templateNameen_input form-control">
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-8 penel-body-title-font">
+                                            <span>{% trans '注: 模板内容中验证码部分请用"${code}"代替' %}</span>
+                                        </div>
+                                        <div class="col-md-2 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-4 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font button_container_div">
+                                            <input name="apply" id="alidayu_button" type="button" class="btn btn-default table-btn-btnpad form-control button-border" value="提交">
+                                        </div>
+                                        <div class="col-md-6 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="ihuyi">
+                                    <div class="sms_ihuyi">
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>APIID</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <input type="text"  class="sms_smsaccount_input form-control">
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>APIKEY</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <input type="password"  class="sms_smspassword_input form-control">
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>{% trans "中文短信模板" %}</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <textarea class="cn_text form-control" style="margin: 0px; width: 216px; height: 50px;"></textarea>
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font">
+                                            <span>{% trans "英文短信模板" %}</span>
+                                        </div>
+                                        <div class="col-md-3 penel-body-title-font">
+                                            <textarea class="en_text form-control" style="margin: 0px; width: 216px; height: 50px;"></textarea>
+                                        </div>
+                                        <div class="col-md-5 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <span class="col-md-4 penel-body-title-font" style="padding-right:0px;"></span>
+                                        <div class="col-md-2 penel-body-title-font button_container_div">
+                                            <input id="Ihuyi_button" name="apply" type="button" class="btn btn-default table-btn-btnpad form-control button-border" value="提交">
+                                        </div>
+                                        <div class="col-md-6 penel-body-title-font">
+
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="aliyun" >
+                                    <div class="sms_aliyun">
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>Access Id</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_accessid_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>Access Key</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_accesskey_input form-control" type="password" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>Endpoint</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_endPoint_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>{% trans "主题名称" %}</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_topicName_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>{% trans "签名" %}</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_signName_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>{% trans "中文模板ID" %}</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_templateCodecn_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>{% trans "英文模板ID" %}</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_templateCodeen_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-8 penel-body-title-font">
+                                                <span>{% trans "注: 模板内容中验证码部分请用'${code}'代替" %}</span>
+                                            </div>
+                                            <div class="col-md-2 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-4 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font button_container_div">
+                                                <input name="apply" id="aliyun_button" type="button" class="btn btn-default table-btn-btnpad form-control add-page-button sys-conf-button" value="提交">
+                                            </div>
+                                            <div class="col-md-6 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="yunpian">
+                                    <div class="sms_yunpian">
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>Apikey</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_apikey_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font">
+                                                <span>Text</span>
+                                            </div>
+                                            <div class="col-md-3 penel-body-title-font">
+                                                <input class="sms_text_input form-control" type="text" value="">
+                                            </div>
+                                            <div class="col-md-5 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <span class="col-md-4 penel-body-title-font" style="padding-right:0px;"></span>
+                                            <div class="col-md-2 penel-body-title-font button_container_div">
+                                                <input name="apply" id="yunpian_button" type="button" class="btn btn-default table-btn-btnpad form-control add-page-button sys-conf-button" value="提交">
+                                            </div>
+                                            <div class="col-md-6 penel-body-title-font">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="tab-pane wechat_config_block guestWXOptionControl" id="portal-wechat">
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" >{% trans "应用ID" %}</span>
+                                    <div class="col-md-5 penel-body-title-font">
+                                        <input type="text" class="wechat_appid_input form-control">
+                                    </div>
+                                    <div class="col-md-5 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" >{% trans "应用秘钥" %}</span>
+                                    <div class="col-md-5 penel-body-title-font">
+                                        <input type="text" class="wechat_appsecret_input wechat_password_input form-control">
+                                    </div>
+                                    <div class="col-md-5 penel-body-title-font">
+                                        <span>{% trans "开启'强制关注'时必填" %}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" >{% trans "门店ID" %}</span>
+                                    <div class="col-md-5 penel-body-title-font">
+                                        <input type="text" class="wechat_shopid_input form-control">
+                                    </div>
+                                    <div class="col-md-5 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" >{% trans "秘钥" %}</span>
+                                    <div class="col-md-5 penel-body-title-font">
+                                        <input type="text" class="wechat_secretkey_input wechat_password_input form-control">
+                                    </div>
+                                    <div class="col-md-5 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <span class="col-md-2 penel-body-title-font" >{% trans "强制关注" %}</span>
+                                    <div class="col-md-4 penel-body-title-font wechat_forcefollow_container wechat_line">
+                                        <div class="switch-div" >
+                                            <div class="switch-button">
+                                                <input type="checkbox" id="force_follow_switch"/>
+                                                <label for="force_follow_switch"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 penel-body-title-font">
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-pane guestCardOptionControl" id="portal-voucher">
+                                <div class="col-md-12">
+                                    <div class="col-md-8">
+
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-default table-btn-btnpad form-control button-border" onclick="add_voucher();">{% trans "添加" %}</button>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <button class="btn btn-default form-control table-btn-btnpad button-border" id="vouchermany_print">{% trans "卡券打印" %}</button>
+                                    </div>
+                                </div>
+                                <div id="VoucherTable" class="col-md-12">
+                                    <table class="table table-bordered table-striped" id="datatable-default-voucher">
+                                        <thead>
+                                            <tr>
+                                                <th>{% trans "无线网络" %}</th>
+                                                <th>{% trans "卡券码" %}</th>
+                                                <th>{% trans "类型" %}</th>
+                                                <th >{% trans "有效期(小时)" %}</th>
+                                                <th >{% trans "流量(MB)" %}</th>
+                                                <th >{% trans "创建时间" %}</th>
+                                                <th >{% trans "已用流量(KB)" %}</th>
+                                                <th >{% trans "状态" %}</th>
+                                                <th >{% trans "MAC" %}</th>
+                                                <th >{% trans "备注" %}</th>
+                                                <th>{% trans "操作" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="tab-pane guestCustomizeOptionControl" id="portal-custom">
+                                <fieldset>
+                                    <legend class="penel-body-title-font">{% trans "认证方式" %}</legend>
+                                    <div class="col-md-12">
+                                        <div class="col-md-2 guestOneKeyOptionControl">
+                                            <div><p class="text-center">{% trans "一键认证" %}</p></div>
+                                            <div class="text-center">
+                                                <img src="{% static 'portal-master/portal-bg-default/onekeylogin.jpg' %}" >
+                                            </div>
+                                            <div style="margin-top:5px;" class="text-center">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="cancel_onekey">{% trans "取消" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="apply_onekey">{% trans "应用" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="edit_onekey">{% trans "编辑" %}</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 guestAccountOptionControl">
+                                            <div><p class="text-center">{% trans "账户认证" %}</p></div>
+                                            <div class="text-center">
+                                                <img src="{% static 'portal-master/portal-bg-default/accountlogin.jpg' %}" >
+                                            </div>
+                                            <div style="margin-top:5px;" class="text-center">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="cancel_accountlogin">{% trans "取消" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="apply_accountlogin">{% trans "应用" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="edit_accountlogin">{% trans "编辑" %}</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 guestSMSOptionControl">
+                                            <div><p class="text-center">{% trans "短信认证" %}</p></div>
+                                            <div class="text-center">
+                                                <img src="{% static 'portal-master/portal-bg-default/phonelogin.jpg' %}" >
+                                            </div>
+                                            <div style="margin-top:5px;" class="text-center">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="cancel_phonelogin">{% trans "取消" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="apply_phonelogin">{% trans "应用" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="edit_phonelogin">{% trans "编辑" %}</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 guestWXOptionControl">
+                                            <div><p class="text-center">{% trans "微信认证" %}</p></div>
+                                            <div class="text-center">
+                                                <img src="{% static 'portal-master/portal-bg-default/wechatlogin.jpg' %}" >
+                                            </div>
+                                            <div style="margin-top:5px;" class="text-center">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="cancel_wechat">{% trans "取消" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="apply_wechat">{% trans "应用" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="edit_wechat">{% trans "编辑" %}</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 guestCardOptionControl">
+                                            <div><p class="text-center">{% trans "卡券认证" %}</p></div>
+                                            <div class="text-center">
+                                                <img src="{% static 'portal-master/portal-bg-default/voucharlogin.jpg' %}" >
+                                            </div>
+                                            <div style="margin-top:5px;" class="text-center">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="cancel_voucher">{% trans "取消" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="apply_voucher">{% trans "应用" %}</button>
+                                                    <button type="button" class="btn btn-default table-btn-btnpad  button-border" style="height: 34px;width: 48px;" id="edit_voucher">{% trans "编辑" %}</button>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2"></div>
+                                    </div>
+                                </fieldset>
+                            </div>
+
+                        </div>
+
+                    </fieldset>
+                    <fieldset >
+                        <legend class="penel-body-title-font">{% trans "外部认证服务器" %}</legend>
+                        <form id="auth_server">
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "登录页URL" %}</span>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control " id="login" name="login">
+                            </div>
+                            <div class="col-md-7">
+                                <span>{% trans "认证登录页面, 如: " %}'http://portal.domainname.com/login/?arg=value'</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "门户页URL" %}</span>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control " id="portal" name="portal">
+                            </div>
+                            <div class="col-md-7">
+                                <span>{% trans "认证成功后跳转的URL, 如:" %}'http://portal.domainname.com/portal/?arg=value'</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-12 penel-body-title-font" style="padding-right:0px;">{% trans "注: 认证服务器须支持wifidog协议" %}</span>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="auth_server_ajax();">{% trans "应用" %}</button>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        </form>
+                    </fieldset>
+                    <fieldset >
+
+                        <legend class="penel-body-title-font">{% trans "全局配置" %}</legend>
+                        <form id="global_config">
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">ByPass</span>
+                            <div class="col-md-3">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="bypass" id="bypass"/>
+                                        <label for="bypass"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <span>{% trans "认证服务器离线时用户全部放行" %}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "微信放行" %}</span>
+                            <div class="col-md-3">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="wechatallowed" id="wechatallowed"/>
+                                        <label for="wechatallowed"></label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-7">
+                                <span>{% trans "认证成功之前允许使用微信" %}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "认证有效期" %}</span>
+                            <div class="col-md-3">
+                                <select name="auth_validate_timeout" id="auth_validate_timeout" class="form-control select-icon" >
+                                    <option value="8">{% trans "8小时" %}</option>
+                                    <option value="24">{% trans "24小时" %}</option>
+                                    <option value="72">{% trans "3天" %}</option>
+                                    <option value="168">{% trans "7天" %}</option>
+                                    <option value="720">{% trans "30天" %}</option>
+                                    <option value="0">{% trans "自定义" %}</option>
+                                </select>
+                            </div>
+                            <div class="col-md-7">
+                                <span>{% trans "从用户认证成功起的认证有效期(自定义时间请输入整数)" %}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="auth_validate_timeout_hide" hidden="hidden">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control " id="auth_validate_timeout_0_num" name="auth_validate_timeout_0_num" style="width:50%;float:inherit;">
+                                <select name="auth_validate_timeout_0_suffix" id="auth_validate_timeout_0_suffix" class="form-control select-icon" style="width:50%;float:inherit;">
+                                    <option value="24">天</option>
+                                    <option value="1">小时</option>
+                                </select>
+                            </div>
+                            <div class="col-md-7">
+                                <span></span>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "超时下线" %}</span>
+                            <div class="col-md-3">
+                                <select name="client_timeout" id="client_timeout" class="form-control select-icon" >
+                                    <option value="5">5分</option>
+                                    <option value="10">10分</option>
+                                    <option value="30">30分</option>
+                                    <option value="60">1小时</option>
+                                    <option value="480">8小时</option>
+                                    <option value="1440">1天</option>
+                                    <option value="2880">2天</option>
+                                    <option value="10080">7天</option>
+                                    <option value="0">自定义</option>
+                                </select>
+                            </div>
+                            <div class="col-md-7">
+                                <span>{% trans "流量无变化超时下线的时间(自定义时间请输入整数)" %}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="client_timeout_hide" hidden="hidden">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                            <div class="col-md-3 ">
+                                <input type="text" class="form-control " id="client_timeout_0_num" name="client_timeout_0_num" style="width:50%;float:inherit;">
+                                <select name="client_timeout_0_suffix" id="client_timeout_0_suffix" class="form-control select-icon" style="width:50%;float:inherit;">
+                                    <option value="1">分</option>
+                                    <option value="60">小时</option>
+                                    <option value="1440">天</option>
+                                </select>
+                            </div>
+                            <div class="col-md-7">
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "白名单" %}</span>
+                            <div class="col-md-10">
+                                <span>{% trans "IP、IP/Mask 或域名, 如: '1.1.1.1', '1.1.1.1/24', 'www.abc.com'" %}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom " >
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                            <div class="col-md-10 white_list_div">
+                                <div class="col-md-3 penel-body-div-marign-bottom white_list_clone" style="padding-left:0px;">
+                                    <input type="text" class="form-control white_list" style="padding-right:15%;" textvalue = "">
+                                    <div class="close_input "><i class="icon fa fa-times white_list_i" style="font-size:large;"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;">{% trans "Portal用户白名单" %}</span>
+                            <div class="col-md-10">
+                                <span>{% trans "MAC地址, 如: '00:01:02:03:04:05'" %}</span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="trusted_mac_list_div">
+                            <span class="col-md-2 penel-body-title-font" style="padding-right:0px;"></span>
+                            <div class="col-md-10 trusted_mac_list_div">
+                                <div class="col-md-3 penel-body-div-marign-bottom trusted_mac_list_clone" style="padding-left:0px;">
+                                    <input type="text" class="form-control trusted_mac_list" style="padding-right:15%;" textvalue="">
+                                    <div class="close_input "><i class="icon fa fa-times trusted_mac_list_i" style="font-size:large;"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-3"></div>
+                            <div class="col-md-2">
+                                <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="global_config_ajax();">{% trans "应用" %}</button>
+                            </div>
+                            <div class="col-md-1"></div>
+                            <div class="col-md-3"></div>
+                            <div class="col-md-3"></div>
+                        </div>
+                        </form>
+                    </fieldset>
+
+                    <a class=" modal-with-form " href="#modalForm" id="open_form" hidden="True">Open Form</a>
+                        <!-- Modal Form -->
+                        <div id="modalForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+                            <div class="panel panel-default" >
+                                <div class="panel-heading">
+                                    <h2 class="panel-title"><span >{% trans "卡券添加" %}</span> <a href="#" class=" modal-dismiss close-icon-right " id="close_add_form"><span class="fa fa-times tab-icon-color"></span></a></h2>
+                                </div>
+                                <div class="panel-body bk-noradius" >
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <span class="voucher-essid-label">{% trans "无线网络名称" %}</span>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <div style="position:relative;">
+                                                <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                                <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="voucher_essid_select">
+                                                    {% for wl in wlan %}
+                                                        <option value="{{wl.wlan_ssid}}">{{wl.wlan_ssid}}</option>
+                                                    {% endfor %}
+                                                </select></span><input id="voucher_essid_inputs" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control voucher-essid-input" type="text" >
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom voucher-num">
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <span>{% trans "数量" %}</span>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <select class="voucher-nums-select form-control select-icon" id="voucher-select" style="width:174px;">
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom" id="voucher_code_list" >
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <span>{% trans "卡券码" %}</span>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <input disabled="disabled" class="voucher-code-input form-control select-icon" type="text" style="width:174px;">
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <span>{% trans "有效期(小时)" %}</span>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <select class="voucher-durations-select form-control select-icon" style="width:174px;">
+                                                <option value="8">{% trans "8小时" %}</option>
+                                                <option value="1">{% trans "1天" %}</option>
+                                                <option value="7">{% trans "7天" %}</option>
+                                                <option value="30">{% trans "30天" %}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <span class="voucher-byte-label">{% trans "流量(MB)" %}</span>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <div style="position:relative;">
+                                                <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                                <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="voucher_byte">
+                                                    <option value="10">10(MB)</option>
+                                                    <option value="30">30(MB)</option>
+                                                    <option value="50">50(MB)</option>
+                                                    <option value="100">100(MB)</option>
+                                                    <option value="300">300(MB)</option>
+                                                    <option value="500">500(MB)</option>
+                                                    <option value="1024">1(GB)</option>
+                                                    <option value="2048">2(GB)</option>
+                                                </select></span><input id="voucher_byte_inputs" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control voucher-bytes-select">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <span>{% trans "类型" %}</span>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <select class="voucher-supports-select form-control select-icon" style="width:174px;">
+                                                <option value="single">{% trans "单人使用" %}</option>
+                                                <option value="many">{% trans "多人使用" %}</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-4 penel-body-title-font">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom">
+                                        <div class="col-md-4 penel-body-title-font">
+                                            <span>{% trans "备注" %}</span>
+                                        </div>
+                                        <div class="col-md-6 penel-body-title-font">
+                                            <textarea class="voucher-remarks-input form-control" maxlength="80" style="width:174px;"></textarea>
+                                        </div>
+                                        <div class="col-md-2 penel-body-title-font" style="padding-left: 0px;padding-right: 0px;">
+                                            <span >{% trans "最多80字" %}</span>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <a href="#" class="btn btn-default " id="voucher_add_apply">{% trans "应用" %}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <a class=" modal-with-form " href="#confirmForm" id="open_confirm" hidden="True">Open Form</a>
+                        <!-- Modal Form -->
+                        <div id="confirmForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+                            <div class="panel panel-default" >
+                                <div class="panel-heading">
+                                    <h2 class="panel-title"><span >{% trans "确认窗口" %}</span> <a href="#" class=" modal-dismiss close-icon-right " ><span class="fa fa-times tab-icon-color"></span></a></h2>
+                                </div>
+                                <div class="panel-body bk-noradius" >
+                                    <div class="col-md-12 text-center">
+                                        <span>{% trans "确认删除此卡券吗?" %}</span>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                        <div class="col-md-12 text-center">
+                                            <a href="#" class="btn btn-default button map-win-confirm-button" id="voucher_sure">{% trans "确定" %}</a>
+                                            <a href="#" class="btn btn-default modal-dismiss" id="voucher_cancel">{% trans "取消" %}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <a class=" modal-with-form " href="#one_key_Form" id="open_one_key" hidden="True">Open Form</a>
+                        <!-- Modal Form -->
+                        <div id="one_key_Form" class="modal-block modal-block-primary mfp-hide " style="max-width:1000px;">
+                            <div class="panel panel-default" >
+                                <div class="panel-heading">
+                                    <h2 class="panel-title"><span >{% trans "门户自定义" %}</span> <a href="#" class=" modal-dismiss close-icon-right " id="close_portal"><span class="fa fa-times tab-icon-color"></span></a></h2>
+                                </div>
+                                <div class="panel-body bk-noradius" id="create_custom">
+                                </div>
+                                <div class="panel-footer">
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock row %}
+{% block foot_js %}
+<script src="{% static 'main/input-limit-judge.js' %}"></script>
+<script src="{% static 'main/portal.js' %}"></script>
+<script src="{% static 'main/app-js/guest_policy.js' %}"></script>
+
+<script>
+  $(document).ready(function(){
+    pageWords = {
+      // table trans
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+
+      promptInfo:'{% trans "提示信息" %}',
+
+      customValidityInputError:'{% trans "自定义有效期须为整数" %}',
+      customValidityHourInputError:'{% trans "自定义有效期单位为时时允许1-23" %}',
+      customOfflineTimeInputError: '{% trans "自定义下线时间须为整数" %}',
+      customOfflineTimeUnitInputError:'{% trans "自定义下线时间单位为分时允许1-59,单位为时时允许1-23" %}',
+      account:'{% trans "账号" %}',
+      passwd:'{% trans "密码" %}',
+      createTime:'{% trans "创建时间" %}',
+      status:'{% trans "状态" %}',
+      action:'{% trans "操作" %}',
+      delete:'{% trans "删除" %}',
+      edit:'{% trans "编辑" %}',
+      print:'{% trans "打印" %}',
+      single:'{% trans "单人" %}',
+      many:'{% trans "多人" %}',
+      notEnabled:'{% trans "未启用" %}',
+      expired:'{% trans "已过期" %}',
+      out:'{% trans "已用完" %}',
+      apply:'{% trans "使用中，过期时间" %}',
+      expiretime:'{% trans "时效性" %}',
+    };
+  });
+  var administrator_permission = parseInt('{{request.user.administrator_permission}}');
+
+</script>
+<script src="{% static 'main/app-js/apGuestPolicyPage.js' %}"></script>
+
+<script>
+  //一定要放在最下面
+  $(function(){
+
+    var error = JSON.parse('{{error_json|safe}}');
+
+    if(error.error_type == "failed"){
+        $("#position-4-error").click();
+    };
+    if(error.error_type == "success"){
+        $('#position-4-success').click();
+    }
+  });
+</script>
+<script>
+  window.Msg = function(){};
+  Msg.E_OperationSuccess = '{% trans "操作执行成功!" %}';
+  Msg.E_OperationFailed = '{% trans "操作执行失败!" %}';
+  Msg.S_TemplateStr = '{% trans "模板" %}';
+  Msg.E_CannotBeEmpty = '{% trans "不能为空值" %}';
+  Msg.Auth_PasswordShort = '{% trans "密码至少包含四个字符！" %}';
+  Msg.Auth_PasswordInvalid = '{% trans "密码只允许使用0-9a-zA-Z，不允许使用其他特殊字符！" %}';
+  Msg.Auth_UserInvalid = '{% trans "账号只允许使用0-9a-zA-Z及下划线，不允许使用其他特殊字符！" %}';
+  Msg.Auth_AddSuccess = '{% trans "添加用户成功！" %}';
+  Msg.Auth_AddExistUser = '{% trans "添加失败，用户已存在！" %}';
+  Msg.Auth_AddNetError = '{% trans "添加失败，网络错误！" %}';
+  Msg.Auth_DeleteSuccess = '{% trans "删除用户成功！" %}';
+  Msg.Auth_DeleteUnexistUser = '{% trans "删除失败, 用户不存在！" %}';
+  Msg.Auth_DeleteNetError = '{% trans "删除失败，网络错误！" %}';
+  Msg.OneButton = '{% trans "一键认证" %}';
+  Msg.Phonesms = '{% trans "短信认证" %}';
+  Msg.Wechatauth = '{% trans "微信认证" %}';
+  Msg.Account = '{% trans "账户认证" %}';
+  Msg.Voucher = '{% trans "卡券认证" %}';
+</script>
+
+<script>
+  function add_voucher() {
+    // body...
+    $("#voucher_essid_inputs").val('{{wlan.0.wlan_ssid}}');
+    $('#voucher_code_list').hide();
+    $(".voucher-code-input").val("");
+    $(".voucher-nums-select").val("1");
+    $(".voucher-durations-select").val("8");
+    $("#voucher_byte_inputs").val("10");
+    $(".voucher-supports-select").val("single");
+    $(".voucher-remarks-input").val("");
+    $('#open_form').click();
+  };
+  var edit_portal = function(title) {
+    // $(".device-cover").show();
+    // $("#create_custom").show();
+    $("#create_custom iframe").remove();
+    // {% get_current_language as LANGUAGE_CODE %}
+    var lang = '{{LANGUAGE_CODE}}';
+    // console.log(lang);
+    var groupname = "{{request.user.groupname}}";
+    // "<iframe style='width:100%;height:600px;' src='http://" + top.location.hostname + ":4000/#/home?group=" + groupname + "&title=" + title + "&lang=" + lang + "&achost=" + top.location.host + "' >"
+    // $("#create_custom").append(`<iframe style='width:100%;height:600px;' src='http://${ top.location.hostname }:4000/#/home?group=${ groupname }&title=${ title }&lang=${ lang }&achost=${ top.location.host }' >`);
+    $("#create_custom").append(`<iframe style='width:100%;height:600px;' src='http://${ top.location.host }/protalCustomPage/#/home?group=${ groupname }&title=${ title }&lang=${ lang }&achost=${ top.location.host }' >`);
+    // $("#create_custom").draggable();
+    $('#open_one_key').click();
+  };
+</script>
+
+
+
+{% endblock foot_js %}
+
+
+
+
+
+

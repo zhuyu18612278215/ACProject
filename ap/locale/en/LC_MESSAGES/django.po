@@ -1,0 +1,2342 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-22 14:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/ap-customer.html:17 templates/ap-customer.html.py:42
+#: templates/ap-customer.html:122 templates/ap-customer.html.py:155
+#: templates/ap-group.html:11 templates/ap-guest-policy.html:15
+#: templates/ap-list.html:16 templates/ap-list.html.py:1207
+#: templates/ap-list.html:1240 templates/ap-user-policy-config.html:12
+#: templates/ap-wlan.html:19 templates/ap_index.html:294
+#: templates/ap_index.html.py:327
+msgid "接入点"
+msgstr "AP"
+
+#: templates/ap-customer.html:18 templates/ap-customer.html.py:29
+#: templates/ap-customer.html:267 templates/ap-customer.html.py:924
+#: templates/ap-list.html:109 templates/ap-list.html.py:766
+#: templates/ap_index.html:439 templates/ap_index.html.py:1096
+msgid "用户"
+msgstr "User"
+
+#: templates/ap-customer.html:39 templates/ap-customer.html.py:444
+#: templates/ap-group.html:116 templates/ap-group.html.py:199
+#: templates/ap-group.html:213 templates/ap-list.html:62
+#: templates/ap-list.html.py:286 templates/ap-list.html:1396
+#: templates/ap-user-policy-config.html:373
+#: templates/ap-user-policy-config.html:413
+#: templates/ap-user-policy-config.html:465
+#: templates/ap-user-policy-config.html:531 templates/ap-wlan.html:97
+#: templates/ap-wlan.html.py:841 templates/ap_index.html:616
+msgid "名称/MAC地址"
+msgstr "Name/MAC Address"
+
+#: templates/ap-customer.html:40 templates/ap-customer.html.py:114
+#: templates/ap-customer.html:843 templates/ap-list.html:63
+#: templates/ap-list.html.py:685 templates/ap-list.html:1199
+#: templates/ap-list.html.py:1397 templates/ap-wlan.html:249
+#: templates/ap-wlan.html.py:583 templates/ap_index.html:286
+#: templates/ap_index.html.py:1015
+msgid "IP地址"
+msgstr "IP Address"
+
+#: templates/ap-customer.html:41 templates/ap-customer.html.py:445
+#: templates/ap-list.html:287 templates/ap_index.html:617
+msgid "WLAN"
+msgstr "WLAN"
+
+#: templates/ap-customer.html:43 templates/ap-customer.html.py:160
+#: templates/ap-list.html:1245 templates/ap_index.html:332
+msgid "信号"
+msgstr "Signal"
+
+#: templates/ap-customer.html:44 templates/ap-customer.html.py:164
+#: templates/ap-customer.html:386 templates/ap-customer.html.py:417
+#: templates/ap-customer.html:531 templates/ap-customer.html.py:587
+#: templates/ap-list.html:228 templates/ap-list.html.py:259
+#: templates/ap-list.html:373 templates/ap-list.html.py:429
+#: templates/ap-list.html:1249 templates/ap_index.html:336
+#: templates/ap_index.html.py:558 templates/ap_index.html:589
+#: templates/ap_index.html.py:703 templates/ap_index.html:759
+msgid "信道"
+msgstr "Channel"
+
+#: templates/ap-customer.html:45 templates/ap-customer.html.py:198
+#: templates/ap-list.html:1283 templates/ap-list.html.py:1400
+#: templates/ap_index.html:370
+msgid "下载"
+msgstr "Download"
+
+#: templates/ap-customer.html:46 templates/ap-customer.html.py:197
+#: templates/ap-list.html:1282 templates/ap-list.html.py:1399
+#: templates/ap_index.html:369
+msgid "上传"
+msgstr "Upload"
+
+#: templates/ap-customer.html:47 templates/ap-customer.html.py:118
+#: templates/ap-list.html:1203 templates/ap_index.html:290
+msgid "运行时间"
+msgstr "Running Time"
+
+#: templates/ap-customer.html:48
+msgid "用户类型"
+msgstr "User Type"
+
+#: templates/ap-customer.html:49
+msgid "认证账号"
+msgstr "Certified Account"
+
+#: templates/ap-customer.html:50 templates/ap-customer.html.py:446
+#: templates/ap-customer.html:672 templates/ap-group.html:43
+#: templates/ap-guest-policy.html:538 templates/ap-guest-policy.html:1094
+#: templates/ap-list.html:68 templates/ap-list.html.py:288
+#: templates/ap-list.html:514 templates/ap-list.html.py:997
+#: templates/ap-list.html:1404 templates/ap-user-policy-config.html:374
+#: templates/ap-user-policy-config.html:414
+#: templates/ap-user-policy-config.html:466
+#: templates/ap-user-policy-config.html:532 templates/ap-wlan.html:51
+#: templates/ap-wlan.html.py:98 templates/ap-wlan.html:842
+#: templates/ap_index.html:618 templates/ap_index.html.py:844
+msgid "操作"
+msgstr "Operate"
+
+#: templates/ap-customer.html:74 templates/ap-customer.html.py:264
+#: templates/ap-list.html:106 templates/ap-list.html.py:1159
+#: templates/ap_index.html:246 templates/ap_index.html.py:436
+msgid "详细信息"
+msgstr "Details"
+
+#: templates/ap-customer.html:77 templates/ap-customer.html.py:143
+#: templates/ap-list.html:1162 templates/ap-list.html.py:1228
+#: templates/ap_index.html:249 templates/ap_index.html.py:315
+msgid "统计"
+msgstr "Statistics"
+
+#: templates/ap-customer.html:80 templates/ap-list.html:1165
+#: templates/ap_index.html:252
+msgid "历史记录"
+msgstr "History"
+
+#: templates/ap-customer.html:83 templates/ap-customer.html.py:212
+#: templates/ap-customer.html:270 templates/ap-customer.html.py:1049
+#: templates/ap-group.html:245 templates/ap-list.html:112
+#: templates/ap-list.html.py:891 templates/ap-list.html:1168
+#: templates/ap-list.html.py:1297 templates/ap_index.html:255
+#: templates/ap_index.html.py:384 templates/ap_index.html:442
+#: templates/ap_index.html.py:1221
+msgid "配置"
+msgstr "Config"
+
+#: templates/ap-customer.html:93 templates/ap-customer.html.py:288
+#: templates/ap-list.html:130 templates/ap-list.html.py:1178
+#: templates/ap_index.html:15 templates/ap_index.html.py:265
+#: templates/ap_index.html:460
+msgid "概要"
+msgstr "Overview"
+
+#: templates/ap-customer.html:101 templates/ap-group.html:117
+#: templates/ap-group.html.py:200 templates/ap-group.html:214
+#: templates/ap-list.html:1040 templates/ap-list.html.py:1186
+#: templates/ap-list.html:1405 templates/ap_index.html:273
+msgid "MAC地址"
+msgstr "MAC Address"
+
+#: templates/ap-customer.html:105 templates/ap-list.html:1190
+#: templates/ap_index.html:277
+msgid "主机名"
+msgstr "Host"
+
+#: templates/ap-customer.html:109 templates/ap-list.html:1194
+#: templates/ap_index.html:281
+msgid "操作系统"
+msgstr "Operating System"
+
+#: templates/ap-customer.html:126 templates/ap-list.html:1211
+#: templates/ap_index.html:298
+msgid "最后看到"
+msgstr "Last Seen"
+
+#: templates/ap-customer.html:168 templates/ap-list.html:1253
+#: templates/ap_index.html:340
+msgid "下载速率"
+msgstr "Download Rate"
+
+#: templates/ap-customer.html:172 templates/ap-list.html:1257
+#: templates/ap_index.html:344
+msgid "上传速率"
+msgstr "Upload Rate"
+
+#: templates/ap-customer.html:177 templates/ap-customer.html.py:368
+#: templates/ap-list.html:210 templates/ap-list.html.py:1262
+#: templates/ap_index.html:349 templates/ap_index.html.py:540
+msgid "上传(报文/字节)"
+msgstr "Upload(Pkts / Bytes)"
+
+#: templates/ap-customer.html:181 templates/ap-customer.html.py:364
+#: templates/ap-list.html:206 templates/ap-list.html.py:1266
+#: templates/ap_index.html:353 templates/ap_index.html.py:536
+msgid "下载(报文/字节)"
+msgstr "Download(Pkts / Bytes)"
+
+#: templates/ap-customer.html:195 templates/ap-list.html:1280
+#: templates/ap_index.html:367
+msgid "日期/时间"
+msgstr "Date/Time"
+
+#: templates/ap-customer.html:196 templates/ap-list.html:1281
+#: templates/ap_index.html:368
+msgid "时长"
+msgstr "Duration"
+
+#: templates/ap-customer.html:220 templates/ap-customer.html.py:468
+#: templates/ap-list.html:310 templates/ap-list.html.py:1305
+#: templates/ap_index.html:392 templates/ap_index.html.py:640
+#: templates/ap_index.html:1355
+msgid "别名"
+msgstr "Alias"
+
+#: templates/ap-customer.html:222 templates/ap-customer.html.py:643
+#: templates/ap-customer.html:804 templates/ap-customer.html.py:877
+#: templates/ap-customer.html:913 templates/ap-customer.html.py:943
+#: templates/ap-group.html:131 templates/ap-group.html.py:230
+#: templates/ap-group.html:276 templates/ap-guest-policy.html:557
+#: templates/ap-guest-policy.html.py:568 templates/ap-guest-policy.html:579
+#: templates/ap-guest-policy.html.py:590 templates/ap-guest-policy.html:601
+#: templates/ap-guest-policy.html.py:646 templates/ap-guest-policy.html:680
+#: templates/ap-guest-policy.html.py:817 templates/ap-guest-policy.html:938
+#: templates/ap-list.html:485 templates/ap-list.html.py:646
+#: templates/ap-list.html:719 templates/ap-list.html.py:755
+#: templates/ap-list.html:785 templates/ap-list.html.py:1307
+#: templates/ap-user-policy-config.html:216
+#: templates/ap-user-policy-config.html:328
+#: templates/ap-user-policy-config.html:482
+#: templates/ap-user-policy-config.html:548 templates/ap-wlan.html:486
+#: templates/ap-wlan.html.py:819 templates/ap-wlan.html:854
+#: templates/ap_index.html:394 templates/ap_index.html.py:815
+#: templates/ap_index.html:976 templates/ap_index.html.py:1049
+#: templates/ap_index.html:1085 templates/ap_index.html.py:1115
+msgid "应用"
+msgstr "Apply"
+
+#: templates/ap-customer.html:278 templates/ap-list.html:120
+#: templates/ap_index.html:450
+msgid "诊断"
+msgstr "Diagnosis"
+
+#: templates/ap-customer.html:295 templates/ap-list.html:137
+#: templates/ap_index.html:467
+msgid "MAC地址:"
+msgstr "MAC Address:"
+
+#: templates/ap-customer.html:299 templates/ap-list.html:141
+#: templates/ap_index.html:471
+msgid "序列号:"
+msgstr "Serial Number:"
+
+#: templates/ap-customer.html:303 templates/ap-list.html:145
+#: templates/ap_index.html:475
+msgid "型号:"
+msgstr "Model:"
+
+#: templates/ap-customer.html:307 templates/ap-list.html:149
+#: templates/ap_index.html:479
+msgid "版本:"
+msgstr "Version:"
+
+#: templates/ap-customer.html:314 templates/ap-list.html:156
+#: templates/ap_index.html:486
+msgid "IP地址:"
+msgstr "IP Address:"
+
+#: templates/ap-customer.html:318 templates/ap-list.html:160
+#: templates/ap_index.html:490
+msgid "运行时间:"
+msgstr "Running Time:"
+
+#: templates/ap-customer.html:322 templates/ap-list.html:164
+#: templates/ap_index.html:494
+msgid "最后看到:"
+msgstr "Last Seen:"
+
+#: templates/ap-customer.html:328 templates/ap-list.html:170
+#: templates/ap_index.html:500
+msgid "CPU占用率:"
+msgstr "CPU Usage:"
+
+#: templates/ap-customer.html:332 templates/ap-list.html:174
+#: templates/ap_index.html:504
+msgid "内存占用率:"
+msgstr "Memory Usage:"
+
+#: templates/ap-customer.html:336 templates/ap-list.html:178
+#: templates/ap_index.html:508
+msgid "Flash占用率:"
+msgstr "Flash Usage:"
+
+#: templates/ap-customer.html:342 templates/ap-customer.html.py:395
+#: templates/ap-customer.html:426 templates/ap-list.html:184
+#: templates/ap-list.html.py:237 templates/ap-list.html:268
+#: templates/ap_index.html:514 templates/ap_index.html.py:567
+#: templates/ap_index.html:598
+msgid "用户数量"
+msgstr "User Number"
+
+#: templates/ap-customer.html:346 templates/ap-customer.html.py:399
+#: templates/ap-customer.html:430 templates/ap-list.html:188
+#: templates/ap-list.html.py:241 templates/ap-list.html:272
+#: templates/ap_index.html:518 templates/ap_index.html.py:571
+#: templates/ap_index.html:602
+msgid "来宾数量"
+msgstr "Guest Number"
+
+#: templates/ap-customer.html:357 templates/ap-list.html:199
+#: templates/ap_index.html:529
+msgid "流量"
+msgstr "Traffic"
+
+#: templates/ap-customer.html:379 templates/ap-list.html:221
+#: templates/ap_index.html:551
+msgid "射频卡(2G)"
+msgstr "Radio(2G)"
+
+#: templates/ap-customer.html:390 templates/ap-customer.html.py:421
+#: templates/ap-list.html:232 templates/ap-list.html.py:263
+#: templates/ap_index.html:562 templates/ap_index.html.py:593
+msgid "传输功率"
+msgstr "Transmission Power"
+
+#: templates/ap-customer.html:410 templates/ap-list.html:252
+#: templates/ap_index.html:582
+msgid "射频卡(5G)"
+msgstr "Radio(5G)"
+
+#: templates/ap-customer.html:460 templates/ap-list.html:302
+#: templates/ap_index.html:632
+msgid "一般配置"
+msgstr "Basic Config"
+
+#: templates/ap-customer.html:474 templates/ap-customer.html.py:486
+#: templates/ap-customer.html:498 templates/ap-customer.html.py:1059
+#: templates/ap-customer.html:1074 templates/ap-list.html:316
+#: templates/ap-list.html.py:328 templates/ap-list.html:340
+#: templates/ap-list.html.py:901 templates/ap-list.html:916
+#: templates/ap-wlan.html:147 templates/ap_index.html:646
+#: templates/ap_index.html.py:658 templates/ap_index.html:670
+#: templates/ap_index.html.py:1231 templates/ap_index.html:1246
+msgid "提交"
+msgstr "Submit"
+
+#: templates/ap-customer.html:480 templates/ap-list.html:322
+#: templates/ap_index.html:652
+msgid "AC地址"
+msgstr "AC Address"
+
+#: templates/ap-customer.html:492 templates/ap-list.html:334
+#: templates/ap_index.html:664
+msgid "LOG地址"
+msgstr "LOG Server Address"
+
+#: templates/ap-customer.html:509 templates/ap-list.html:351
+#: templates/ap_index.html:681
+msgid "射频卡"
+msgstr "Radio"
+
+#: templates/ap-customer.html:548 templates/ap-customer.html.py:603
+#: templates/ap-list.html:390 templates/ap-list.html.py:445
+#: templates/ap_index.html:720 templates/ap_index.html.py:775
+msgid "发送功率"
+msgstr "Transmit Power"
+
+#: templates/ap-customer.html:552 templates/ap-customer.html.py:576
+#: templates/ap-customer.html:607 templates/ap-customer.html.py:632
+#: templates/ap-customer.html:1188 templates/ap-list.html:394
+#: templates/ap-list.html.py:418 templates/ap-list.html:449
+#: templates/ap-list.html.py:474 templates/ap-list.html:1392
+#: templates/ap_index.html:724 templates/ap_index.html.py:748
+#: templates/ap_index.html:779 templates/ap_index.html.py:804
+#: templates/ap_index.html:1359
+msgid "自动"
+msgstr "AUTO"
+
+#: templates/ap-customer.html:553 templates/ap-customer.html.py:608
+#: templates/ap-list.html:395 templates/ap-list.html.py:450
+#: templates/ap_index.html:725 templates/ap_index.html.py:780
+msgid "高"
+msgstr "High"
+
+#: templates/ap-customer.html:554 templates/ap-customer.html.py:609
+#: templates/ap-guest-policy.html:92 templates/ap-list.html:396
+#: templates/ap-list.html.py:451 templates/ap-wlan.html:910
+#: templates/ap_index.html:726 templates/ap_index.html.py:781
+msgid "中"
+msgstr "Medium"
+
+#: templates/ap-customer.html:555 templates/ap-customer.html.py:610
+#: templates/ap-list.html:397 templates/ap-list.html.py:452
+#: templates/ap_index.html:727 templates/ap_index.html.py:782
+msgid "低"
+msgstr "Low"
+
+#: templates/ap-customer.html:556 templates/ap-customer.html.py:611
+#: templates/ap-guest-policy.html:729 templates/ap-list.html:398
+#: templates/ap-list.html.py:453 templates/ap_index.html:728
+#: templates/ap_index.html.py:783
+msgid "自定义"
+msgstr "Customize"
+
+#: templates/ap-customer.html:572 templates/ap-customer.html.py:628
+#: templates/ap-list.html:414 templates/ap-list.html.py:470
+#: templates/ap_index.html:744 templates/ap_index.html.py:800
+msgid "兼容性"
+msgstr "Compatibility"
+
+#: templates/ap-customer.html:577 templates/ap-customer.html.py:578
+#: templates/ap-customer.html:579 templates/ap-customer.html.py:633
+#: templates/ap-customer.html:634 templates/ap-list.html:419
+#: templates/ap-list.html.py:420 templates/ap-list.html:421
+#: templates/ap-list.html.py:475 templates/ap-list.html:476
+#: templates/ap_index.html:749 templates/ap_index.html.py:750
+#: templates/ap_index.html:751 templates/ap_index.html.py:805
+#: templates/ap_index.html:806
+msgid "仅"
+msgstr "Only"
+
+#: templates/ap-customer.html:670 templates/ap-list.html:512
+#: templates/ap-list.html.py:1022 templates/ap_index.html:842
+msgid "名称"
+msgstr "NAME"
+
+#: templates/ap-customer.html:671 templates/ap-list.html:513
+#: templates/ap_index.html:843
+msgid "改动"
+msgstr "Change"
+
+#: templates/ap-customer.html:684 templates/ap-list.html:526
+#: templates/ap-wlan.html:199 templates/ap-wlan.html.py:533
+#: templates/ap_index.html:856
+msgid "应用于"
+msgstr "Apply For"
+
+#: templates/ap-customer.html:688 templates/ap-customer.html.py:1132
+#: templates/ap-list.html:530 templates/ap-list.html.py:1128
+#: templates/ap-list.html:1337 templates/ap-wlan.html:203
+#: templates/ap-wlan.html.py:537 templates/ap_index.html:860
+msgid "全部"
+msgstr "All"
+
+#: templates/ap-customer.html:696 templates/ap-list.html:538
+#: templates/ap_index.html:868
+msgid "在此接入点启用"
+msgstr "Enable at this AP"
+
+#: templates/ap-customer.html:710 templates/ap-list.html:552
+#: templates/ap-wlan.html:436 templates/ap-wlan.html.py:770
+#: templates/ap_index.html:882
+msgid "启用VLAN"
+msgstr "Enable VLAN"
+
+#: templates/ap-customer.html:723 templates/ap-list.html:565
+#: templates/ap-wlan.html:453 templates/ap-wlan.html.py:786
+#: templates/ap_index.html:895
+msgid "VLAN ID"
+msgstr "VLAN ID"
+
+#: templates/ap-customer.html:734 templates/ap-list.html:576
+#: templates/ap_index.html:906
+msgid "SSID"
+msgstr "SSID"
+
+#: templates/ap-customer.html:745 templates/ap-list.html:587
+#: templates/ap_index.html:917
+msgid "PSK"
+msgstr "PSK"
+
+#: templates/ap-customer.html:756 templates/ap-list.html:598
+#: templates/ap-wlan.html:264 templates/ap-wlan.html.py:598
+#: templates/ap_index.html:928
+msgid "下载限速"
+msgstr "Download Limit"
+
+#: templates/ap-customer.html:779 templates/ap-list.html:621
+#: templates/ap-wlan.html:287 templates/ap-wlan.html.py:621
+#: templates/ap_index.html:951
+msgid "上传限速"
+msgstr "Upload Limit"
+
+#: templates/ap-customer.html:807 templates/ap-list.html:649
+#: templates/ap_index.html:979
+msgid "还原"
+msgstr "Recover"
+
+#: templates/ap-customer.html:810 templates/ap-group.html:132
+#: templates/ap-group.html.py:277 templates/ap-guest-policy.html:556
+#: templates/ap-guest-policy.html.py:567 templates/ap-guest-policy.html:578
+#: templates/ap-guest-policy.html.py:589 templates/ap-guest-policy.html:600
+#: templates/ap-guest-policy.html.py:960 templates/ap-list.html:652
+#: templates/ap-user-policy-config.html:483
+#: templates/ap-user-policy-config.html:549 templates/ap-wlan.html:487
+#: templates/ap-wlan.html.py:820 templates/ap-wlan.html:855
+#: templates/ap_index.html:982
+msgid "取消"
+msgstr "Cancel"
+
+#: templates/ap-customer.html:824 templates/ap-list.html:666
+#: templates/ap_index.html:996
+msgid "网络"
+msgstr "Network"
+
+#: templates/ap-customer.html:834 templates/ap-list.html:676
+#: templates/ap_index.html:1006
+msgid "配置IP"
+msgstr "IP Config"
+
+#: templates/ap-customer.html:838 templates/ap-list.html:680
+#: templates/ap_index.html:1010
+msgid "静态IP"
+msgstr "Static IP"
+
+#: templates/ap-customer.html:849 templates/ap-list.html:691
+#: templates/ap_index.html:1021
+msgid "子网掩码"
+msgstr "Subnet Mask"
+
+#: templates/ap-customer.html:855 templates/ap-list.html:697
+#: templates/ap_index.html:1027
+msgid "网关"
+msgstr "Gateway"
+
+#: templates/ap-customer.html:861 templates/ap-list.html:703
+#: templates/ap_index.html:1033
+msgid "首选DNS"
+msgstr "Preferred DNS"
+
+#: templates/ap-customer.html:867 templates/ap-list.html:709
+#: templates/ap_index.html:1039
+msgid "备选DNS"
+msgstr "Alternate DNS"
+
+#: templates/ap-customer.html:888 templates/ap-list.html:730
+#: templates/ap_index.html:1060
+msgid "NTP配置"
+msgstr "NTP Config"
+
+#: templates/ap-customer.html:897 templates/ap-list.html:739
+#: templates/ap_index.html:1069
+msgid "首选NTP地址"
+msgstr "Preferred NTP Address"
+
+#: templates/ap-customer.html:903 templates/ap-list.html:745
+#: templates/ap_index.html:1075
+msgid "备选NTP地址"
+msgstr "Alternate NTP Address"
+
+#: templates/ap-customer.html:933 templates/ap-list.html:775
+#: templates/ap-user-policy-config.html:35 templates/ap_index.html:1105
+msgid "最大用户数"
+msgstr "Maximum number of users"
+
+#: templates/ap-customer.html:954 templates/ap-customer.html.py:968
+#: templates/ap-customer.html:1167 templates/ap-group.html:320
+#: templates/ap-list.html:796 templates/ap-list.html.py:810
+#: templates/ap-list.html:1374 templates/ap_index.html:1126
+#: templates/ap_index.html.py:1140 templates/ap_index.html:1332
+msgid "移除"
+msgstr "Remove"
+
+#: templates/ap-customer.html:961 templates/ap-list.html:803
+#: templates/ap_index.html:1133
+msgid ""
+"如果您不希望继续管理此接入点,您可以移除它.请注意所有与此接入点相关的配置和历"
+"史记录都将删除."
+msgstr ""
+"If you no longer wish to manage this AP, you may remove it.Note that all "
+"configurations and history with respect to this access pointwill be wiped "
+"out."
+
+#: templates/ap-customer.html:981 templates/ap-list.html:823
+#: templates/ap_index.html:1153
+msgid "远程诊断："
+msgstr "Remote Diagnosis："
+
+#: templates/ap-customer.html:996 templates/ap-guest-policy.html:535
+#: templates/ap-guest-policy.html:1093 templates/ap-list.html:64
+#: templates/ap-list.html.py:838 templates/ap-list.html:1398
+#: templates/ap_index.html:1168 templates/ap_index.html.py:1357
+msgid "状态"
+msgstr "Status"
+
+#: templates/ap-customer.html:1004 templates/ap-customer.html.py:1057
+#: templates/ap-list.html:846 templates/ap-list.html.py:899
+#: templates/ap-list.html:1031 templates/ap_index.html:1176
+#: templates/ap_index.html.py:1229
+msgid "序列号"
+msgstr "Serial Number"
+
+#: templates/ap-customer.html:1005 templates/ap-customer.html.py:1062
+#: templates/ap-guest-policy.html:84 templates/ap-guest-policy.html.py:1091
+#: templates/ap-list.html:847 templates/ap-list.html.py:904
+#: templates/ap_index.html:1177 templates/ap_index.html.py:1234
+msgid "密码"
+msgstr "Password"
+
+#: templates/ap-customer.html:1006 templates/ap-list.html:848
+#: templates/ap_index.html:1178
+msgid "光口los状态"
+msgstr "Optical Port los State"
+
+#: templates/ap-customer.html:1007 templates/ap-list.html:849
+#: templates/ap_index.html:1179
+msgid "PON口的发射光功率"
+msgstr "PON Optical Power of the PON Port"
+
+#: templates/ap-customer.html:1008 templates/ap-list.html:850
+#: templates/ap_index.html:1180
+msgid "PON口的接收光功率"
+msgstr "Received Optical Power of PON Port"
+
+#: templates/ap-customer.html:1009 templates/ap-list.html:851
+#: templates/ap_index.html:1181
+msgid "光模块工作温度"
+msgstr "Operating Temperature of the Optical Module"
+
+#: templates/ap-customer.html:1010 templates/ap-list.html:852
+#: templates/ap_index.html:1182
+msgid "光模块供电电压"
+msgstr "Optical Module Supply Voltage"
+
+#: templates/ap-customer.html:1011 templates/ap-list.html:853
+#: templates/ap_index.html:1183
+msgid "光发送机的偏置电流"
+msgstr "Optical Transmitter Bias Current"
+
+#: templates/ap-customer.html:1012 templates/ap-list.html:854
+#: templates/ap_index.html:1184
+msgid "O1-O5状态"
+msgstr "01-05 Status"
+
+#: templates/ap-customer.html:1013 templates/ap-list.html:855
+#: templates/ap_index.html:1185
+msgid "注册状态"
+msgstr "Registration Status"
+
+#: templates/ap-customer.html:1014 templates/ap-list.html:856
+#: templates/ap_index.html:1186
+msgid "认证状态"
+msgstr "Certification Status"
+
+#: templates/ap-customer.html:1015 templates/ap-list.html:857
+#: templates/ap_index.html:1187
+msgid "厂商名称"
+msgstr "Trade Names"
+
+#: templates/ap-customer.html:1016 templates/ap-list.html:858
+#: templates/ap_index.html:1188
+msgid "厂商 OUI"
+msgstr "Trade OUI"
+
+#: templates/ap-customer.html:1017 templates/ap-list.html:859
+#: templates/ap_index.html:1189
+msgid "运营商"
+msgstr "Operator"
+
+#: templates/ap-customer.html:1018 templates/ap-list.html:860
+#: templates/ap_index.html:1190
+msgid "设备型号"
+msgstr "Device Model"
+
+#: templates/ap-customer.html:1019 templates/ap-list.html:861
+#: templates/ap_index.html:1191
+msgid "硬件版本号"
+msgstr "Hardware Version"
+
+#: templates/ap-customer.html:1020 templates/ap-list.html:862
+#: templates/ap_index.html:1192
+msgid "软件版本号"
+msgstr "Software Version"
+
+#: templates/ap-customer.html:1067 templates/ap-customer.html.py:1086
+#: templates/ap-group.html:262 templates/ap-list.html:909
+#: templates/ap-list.html.py:928 templates/ap_index.html:1239
+#: templates/ap_index.html.py:1258
+msgid "保存"
+msgstr "Save"
+
+#: templates/ap-customer.html:1072 templates/ap-list.html:914
+#: templates/ap_index.html:1244
+msgid "厂商唯一标识"
+msgstr "Vendor Unique Identifier"
+
+#: templates/ap-customer.html:1077 templates/ap-group.html:253
+#: templates/ap-list.html:919 templates/ap_index.html:1249
+msgid "升级地址"
+msgstr "Upgrade Address"
+
+#: templates/ap-customer.html:1081 templates/ap-group.html:257
+#: templates/ap-list.html:923 templates/ap_index.html:1253
+msgid "升级文件"
+msgstr "Upgrade File"
+
+#: templates/ap-customer.html:1089 templates/ap-list.html:931
+#: templates/ap_index.html:1261
+msgid "升级GPON"
+msgstr "Upgrade GPON"
+
+#: templates/ap-customer.html:1090 templates/ap-customer.html.py:1164
+#: templates/ap-group.html:317 templates/ap-list.html:932
+#: templates/ap-list.html.py:1371 templates/ap_index.html:1262
+#: templates/ap_index.html.py:1329 views.py:388 views.py:959 views.py:2418
+#: views.py:2542
+msgid "升级"
+msgstr "Upgrade"
+
+#: templates/ap-customer.html:1095 templates/ap-list.html:937
+#: templates/ap_index.html:1267
+msgid "重启GPON"
+msgstr "Reboot GPON"
+
+#: templates/ap-customer.html:1096 templates/ap-customer.html.py:1115
+#: templates/ap-customer.html:1163 templates/ap-group.html:316
+#: templates/ap-list.html:938 templates/ap-list.html.py:957
+#: templates/ap-list.html:1370 templates/ap_index.html:1268
+#: templates/ap_index.html.py:1287 templates/ap_index.html:1328 views.py:386
+#: views.py:957 views.py:2416 views.py:2540
+msgid "重启"
+msgstr "Reboot"
+
+#: templates/ap-customer.html:1099 templates/ap-list.html:941
+#: templates/ap_index.html:1271
+msgid "保存数据"
+msgstr "Save Data"
+
+#: templates/ap-customer.html:1100 templates/ap-list.html:942
+#: templates/ap_index.html:1272
+msgid "恢复出厂"
+msgstr "Restore Factory"
+
+#: templates/ap-customer.html:1114 templates/ap-list.html:956
+#: templates/ap_index.html:1286
+msgid "定位"
+msgstr "Locate"
+
+#: templates/ap-customer.html:1138 templates/ap-group.html:291
+#: templates/ap-list.html:1344 templates/ap-user-policy-config.html:574
+#: templates/ap-wlan.html:876 templates/ap_index.html:1303
+msgid "序列号不能为空"
+msgstr "Serial number cannot be empty"
+
+#: templates/ap-customer.html:1139 templates/ap-group.html:292
+#: templates/ap-list.html:1345 templates/ap-user-policy-config.html:575
+#: templates/ap-wlan.html:877 templates/ap_index.html:1304
+msgid "MAC 不能为空"
+msgstr "MAC cannot be empty"
+
+#: templates/ap-customer.html:1140 templates/ap-group.html:293
+#: templates/ap-list.html:1346 templates/ap-user-policy-config.html:576
+#: templates/ap-wlan.html:878 templates/ap_index.html:1305
+msgid "MAC 有效字符不为12"
+msgstr "MAC valid characters are not 12"
+
+#: templates/ap-customer.html:1141 templates/ap-group.html:294
+#: templates/ap-guest-policy.html:1104 templates/ap-list.html:1347
+#: templates/ap-user-policy-config.html:577 templates/ap-wlan.html:879
+#: templates/ap_index.html:1306
+msgid "错误列表下载"
+msgstr "Error list download"
+
+#: templates/ap-customer.html:1142 templates/ap-group.html:295
+#: templates/ap-guest-policy.html:1105 templates/ap-list.html:1348
+#: templates/ap-user-policy-config.html:578 templates/ap-wlan.html:880
+#: templates/ap_index.html:1307
+msgid "文件类型错误"
+msgstr "File type error"
+
+#: templates/ap-customer.html:1143 templates/ap-group.html:296
+#: templates/ap-guest-policy.html:1106 templates/ap-list.html:1349
+#: templates/ap-user-policy-config.html:579 templates/ap-wlan.html:881
+#: templates/ap_index.html:1308
+msgid "未选择文件"
+msgstr "File not selected"
+
+#: templates/ap-customer.html:1145 templates/ap-group.html:298
+#: templates/ap-list.html:1351 templates/ap-user-policy-config.html:580
+#: templates/ap-wlan.html:882 templates/ap_index.html:1310
+msgid "AC地址不合法"
+msgstr "The AC address is invalid."
+
+#: templates/ap-customer.html:1147 templates/ap-group.html:300
+#: templates/ap-guest-policy.html:1073 templates/ap-list.html:1353
+#: templates/ap-user-policy-config.html:582 templates/ap-wlan.html:884
+#: templates/ap_index.html:1312
+msgid "处理中..."
+msgstr "Processing..."
+
+#: templates/ap-customer.html:1148 templates/ap-group.html:301
+#: templates/ap-guest-policy.html:1074 templates/ap-list.html:1354
+#: templates/ap-user-policy-config.html:583 templates/ap-wlan.html:885
+#: templates/ap_index.html:1313
+msgid "显示"
+msgstr "Dispaly"
+
+#: templates/ap-customer.html:1149 templates/ap-group.html:302
+#: templates/ap-guest-policy.html:1075 templates/ap-list.html:1355
+#: templates/ap-user-policy-config.html:584 templates/ap-wlan.html:886
+#: templates/ap_index.html:1314
+msgid "记录"
+msgstr "Records"
+
+#: templates/ap-customer.html:1150 templates/ap-group.html:303
+#: templates/ap-guest-policy.html:1076 templates/ap-list.html:1356
+#: templates/ap-user-policy-config.html:585 templates/ap-wlan.html:887
+#: templates/ap_index.html:1315
+msgid "没有匹配结果"
+msgstr "No matching results"
+
+#: templates/ap-customer.html:1151 templates/ap-group.html:304
+#: templates/ap-guest-policy.html:1077 templates/ap-list.html:1357
+#: templates/ap-user-policy-config.html:586 templates/ap-wlan.html:888
+#: templates/ap_index.html:1316
+msgid "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项"
+msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+
+#: templates/ap-customer.html:1152 templates/ap-group.html:305
+#: templates/ap-guest-policy.html:1078 templates/ap-list.html:1358
+#: templates/ap-user-policy-config.html:587 templates/ap-wlan.html:889
+#: templates/ap_index.html:1317
+msgid "显示第 0 至 0 项结果，共 0 项"
+msgstr "Showing 0 to 0 of 0 entries"
+
+#: templates/ap-customer.html:1153 templates/ap-group.html:306
+#: templates/ap-guest-policy.html:1079 templates/ap-list.html:1359
+#: templates/ap-user-policy-config.html:588 templates/ap-wlan.html:890
+#: templates/ap_index.html:1318
+msgid "由 _MAX_ 项结果过滤"
+msgstr "filtered from _MAX_ total entries"
+
+#: templates/ap-customer.html:1154 templates/ap-group.html:307
+#: templates/ap-guest-policy.html:1080 templates/ap-list.html:1360
+#: templates/ap-user-policy-config.html:589 templates/ap-wlan.html:891
+#: templates/ap_index.html:1319
+msgid "搜索 : "
+msgstr "Search :"
+
+#: templates/ap-customer.html:1155 templates/ap-group.html:308
+#: templates/ap-guest-policy.html:1081 templates/ap-list.html:1361
+#: templates/ap-user-policy-config.html:590 templates/ap-wlan.html:892
+#: templates/ap_index.html:1320
+msgid "表中数据为空"
+msgstr "The data in the table is empty"
+
+#: templates/ap-customer.html:1156 templates/ap-group.html:309
+#: templates/ap-guest-policy.html:1082 templates/ap-list.html:1362
+#: templates/ap-user-policy-config.html:591 templates/ap-wlan.html:893
+#: templates/ap_index.html:1321
+msgid "载入中..."
+msgstr "Loading..."
+
+#: templates/ap-customer.html:1158 templates/ap-group.html:311
+#: templates/ap-list.html:1129 templates/ap-list.html.py:1338
+#: templates/ap-list.html:1365 templates/ap_index.html:33
+#: templates/ap_index.html.py:1323 views.py:390 views.py:961 views.py:2420
+#: views.py:2544
+msgid "在线"
+msgstr "Online"
+
+#: templates/ap-customer.html:1159 templates/ap-group.html:312
+#: templates/ap-list.html:1366 templates/ap_index.html:1324 views.py:382
+#: views.py:953 views.py:2412 views.py:2536
+msgid "超时"
+msgstr "Time Out"
+
+#: templates/ap-customer.html:1160 templates/ap-group.html:313
+#: templates/ap-list.html:1339 templates/ap-list.html.py:1367
+#: templates/ap_index.html:40 templates/ap_index.html.py:1325 views.py:376
+#: views.py:380 views.py:947 views.py:951 views.py:2406 views.py:2410
+#: views.py:2530 views.py:2534
+msgid "离线"
+msgstr "Offline"
+
+#: templates/ap-customer.html:1161 templates/ap-group.html:314
+#: templates/ap-list.html:1368 templates/ap_index.html:1326 views.py:378
+#: views.py:949 views.py:2408 views.py:2425 views.py:2532 views.py:2557
+msgid "退服"
+msgstr "Retired"
+
+#: templates/ap-customer.html:1162 templates/ap-group.html:315
+#: templates/ap-list.html:1369 templates/ap_index.html:1327 views.py:965
+msgid "已移除"
+msgstr "Removed"
+
+#: templates/ap-customer.html:1165 templates/ap-group.html:318
+#: templates/ap-list.html:1372 templates/ap_index.html:1330
+msgid "私网地址"
+msgstr "Private network address"
+
+#: templates/ap-customer.html:1166 templates/ap-group.html:319
+#: templates/ap-list.html:1373 templates/ap_index.html:1331
+msgid "远程地址"
+msgstr "Remote Address"
+
+#: templates/ap-customer.html:1168 templates/ap-group.html:321
+#: templates/ap-list.html:1375 templates/ap_index.html:1333
+msgid "跳转至"
+msgstr "Jump to"
+
+#: templates/ap-customer.html:1169 templates/ap-group.html:322
+#: templates/ap-guest-policy.html:1084 templates/ap-list.html:1376
+#: templates/ap-user-policy-config.html:593 templates/ap-wlan.html:895
+#: templates/ap_index.html:1334
+msgid "提示信息"
+msgstr "Prompt Message"
+
+#: templates/ap-customer.html:1170 templates/ap-group.html:323
+#: templates/ap-list.html:1377 templates/ap_index.html:1335
+msgid "修改"
+msgstr "Modify"
+
+#: templates/ap-customer.html:1172 templates/ap-group.html:325
+#: templates/ap-list.html:1379 templates/ap-wlan.html:898
+#: templates/ap_index.html:1337
+msgid "信号名称不能为空"
+msgstr "SSID cannot be empty"
+
+#: templates/ap-customer.html:1173 templates/ap-group.html:326
+#: templates/ap-list.html:1380 templates/ap-wlan.html:899
+#: templates/ap_index.html:1338
+msgid "限速不能为空"
+msgstr "Speed limit cannot be empty"
+
+#: templates/ap-customer.html:1174 templates/ap-group.html:327
+#: templates/ap-list.html:1381 templates/ap-wlan.html:900
+#: templates/ap_index.html:1339
+msgid "vlan不能为空"
+msgstr "Vlan cannot be empty"
+
+#: templates/ap-customer.html:1175 templates/ap-group.html:328
+#: templates/ap-list.html:1382 templates/ap-wlan.html:901
+#: templates/ap_index.html:1340
+msgid "vlan必须是1-4094范围内的整数"
+msgstr "Vlan must be an integer in the range 1-4094"
+
+#: templates/ap-customer.html:1176 templates/ap-group.html:329
+#: templates/ap-list.html:1383 templates/ap-wlan.html:902
+#: templates/ap_index.html:1341
+msgid "密码不能为空"
+msgstr "Password can not be blank"
+
+#: templates/ap-customer.html:1177 templates/ap-group.html:330
+#: templates/ap-list.html:1384 templates/ap-wlan.html:903
+#: templates/ap_index.html:1342
+msgid "密码必须是8-64位的ASCII码字符"
+msgstr "Password must be 8-64-bit ASCII characters"
+
+#: templates/ap-customer.html:1180 templates/ap-group.html:333
+#: templates/ap-list.html:1387 templates/ap_index.html:1345
+msgid "服务器地址不能为空"
+msgstr "Server address cannot be empty"
+
+#: templates/ap-customer.html:1181 templates/ap-group.html:334
+#: templates/ap-list.html:1388 templates/ap_index.html:1346
+msgid "文件名称不能为空"
+msgstr "File name cannot be empty"
+
+#: templates/ap-customer.html:1183 templates/ap-group.html:336
+#: templates/ap-list.html:1390 templates/ap_index.html:1348
+msgid "别名不能为空"
+msgstr "Aliase cannot be empty"
+
+#: templates/ap-customer.html:1184 templates/ap-group.html:337
+#: templates/ap-list.html:1391 templates/ap_index.html:1349
+msgid "用户不存在"
+msgstr "User does not exist"
+
+#: templates/ap-customer.html:1186
+msgid "来宾接入"
+msgstr "Guest access"
+
+#: templates/ap-customer.html:1187
+msgid "用户接入"
+msgstr "User access"
+
+#: templates/ap-customer.html:1189 templates/ap-list.html:1394
+#: templates/ap_index.html:1360
+msgid "定位执行失败"
+msgstr "Position execution failed"
+
+#: templates/ap-group.html:12 templates/ap-group.html.py:23
+msgid "群组"
+msgstr "Group"
+
+#: templates/ap-group.html:26 templates/ap-guest-policy.html:126
+#: templates/ap-guest-policy.html.py:518 templates/ap-list.html:26
+#: templates/ap-list.html.py:1015 templates/ap-user-policy-config.html:366
+#: templates/ap-user-policy-config.html:406 templates/ap-wlan.html:34
+#: templates/ap-wlan.html.py:86
+msgid "添加"
+msgstr "Add"
+
+#: templates/ap-group.html:39 templates/ap-group.html.py:93
+#: templates/ap-group.html:152 templates/ap-list.html:1403
+msgid "群组名称"
+msgstr "Group Name"
+
+#: templates/ap-group.html:40
+msgid "管理域名"
+msgstr "Domain Names"
+
+#: templates/ap-group.html:41
+msgid "设备数量"
+msgstr "Device Number"
+
+#: templates/ap-group.html:42 templates/ap-group.html.py:173
+#: templates/ap-group.html:186 templates/ap-group.html.py:227
+#: templates/ap-guest-policy.html:528 templates/ap-wlan.html:47
+msgid "无线网络"
+msgstr "Wireless"
+
+#: templates/ap-group.html:55 templates/ap-wlan.html:63
+msgid "查看"
+msgstr "View"
+
+#: templates/ap-group.html:65 templates/ap-guest-policy.html:1095
+#: templates/ap-user-policy-config.html:595 templates/ap-wlan.html:67
+#: templates/ap-wlan.html.py:914
+msgid "删除"
+msgstr "Delete"
+
+#: templates/ap-group.html:86
+msgid "添加群组"
+msgstr "Add Group"
+
+#: templates/ap-group.html:108 templates/ap-group.html.py:170
+msgid "加入群组"
+msgstr "Join Group"
+
+#: templates/ap-group.html:118 templates/ap-group.html.py:215
+msgid "加入"
+msgstr "Join"
+
+#: templates/ap-group.html:145
+msgid "查看群组"
+msgstr "View group"
+
+#: templates/ap-group.html:167
+msgid "移出群组"
+msgstr "Move out of the group"
+
+#: templates/ap-group.html:183
+msgid "群组成员"
+msgstr "Group Members"
+
+#: templates/ap-group.html:201
+msgid "移出"
+msgstr "Remove"
+
+#: templates/ap-group.html:228
+msgid "安全类型"
+msgstr "Security Type"
+
+#: templates/ap-group.html:229 templates/ap-guest-policy.html:16
+#: templates/ap-guest-policy.html.py:27 templates/ap-wlan.html:50
+#: templates/ap-wlan.html.py:310 templates/ap-wlan.html:644
+msgid "来宾策略"
+msgstr "Guest Policy"
+
+#: templates/ap-group.html:261
+msgid "保存配置"
+msgstr "Save Config"
+
+#: templates/ap-group.html:339
+msgid "开启"
+msgstr "Open"
+
+#: templates/ap-group.html:340
+msgid "关闭"
+msgstr "Close"
+
+#: templates/ap-group.html:341
+msgid "请输入群组名称"
+msgstr "Please input group name"
+
+#: templates/ap-guest-policy.html:36
+msgid "内置 认证服务器"
+msgstr "Built-in authentication server"
+
+#: templates/ap-guest-policy.html:39
+msgid "通用配置"
+msgstr "General Config"
+
+#: templates/ap-guest-policy.html:40
+msgid "认证帐号"
+msgstr "Certified account"
+
+#: templates/ap-guest-policy.html:41 templates/ap-guest-policy.html.py:153
+msgid "短信网关"
+msgstr "SMS Gateway"
+
+#: templates/ap-guest-policy.html:42
+msgid "微信认证配置"
+msgstr "WeChat Authentication Config"
+
+#: templates/ap-guest-policy.html:43 templates/ap-guest-policy.html.py:595
+#: templates/ap-guest-policy.html:1147 templates/ap-wlan.html:923
+msgid "卡券认证"
+msgstr "Card certificate"
+
+#: templates/ap-guest-policy.html:44 templates/ap-guest-policy.html.py:971
+msgid "门户自定义"
+msgstr "Portal customization"
+
+#: templates/ap-guest-policy.html:50 templates/ap-wlan.html:408
+#: templates/ap-wlan.html.py:742
+msgid "认证后跳转"
+msgstr "Jump after authentication"
+
+#: templates/ap-guest-policy.html:53
+msgid "原始页面"
+msgstr "Original Page"
+
+#: templates/ap-guest-policy.html:63
+msgid "自定义门户页面"
+msgstr "Custom Portal Page"
+
+#: templates/ap-guest-policy.html:75 templates/ap-guest-policy.html.py:1090
+msgid "账号"
+msgstr "Account"
+
+#: templates/ap-guest-policy.html:91 templates/ap-wlan.html:909
+msgid "弱"
+msgstr "Weak"
+
+#: templates/ap-guest-policy.html:93 templates/ap-wlan.html:911
+msgid "强"
+msgstr "Strong"
+
+#: templates/ap-guest-policy.html:102 templates/ap-guest-policy.html:1107
+msgid "时效性"
+msgstr "Timeliness"
+
+#: templates/ap-guest-policy.html:105
+msgid "关"
+msgstr "Close"
+
+#: templates/ap-guest-policy.html:106 templates/ap-guest-policy.html.py:879
+#: templates/ap-list.html:978
+msgid "1天"
+msgstr "1 days"
+
+#: templates/ap-guest-policy.html:107 templates/ap-guest-policy.html.py:726
+msgid "3天"
+msgstr "3 days"
+
+#: templates/ap-guest-policy.html:108 templates/ap-guest-policy.html.py:727
+#: templates/ap-guest-policy.html:880 templates/ap-list.html:980
+msgid "7天"
+msgstr "7 days"
+
+#: templates/ap-guest-policy.html:109 templates/ap-guest-policy.html.py:728
+#: templates/ap-guest-policy.html:881
+msgid "30天"
+msgstr "30 days"
+
+#: templates/ap-guest-policy.html:110
+msgid "90天"
+msgstr "90 days"
+
+#: templates/ap-guest-policy.html:111
+msgid "180天"
+msgstr "180 days"
+
+#: templates/ap-guest-policy.html:112
+msgid "365天"
+msgstr "365 days"
+
+#: templates/ap-guest-policy.html:123
+msgid "显示/隐藏列表"
+msgstr "Dispaly/Hide list"
+
+#: templates/ap-guest-policy.html:129 templates/ap-guest-policy.html:1017
+#: templates/ap-list.html:27 templates/ap-list.html.py:1068
+msgid "导入"
+msgstr "Import"
+
+#: templates/ap-guest-policy.html:132 templates/ap-guest-policy.html.py:992
+#: templates/ap-list.html:28 templates/ap-list.html.py:1118
+msgid "导出"
+msgstr "Export"
+
+#: templates/ap-guest-policy.html:159
+msgid "请选择"
+msgstr "Please Choose"
+
+#: templates/ap-guest-policy.html:160
+msgid "阿里大于"
+msgstr "alidayu"
+
+#: templates/ap-guest-policy.html:161
+msgid "阿里云"
+msgstr "Ali Cloud"
+
+#: templates/ap-guest-policy.html:162
+msgid "互亿无线"
+msgstr "ihuyi"
+
+#: templates/ap-guest-policy.html:163
+msgid "云片"
+msgstr "yunpian"
+
+#: templates/ap-guest-policy.html:201 templates/ap-guest-policy.html.py:368
+msgid "签名"
+msgstr "Signature"
+
+#: templates/ap-guest-policy.html:213 templates/ap-guest-policy.html.py:380
+msgid "中文模板ID"
+msgstr "Chinese template ID"
+
+#: templates/ap-guest-policy.html:225 templates/ap-guest-policy.html.py:392
+msgid "英文模板ID"
+msgstr "English template ID"
+
+#: templates/ap-guest-policy.html:237
+#, python-brace-format
+msgid "注: 模板内容中验证码部分请用\"${code}\"代替"
+msgstr ""
+"Note: Please use \"${code}\" instead of the verification code part in the "
+"template content."
+
+#: templates/ap-guest-policy.html:283
+msgid "中文短信模板"
+msgstr "Chinese SMS template"
+
+#: templates/ap-guest-policy.html:295
+msgid "英文短信模板"
+msgstr "English SMS template"
+
+#: templates/ap-guest-policy.html:356
+msgid "主题名称"
+msgstr "Subject Name"
+
+#: templates/ap-guest-policy.html:404
+#, python-brace-format
+msgid "注: 模板内容中验证码部分请用'${code}'代替"
+msgstr ""
+"Note: Please use '${code}' instead of the verification code part in the "
+"template content."
+
+#: templates/ap-guest-policy.html:462 templates/ap-wlan.html:332
+#: templates/ap-wlan.html.py:666
+msgid "应用ID"
+msgstr "Application ID"
+
+#: templates/ap-guest-policy.html:471 templates/ap-wlan.html:343
+#: templates/ap-wlan.html.py:677
+msgid "应用秘钥"
+msgstr "Application key"
+
+#: templates/ap-guest-policy.html:476
+msgid "开启'强制关注'时必填"
+msgstr "Required when 'forced attention' is turned on"
+
+#: templates/ap-guest-policy.html:480
+msgid "门店ID"
+msgstr "Store ID"
+
+#: templates/ap-guest-policy.html:489
+msgid "秘钥"
+msgstr "Key"
+
+#: templates/ap-guest-policy.html:498 templates/ap-wlan.html:376
+#: templates/ap-wlan.html.py:710
+msgid "强制关注"
+msgstr "Forced attention"
+
+#: templates/ap-guest-policy.html:521 templates/voucherprint.html:8
+msgid "卡券打印"
+msgstr "Card coupon printing"
+
+#: templates/ap-guest-policy.html:529 templates/ap-guest-policy.html.py:864
+msgid "卡券码"
+msgstr "Card code"
+
+#: templates/ap-guest-policy.html:530 templates/ap-guest-policy.html.py:911
+msgid "类型"
+msgstr "Type"
+
+#: templates/ap-guest-policy.html:531 templates/ap-guest-policy.html.py:874
+msgid "有效期(小时)"
+msgstr "Validity (hours)"
+
+#: templates/ap-guest-policy.html:532 templates/ap-guest-policy.html.py:889
+msgid "流量(MB)"
+msgstr "Traffic (MB)"
+
+#: templates/ap-guest-policy.html:533 templates/ap-guest-policy.html:1092
+msgid "创建时间"
+msgstr "Creation time"
+
+#: templates/ap-guest-policy.html:534
+msgid "已用流量(KB)"
+msgstr "Used traffic (KB)"
+
+#: templates/ap-guest-policy.html:536
+msgid "MAC"
+msgstr "MAC"
+
+#: templates/ap-guest-policy.html:537 templates/ap-guest-policy.html.py:924
+msgid "备注"
+msgstr "Remarks"
+
+#: templates/ap-guest-policy.html:548
+msgid "认证方式"
+msgstr "Verification Method"
+
+#: templates/ap-guest-policy.html:551 templates/ap-guest-policy.html:1143
+msgid "一键认证"
+msgstr "One-click Authentication"
+
+#: templates/ap-guest-policy.html:558 templates/ap-guest-policy.html.py:569
+#: templates/ap-guest-policy.html:580 templates/ap-guest-policy.html.py:591
+#: templates/ap-guest-policy.html:602 templates/ap-guest-policy.html:1096
+msgid "编辑"
+msgstr "Edit"
+
+#: templates/ap-guest-policy.html:562 templates/ap-guest-policy.html:1146
+msgid "账户认证"
+msgstr "Account Authentication"
+
+#: templates/ap-guest-policy.html:573 templates/ap-guest-policy.html:1144
+#: templates/ap-wlan.html:920
+msgid "短信认证"
+msgstr "SMS Authentication"
+
+#: templates/ap-guest-policy.html:584 templates/ap-guest-policy.html:1145
+#: templates/ap-wlan.html:921
+msgid "微信认证"
+msgstr "WeChat Certification"
+
+#: templates/ap-guest-policy.html:614
+msgid "Radius 服务器配置"
+msgstr "Radius server configuration"
+
+#: templates/ap-guest-policy.html:616
+msgid "Radius服务器IP"
+msgstr "Radius server IP"
+
+#: templates/ap-guest-policy.html:620 templates/ap-wlan.html:255
+#: templates/ap-wlan.html.py:589
+msgid "端口"
+msgstr "Port"
+
+#: templates/ap-guest-policy.html:626
+msgid "Radius服务器账户"
+msgstr "Radius server account"
+
+#: templates/ap-guest-policy.html:635
+msgid "Radius服务器密码"
+msgstr "Radius server password"
+
+#: templates/ap-guest-policy.html:654 templates/ap-wlan.html:925
+msgid "外部认证服务器"
+msgstr "External Authentication Server"
+
+#: templates/ap-guest-policy.html:657 templates/ap-wlan.html:397
+#: templates/ap-wlan.html.py:731
+msgid "登录页URL"
+msgstr "Login Page URL"
+
+#: templates/ap-guest-policy.html:662
+msgid "认证登录页面, 如: "
+msgstr "Authentication login page, such as:"
+
+#: templates/ap-guest-policy.html:666
+msgid "门户页URL"
+msgstr "Portal Page URL"
+
+#: templates/ap-guest-policy.html:671
+msgid "认证成功后跳转的URL, 如:"
+msgstr "The URL to jump after successful authentication, such as:"
+
+#: templates/ap-guest-policy.html:675
+msgid "注: 认证服务器须支持wifidog协议"
+msgstr "Note: The authentication server must support the wifidog protocol."
+
+#: templates/ap-guest-policy.html:690
+msgid "全局配置"
+msgstr "Global Config"
+
+#: templates/ap-guest-policy.html:703
+msgid "认证服务器离线时用户全部放行"
+msgstr "The user is released when the authentication server is offline."
+
+#: templates/ap-guest-policy.html:707
+msgid "微信放行"
+msgstr "WeChat Release"
+
+#: templates/ap-guest-policy.html:717
+msgid "认证成功之前允许使用微信"
+msgstr "Allow WeChat before authentication is successful"
+
+#: templates/ap-guest-policy.html:721
+msgid "认证有效期"
+msgstr "Validity period of certification"
+
+#: templates/ap-guest-policy.html:724 templates/ap-guest-policy.html.py:878
+#: templates/ap-list.html:977
+msgid "8小时"
+msgstr "8 hours"
+
+#: templates/ap-guest-policy.html:725
+msgid "24小时"
+msgstr "24 hours"
+
+#: templates/ap-guest-policy.html:733
+msgid "从用户认证成功起的认证有效期(自定义时间请输入整数)"
+msgstr ""
+"Validity period from the successful user authentication (please enter an "
+"integer for custom time)"
+
+#: templates/ap-guest-policy.html:751
+msgid "超时下线"
+msgstr "Timeout offline"
+
+#: templates/ap-guest-policy.html:766
+msgid "流量无变化超时下线的时间(自定义时间请输入整数)"
+msgstr ""
+"The time when the traffic has not changed and the timeout is offline (please "
+"enter an integer for the custom time)"
+
+#: templates/ap-guest-policy.html:784
+msgid "白名单"
+msgstr "Whitelist"
+
+#: templates/ap-guest-policy.html:786
+msgid "IP、IP/Mask 或域名, 如: '1.1.1.1', '1.1.1.1/24', 'www.abc.com'"
+msgstr "IP, IP/Mask or domain name, eg: '1.1.1.1', '1.1.1.1/24', 'www.abc.com'"
+
+#: templates/ap-guest-policy.html:799
+msgid "Portal用户白名单"
+msgstr "Portal user whitelist"
+
+#: templates/ap-guest-policy.html:801
+msgid "MAC地址, 如: '00:01:02:03:04:05'"
+msgstr "MAC Address,like : '00:01:02:03:04:05'"
+
+#: templates/ap-guest-policy.html:831
+msgid "卡券添加"
+msgstr "Card coupon"
+
+#: templates/ap-guest-policy.html:836
+msgid "无线网络名称"
+msgstr "SSID"
+
+#: templates/ap-guest-policy.html:853
+msgid "数量"
+msgstr "Number"
+
+#: templates/ap-guest-policy.html:915
+msgid "单人使用"
+msgstr "Single use"
+
+#: templates/ap-guest-policy.html:916
+msgid "多人使用"
+msgstr "Multiplayer use"
+
+#: templates/ap-guest-policy.html:930
+msgid "最多80字"
+msgstr "Up to 80 words"
+
+#: templates/ap-guest-policy.html:949
+msgid "确认窗口"
+msgstr "Confirmation Window"
+
+#: templates/ap-guest-policy.html:953
+msgid "确认删除此卡券吗?"
+msgstr "Are you sure to delete this card?"
+
+#: templates/ap-guest-policy.html:959 templates/ap-guest-policy.html:1003
+#: templates/ap-guest-policy.html:1054 templates/ap-list.html:1054
+#: templates/ap-list.html.py:1105 templates/ap-list.html:1139
+msgid "确定"
+msgstr "Confirm"
+
+#: templates/ap-guest-policy.html:996
+msgid "点击确定导出认证账号信息"
+msgstr "Click OK to export the authentication account information"
+
+#: templates/ap-guest-policy.html:1024 templates/ap-list.html:1075
+msgid "请上传数据文件"
+msgstr "Please upload a data file"
+
+#: templates/ap-guest-policy.html:1027 templates/ap-list.html:1078
+msgid "数据模板"
+msgstr "Data template"
+
+#: templates/ap-guest-policy.html:1034 templates/ap-list.html:1085
+msgid "上传文件"
+msgstr "Upload Files"
+
+#: templates/ap-guest-policy.html:1043 templates/ap-list.html:1094
+msgid "处理结果"
+msgstr "Process Result"
+
+#: templates/ap-guest-policy.html:1086
+msgid "自定义有效期须为整数"
+msgstr "Custom validity period must be an integer"
+
+#: templates/ap-guest-policy.html:1087
+msgid "自定义有效期单位为时时允许1-23"
+msgstr "Custom validity period unit is allowed for 1-23"
+
+#: templates/ap-guest-policy.html:1088
+msgid "自定义下线时间须为整数"
+msgstr "Custom offline time must be an integer"
+
+#: templates/ap-guest-policy.html:1089
+msgid "自定义下线时间单位为分时允许1-59,单位为时时允许1-23"
+msgstr ""
+"The custom offline time unit is 1-59 for time-sharing, and the time is "
+"allowed for 1-23."
+
+#: templates/ap-guest-policy.html:1097
+msgid "打印"
+msgstr "Print"
+
+#: templates/ap-guest-policy.html:1098
+msgid "单人"
+msgstr "Individual"
+
+#: templates/ap-guest-policy.html:1099
+msgid "多人"
+msgstr "Multi-person"
+
+#: templates/ap-guest-policy.html:1100
+msgid "未启用"
+msgstr "Not Enabled"
+
+#: templates/ap-guest-policy.html:1101
+msgid "已过期"
+msgstr "Expired"
+
+#: templates/ap-guest-policy.html:1102
+msgid "已用完"
+msgstr "Run out"
+
+#: templates/ap-guest-policy.html:1103
+msgid "使用中，过期时间"
+msgstr "Using,Expired Time"
+
+#: templates/ap-guest-policy.html:1130
+msgid "操作执行成功!"
+msgstr "Operate Successfully!"
+
+#: templates/ap-guest-policy.html:1131
+msgid "操作执行失败!"
+msgstr "Operate Failed!"
+
+#: templates/ap-guest-policy.html:1132
+msgid "模板"
+msgstr "Template"
+
+#: templates/ap-guest-policy.html:1133
+msgid "不能为空值"
+msgstr "Cannot be null"
+
+#: templates/ap-guest-policy.html:1134
+msgid "密码至少包含四个字符！"
+msgstr "The password must contain at least four characters!"
+
+#: templates/ap-guest-policy.html:1135
+msgid "密码只允许使用0-9a-zA-Z，不允许使用其他特殊字符！"
+msgstr ""
+"Passwords are only allowed to use 0-9a-zA-Z, no other special characters are "
+"allowed!"
+
+#: templates/ap-guest-policy.html:1136
+msgid "账号只允许使用0-9a-zA-Z及下划线，不允许使用其他特殊字符！"
+msgstr ""
+"Only 0-9a-zA-Z and underscores are allowed for accounts. Other special "
+"characters are not allowed!"
+
+#: templates/ap-guest-policy.html:1137
+msgid "添加用户成功！"
+msgstr "Add user successfully!"
+
+#: templates/ap-guest-policy.html:1138
+msgid "添加失败，用户已存在！"
+msgstr "Add failed, user already exists!"
+
+#: templates/ap-guest-policy.html:1139
+msgid "添加失败，网络错误！"
+msgstr "Add failed, network error!"
+
+#: templates/ap-guest-policy.html:1140
+msgid "删除用户成功！"
+msgstr "Delete user successfully!"
+
+#: templates/ap-guest-policy.html:1141
+msgid "删除失败, 用户不存在！"
+msgstr "The deletion failed, the user does not exist!"
+
+#: templates/ap-guest-policy.html:1142
+msgid "删除失败，网络错误！"
+msgstr "Delete failed, network error!"
+
+#: templates/ap-guest-policy.html:1148
+msgid "Radius配置不能为空"
+msgstr "Radius configuration cannot be empty"
+
+#: templates/ap-guest-policy.html:1149
+msgid "Radius配置设置成功"
+msgstr "Radius configuration settings are successful"
+
+#: templates/ap-guest-policy.html:1150
+msgid "Radius配置设置失败"
+msgstr "Radius configuration settings are failed"
+
+#: templates/ap-guest-policy.html:1151
+
+msgid "设置失败,网络错误"
+msgstr "Setup failed, network error!"
+
+#: templates/ap-list.html:23
+msgid "已管理的接入点"
+msgstr "Managed AP"
+
+#: templates/ap-list.html:51
+msgid "待准入的接入点"
+msgstr "AP to be admitted"
+
+#: templates/ap-list.html:66 templates/ap-list.html.py:1401
+msgid "版本号"
+msgstr "Version"
+
+#: templates/ap-list.html:67 templates/ap-list.html.py:1402
+msgid "最后心跳"
+msgstr "Last heartbeat"
+
+#: templates/ap-list.html:968
+msgid "事件通知与提示"
+msgstr "Event notifications and prompts"
+
+#: templates/ap-list.html:971
+msgid "管理员"
+msgstr "Administrator"
+
+#: templates/ap-list.html:976
+msgid "1小时"
+msgstr "1 hours"
+
+#: templates/ap-list.html:979
+msgid "2天"
+msgstr "2 days"
+
+#: templates/ap-list.html:981
+msgid "2周"
+msgstr "2 weeks"
+
+#: templates/ap-list.html:982
+msgid "1月"
+msgstr "1 month"
+
+#: templates/ap-list.html:995
+msgid "时间"
+msgstr "Time"
+
+#: templates/ap-list.html:996
+msgid "信息"
+msgstr "Information"
+
+#: templates/ap-list.html:1025
+msgid "选填"
+msgstr "Optional"
+
+#: templates/ap-list.html:1043
+msgid "例"
+msgstr "Example"
+
+#: templates/ap-list.html:1124
+msgid "导出类型: "
+msgstr "Export type: "
+
+#: templates/ap-list.html:1130
+msgid "其他"
+msgstr "other"
+
+#: templates/ap-list.html:1340
+msgid "刷新"
+msgstr "Refresh"
+
+#: templates/ap-list.html:1393
+msgid "定位中"
+msgstr "Positioning"
+
+#: templates/ap-list.html:1406
+msgid "CPU占用率"
+msgstr "CPU Usage"
+
+#: templates/ap-list.html:1418 views.py:167
+msgid "设备已存在！"
+msgstr "The device already exists!"
+
+#: templates/ap-list.html:1418 views.py:246
+msgid "准入失败！"
+msgstr "Access failed!"
+
+#: templates/ap-list.html:1418 views.py:460 views.py:501 views.py:531
+#: views.py:570
+msgid "执行失败！"
+msgstr "Execution failed!"
+
+#: templates/ap-list.html:1418 views.py:798 views.py:1956 views.py:2118
+#: views.py:3673 views.py:3882 views.py:3959
+msgid "修改失败！"
+msgstr "Fail to edit!"
+
+#: templates/ap-list.html:1418 views.py:472
+msgid "没有此型号对应的版本文件"
+msgstr "There is no version file corresponding to this model"
+
+#: templates/ap-list.html:1421 views.py:230
+msgid "准入成功！"
+msgstr "Successful entry!"
+
+#: templates/ap-list.html:1421 views.py:436 views.py:479 views.py:515
+#: views.py:550
+msgid "执行成功！"
+msgstr "Execute Successfully!"
+
+#: templates/ap-list.html:1421 views.py:795 views.py:1937 views.py:3670
+#: views.py:3875 views.py:3956
+msgid "修改成功！"
+msgstr "Modify Successfully!"
+
+#: templates/ap-user-policy-config.html:13
+msgid "用户策略"
+msgstr "User Policy"
+
+#: templates/ap-user-policy-config.html:24
+msgid "接入策略"
+msgstr "Access policy"
+
+#: templates/ap-user-policy-config.html:42
+msgid "双频"
+msgstr "Dual frequency"
+
+#: templates/ap-user-policy-config.html:45
+msgid "双频设备最大接入用户数"
+msgstr "Maximum number of users accessing dual-band devices"
+
+#: templates/ap-user-policy-config.html:56
+msgid "单频"
+msgstr "Single frequency"
+
+#: templates/ap-user-policy-config.html:59
+msgid "单频设备最大接入用户数"
+msgstr "Maximum number of users accessing single-frequency devices"
+
+#: templates/ap-user-policy-config.html:64
+msgid "信号门限"
+msgstr "Signal threshold"
+
+#: templates/ap-user-policy-config.html:74
+msgid "低信号用户拒绝接入"
+msgstr "Low signal users refuse access"
+
+#: templates/ap-user-policy-config.html:79
+msgid "二层隔离"
+msgstr "Two-layer isolation"
+
+#: templates/ap-user-policy-config.html:94
+msgid "同一接入点下的终端之间不能互相直接通信"
+msgstr ""
+"Terminals under the same AP cannot communicate directly with each other"
+
+#: templates/ap-user-policy-config.html:99
+msgid "接入优化"
+msgstr "Access Optimization"
+
+#: templates/ap-user-policy-config.html:114
+msgid "引导用户接入到最优的设备"
+msgstr "Guide users to access the best equipment"
+
+#: templates/ap-user-policy-config.html:119
+msgid "拒绝次数"
+msgstr "Number of rejections"
+
+#: templates/ap-user-policy-config.html:129
+msgid "最大拒绝接入次数"
+msgstr "Maximum number of denied accesses"
+
+#: templates/ap-user-policy-config.html:134
+msgid "负载均衡"
+msgstr "Load balancing"
+
+#: templates/ap-user-policy-config.html:149
+msgid "将用户均衡到多个无线接入点上,更好利用带宽资源"
+msgstr ""
+"Balance users to multiple wireless AP to better utilize bandwidth resources"
+
+#: templates/ap-user-policy-config.html:154
+msgid "5G优先"
+msgstr "5G Priority"
+
+#: templates/ap-user-policy-config.html:169
+msgid ""
+"在高密度用户或者2.4G 干扰较为严重的环境中，充分利用5G 频段可以更好的提供接入"
+"能力以及容量"
+msgstr ""
+"In the environment of high-density users or 2.4G interference, the 5G "
+"frequency band can be fully utilized to provide better access capability and "
+"capacity."
+
+#: templates/ap-user-policy-config.html:174
+msgid "漫游策略"
+msgstr "Roaming strategy"
+
+#: templates/ap-user-policy-config.html:189
+msgid "无线网卡能够自动发现附近信号强度最大的AP, 保持不间断的网络连接"
+msgstr ""
+"The wireless network card can automatically discover the AP with the "
+"strongest signal strength nearby, and maintain an uninterrupted network "
+"connection."
+
+#: templates/ap-user-policy-config.html:194
+msgid "漫游灵敏度"
+msgstr "Roaming sensitivity"
+
+#: templates/ap-user-policy-config.html:204
+msgid "无线设备在移动状态下连接网络, 网卡对网络连接状态的调整速率"
+msgstr ""
+"The rate at which the wireless device connects to the network while in the "
+"mobile state, and the network card adjusts the state of the network "
+"connection."
+
+#: templates/ap-user-policy-config.html:238
+msgid "定时任务"
+msgstr "Timed Task"
+
+#: templates/ap-user-policy-config.html:248
+msgid "定时关灯"
+msgstr "Turn off the lights regularly"
+
+#: templates/ap-user-policy-config.html:261
+msgid "开启或关闭定时关灯"
+msgstr "Turn the timer off or on"
+
+#: templates/ap-user-policy-config.html:268
+msgid "重复"
+msgstr "Repeat"
+
+#: templates/ap-user-policy-config.html:272
+msgid "周一"
+msgstr "Monday"
+
+#: templates/ap-user-policy-config.html:273
+msgid "周二"
+msgstr "Tuesday"
+
+#: templates/ap-user-policy-config.html:274
+msgid "周三"
+msgstr "Wednesday"
+
+#: templates/ap-user-policy-config.html:275
+msgid "周四"
+msgstr "Thursday"
+
+#: templates/ap-user-policy-config.html:276
+msgid "周五"
+msgstr "Friday"
+
+#: templates/ap-user-policy-config.html:277
+msgid "周六"
+msgstr "Saturday"
+
+#: templates/ap-user-policy-config.html:278
+msgid "周日"
+msgstr "Sunday"
+
+#: templates/ap-user-policy-config.html:282
+msgid "每天"
+msgstr "Every Day"
+
+#: templates/ap-user-policy-config.html:283
+msgid "工作日"
+msgstr "Working day"
+
+#: templates/ap-user-policy-config.html:284
+msgid "周末"
+msgstr "Weekend"
+
+#: templates/ap-user-policy-config.html:285 templates/ap-wlan.html:139
+msgid "清空"
+msgstr "Empty"
+
+#: templates/ap-user-policy-config.html:288
+msgid "选择预设或自定义定时周期"
+msgstr "Select preset or custom timing cycle"
+
+#: templates/ap-user-policy-config.html:293
+msgid "开始时间"
+msgstr "Starting time"
+
+#: templates/ap-user-policy-config.html:296
+#: templates/ap-user-policy-config.html:309
+msgid "请选择时间"
+msgstr "Please select time"
+
+#: templates/ap-user-policy-config.html:301
+msgid "策略生效时间"
+msgstr "Policy effective time"
+
+#: templates/ap-user-policy-config.html:306
+msgid "结束时间"
+msgstr "End Time"
+
+#: templates/ap-user-policy-config.html:314
+msgid "策略结束时间"
+msgstr "Strategy end time"
+
+#: templates/ap-user-policy-config.html:351
+#: templates/ap-user-policy-config.html:431
+msgid "用户黑名单"
+msgstr "User blacklist"
+
+#: templates/ap-user-policy-config.html:365
+#: templates/ap-user-policy-config.html:405
+msgid "黑白名单只能同时开启一个"
+msgstr "Black and white list can only be opened at the same time"
+
+#: templates/ap-user-policy-config.html:390
+#: templates/ap-user-policy-config.html:497
+msgid "用户白名单"
+msgstr "User whitelist"
+
+#: templates/ap-user-policy-config.html:440
+#: templates/ap-user-policy-config.html:506
+msgid "手动输入"
+msgstr "Manual input"
+
+#: templates/ap-user-policy-config.html:446
+#: templates/ap-user-policy-config.html:512
+msgid "你可以在右侧输入框中输入用户MAC地址进行添加(每行一条)"
+msgstr ""
+"You can add the user MAC address in the input box on the right to add (one "
+"per line)"
+
+#: templates/ap-user-policy-config.html:456
+#: templates/ap-user-policy-config.html:522
+msgid "选择添加"
+msgstr "Choose to add"
+
+#: templates/ap-user-policy-config.html:461
+msgid "您可能想要阻止下面的用户"
+msgstr "You may want to block the users below"
+
+#: templates/ap-user-policy-config.html:527
+msgid "您可能想要添加下面的用户"
+msgstr "You may want to add the following users"
+
+#: templates/ap-user-policy-config.html:567
+msgid "时间不能为空"
+msgstr "Time cannot be empty"
+
+#: templates/ap-user-policy-config.html:568
+msgid "起止时间不能相同"
+msgstr "Start and end time cannot be the same"
+
+#: templates/ap-user-policy-config.html:596
+msgid "黑白名单不能同时开启"
+msgstr "Black and white list cannot be opened at the same time"
+
+#: templates/ap-user-policy-config.html:597
+msgid "双频设备最大接入用户数需为1-128范围内的整数"
+msgstr ""
+"The maximum number of access users of dual-band devices needs to be an "
+"integer in the range of 1-128."
+
+#: templates/ap-user-policy-config.html:598
+msgid "单频设备最大接入用户数需为1-64范围内的整数"
+msgstr ""
+"The maximum number of access users of a single-frequency device needs to be "
+"an integer in the range of 1-64."
+
+#: templates/ap-user-policy-config.html:599
+msgid "信号门限需为-95-0范围内的整数"
+msgstr "The signal threshold needs to be an integer in the range -95-0"
+
+#: templates/ap-user-policy-config.html:600
+msgid "拒绝次数需为1-5范围内的整数"
+msgstr "The number of rejections needs to be an integer in the range of 1-5"
+
+#: templates/ap-wlan.html:20
+msgid "无线"
+msgstr "WLAN"
+
+#: templates/ap-wlan.html:31
+msgid "无线配置"
+msgstr "Wlan Config"
+
+#: templates/ap-wlan.html:48
+msgid "管理域名/群组名称"
+msgstr "Domain Names/Group Name"
+
+#: templates/ap-wlan.html:49
+msgid "安全类型 "
+msgstr "Security type"
+
+#: templates/ap-wlan.html:84
+msgid "接入点MAC过滤"
+msgstr "AP MAC filtering"
+
+#: templates/ap-wlan.html:115
+msgid "接入点策略"
+msgstr "AP Policy"
+
+#: templates/ap-wlan.html:123
+msgid "自动升级"
+msgstr "Auto Update"
+
+#: templates/ap-wlan.html:127
+msgid "升级规则"
+msgstr "Upgrade Rule"
+
+#: templates/ap-wlan.html:135
+msgid "快捷操作"
+msgstr "Quick Operation"
+
+#: templates/ap-wlan.html:138
+msgid "全选"
+msgstr "Select All"
+
+#: templates/ap-wlan.html:144
+msgid "确定修改"
+msgstr "Confirm Modification"
+
+#: templates/ap-wlan.html:167
+msgid "添加无线网络"
+msgstr "Add wireless network"
+
+#: templates/ap-wlan.html:175 templates/ap-wlan.html.py:509
+msgid "AP群组"
+msgstr "AP Group"
+
+#: templates/ap-wlan.html:192 templates/ap-wlan.html.py:526
+msgid "基本信息"
+msgstr "Basic Information"
+
+#: templates/ap-wlan.html:211 templates/ap-wlan.html.py:545
+msgid "信号名称"
+msgstr "SSID"
+
+#: templates/ap-wlan.html:222 templates/ap-wlan.html.py:556
+msgid "安全"
+msgstr "security"
+
+#: templates/ap-wlan.html:226 templates/ap-wlan.html.py:560
+msgid "无加密"
+msgstr "No encryption"
+
+#: templates/ap-wlan.html:238 templates/ap-wlan.html.py:572
+msgid "连接密码"
+msgstr "Connection password"
+
+#: templates/ap-wlan.html:354 templates/ap-wlan.html.py:688
+msgid "门店id"
+msgstr "Store id"
+
+#: templates/ap-wlan.html:365 templates/ap-wlan.html.py:699
+msgid "密钥"
+msgstr "Key"
+
+#: templates/ap-wlan.html:420 templates/ap-wlan.html.py:754
+msgid "隐藏信号"
+msgstr "Hidden SSID"
+
+#: templates/ap-wlan.html:464 templates/ap-wlan.html.py:797
+msgid "启用"
+msgstr "Enable"
+
+#: templates/ap-wlan.html:501
+msgid "编辑无线网络"
+msgstr "Edit WLAN"
+
+#: templates/ap-wlan.html:834
+msgid "AP黑名单"
+msgstr "AP Blacklist"
+
+#: templates/ap-wlan.html:904
+msgid "微信配置不能为空"
+msgstr "WeChat configuration cannot be empty"
+
+#: templates/ap-wlan.html:905
+msgid "强制关注时,应用秘钥不能为空"
+msgstr "Application key cannot be empty when forced attention"
+
+#: templates/ap-wlan.html:906
+msgid "认证服务器配置不能为空"
+msgstr "Authentication server configuration cannot be empty"
+
+#: templates/ap-wlan.html:913
+msgid "没有选择群组"
+msgstr "No group selected"
+
+#: templates/ap-wlan.html:915
+msgid "请选择群组"
+msgstr "Please select a group"
+
+#: templates/ap-wlan.html:916
+msgid "已满4个WLAN"
+msgstr "4 WLANs full"
+
+#: templates/ap-wlan.html:918
+msgid "无认证"
+msgstr "No certification"
+
+#: templates/ap-wlan.html:919
+msgid "账号/密码"
+msgstr "Account/Password"
+
+#: templates/ap-wlan.html:922
+msgid "短信+微信认证"
+msgstr "SMS + WeChat authentication"
+
+#: templates/ap-wlan.html:924
+msgid "本地微信"
+msgstr "Local WeChat"
+
+#: templates/ap-wlan.html:926
+msgid "Radius认证"
+msgstr "Radius certification"
+
+#: templates/ap-wlan.html:928
+msgid "EAP IP Port 为空"
+msgstr "EAP IP Port is empty"
+
+#: templates/ap_index.html:26 templates/ap_index.html.py:1354
+msgid "设备"
+msgstr "Device"
+
+#: templates/ap_index.html:49
+msgid "在线用户"
+msgstr "Online User"
+
+#: templates/ap_index.html:56
+msgid "PC/笔记本"
+msgstr "PC/Laptop"
+
+#: templates/ap_index.html:63
+msgid "移动设备"
+msgstr "Mobile devices"
+
+#: templates/ap_index.html:76
+msgid "设备排行"
+msgstr "Device ranking"
+
+#: templates/ap_index.html:81
+msgid "在线时长"
+msgstr "Online Time"
+
+#: templates/ap_index.html:82
+msgid "上行流量"
+msgstr "Upload Traffic"
+
+#: templates/ap_index.html:83
+msgid "下行流量"
+msgstr "Download Traffic"
+
+#: templates/ap_index.html:84
+msgid "即时流量"
+msgstr "Instant flow"
+
+#: templates/ap_index.html:141
+msgid "网络使用情况"
+msgstr "Network usage"
+
+#: templates/ap_index.html:143 templates/ap_index.html.py:168 views.py:3024
+msgid "普通"
+msgstr "Normal"
+
+#: templates/ap_index.html:146 templates/ap_index.html.py:171 views.py:3014
+msgid "车载"
+msgstr "Car"
+
+#: templates/ap_index.html:166 templates/ap_index.html.py:1351
+msgid "设备用户排行"
+msgstr "Device User Ranking"
+
+#: templates/ap_index.html:191
+msgid "用户数量统计"
+msgstr "User Count"
+
+#: templates/ap_index.html:213
+msgid "设备状态预警"
+msgstr "Device Status Alert"
+
+#: templates/ap_index.html:1352
+msgid "用户数"
+msgstr "User Number"
+
+#: templates/ap_index.html:1356
+msgid "版本"
+msgstr "Version"
+
+#: templates/ap_index.html:1358
+msgid "使用率为"
+msgstr "Utilization rate"
+
+#: views.py:1246
+msgid "该组已存在"
+msgstr "This group already exists"
+
+#: views.py:1277
+msgid "添加成功"
+msgstr "Added successfully"
+
+#: views.py:1280
+msgid "添加失败"
+msgstr "Add Failed"
+
+#: views.py:1330 views.py:1825
+msgid "删除成功"
+msgstr "Deleted Successfully"
+
+#: views.py:1333 views.py:1828
+msgid "删除失败"
+msgstr "Delete Failed"
+
+#: views.py:1437
+msgid "组名已存在"
+msgstr "Group name already exists"
+
+#: views.py:1563
+msgid "编辑成功"
+msgstr "Edit Successfully"
+
+#: views.py:1568
+msgid "编辑失败"
+msgstr "Edit Failed"
+
+#: views.py:1764
+msgid "创建成功！"
+msgstr "Created successfully!"
+
+#: views.py:1785
+msgid "创建失败！"
+msgstr "Created Failed"
+
+#: views.py:2143
+msgid "还原失败！"
+msgstr "Recover Failed!"
+
+#: views.py:2155 views.py:2172 views.py:2216 views.py:2622 views.py:2703
+#: views.py:2774 views.py:2801 views.py:3542 views.py:4108
+msgid "修改成功"
+msgstr "Modify Successfully"
+
+#: views.py:2158 views.py:2175 views.py:2219 views.py:2626 views.py:2678
+#: views.py:2707 views.py:2778 views.py:2805 views.py:2809 views.py:3546
+#: views.py:4111
+msgid "修改失败"
+msgstr "Fail to edit"
+
+#: views.py:2233 views.py:3354 views.py:3486
+msgid "执行成功"
+msgstr "Execute Successfully"
+
+#: views.py:2237 views.py:3357 views.py:3489
+msgid "执行失败"
+msgstr "Execute Failed"
+
+#: views.py:2285 views.py:2748 views.py:3371 views.py:3503
+msgid "操作成功"
+msgstr "Operate Successfully"
+
+#: views.py:2288 views.py:2752 views.py:3374 views.py:3506
+msgid "操作失败"
+msgstr "Operate Failed"
+
+#: views.py:3080 views.py:3082 views.py:3192 views.py:3194
+msgid "小于1"
+msgstr "Less than 1"
+
+#: views.py:3311 views.py:3443
+msgid "输入不合法"
+msgstr "Input is illegal"
+
+#: views.py:5158 views.py:5192 views.py:5777
+msgid "没有选择文件"
+msgstr "No file selected"
+
+#: views.py:5173 views.py:5178 views.py:5208 views.py:5213
+msgid "上传文件错误"
+msgstr "Upload file error"
+
+#: views.py:5789
+msgid "文件写入失败"
+msgstr "File write failed"
+
+#: views.py:5828
+msgid "Account/Password 为空"
+msgstr "Account/Password is empty"
+
+#: views.py:5832
+msgid "Account/Password 不能少于4个字符"
+msgstr "Account/Password cannot be less than 4 characters"
+
+#: views.py:5836
+msgid "Account 只允许0-9a-zA-Z和_"
+msgstr "Account only allows 0-9a-zA-Z and _"
+
+#: views.py:5840
+msgid "Password 只允许0-9a-zA-Z"
+msgstr "Password only allows 0-9a-zA-Z"
+
+#: views.py:5848
+msgid "Expiration time 内容或格式错误"
+msgstr "Expiration time content or format error"
+
+#: views.py:5884
+msgid "设备存储失败"
+msgstr "Device storage failed"
+
+#: views.py:5899
+msgid "错误列表写入失败"
+msgstr "Error list write failed"
+
+#: views.py:5901
+msgid "文件内容不合法"
+msgstr "The file content is illegal"
+
+#: views.py:5904
+msgid "文件读取失败"
+msgstr "File read failed"
+
+#: views.py:5907
+msgid "插入"
+msgstr "Insert"
+
+#: views.py:5907
+msgid "更新"
+msgstr "Update"
+
+#: views.py:5907
+msgid "错误"
+msgstr "Error"
+
+#: views.py:5907
+msgid "项"
+msgstr "item"

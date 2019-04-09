@@ -1,0 +1,986 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-22 14:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/probe-group.html:9 templates/probe-list.html:9
+#: templates/probe-list.html.py:853
+msgid "探针"
+msgstr "Probe"
+
+#: templates/probe-group.html:10 templates/probe-group.html.py:21
+msgid "群组"
+msgstr "Group"
+
+#: templates/probe-group.html:24 templates/probe-list.html:19
+#: templates/probe-list.html.py:896
+msgid "添加"
+msgstr "Add"
+
+#: templates/probe-group.html:37 templates/probe-group.html.py:142
+#: templates/probe-group.html:201 templates/probe-list.html:1090
+msgid "群组名称"
+msgstr "Group Name"
+
+#: templates/probe-group.html:38
+msgid "管理域名"
+msgstr "Domain Names"
+
+#: templates/probe-group.html:39
+msgid "设备数量"
+msgstr "Device Number"
+
+#: templates/probe-group.html:40 templates/probe-list.html:61
+#: templates/probe-list.html.py:878 templates/probe-list.html:1091
+msgid "操作"
+msgstr "Operate"
+
+#: templates/probe-group.html:51
+msgid "查看"
+msgstr "View"
+
+#: templates/probe-group.html:62
+msgid "删除"
+msgstr "Delete"
+
+#: templates/probe-group.html:85
+msgid "探针策略"
+msgstr "Probe Policy"
+
+#: templates/probe-group.html:93
+msgid "自动升级"
+msgstr "Auto Update"
+
+#: templates/probe-group.html:97
+msgid "升级规则"
+msgstr "Upgrade Rule"
+
+#: templates/probe-group.html:105
+msgid "快捷操作"
+msgstr "Quick Actions"
+
+#: templates/probe-group.html:108
+msgid "全选"
+msgstr "Select All"
+
+#: templates/probe-group.html:109
+msgid "清空"
+msgstr "Clear"
+
+#: templates/probe-group.html:114
+msgid "确定修改"
+msgstr "Confirm Modification"
+
+#: templates/probe-group.html:117 templates/probe-list.html:204
+#: templates/probe-list.html.py:216 templates/probe-list.html:228
+msgid "提交"
+msgstr "Submit"
+
+#: templates/probe-group.html:135
+msgid "添加群组"
+msgstr "Add Group"
+
+#: templates/probe-group.html:157 templates/probe-group.html.py:219
+msgid "加入群组"
+msgstr "Join Group"
+
+#: templates/probe-group.html:165 templates/probe-group.html.py:244
+#: templates/probe-group.html:258 templates/probe-list.html:55
+#: templates/probe-list.html.py:1083
+msgid "名称/MAC地址"
+msgstr "Name/MAC Address"
+
+#: templates/probe-group.html:166 templates/probe-group.html.py:245
+#: templates/probe-group.html:259 templates/probe-list.html:921
+#: templates/probe-list.html.py:1092
+msgid "MAC地址"
+msgstr "MAC Address:"
+
+#: templates/probe-group.html:167 templates/probe-group.html.py:260
+msgid "加入"
+msgstr "Add"
+
+#: templates/probe-group.html:180 templates/probe-group.html.py:554
+#: templates/probe-list.html:292 templates/probe-list.html.py:329
+#: templates/probe-list.html:774
+msgid "应用"
+msgstr "Apply"
+
+#: templates/probe-group.html:181 templates/probe-group.html.py:555
+msgid "取消"
+msgstr "Cancel"
+
+#: templates/probe-group.html:194
+msgid "查看群组"
+msgstr "View Group"
+
+#: templates/probe-group.html:216
+msgid "移出群组"
+msgstr "Move out of the group"
+
+#: templates/probe-group.html:223 templates/probe-group.html.py:234
+msgid "审计配置"
+msgstr "Audit Setting"
+
+#: templates/probe-group.html:230
+msgid "群组成员"
+msgstr "Group Members"
+
+#: templates/probe-group.html:246
+msgid "移出"
+msgstr "Remove"
+
+#: templates/probe-group.html:274 templates/probe-list.html:103
+#: templates/probe-list.html.py:522
+msgid "配置"
+msgstr "Config"
+
+#: templates/probe-group.html:282 templates/probe-list.html:530
+msgid "基本信息"
+msgstr "Basic Information"
+
+#: templates/probe-group.html:288 templates/probe-list.html:536
+msgid "设备信息"
+msgstr "Device Info"
+
+#: templates/probe-group.html:291 templates/probe-list.html:539
+msgid "场所信息"
+msgstr "Place Info"
+
+#: templates/probe-group.html:301 templates/probe-list.html:380
+#: templates/probe-list.html.py:550
+msgid "审计厂商"
+msgstr "Corporation"
+
+#: templates/probe-group.html:311 templates/probe-list.html:384
+#: templates/probe-list.html.py:560
+msgid "FTP用户名"
+msgstr "FTP Username"
+
+#: templates/probe-group.html:317 templates/probe-list.html:388
+#: templates/probe-list.html.py:566
+msgid "FTP密码"
+msgstr "FTP Password"
+
+#: templates/probe-group.html:323 templates/probe-list.html:392
+#: templates/probe-list.html.py:572
+msgid "SFTP端口"
+msgstr "SFTP Port"
+
+#: templates/probe-group.html:329 templates/probe-list.html:396
+#: templates/probe-list.html.py:578
+msgid "审计服务器地址"
+msgstr "Server IP"
+
+#: templates/probe-group.html:335 templates/probe-list.html:400
+#: templates/probe-list.html.py:584
+msgid "审计服务器端口"
+msgstr "Server Port"
+
+#: templates/probe-group.html:341 templates/probe-list.html:404
+#: templates/probe-list.html.py:590
+msgid "场所编码"
+msgstr "Location Code"
+
+#: templates/probe-group.html:347 templates/probe-list.html:408
+#: templates/probe-list.html.py:596
+msgid "设备编码"
+msgstr "Device Code"
+
+#: templates/probe-group.html:353 templates/probe-list.html:412
+#: templates/probe-list.html.py:602
+msgid "经度"
+msgstr "Longitude"
+
+#: templates/probe-group.html:359 templates/probe-list.html:416
+#: templates/probe-list.html.py:608
+msgid "纬度"
+msgstr "Latitude"
+
+#: templates/probe-group.html:379 templates/probe-group.html.py:574
+msgid "加密"
+msgstr "Encryption"
+
+#: templates/probe-group.html:381 templates/probe-group.html.py:575
+msgid "不加密"
+msgstr "Clear"
+
+#: templates/probe-group.html:396 templates/probe-list.html:424
+#: templates/probe-list.html.py:619
+msgid "采集半径"
+msgstr "Radius"
+
+#: templates/probe-group.html:402 templates/probe-list.html:428
+#: templates/probe-list.html.py:625
+msgid "设备类型"
+msgstr "Device Type"
+
+#: templates/probe-group.html:410 templates/probe-list.html:432
+#: templates/probe-list.html.py:633
+msgid "设备名称"
+msgstr "Device Name"
+
+#: templates/probe-group.html:416 templates/probe-list.html:436
+#: templates/probe-list.html.py:639
+msgid "设备地址"
+msgstr "Device Location"
+
+#: templates/probe-group.html:422 templates/probe-list.html:440
+#: templates/probe-list.html.py:645
+msgid "厂商编码"
+msgstr "Vendor Code"
+
+#: templates/probe-group.html:428 templates/probe-list.html:444
+#: templates/probe-list.html.py:651
+msgid "厂商名称"
+msgstr "Vendor Name"
+
+#: templates/probe-group.html:434 templates/probe-list.html:448
+#: templates/probe-list.html.py:657
+msgid "厂商地址"
+msgstr "Vendor Address"
+
+#: templates/probe-group.html:440 templates/probe-list.html:452
+#: templates/probe-list.html.py:663
+msgid "联系人姓名"
+msgstr "Contactor Name"
+
+#: templates/probe-group.html:446 templates/probe-list.html:456
+#: templates/probe-list.html.py:669
+msgid "联系人电话"
+msgstr "Tel/Cell phone"
+
+#: templates/probe-group.html:452 templates/probe-list.html:460
+#: templates/probe-list.html.py:675
+msgid "联系人邮箱"
+msgstr "Contactor E-mail"
+
+#: templates/probe-group.html:461 templates/probe-list.html:465
+#: templates/probe-list.html.py:685
+msgid "场所名称"
+msgstr "Site Name"
+
+#: templates/probe-group.html:467 templates/probe-list.html:469
+#: templates/probe-list.html.py:691
+msgid "场所地址"
+msgstr "Site Address"
+
+#: templates/probe-group.html:473 templates/probe-list.html:473
+#: templates/probe-list.html.py:697
+msgid "场所类型"
+msgstr "Site Type"
+
+#: templates/probe-group.html:481 templates/probe-list.html:477
+#: templates/probe-list.html.py:705
+msgid "派出所编码"
+msgstr "Police Number"
+
+#: templates/probe-group.html:489 templates/probe-list.html:481
+#: templates/probe-list.html.py:713
+msgid "场所服务类型"
+msgstr "Site Service Type"
+
+#: templates/probe-group.html:497 templates/probe-list.html:485
+#: templates/probe-list.html.py:721
+msgid "场所经营性质"
+msgstr "Site Business Type"
+
+#: templates/probe-group.html:505 templates/probe-list.html:489
+#: templates/probe-list.html.py:729
+msgid "法人姓名"
+msgstr "Authorized Representative"
+
+#: templates/probe-group.html:511 templates/probe-list.html:493
+#: templates/probe-list.html.py:735
+msgid "证件类型"
+msgstr "Credentials Type"
+
+#: templates/probe-group.html:519 templates/probe-list.html:497
+#: templates/probe-list.html.py:743
+msgid "证件号码"
+msgstr "Credentials Number"
+
+#: templates/probe-group.html:525 templates/probe-list.html:501
+#: templates/probe-list.html.py:749
+msgid "电话号码"
+msgstr "Tel/Cell phone"
+
+#: templates/probe-group.html:531 templates/probe-list.html:755
+msgid "营业开始时间(如8:00)"
+msgstr "Openning Time(Such as 8:00)"
+
+#: templates/probe-group.html:537 templates/probe-list.html:761
+msgid "营业结束时间(如22:00)"
+msgstr "Closing Time(Such as 22:00)"
+
+#: templates/probe-group.html:572
+msgid "SSID不能为空"
+msgstr "SSID could not be empty"
+
+#: templates/probe-group.html:573
+msgid "已加密"
+msgstr "Encryption"
+
+#: templates/probe-group.html:576
+msgid "SSID最多8个"
+msgstr "Max SSID number is 8"
+
+#: templates/probe-group.html:577 templates/probe-list.html:1079
+msgid "提示信息"
+msgstr "Prompt Message"
+
+#: templates/probe-group.html:578 templates/probe-list.html:1056
+msgid "处理中..."
+msgstr "Processing..."
+
+#: templates/probe-group.html:579 templates/probe-list.html:1057
+msgid "显示"
+msgstr "Dispaly"
+
+#: templates/probe-group.html:580 templates/probe-list.html:1058
+msgid "记录"
+msgstr "Records"
+
+#: templates/probe-group.html:581 templates/probe-list.html:1059
+msgid "没有匹配结果"
+msgstr "No matching results"
+
+#: templates/probe-group.html:582 templates/probe-list.html:1060
+msgid "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项"
+msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+
+#: templates/probe-group.html:583 templates/probe-list.html:1061
+msgid "显示第 0 至 0 项结果，共 0 项"
+msgstr "Showing 0 to 0 of 0 entries"
+
+#: templates/probe-group.html:584 templates/probe-list.html:1062
+msgid "由 _MAX_ 项结果过滤"
+msgstr "filtered from _MAX_ total entries"
+
+#: templates/probe-group.html:585 templates/probe-list.html:1063
+msgid "搜索 : "
+msgstr "Search : "
+
+#: templates/probe-group.html:586 templates/probe-list.html:1064
+msgid "表中数据为空"
+msgstr "The data in the table is empty"
+
+#: templates/probe-group.html:587 templates/probe-list.html:1065
+msgid "载入中..."
+msgstr "Loading..."
+
+#: templates/probe-group.html:588
+msgid "请输入群组名称"
+msgstr "Please input group name"
+
+#: templates/probe-list.html:16
+msgid "已管理的探针"
+msgstr "Already Managed Probe"
+
+#: templates/probe-list.html:20 templates/probe-list.html.py:949
+msgid "导入"
+msgstr "Import"
+
+#: templates/probe-list.html:21 templates/probe-list.html.py:1000
+msgid "导出"
+msgstr "Export"
+
+#: templates/probe-list.html:44
+msgid "待准入的探针"
+msgstr "Unadmited Probe"
+
+#: templates/probe-list.html:56 templates/probe-list.html.py:258
+#: templates/probe-list.html:1084
+msgid "IP地址"
+msgstr "IP Address"
+
+#: templates/probe-list.html:57 templates/probe-list.html.py:373
+#: templates/probe-list.html:1085
+msgid "状态"
+msgstr "Status"
+
+#: templates/probe-list.html:59 templates/probe-list.html.py:1088
+msgid "版本号"
+msgstr "Version"
+
+#: templates/probe-list.html:60 templates/probe-list.html.py:1089
+msgid "最后心跳"
+msgstr "Last Heartbeat"
+
+#: templates/probe-list.html:99
+msgid "详细信息"
+msgstr "Details"
+
+#: templates/probe-list.html:106
+msgid "审计"
+msgstr "Audit"
+
+#: templates/probe-list.html:109
+msgid "诊断"
+msgstr "Diagnosis"
+
+#: templates/probe-list.html:120
+msgid "概要"
+msgstr "Overview"
+
+#: templates/probe-list.html:127
+msgid "MAC地址:"
+msgstr "MAC Address:"
+
+#: templates/probe-list.html:131
+msgid "序列号:"
+msgstr "Serial Number:"
+
+#: templates/probe-list.html:135
+msgid "型号:"
+msgstr "Model:"
+
+#: templates/probe-list.html:139
+msgid "版本:"
+msgstr "Version:"
+
+#: templates/probe-list.html:146
+msgid "IP地址:"
+msgstr "IP Address:"
+
+#: templates/probe-list.html:150
+msgid "运行时间:"
+msgstr "Running Time:"
+
+#: templates/probe-list.html:154
+msgid "最后看到:"
+msgstr "Last Seen:"
+
+#: templates/probe-list.html:160
+msgid "CPU占用率:"
+msgstr "CPU Usage:"
+
+#: templates/probe-list.html:164
+msgid "内存占用率:"
+msgstr "Memory Usage:"
+
+#: templates/probe-list.html:168
+msgid "Flash占用率:"
+msgstr "Flash Usage:"
+
+#: templates/probe-list.html:190
+msgid "一般配置"
+msgstr "Basic Config"
+
+#: templates/probe-list.html:198
+msgid "别名"
+msgstr "Alias"
+
+#: templates/probe-list.html:210
+msgid "AC地址"
+msgstr "AC Address"
+
+#: templates/probe-list.html:222
+msgid "LOG地址"
+msgstr "LOG Server Address"
+
+#: templates/probe-list.html:239
+msgid "网络"
+msgstr "Network"
+
+#: templates/probe-list.html:249
+msgid "配置IP"
+msgstr "IP Config"
+
+#: templates/probe-list.html:253
+msgid "静态IP"
+msgstr "Static IP"
+
+#: templates/probe-list.html:264
+msgid "子网掩码"
+msgstr "Subnet Mask"
+
+#: templates/probe-list.html:270
+msgid "网关"
+msgstr "Gateway"
+
+#: templates/probe-list.html:276
+msgid "首选DNS"
+msgstr "Preferred DNS"
+
+#: templates/probe-list.html:282
+msgid "备选DNS"
+msgstr "Alternate DNS"
+
+#: templates/probe-list.html:304
+msgid "NTP配置"
+msgstr "NTP Config"
+
+#: templates/probe-list.html:313
+msgid "首选NTP地址"
+msgstr "Preferred NTP Address"
+
+#: templates/probe-list.html:319
+msgid "备选NTP地址"
+msgstr "Alternate NTP Address"
+
+#: templates/probe-list.html:341 templates/probe-list.html.py:355
+#: templates/probe-list.html:1077
+msgid "移除"
+msgstr "Remove"
+
+#: templates/probe-list.html:348
+msgid ""
+"如果您不希望继续管理此探针,您可以移除它.请注意所有与此探针相关的配置和历史记"
+"录都将删除."
+msgstr ""
+"If you do not want to continue managing this probe, you can remove it. "
+"Please note that all configurations and history associated with this probe "
+"are deleted."
+
+#: templates/probe-list.html:505
+msgid "营业开始时间"
+msgstr "Openning Time"
+
+#: templates/probe-list.html:509
+msgid "营业结束时间"
+msgstr "Closing Time"
+
+#: templates/probe-list.html:789
+msgid "远程诊断："
+msgstr "Remote Diagnosis:"
+
+#: templates/probe-list.html:836
+msgid "定位"
+msgstr "Locate"
+
+#: templates/probe-list.html:837 templates/probe-list.html.py:1073
+#: views.py:422
+msgid "重启"
+msgstr "Reboot"
+
+#: templates/probe-list.html:849
+msgid "事件通知与提示"
+msgstr "Event notifications and prompts"
+
+#: templates/probe-list.html:852 templatetags/tags.py:56
+msgid "管理员"
+msgstr "Admin"
+
+#: templates/probe-list.html:857
+msgid "1小时"
+msgstr "1 hour"
+
+#: templates/probe-list.html:858
+msgid "8小时"
+msgstr "8 hours"
+
+#: templates/probe-list.html:859
+msgid "1天"
+msgstr "1 Day"
+
+#: templates/probe-list.html:860
+msgid "2天"
+msgstr "2 Days"
+
+#: templates/probe-list.html:861
+msgid "7天"
+msgstr "7 Days"
+
+#: templates/probe-list.html:862
+msgid "2周"
+msgstr "2 Weeks"
+
+#: templates/probe-list.html:863
+msgid "1月"
+msgstr "1 Month"
+
+#: templates/probe-list.html:876
+msgid "时间"
+msgstr "Within"
+
+#: templates/probe-list.html:877
+msgid "信息"
+msgstr "Information"
+
+#: templates/probe-list.html:903
+msgid "名称"
+msgstr "Name"
+
+#: templates/probe-list.html:906
+msgid "选填"
+msgstr "Optional"
+
+#: templates/probe-list.html:912
+msgid "序列号"
+msgstr "Serial Number"
+
+#: templates/probe-list.html:924
+msgid "例"
+msgstr "Example"
+
+#: templates/probe-list.html:935 templates/probe-list.html.py:986
+#: templates/probe-list.html:1023
+msgid "确定"
+msgstr "OK"
+
+#: templates/probe-list.html:956
+msgid "请上传数据文件"
+msgstr "Please upload a data file"
+
+#: templates/probe-list.html:959
+msgid "数据模板"
+msgstr "Data template"
+
+#: templates/probe-list.html:966
+msgid "上传文件"
+msgstr "Upload Files"
+
+#: templates/probe-list.html:975
+msgid "处理结果"
+msgstr "Process Result"
+
+#: templates/probe-list.html:1008
+msgid "导出类型: "
+msgstr "Export type: "
+
+#: templates/probe-list.html:1012 templates/probe-list.html.py:1040
+msgid "全部"
+msgstr "All"
+
+#: templates/probe-list.html:1013 templates/probe-list.html.py:1041
+#: templates/probe-list.html:1068 views.py:426 views.py:1166 views.py:2116
+#: views.py:2121 views.py:2125
+msgid "在线"
+msgstr "Online"
+
+#: templates/probe-list.html:1014
+msgid "其他"
+msgstr "Others"
+
+#: templates/probe-list.html:1042 templates/probe-list.html.py:1070
+#: views.py:412 views.py:416 views.py:1162 views.py:2108 views.py:2112
+msgid "离线"
+msgstr "Offline"
+
+#: templates/probe-list.html:1043
+msgid "刷新"
+msgstr "Refresh"
+
+#: templates/probe-list.html:1047
+msgid "序列号不能为空"
+msgstr "Serial Number could not be empty"
+
+#: templates/probe-list.html:1048
+msgid "MAC 不能为空"
+msgstr "MAC address could not be empty"
+
+#: templates/probe-list.html:1049
+msgid "MAC 有效字符不为12"
+msgstr "MAC address length must be 12"
+
+#: templates/probe-list.html:1050
+msgid "错误列表下载"
+msgstr "Error list download"
+
+#: templates/probe-list.html:1051
+msgid "文件类型错误"
+msgstr "File type error"
+
+#: templates/probe-list.html:1052
+msgid "未选择文件"
+msgstr "File not selected"
+
+#: templates/probe-list.html:1054
+msgid "AC地址不合法"
+msgstr "The AC address is invalid."
+
+#: templates/probe-list.html:1069 views.py:418 views.py:1164 views.py:2114
+msgid "超时"
+msgstr "Time out"
+
+#: templates/probe-list.html:1071 views.py:414 views.py:1160 views.py:2110
+msgid "退服"
+msgstr "Retired"
+
+#: templates/probe-list.html:1072 views.py:1170
+msgid "已移除"
+msgstr "Removed"
+
+#: templates/probe-list.html:1074 views.py:424
+msgid "升级"
+msgstr "Upgrade"
+
+#: templates/probe-list.html:1075
+msgid "私网地址"
+msgstr "Private network address"
+
+#: templates/probe-list.html:1076
+msgid "远程地址"
+msgstr "Remote Address"
+
+#: templates/probe-list.html:1078
+msgid "跳转至"
+msgstr "Jump to"
+
+#: templates/probe-list.html:1080
+msgid "定位中"
+msgstr "Positioning"
+
+#: templates/probe-list.html:1081
+msgid "定位执行失败"
+msgstr "Position execution failed"
+
+#: templates/probe-list.html:1086
+msgid "上传"
+msgstr "Upload"
+
+#: templates/probe-list.html:1087
+msgid "下载"
+msgstr "Download"
+
+#: templates/probe-list.html:1093
+msgid "CPU占用率"
+msgstr "CPU Usage"
+
+#: templates/probe-list.html:1108 views.py:216
+msgid "设备已存在！"
+msgstr "The device already exists!"
+
+#: templates/probe-list.html:1108 views.py:294
+msgid "准入失败！"
+msgstr "Access failed!"
+
+#: templates/probe-list.html:1108 views.py:500 views.py:542 views.py:589
+msgid "执行失败！"
+msgstr "Execution failed!"
+
+#: templates/probe-list.html:1108 views.py:653 views.py:675 views.py:698
+#: views.py:725 views.py:751 views.py:768 views.py:983 views.py:1009
+#: views.py:1053
+msgid "修改失败！"
+msgstr "Fail to edit!"
+
+#: templates/probe-list.html:1108 views.py:512
+msgid "没有此型号对应的版本文件"
+msgstr "There is no version file corresponding to this model"
+
+#: templates/probe-list.html:1111 views.py:281
+msgid "准入成功！"
+msgstr "Successful entry!"
+
+#: templates/probe-list.html:1111 views.py:476 views.py:520 views.py:570
+msgid "执行成功！"
+msgstr "Execute Successfully!"
+
+#: templates/probe-list.html:1111 views.py:651 views.py:667 views.py:689
+#: views.py:723 views.py:749 views.py:765 views.py:981 views.py:1007
+#: views.py:1051 views.py:1100
+msgid "修改成功！"
+msgstr "Modify successed!"
+
+#: templatetags/tags.py:54
+msgid "网站管理员"
+msgstr "Root"
+
+#: templatetags/tags.py:55
+msgid "超级管理员"
+msgstr "Super admin"
+
+#: templatetags/tags.py:57
+msgid "本地用户"
+msgstr "Local user"
+
+#: templatetags/tags.py:58
+msgid "超级用户"
+msgstr "Super user"
+
+#: templatetags/tags.py:59
+msgid "管理用户"
+msgstr "Admin user"
+
+#: templatetags/tags.py:60
+msgid "普通用户"
+msgstr "General user"
+
+#: templatetags/tags.py:68 templatetags/tags.py:74 templatetags/tags.py:81
+msgid "未分组"
+msgstr "Ungrouped"
+
+#: templatetags/tags.py:69 templatetags/tags.py:82
+msgid "已分组"
+msgstr "Grouped"
+
+#: templatetags/tags.py:70 templatetags/tags.py:71 templatetags/tags.py:72
+#: templatetags/tags.py:73
+msgid "待同意"
+msgstr "To be agreed"
+
+#: templatetags/tags.py:83
+msgid "申请成为普通用户"
+msgstr "Apply as a general user"
+
+#: templatetags/tags.py:84
+msgid "申请成为管理员"
+msgstr "Apply as an admin user"
+
+#: templatetags/tags.py:85
+msgid "邀请成为普通用户"
+msgstr "Invite to become a general user"
+
+#: templatetags/tags.py:86
+msgid "邀请成为管理员"
+msgstr "Invite to become an admin user"
+
+#: templatetags/tags.py:87
+msgid "已拒绝"
+msgstr "Rejected"
+
+#: views.py:1237
+msgid "该组已存在"
+msgstr "This group already exists"
+
+#: views.py:1301 views.py:2185 views.py:2204
+msgid "添加成功"
+msgstr "Added successfully"
+
+#: views.py:1304 views.py:2191 views.py:2211
+msgid "添加失败"
+msgstr "Add Failed"
+
+#: views.py:1377
+msgid "删除成功"
+msgstr "Deleted Successfully"
+
+#: views.py:1380
+msgid "删除失败"
+msgstr "Delete Failed"
+
+#: views.py:1480
+msgid "组名已存在"
+msgstr "Group name already exists"
+
+#: views.py:1820
+msgid "编辑成功"
+msgstr "Edit Successfully"
+
+#: views.py:1825
+msgid "编辑失败"
+msgstr "Edit Failed"
+
+#: views.py:2170 views.py:2311
+msgid "设备已存在"
+msgstr "Device already exists!"
+
+#: views.py:2216 views.py:2354
+msgid "设备不存在"
+msgstr "Device do no exist"
+
+#: views.py:2228
+msgid "没有选择文件"
+msgstr "No file selected"
+
+#: views.py:2242
+msgid "文件写入失败"
+msgstr "File write failed"
+
+#: views.py:2247
+msgid "上传文件失败"
+msgstr "File upload failed"
+
+#: views.py:2299
+msgid "MAC/SN 为空"
+msgstr "MAC/SN could not be empty"
+
+#: views.py:2304
+msgid "MAC 不合法"
+msgstr "MAC is illegal"
+
+#: views.py:2332 views.py:2351
+msgid "设备存储失败"
+msgstr "Device save error"
+
+#: views.py:2366
+msgid "错误列表写入失败"
+msgstr "Error list save failed"
+
+#: views.py:2368
+msgid "文件内容不合法"
+msgstr "File content is illegal"
+
+#: views.py:2371
+msgid "文件读取失败"
+msgstr "File read failed"
+
+#: views.py:2375
+msgid "导入成功"
+msgstr "Import successfully"
+
+#: views.py:2375
+msgid "项"
+msgstr "Entry"
+
+#: views.py:2375
+msgid "导入失败"
+msgstr "Import failed"
+
+#: views.py:2389 views.py:2406 views.py:2450
+msgid "修改成功"
+msgstr "Modify successed!"
+
+#: views.py:2392 views.py:2409 views.py:2453
+msgid "修改失败"
+msgstr "Fail to edit!"
+
+#~ msgid "群组 | 设备云平台"
+#~ msgstr "Group | Wicloud"
+
+#, fuzzy
+#~| msgid "设备组"
+#~ msgid "设备"
+#~ msgstr "Device Group"
+
+#~ msgid "系统"
+#~ msgstr "System"
+
+#~ msgid "基础配置"
+#~ msgstr "Basic"
+
+#~ msgid "服务"
+#~ msgstr "Service"
+
+#~ msgid "账户"
+#~ msgstr "Account"
+
+#~ msgid "支持"
+#~ msgstr "Support"
+
+#~ msgid "实用工具"
+#~ msgstr "Utility"
+
+#~ msgid "探针 | 设备云平台"
+#~ msgstr "Probe | Wicloud"
+
+#~ msgid "主页"
+#~ msgstr "Home"
+
+#~ msgid "私网地址:"
+#~ msgstr "Private Address"
+
+#~ msgid "待准入"
+#~ msgstr "Unadmitted"
+
+#~ msgid "准入"
+#~ msgstr "Admit"
+
+#~ msgid "显示 _MENU_ 项结果"
+#~ msgstr "Show _MENU_ entries"

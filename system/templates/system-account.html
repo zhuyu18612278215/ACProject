@@ -1,0 +1,819 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+
+{% endblock head_link %}
+{% block header %}
+  <li ><a href="#"><i class="fa fa-cogs"></i>{% trans "系统" %}</a></li>
+  <li class="active"><i class="fa fa-users"></i>{% trans "账户" %}</li>
+{% endblock header %}
+{% block row %}
+<div class="row accountSystemControl">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel bk-bg-white">
+            <div class="panel-heading">
+                <h6 ><i class="fa fa-user "></i>{% trans "帐户管理" %} </h6>
+                <p class="penel-heading-inlink-block penel-heading-right" >
+                    {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6 or request.user.administrator_permission == 5 %}
+                        <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="ajaxfunc()"><i class="fa fa-plus"></i>{% trans "添加" %}</button>
+                    {% endif %}
+                    {% if request.user.administrator_permission == 1 and request.user.groupname == '' %}
+                        {% if request.user.group_status == 0 or request.user.group_status == 6 %}
+                            <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="create_area()"><i class="fa fa-plus"></i>{% trans "创建管理域" %}</button>
+                            <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="add_area()"><i class="fa fa-plus"></i>{% trans "加入管理域" %}</button>
+                        {% endif %}
+
+                    {% endif %}
+                    {% if request.user.administrator_permission == 3 or request.user.administrator_permission == 2%}
+                        <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="invite_user()"><i class="fa fa-plus"></i>{% trans "邀请用户" %}</button>
+                    {% endif %}
+
+                </p>
+                <div class="panel-actions">
+                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                    <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped" id="datatable-default-2">
+                    <thead>
+                        <tr>
+                            <th>{% trans "账户" %}</th>
+                            <th>{% trans "类型" %}</th>
+                            <th>{% trans "管理域名" %}</th>
+                            <th>{% trans "用户单位" %}</th>
+                            <th>{% trans "联系电话" %}</th>
+                            <th>{% trans "状态" %}</th>
+
+                            <th>{% trans "操作" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for uqs in userqueryset %}
+                            <tr class="gradeA">
+                                <td> {{uqs.username}} </td>
+                                <td> {{uqs.administrator_permission|user_type_filter}} </td>
+                                <td>
+                                    {% if uqs.administrator_permission >= 4 %}
+                                        admin
+                                    {% else %}
+                                        {{uqs.groupname}}
+                                    {% endif %}
+
+                                </td>
+                                <td>{{uqs.company}}</td>
+                                <td>{{uqs.tell}}</td>
+                                <td>
+                                    {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6 or request.user.administrator_permission == 5 or request.user.administrator_permission == 4 %}
+                                        {% if uqs.administrator_permission >= 4 %}
+                                            {% trans "已分组" %}
+                                        {% else %}
+                                            {{uqs.group_status | locatation_status}}
+                                        {% endif %}
+
+                                     {% endif %}
+                                     {% if request.user.administrator_permission == 3 or request.user.administrator_permission == 2 or request.user.administrator_permission == 1 %}
+                                         {{uqs.group_status | register_status}}
+                                     {% endif %}
+
+                                </td>
+                                <td class="table-botton-pad">
+                                    {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6 or request.user.administrator_permission == 5  %}
+                                        <a class="btn btn-default table-btn-btnpad" href="{% url 'user_del' %}?username={{uqs.username}}">
+                                            {% trans "删除" %}
+                                        </a>
+                                        {% if uqs.administrator_permission >= 4 %}
+                                            <a class="btn btn-default table-btn-btnpad" href="#" onclick="user_modify_ajax('{{uqs.username}}');">
+                                                {% trans "编辑" %}
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if request.user.administrator_permission == 3 or request.user.administrator_permission == 2 %}
+                                        {% if uqs.group_status == 2 or uqs.group_status == 3%}
+                                            <a class="btn btn-default table-btn-btnpad" href="{% url 'agree' %}?username={{uqs.username}}">
+                                                {% trans "同意" %}
+                                            </a>
+                                            <a class="btn btn-default table-btn-btnpad" href="{% url 'refuse' %}?username={{uqs.username}}">
+                                                {% trans "拒绝" %}
+                                            </a>
+                                        {% else %}
+                                            <a class="btn btn-default table-btn-btnpad" href="{% url 'group_user_move' %}?username={{uqs.username}}">
+                                                {% trans "移除" %}
+                                            </a>
+                                        {% endif %}
+                                    {% endif %}
+                                    {% if request.user.administrator_permission == 3 %}
+                                        <a class="btn btn-default table-btn-btnpad" href="#" onclick="reg_modify_ajax('{{uqs.username}}');">
+                                            {% trans "编辑" %}
+                                        </a>
+                                    {% endif %}
+                                    {% if request.user.administrator_permission == 1 %}
+                                        {% if uqs.group_status == 4 or uqs.group_status == 5%}
+                                            <a class="btn btn-default table-btn-btnpad" href="{% url 'agree' %}?username={{uqs.username}}">
+                                            {% trans "同意" %}
+                                        </a>
+                                        <a class="btn btn-default table-btn-btnpad" href="{% url 'refuse' %}?username={{uqs.username}}">
+                                            {% trans "拒绝" %}
+                                        </a>
+
+                                        {% endif %}
+                                    {% endif %}
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel bk-bg-white">
+            <div class="panel-heading">
+                <h6><i class="fa fa-user "></i>{% trans "我的账户" %}</h6>
+                <div class="panel-actions">
+                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                    <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                </div>
+            </div>
+            <div class="panel-body">
+                <div class="tabs">
+                    <ul class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#basic" data-toggle="tab">{% trans "基本信息" %}</a>
+                        </li>
+                        <li>
+                            <a href="#passwd" data-toggle="tab">{% trans "修改密码" %}</a>
+                        </li>
+                        <li>
+                            <a href="#lan" data-toggle="tab">{% trans "语言" %}</a>
+                        </li>
+                    </ul>
+                    <div class="tab-content" style="float:left;width:100%;">
+                        <div id="basic" class="tab-pane active">
+                            <form action="{% url 'basic_change' %}" method="POST" enctype="multipart/form-data">
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "用户名" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="text" readonly="readonly" value="{{myaccount.username}}">
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "电子邮箱" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="email" value="{{myaccount.email}}" name="email" {% if request.user.administrator_permission == 3 or request.user.administrator_permission == 2 or request.user.administrator_permission == 1 %} readonly="readonly" {% endif %}>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "用户单位" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="text" value="{{myaccount.company}}" name="company">
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "联系电话" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="text" value="{{myaccount.tell}}" name="tell">
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "头像" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input type="file" name="headpic">
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <img  src="{{myaccount.headpic.url}}" alt="" class="head-img-width img-circle"/>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-default form-control" type="submmit">{% trans "提交" %}</button>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                        <div id="passwd" class="tab-pane">
+
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "原密码" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="Password" name="old_passwd" id="old_passwd" required>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "新密码" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="Password" name="new_passwd" id="new_passwd" required  onKeyUp="pwd_strong(this.value); pwStrength(this.value)" onBlur="pwStrength(this.value);" >
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div id="pwd_strong" hidden="hidden">
+                                            <div class="col-md-2 penel-body-title-font" align="center" id="strength_L" style="background-color:#eee">弱</div>
+                                            <div class="col-md-2 penel-body-title-font" align="center" id="strength_M" style="background-color:#eee">中</div>
+                                            <div class="col-md-2 penel-body-title-font"  align="center" id="strength_H" style="background-color:#eee">强</div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+                                        <span class="penel-body-title-font">
+                                            {% trans "确认密码" %}：
+                                        </span>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <input class="form-control" type="Password" name="again_passwd" id="again_passwd" required>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                    <div class="col-md-3">
+
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-default form-control" type="button" id="change_password_button">{% trans "提交" %}</button>
+                                    </div>
+                                    <div class="col-md-6">
+
+                                    </div>
+                                </div>
+
+                        </div>
+                        <div id="lan" class="tab-pane">
+                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                <div class="col-md-3">
+                                    <span class="penel-body-title-font">
+                                        {% trans "语言偏好:" %}
+                                    </span>
+                                </div>
+                                <div class="col-md-3">
+                                    <select id="language-select" name="language" class="form-control select-icon">
+                                        {% for language in LANGUAGES %}
+                                            <option value="{{ language.0 }}"{% if language.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                                {{ language.1 }} ({{ language.0 }})
+                                        {% endfor %}
+                                    </select>
+
+                                </div>
+                                <div class="col-md-2">
+                                        <input id="language-submit" class="btn btn-default form-control" value="{% trans '提交' %}" type="button" />
+                                </div>
+                                <div class="col-md-4">
+
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+    <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+</div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm" id="open_form" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "添加本地账户" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="tab-content drag penel-body-content" >
+                    <form id="create_user_form">
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "角色" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="administrator_permission" class="form-control select-icon" >
+                                {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6 %}
+                                    <option value="5">{% trans "管理员" %}</option>
+                                    <option value="4">{% trans "本地用户" %}</option>
+                                {% else%}
+                                    {% if request.user.administrator_permission == 5 %}
+                                        <option value="4">{% trans "本地用户" %}</option>
+                                    {% endif %}
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "语言偏好" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="language" class="form-control select-icon">
+                                {% for language in LANGUAGES %}
+                                    <option value="{{ language.0 }}"{% if language.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                        {{ language.1 }} ({{ language.0 }})
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "账户名" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" name="username" required class="form-control" id="local_username">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "密码" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="password" name="password" required class="form-control" onKeyUp="pwd_strong_1(this.value); pwStrength_1(this.value)" onBlur="pwStrength_1(this.value);" id="local_password">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+
+                        </div>
+                        <div class="col-md-7">
+                            <div id="pwd_strong-1" hidden="hidden">
+                                <div class="col-md-3 " align="center" id="strength_L-1" style="background-color:#eee">弱</div>
+                                <div class="col-md-3 " align="center" id="strength_M-1" style="background-color:#eee">中</div>
+                                <div class="col-md-3 "  align="center" id="strength_H-1" style="background-color:#eee">强</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "确认密码" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="password" name="two_password" required class="form-control" id="local_two_password">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "邮件推送" %}</span>
+                        </div>
+                        <div class="col-md-7" >
+                            <div class="col-md-4" style="padding:0px;">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="email_alert" id="email_alert"/>
+                                        <label for="email_alert"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-8 " style="padding:0px;">
+                                <input type="email" name="email"  class="form-control">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "管理员密码" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="password" name="admin_password" required class="form-control" id="local_admin_password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!--<button class="btn btn-primary modal-confirm">Submit</button>
+                        <button class="btn btn-default modal-dismiss">Cancel</button>-->
+                        <button type="button" class="btn btn-default" id="create_user_button">{% trans "应用" %}</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm_1" id="open_form_1" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm_1" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "创建管理域" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="tab-content drag penel-body-content" >
+                    <form action="{% url 'create_area' %}" method="POST">
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "角色" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="administrator_permission" class="form-control select-icon" readonly="readonly">
+                                <option value="3">{% trans "超级用户" %}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!--<button class="btn btn-primary modal-confirm">Submit</button>
+                        <button class="btn btn-default modal-dismiss">Cancel</button>-->
+                        <button type="submit" class="btn btn-default">{% trans "应用" %}</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm_2" id="open_form_2" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm_2" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "加入管理域" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="tab-content drag penel-body-content" >
+                    <form action="{% url 'add_area' %}" method="POST">
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "管理域名称" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" name="name" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "角色" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="administrator_permission" class="form-control select-icon" >
+                                <option value="2">{% trans "管理用户" %}</option>
+                                <option value="1">{% trans "普通用户" %}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!--<button class="btn btn-primary modal-confirm">Submit</button>
+                        <button class="btn btn-default modal-dismiss">Cancel</button>-->
+                        <button type="submit" class="btn btn-default">{% trans "应用" %}</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm_3" id="open_form_3" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm_3" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "邀请用户" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="tab-content drag penel-body-content" >
+                    <form action="{% url 'invite_user' %}" method="POST">
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "账户名" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" name="name" required class="form-control">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "角色" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="administrator_permission" class="form-control select-icon" >
+                                {% if request.user.administrator_permission == 3 %}
+                                    <option value="2">{% trans "管理用户" %}</option>
+                                    <option value="1">{% trans "普通用户" %}</option>
+                                {% endif %}
+                                {% if request.user.administrator_permission == 2 %}
+                                    <option value="1">{% trans "普通用户" %}</option>
+                                {% endif %}
+
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!--<button class="btn btn-primary modal-confirm">Submit</button>
+                        <button class="btn btn-default modal-dismiss">Cancel</button>-->
+                        <button type="submit" class="btn btn-default">{% trans "应用" %}</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm_4" id="open_form_4" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm_4" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "编辑本地账户" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="tab-content drag penel-body-content" >
+                    <form id="user_fix_form">
+                    <input type="text" hidden="hidden" id="user_id" name='id'>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "角色" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="administrator_permission" class="form-control select-icon" id="user_permission">
+                                {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6 %}
+                                    <option value="5">{% trans "管理员" %}</option>
+                                    <option value="4">{% trans "本地用户" %}</option>
+                                {% else%}
+                                    {% if request.user.administrator_permission == 5 %}
+                                        <option value="4">{% trans "本地用户" %}</option>
+                                    {% endif %}
+                                {% endif %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "语言偏好" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="language" class="form-control select-icon" id="user_language">
+                                {% for language in LANGUAGES %}
+                                    <option value="{{ language.0 }}"{% if language.0 == LANGUAGE_CODE %} selected="selected"{% endif %}>
+                                        {{ language.1 }} ({{ language.0 }})
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "账户名" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" name="username" required class="form-control" id="user_username">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "密码" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="password" name="password"  class="form-control" onKeyUp="pwd_strong_2(this.value); pwStrength_2(this.value)" onBlur="pwStrength_2(this.value);" id="user_password">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+
+                        </div>
+                        <div class="col-md-7">
+                            <div id="pwd_strong-2" hidden="hidden">
+                                <div class="col-md-3 " align="center" id="strength_L-2" style="background-color:#eee">弱</div>
+                                <div class="col-md-3 " align="center" id="strength_M-2" style="background-color:#eee">中</div>
+                                <div class="col-md-3 "  align="center" id="strength_H-2" style="background-color:#eee">强</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "确认密码" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="password" name="two_password"  class="form-control" id="user_two_password">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "邮件推送" %}</span>
+                        </div>
+                        <div class="col-md-7" >
+                            <div class="col-md-4" style="padding:0px;">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="email_alert" id="user_email_alert"/>
+                                        <label for="user_email_alert"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-8 " style="padding:0px;">
+                                <input type="email" name="email"  class="form-control" id="user_email">
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "管理员密码" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="password" name="admin_password" required class="form-control" id="user_admin_password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!--<button class="btn btn-primary modal-confirm">Submit</button>
+                        <button class="btn btn-default modal-dismiss">Cancel</button>-->
+                        <button type="button" class="btn btn-default" id="user_fix_button">{% trans "应用" %}</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm_5" id="open_form_5" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm_5" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "编辑注册账户" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="tab-content drag penel-body-content" >
+                    <form action="{% url 'change_reg' %}" method="POST">
+                    <input type="text" hidden="hidden" id="reg_id" name='id'>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "账户名" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <input type="text" name="username" required class="form-control" id="reg_username" readonly="readonly">
+                        </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-5 penel-body-title-font">
+                            <span>{% trans "角色" %}</span>
+                        </div>
+                        <div class="col-md-7">
+                            <select name="administrator_permission" class="form-control select-icon" id="reg_permission">
+                                <option value="2">{% trans "管理用户" %}</option>
+                                <option value="1">{% trans "普通用户" %}</option>
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <!--<button class="btn btn-primary modal-confirm">Submit</button>
+                        <button class="btn btn-default modal-dismiss">Cancel</button>-->
+                        <button type="submit" class="btn btn-default">{% trans "应用" %}</button>
+                    </div>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock row %}
+{% block foot_js %}
+<script>
+  $(document).ready(function() {
+    pageWords = {
+      pleaseInputMac:'{% trans "请输入MAC地址的前三个字节" %}',
+      passwdInputEmptyError:'{% trans "密码不能为空" %}',
+      passwdInputError:'{% trans "密码长度应为6-18位" %}',
+      passwdNotSameError:'{% trans "两次密码不一致" %}',
+      usernameInputError:'{% trans "用户名应为6-18位的数字,字母,下划线" %}',
+      adminPasswdEmptyError:'{% trans "管理员密码不能为空" %}',
+
+      promptInfo:'{% trans "提示信息" %}',
+
+      // table trans
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+    };
+  });
+</script>
+<script src="{% static 'main/app-js/systemAccountPage.js' %}"></script>
+
+<script>
+//一定要放在最下面
+$(function(){
+
+  var error = JSON.parse('{{error_json|safe}}');
+
+  if(error.error_type == "failed"){
+      $("#position-4-error").click();
+  };
+  if(error.error_type == "success"){
+      $('#position-4-success').click();
+  }
+});
+</script>
+{% endblock foot_js %}

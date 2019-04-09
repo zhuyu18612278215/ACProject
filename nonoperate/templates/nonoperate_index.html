@@ -1,0 +1,1812 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+    <link rel="stylesheet" href="{% static 'main/jquery-pretty-radio-checkbox/css/jquery-labelauty.css' %} ">
+    <style>
+        ul.dowebok { list-style-type: none;}
+        ul.dowebok li { display: inline-block;}
+        ul.dowebok li { margin: 0;}
+        ul.dowebok input.labelauty + label { font: 12px "Microsoft Yahei";}
+    </style>
+{% endblock head_link %}
+{% block header %}
+    <li class="active"><i class="fa fa-desktop"></i>{% trans "概要" %}</li>
+{% endblock header %}
+{% block row %}
+    <div>
+        <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+        <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+    </div>
+    <div class="row col-md-6 col-lg-6" style="padding-right:0px;">
+        <div class=" row col-md-12 col-lg-12" style="padding-right:0px;">
+            <div class="panel bk-widget bk-border-off">
+                <div class="panel-body bk-bg-white">
+                    <h4 class="bk-margin-off bk-docs-font-weight-300 text-center " >{% trans "设备" %}</h4>
+                    <div class="clearfix ">
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <!-- <span class="index-probe-fontsize index-probe-online-fontcolor" id="online">{{ap.online}}</span> -->
+                                <a class="index-probe-fontsize index-probe-online-fontcolor" id="online" href="{% url 'nonoperate_list' %}?device_type=online">{{ap.online}}</a>
+                            </div>
+                            <h4 class="text-center bk-margin-off">{% trans "在线" %}</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <!-- <span class = "index-probe-fontsize" id="offline">{{ap.offline}}</span> -->
+                                <a class="index-probe-fontsize index-probe-offline-fontcolor" id="offline" href="{% url 'nonoperate_list' %}?device_type=offline">{{ap.offline}}</a>
+                            </div>
+                            <h4 class="text-center bk-margin-off">{% trans "离线" %}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row col-md-12 col-lg-12" style="padding-right:0px;">
+            <div class="panel bk-widget bk-border-off">
+                <div class="panel-body bk-bg-white">
+                    <h4 class="bk-margin-off bk-docs-font-weight-300 text-center " >{% trans "在线用户" %}</h4>
+                    <div class="clearfix ">
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <!-- <span class="index-probe-fontsize index-probe-online-fontcolor" id="pc_user">{{ap.pc_user}}</span> -->
+                                <a class="index-probe-fontsize index-probe-online-fontcolor" id="pc_user" href="{% url 'nonoperate_customer_list' %}">{{ap.pc_user}}</a>
+                            </div>
+                            <h4 class="text-center bk-margin-off">{% trans "PC/笔记本" %}</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="text-center">
+                                <!-- <span class="index-probe-fontsize index-probe-car-fontcolor" id="phone_user">{{ap.phone_user}}</span> -->
+                                <a class="index-probe-fontsize index-probe-car-fontcolor" id="phone_user" href="{% url 'nonoperate_customer_list' %}">{{ap.phone_user}}</a>
+                            </div>
+                            <h4 class="text-center bk-margin-off">{% trans "移动设备" %}</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row col-md-6 col-lg-6" style="float:right;padding-left:0px;">
+        <div class="row col-md-12 col-lg-12" style="margin-left:15px;padding-left:0px;">
+            <div class="panel bk-widget bk-border-off">
+                <div class="panel-body bk-bg-white index-porbe-sort-height" style="height:326.666px;">
+                    <div class="col-md-12 bk-padding-off">
+                        <div class="col-md-6 bk-padding-off">
+                            <h4 class="bk-margin-off bk-docs-font-weight-300 text-center" >{% trans "设备排行" %}</h4>
+                        </div>
+                        <div class="col-md-6 text-right">
+
+                            <select name="sort_type" id="sort_type" onchange="sort_change();">
+                                <option value="1">{% trans "在线时长" %}</option>
+                                <option value="2">{% trans "上行流量" %}</option>
+                                <option value="3">{% trans "下行流量" %}</option>
+                            </select>
+                            &nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+
+                    <div class="clearfix " id="sort">
+                        <div class="col-md-12 index-probe-sort-fontsize">
+                            <div class="col-md-8 text-left">
+                                <span id="top1-1"></span>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <span id="top1-2"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 index-probe-sort-fontsize">
+                            <div class="col-md-8 text-left">
+                                <span id="top2-1"></span>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <span id="top2-2"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 index-probe-sort-fontsize">
+                            <div class="col-md-8 text-left">
+                                <span id="top3-1"></span>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <span id="top3-2"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 index-probe-sort-fontsize">
+                            <div class="col-md-8 text-left">
+                                <span id="top4-1"></span>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <span id="top4-2"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12 index-probe-sort-fontsize">
+                            <div class="col-md-8 text-left">
+                                <span id="top5-1"></span>
+                            </div>
+                            <div class="col-md-4 text-right">
+                                <span id="top5-2"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                        <h6><i class="fa fa-signal"></i>{% trans "网络使用情况" %}</h6>
+                        <select name="net_type" id="net_type" onchange="chartajax();" >
+                            <option value="normal" selected="selected">{% trans "普通" %}</option>
+                            <option value="3g" >3G</option>
+                            <option value="4g">4G</option>
+                            <option value="car">{% trans "车载" %}</option>
+
+                        </select>
+
+
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        //<a href="#" class="btn-close"><i class="fa fa-times"></i></a>//
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="dev-net" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    <h6><i class="fa fa-signal"></i>{% trans "设备用户排行" %}</h6>
+                    <!--<select name="user_type" id="user_type" onchange="user_chartajax();" >
+                        <option value="normal" selected="selected">{% trans "普通" %}</option>
+                        <option value="3g" >3G</option>
+                        <option value="4g">4G</option>
+                        <option value="car">{% trans "车载" %}</option>
+
+                    </select>-->
+
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="user_chart" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                    <h6><i class="fa fa-signal"></i>{% trans "用户数量统计" %}</h6>
+                    <select name="user_count_type" id="user_count_type" onchange="user_counterajax();" >
+
+
+                    </select>
+
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div id="user_counter" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading ">
+                        <h6><i class="fa fa-warning"></i>{% trans "设备状态预警" %}</h6>
+                        <select name="warning-type" id="warning-type" onchange="ap_warningajax();" >
+                            <option value="cpu" selected="selected">CPU</option>
+                            <option value="flash">FLASH</option>
+                            <option value="memory">Memory</option>
+
+                        </select>
+
+
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body index-porbe-event-height" id="warning">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--用户详细信息弹窗-->
+<div class="panel-body">
+    <a class=" modal-with-form " href="#customer_detail" id="open_customer" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="customer_detail" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span id="customer_detail_head_name" ></span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <ul class="nav nav-tabs drag">
+                    <li class="active">
+                        <a href="#customer_detail_message" data-toggle="tab" ><span class="fa fa-navicon tab-icon-color"></span> {% trans "详细信息" %}</a>
+                    </li>
+                    <li >
+                        <a href="#customer_statistics" data-toggle="tab" ><span class="fa fa-bar-chart tab-icon-color"></span> {% trans "统计" %}</a>
+                    </li>
+                    <li >
+                        <a href="#customer_history" data-toggle="tab" ><span class="fa fa-clock-o tab-icon-color"></span> {% trans "历史记录" %}</a>
+                    </li>
+                    <li >
+                        <a href="#customer_config" data-toggle="tab" ><span class="fa fa-gear tab-icon-color"></span> {% trans "配置" %}</a>
+                    </li>
+                </ul>
+                <div class="tab-content drag">
+                    <div id="customer_detail_message" class="tab-pane active">
+                        <div class="panel-group" id="customer_accordion">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" href="#customer_summary" data-parent="#customer_accordion">
+                                            {% trans "概要" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="customer_summary" class="accordion-body collapse in">
+                                    <div class="panel-body penel-body-title-font">
+                                        <div class="customer_detail_box">
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "MAC地址" %}</span>
+                                                <span class="flex-5" id="customer_detail_mac"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "主机名" %}</span>
+                                                <span class="flex-5" id="customer_detail_hostname"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "操作系统" %}</span>
+                                                <span class="flex-5" id="customer_detail_os_type"></span>
+                                            </div>
+                                            <hr class="col-md-11 config-window-hr" >
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "IP地址" %}</span>
+                                                <span class="flex-5" id="customer_detail_ip"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "运行时间" %}</span>
+                                                <span class="flex-5" id="customer_detail_livetime"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "接入点" %}</span>
+                                                <span class="flex-5" id="customer_detail_ap"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "最后看到" %}</span>
+                                                <span class="flex-5" id="customer_detail_last_heart_time"></span>
+                                            </div>
+                                            <hr class="col-md-11 config-window-hr" >
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div id="customer_statistics" class="tab-pane ">
+                        <div class="panel-group" id="customer_accordion_statistics">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" href="#customer_tab_statistics" data-parent="#customer_accordion_statistics">
+                                            {% trans "统计" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="customer_tab_statistics" class="accordion-body collapse in">
+                                    <div class="panel-body penel-body-title-font">
+                                        <div class="customer_detail_box">
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">ESSID</span>
+                                                <span class="flex-5" id="customer_detail_wlan"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "接入点" %}</span>
+                                                <span class="flex-5" id="customer_detail_ap_1"></span>
+                                            </div>
+                                            <hr class="col-md-11 config-window-hr" >
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "信号" %}</span>
+                                                <span class="flex-5" id="customer_detail_singal"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "信道" %}</span>
+                                                <span class="flex-5" id="customer_detail_channel"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "下载速率" %}</span>
+                                                <span class="flex-5" id="customer_detail_tx_rate"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "上传速率" %}</span>
+                                                <span class="flex-5" id="customer_detail_rx_rate"></span>
+                                            </div>
+                                            <hr class="col-md-11 config-window-hr" >
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "上传(报文/字节)" %}</span>
+                                                <span class="flex-5" id="customer_detail_rx"></span>
+                                            </div>
+                                            <div class="customer_detail_item">
+                                                <span class="flex-3">{% trans "下载(报文/字节)" %}</span>
+                                                <span class="flex-5" id="customer_detail_tx"></span>
+                                            </div>
+                                            <hr class="col-md-11 config-window-hr" >
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="customer_history" class="tab-pane ">
+                        <table class="table table-bordered table-striped" id="customer_history_table" style="width:100%;">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "日期/时间" %}</th>
+                                    <th>{% trans "时长" %}</th>
+                                    <th>{% trans "上传" %}</th>
+                                    <th>{% trans "下载" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="customer_config" class="tab-pane ">
+                        <div class="panel-group" id="customer_config_accordion">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" href="#customer_config_page" data-parent="#customer_config_accordion">
+                                            {% trans "配置" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="customer_config_page" class="accordion-body collapse in">
+                                    <div class="panel-body ">
+                                        <div class="customer_detail_box">
+                                            <div class="customer_detail_item">
+                                                <span class="penel-body-title-font">{% trans "别名" %}</span>
+                                                <input type="text" id="customer_detail_name">
+                                                <button type="button" id="customer_detail_name_apply" data-mac="">{% trans "应用" %}</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--AP详细信息弹窗-->
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm" id="open_form" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span id="name"></span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="form-group">
+                    <div class="panel-heading" id="head-state">
+                        <h4 class="panel-title " style="text-align:center">
+                            <span id="state" ></span>
+                        </h4>
+                    </div>
+                </div>
+
+
+                <ul class="nav nav-tabs drag">
+                    <li class="active">
+                        <a href="#detail_message" data-toggle="tab" ><span class="fa fa-bars tab-icon-color" id="detail_message_href"></span> {% trans "详细信息" %}</a>
+                    </li>
+                    <li>
+                        <a href="#customer" data-toggle="tab" ><span class="fa fa-user tab-icon-color"></span> {% trans "用户" %}</a>
+                    </li>
+                    <li>
+                        <a id="a_config" href="#config" data-toggle="tab" ><span class="fa fa-cog tab-icon-color"></span> {% trans "配置" %}</a>
+                    </li>
+                    <li id="a_audit">
+                        <a href="#audit" data-toggle="tab" ><span class="fa fa-clock-o tab-icon-color"></span> {% trans "审计" %}</a>
+                    </li>
+                    <!-- <li>
+                        <a href="#gpon" data-toggle="tab" ><span class="fa fa-server tab-icon-color"></span> GPON</a>
+                    </li> -->
+                    <li>
+                        <a href="#diagnosis" id="a_diagnosis" data-toggle="tab"><i class="fa fa-exclamation-circle tab-icon-color"></i> {% trans "诊断" %}</a>
+                    </li>
+                </ul>
+                <div class="tab-content drag">
+                    <div id="detail_message" class="tab-pane active">
+                        <div class="panel-group" id="accordion">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion" href="#collapse1One">
+                                            {% trans "概要" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1One" class="accordion-body collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "MAC地址:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="mac"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "序列号:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="sn"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "型号:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="model"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "版本:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="version"></span>
+                                        </div>
+                                        <!--<span class="col-md-4 penel-body-title-font">场所信息:</span>
+                                        <span class="col-md-8 penel-body-body-font" id="place"></span>-->
+                                        <hr class="col-md-11 config-window-hr" >
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "IP地址:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="ip"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "运行时间:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="running_time"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "最后看到:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="last_time"></span>
+                                        </div>
+
+                                        <hr class="col-md-11 config-window-hr" >
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "CPU占用率:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="cpu"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "内存占用率:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="memory"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "Flash占用率:" %}</span>
+                                            <span class="col-md-8 penel-body-body-font" id="flash"></span>
+                                        </div>
+
+                                        <hr class="col-md-11 config-window-hr" >
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "用户数量" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="apusernum"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "来宾数量" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="guestsnum"></span>
+                                        </div>
+                                        <hr class="col-md-11 config-window-hr" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion ">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion" href="#traffic">
+                                            {% trans "流量" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="traffic" class="accordion-body collapse ">
+                                    <div class="panel-body">
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "下载(报文/字节)" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="download_all"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "上传(报文/字节)" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="upload_all"></span>
+                                        </div>
+                                        <hr class="col-md-11 config-window-hr" >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion " id="2g_radios_detail">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion" href="#radio_2">
+                                            {% trans "射频卡(2G)" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="radio_2" class="accordion-body collapse ">
+                                    <div class="panel-body">
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "信道" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_2_channel_show"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "传输功率" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_2_power_show"></span>
+                                        </div>
+                                        <hr class="col-md-11 config-window-hr" >
+                                        <!-- <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "用户数量" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_2_currstanum"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "来宾数量" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_2_guestsnum"></span>
+                                        </div>
+                                        <hr class="col-md-11 config-window-hr" > -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion " id="5g_radios_detail">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion" href="#radio_5">
+                                            {% trans "射频卡(5G)" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="radio_5" class="accordion-body collapse ">
+                                    <div class="panel-body">
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "信道" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_5_channel_show"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "传输功率" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_5_power_show"></span>
+                                        </div>
+                                        <hr class="col-md-11 config-window-hr" >
+                                        <!-- <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "用户数量" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_5_currstanum"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "来宾数量" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="radios_5_guestsnum"></span>
+                                        </div>
+                                        <hr class="col-md-11 config-window-hr" > -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div id="customer" class="tab-pane">
+                        <table class="table table-bordered table-striped" id="ap_customer_tab_table" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "名称/MAC地址" %}</th>
+                                    <th>{% trans "WLAN" %}</th>
+                                    <th>{% trans "操作" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="config" class="tab-pane">
+                        <div class="panel-group" id="accordion1">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion1" href="#collapse1One1">
+                                            {% trans "一般配置" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1One1" class="accordion-body collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <form id="modify_model_1">
+                                                <span class="col-md-3 penel-body-title-font">{% trans "别名" %}:</span>
+                                                <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                                <div class="col-md-7">
+                                                    <input type="text" class="form-control " name="name" id="d_name">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad" onclick="modify_ajax('modify_model_1','1');">{% trans "提交" %}</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <form id="modify_model_2">
+                                                <span class="col-md-3 penel-body-title-font">{% trans "AC地址" %}:</span>
+                                                <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                                <div class="col-md-7">
+                                                    <input type="text" class="form-control " id="ac_address" name="ac_address">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad" onclick="modify_ajax('modify_model_2','2');">{% trans "提交" %}</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom">
+                                            <form id="modify_model_3">
+                                                <span class="col-md-3 penel-body-title-font" style="padding-right:0px;">{% trans "LOG地址" %}:</span>
+                                                <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                                <div class="col-md-7">
+                                                    <input type="text" class="form-control " id="log_address" name="log_address">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad" onclick="modify_ajax('modify_model_3','3');">{% trans "提交" %}</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion1" href="#radio_config">
+                                            {% trans "射频卡" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="radio_config" class="accordion-body collapse">
+                                    <div class="panel-body">
+                                        <div class="col-md-12">
+                                            <div class="tabs">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active" id="2g_radios_config">
+                                                        <a href="#2G" data-toggle="tab" style="padding-right:20px;padding-left:20px;">&nbsp;2G&nbsp;</a>
+                                                    </li>
+                                                    <li id="5g_radios_config">
+                                                        <a href="#5G" data-toggle="tab" style="padding-right:20px;padding-left:20px;">&nbsp;5G&nbsp;</a>
+                                                    </li>
+                                                </ul>
+                                                <form id="modify_model_6">
+                                                <div class="tab-content" style="float:left;">
+                                                    <div id="2G" class="tab-pane active">
+                                                        <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                                        <div class="col-md-12 config-window-message-div-padding">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                {% trans "信道" %}
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="2g_channel" id="2g_channel" class="form-control select-icon">
+                                                                    <option value="auto">{% trans "自动" %}</option>
+                                                                    <option value="1">1</option>
+                                                                    <option value="2">2</option>
+                                                                    <option value="3">3</option>
+                                                                    <option value="4">4</option>
+                                                                    <option value="5">5</option>
+                                                                    <option value="6">6</option>
+                                                                    <option value="7">7</option>
+                                                                    <option value="8">8</option>
+                                                                    <option value="9">9</option>
+                                                                    <option value="10">10</option>
+                                                                    <option value="11">11</option>
+                                                                    <option value="12">12</option>
+                                                                    <option value="13">13</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="2g_ht" id="2g_ht" class="form-control select-icon">
+                                                                    <option value="auto">Auto</option>
+                                                                    <option value="20">HT20</option>
+                                                                    <option value="40">HT40</option>
+
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-12 config-window-message-div-padding">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                {% trans "发送功率" %}
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="2G_power" id="2G_power" class="form-control select-icon" onchange="check_cus('2g');">
+                                                                    <option value="auto">{% trans "自动" %}</option>
+                                                                    <option value="high">{% trans "高" %}</option>
+                                                                    <option value="medium">{% trans "中" %}</option>
+                                                                    <option value="low">{% trans "低" %}</option>
+                                                                    <option value="customize">{% trans "自定义" %}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding" id="2g_customize" hidden="hidden">
+                                                                <input type="text" class="form-control" name="2g_customize" id="2g_cu">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 config-window-message-div-padding" id="2g_max_p_div" hidden="hidden">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                (Max:<span id="2g_max_p"></span>)
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 config-window-message-div-padding">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                {% trans "兼容性" %}
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="radios_2_com" id="radios_2_com" class="form-control select-icon">
+                                                                    <option value="auto">{% trans "自动" %}</option>
+                                                                    <option value="11ng">{% trans "仅" %}11ng</option>
+                                                                    <option value="11n">{% trans "仅" %}11n</option>
+                                                                    <option value="11g">{% trans "仅" %}11g</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div id="5G" class="tab-pane ">
+                                                        <div class="col-md-12 config-window-message-div-padding">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                {% trans "信道" %}
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="5g_channel" id="5g_channel" class="form-control select-icon">
+                                                                    <option value="auto">{% trans "自动" %}</option>
+                                                                    <option value="36">36</option>
+                                                                    <option value="40">40</option>
+                                                                    <option value="44">44</option>
+                                                                    <option value="48">48</option>
+
+                                                                    <option value="52">52(dfs)</option>
+                                                                    <option value="56">56(dfs)</option>
+                                                                    <option value="60">60(dfs)</option>
+                                                                    <option value="64">64(dfs)</option>
+
+                                                                    <option value="149">149</option>
+                                                                    <option value="153">153</option>
+                                                                    <option value="157">157</option>
+                                                                    <option value="161">161</option>
+                                                                    <option value="165">165</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="5g_ht" id="5g_ht" class="form-control select-icon">
+                                                                    <option value="auto">Auto</option>
+                                                                    <option value="20">HT20</option>
+                                                                    <option value="40">HT40</option>
+                                                                    <option value="80">HT80</option>
+                                                                </select>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="col-md-12 config-window-message-div-padding">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                {% trans "发送功率" %}
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="5G_power" id="5G_power" class="form-control select-icon" onchange="check_cus('5g');">
+                                                                    <option value="auto">{% trans "自动" %}</option>
+                                                                    <option value="high">{% trans "高" %}</option>
+                                                                    <option value="medium">{% trans "中" %}</option>
+                                                                    <option value="low">{% trans "低" %}</option>
+                                                                    <option value="customize">{% trans "自定义" %}</option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding" id="5g_customize" hidden="hidden">
+                                                                <input type="text" class="form-control" name="5g_customize" id="5g_cu">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 config-window-message-div-padding" id="5g_max_p_div" hidden="hidden">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                (Max:<span id="5g_max_p"></span>)
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 config-window-message-div-padding">
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                {% trans "兼容性" %}
+                                                            </div>
+                                                            <div class="col-md-4 penel-body-title-font audit-config-padding">
+                                                                <select name="radios_5_com" id="radios_5_com" class="form-control select-icon">
+                                                                    <option value="auto">{% trans "自动" %}</option>
+                                                                    <option value="11ac">{% trans "仅" %}11ac</option>
+                                                                    <option value="11an">{% trans "仅" %}11an</option>
+                                                                </select>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <hr class="col-md-11 config-window-hr" >
+                                                    <div class="col-md-12 ">
+                                                        <div class="col-md-4"></div>
+                                                        <div class="col-md-4">
+                                                            <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="modify_radios_ajax('modify_model_6','6');">{% trans "应用" %}</button>
+                                                        </div>
+                                                        <div class="col-md-4"></div>
+                                                    </div>
+
+                                                </div>
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion1" href="#wlan_config">
+                                            WLAN
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="wlan_config" class="accordion-body collapse">
+                                    <div class="panel-body">
+                                        <div id="wlan_table">
+                                            <table class="table table-bordered table-striped" id="datatable-default-wlan-modify">
+                                                <thead>
+                                                    <tr>
+                                                        <th>{% trans "名称" %}</th>
+                                                        <th>{% trans "改动" %}</th>
+                                                        <th class = "table-action-width">{% trans "操作" %}</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="wlan-modify-table">
+
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div id="wlan_detail" hidden="hidden">
+                                            <div class="col-md-12 penel-body-div-marign-bottom ">
+                                            <form id="wlan_detail_form">
+                                                <div class="col-md-3 penel-body-title-font">
+                                                    <span >{% trans "应用于" %}</span>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <ul class="dowebok" style="padding-left:0px">
+                                                        <li><input type="radio" id="radios_enable_both" name="radios_enable" class="radio" data-labelauty=" {% trans '全部' %} " checked="checked" value="both"></li>
+                                                        <li><input type="radio" id="radios_enable_2g" name="radios_enable" class="radio"data-labelauty=" 2G " value="2g"></li>
+                                                        <li><input type="radio" id="radios_enable_5g" name="radios_enable" class="radio"data-labelauty=" 5G " value="5g"></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <div class="col-md-6 penel-body-title-font">
+                                                    <span >{% trans "在此接入点启用" %}</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="switch-div" >
+                                                        <div class="switch-button">
+                                                            <input type="checkbox" name="wlan_service" checked="checked" id="wlan_service"/>
+                                                            <label for="wlan_service"></label>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <div class="col-md-6 penel-body-title-font" style="padding-right: 0px;">
+                                                    <span >{% trans "启用VLAN" %}</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="switch-div" >
+                                                        <div class="switch-button">
+                                                            <input type="checkbox" name="vlan_enabled"  id="vlan_enabled"/>
+                                                            <label for="vlan_enabled"></label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="vlan_hide" >
+                                                <div class="col-md-4 penel-body-title-font">
+                                                    <span >{% trans "VLAN ID" %}</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="vlan" class="form-control" id="vlan">
+                                                </div>
+                                                <div class="col-md-2">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom"  >
+                                                <div class="col-md-4 penel-body-title-font">
+                                                    <span >{% trans "SSID" %}</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="text" name="ssid" class="form-control" id="ssid">
+                                                </div>
+                                                <div class="col-md-2">
+
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="passphrase_hide" >
+                                                <div class="col-md-4 penel-body-title-font">
+                                                    <span >{% trans "PSK" %}</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <input type="password" name="passphrase" class="form-control" id="passphrase" maxlength="64">
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <i class="passwd-eye fa fa-eye-slash"></i>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <div class="col-md-4 penel-body-title-font">
+                                                    <span >{% trans "下载限速" %}</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div style="position:relative;">
+                                                        <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                                        <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="download_speed_select">
+                                                            <option value="Unlimited" selected="selected">Unlimited</option>
+                                                            <option value="128K">128K</option>
+                                                            <option value="256K">256K</option>
+                                                            <option value="512K">512K</option>
+                                                            <option value="1M">1M</option>
+                                                            <option value="2M">2M</option>
+                                                            <option value="4M">4M</option>
+                                                            <option value="8M">8M</option>
+                                                        </select></span><input name="download_speed" id="download_speed" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control" value="Unlimited">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="penel-body-title-font">bps</span>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <div class="col-md-4 penel-body-title-font">
+                                                    <span >{% trans "上传限速" %}</span>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div style="position:relative;">
+                                                        <span style="margin-left:100px;width:18px;overflow:hidden;">
+                                                        <select style="width:174px;margin-left:-100px;display: -webkit-inline-box !important;" onchange="this.parentNode.nextSibling.value=this.value" class="form-control select-icon" id="upload_speed_select">
+                                                            <option value="Unlimited" selected="selected">Unlimited</option>
+                                                            <option value="128K">128K</option>
+                                                            <option value="256K">256K</option>
+                                                            <option value="512K">512K</option>
+                                                            <option value="1M">1M</option>
+                                                            <option value="2M">2M</option>
+                                                            <option value="4M">4M</option>
+                                                            <option value="8M">8M</option>
+                                                        </select></span><input name="upload_speed" id="upload_speed" style="width:155px;position:absolute;left:0px;display: -webkit-inline-box !important;" class="form-control" value="Unlimited">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-2">
+                                                    <span class="penel-body-title-font">bps</span>
+                                                </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" style="margin-top:20px;">
+                                                <div class="col-md-3">
+
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" id="apply_change_wlan" >{% trans "应用" %}</button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" id="reduction_change_wlan" >{% trans "还原" %}</button>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="close_wlan_detail();">{% trans "取消" %}</button>
+                                                </div>
+
+                                            </div>
+                                            </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion1" href="#collapse1Two1">
+                                             {% trans "网络" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1Two1" class="accordion-body collapse">
+                                    <div class="panel-body">
+                                        <form id="modify_model_4">
+                                            <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                            <div class="col-md-12 penel-body-div-marign-bottom ">
+
+                                                <span class="col-md-6 penel-body-title-font">{% trans "配置IP" %}:</span>
+                                                <div class="col-md-6 ">
+                                                    <select name="ip_model" id="ip_model" class="form-control select-icon" onchange="changeFunc();">
+                                                        <option value="dhcp">DHCP</option>
+                                                        <option value="static">{% trans "静态IP" %}</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="ip_address_d">
+                                                <span class="col-md-6 penel-body-title-font">{% trans "IP地址" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="ip_address" id="ip_address">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="subnet_mask_d">
+                                                <span class="col-md-6 penel-body-title-font">{% trans "子网掩码" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="subnet_mask" id="subnet_mask">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="gateway_d">
+                                                <span class="col-md-6 penel-body-title-font">{% trans "网关" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="gateway" name="gateway">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="preferred_dns_d">
+                                                <span class="col-md-6 penel-body-title-font">{% trans "首选DNS" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="preferred_dns" name="preferred_dns">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="alternative_dns_d">
+                                                <span class="col-md-6 penel-body-title-font">{% trans "备选DNS" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="alternative_dns" name="alternative_dns">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <div class="col-md-6 ">
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="modify_ajax('modify_model_4','4');">{% trans "应用" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion1" href="#collapse1-ntp">
+                                             {% trans "NTP配置" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1-ntp" class="accordion-body collapse">
+                                    <div class="panel-body">
+                                        <form id="modify_model_5">
+                                            <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <span class="col-md-6 penel-body-title-font">{% trans "首选NTP地址" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="preferred_ntp" name="preferred_ntp">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <span class="col-md-6 penel-body-title-font">{% trans "备选NTP地址" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="alternative_ntp" name="alternative_ntp">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <div class="col-md-6 ">
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="modify_ajax('modify_model_5','5');">{% trans "应用" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion" hidden="hidden">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion1" href="#collapse1-user">
+                                             {% trans "用户" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1-user" class="accordion-body collapse">
+                                    <div class="panel-body">
+                                        <form id="modify_model_user">
+                                            <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <span class="col-md-6 penel-body-title-font">{% trans "最大用户数" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" id="max_user" name="max_user">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                <div class="col-md-6 ">
+
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="modify_ajax('modify_model_user','user');">{% trans "应用" %}</button>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion1" href="#collapse1Three1">
+                                            {% trans "移除" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1Three1" class="accordion-body collapse">
+                                    <div class="panel-body">
+                                        <span class="col-md-12 penel-body-div-marign-bottom">
+                                            {% trans "如果您不希望继续管理此接入点,您可以移除它.请注意所有与此接入点相关的配置和历史记录都将删除." %}
+                                        </span>
+                                        <div class="col-md-12 " >
+                                            <div class="col-md-3 ">
+
+                                            </div>
+                                            <div class="col-md-6 ">
+                                                <a href="" class="btn btn-default table-btn-btnpad form-control button-border" id="delete">{% trans "移除" %}</a>
+                                            </div>
+                                            <div class="col-md-3">
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="diagnosis" class="tab-pane">
+                        <span class="col-sm-3" id="vpntitle">
+                            {% trans "远程诊断：" %}
+                        </span>
+                        <div class="switch-div" >
+                            <div class="switch-button">
+                                <input type="checkbox" id="vpn" name="vpn" data-a=""/>
+                                <label for="vpn"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div id="gpon" class="tab-pane" >
+                        <div class="panel-group" id="accordion-gpon">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion-gpon" href="#collapse-gpon">
+                                            {% trans "状态" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-gpon" class="accordion-body collapse in">
+                                    <div class="panel-body penel-body-title-font">
+                                        <div class="gpon-flex" style="margin-left:3%;">
+                                            <div class="gpon-flex-item" style="width:50%">
+                                                <span class="penel-body-div-marign-bottom">{% trans "序列号" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "密码" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "光口los状态" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "PON口的发射光功率" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "PON口的接收光功率" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "光模块工作温度" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "光模块供电电压" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "光发送机的偏置电流" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "O1-O5状态" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "注册状态" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "认证状态" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "厂商名称" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "厂商 OUI" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "运营商" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "设备型号" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "硬件版本号" %}</span>
+                                                <span class="penel-body-div-marign-bottom">{% trans "软件版本号" %}</span>
+                                            </div>
+                                            <div class="gpon-flex-item" style="width:50%">
+                                                <span id="gpon_sn" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="gpon_pwd" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="los_status" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="tx_power" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="rx_power" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="temperature" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="supply_voltage" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="txbias_current" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="onu_state" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="phy_status" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="traffic_status" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="manufacturer" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="manufacturer_oui" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="operator_id" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="model_name" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="customer_hwversion" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                                <span id="customer_swversion" class="penel-body-div-marign-bottom gpon_config_list_item"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion" id="gpon_config_list">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion-gpon" href="#collapse-gpon-config">
+                                            {% trans "配置" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-gpon-config" class="accordion-body collapse" data-mac = "">
+                                    <div class="panel-body penel-body-title-font">
+                                        <div class="gpon-flex-config-box" style="margin-left:3%;">
+                                        -->
+                                            <!--<div class="gpon-flex-config" >
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;">{% trans "序列号" %}</span>
+                                                <input type="text" class="penel-body-div-marign-bottom" style="width:40%;" id="gpon_sn_config" maxlength=31>
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" style="width:15%;" id="gpon_sn_config_button">{% trans "提交" %}</button>
+                                            </div>-->
+                                            <!-- <div class="gpon-flex-config" >
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;">{% trans "密码" %}</span>
+                                                <input type="text" class="penel-body-div-marign-bottom" style="width:40%;" id="gpon_pwd_config" maxlength=31>
+                                            </div>
+                                            <div class="gpon-flex-config" id="save_pwd_button" style="display: none;">
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;"></span>
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" style="width:15%;" id="gpon_pwd_config_button">{% trans "保存" %}</button>
+                                            </div>
+
+                                            <hr class="col-md-11 config-window-hr" > -->
+                                            <!--<div class="gpon-flex-config" >
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;">{% trans "厂商唯一标识" %}</span>
+                                                <input type="text" class="penel-body-div-marign-bottom" style="width:40%;" id="manufacturer_oui_config">
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" style="width:15%;" id="manufacturer_oui_config_button">{% trans "提交" %}</button>
+                                            </div>-->
+                                            <!-- <div class="gpon-flex-config">
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;">{% trans "升级地址" %}</span>
+                                                <input type="text" class="penel-body-div-marign-bottom" style="width:40%;" id="gpon_update_link" maxlength=63>
+                                            </div>
+                                            <div class="gpon-flex-config">
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;">{% trans "升级文件" %}</span>
+                                                <input type="text" class="penel-body-div-marign-bottom" style="width:40%;" id="gpon_update_file" maxlength=63>
+                                            </div>
+                                            <div class="gpon-flex-config" style="display:none;" id="save_update_button">
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;"></span>
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" style="width:15%;" id="gpon_update_button">{% trans "保存" %}</button>
+                                            </div>
+                                            <div class="gpon-flex-config">
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;">{% trans "升级GPON" %}</span>
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" style="width:15%;" id="gpon_update">{% trans "升级" %}</button>
+                                            </div>
+
+                                            <hr class="col-md-11 config-window-hr" >
+                                            <div class="gpon-flex-config">
+                                                <span class="penel-body-div-marign-bottom" style="width:50%;">{% trans "重启GPON" %}</span>
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" id="gpon_reboot" style="width:15%;">{% trans "重启" %}</button>
+                                            </div> -->
+                                            <!--<div class="gpon-flex-config-button penel-body-div-marign-bottom " style="margin-top:15px;">
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" id="gpon_save_data">{% trans "保存数据" %}</button>
+                                                <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" id="gpon_recover">{% trans "恢复出厂" %}</button>
+                                            </div>-->
+                                        <!-- </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <div id="audit" class="tab-pane">
+                        <div class="panel-group" id="accordion2">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion2" href="#collapse1One2">
+                                            {% trans "状态" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1One2" class="accordion-body collapse in">
+                                    <div class="panel-body">
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "审计厂商" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_audit_corp"></span>
+                                            </div>
+                                            <div class="col-md-12 config-window-message-div-padding" id="ftpname_hide">
+                                                <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "FTP用户名" %}:</span>
+                                                <span class="col-md-8 penel-body-body-font" id="status_ftp_name"></span>
+                                            </div>
+                                            <div class="col-md-12 config-window-message-div-padding" id="ftppwd_hide">
+                                                <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "FTP密码" %}:</span>
+                                                <span class="col-md-8 penel-body-body-font" id="status_ftp_passwd"></span>
+                                            </div>
+                                            <div class="col-md-12 config-window-message-div-padding" id="ftpport_hide">
+                                                <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "SFTP端口" %}:</span>
+                                                <span class="col-md-8 penel-body-body-font" id="status_ftp_port"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "审计服务器地址" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_audit_ip"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font audit-config-padding">{% trans "审计服务器端口" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_audit_port"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "场所编码" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_location_encode"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "设备编码" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_device_encode"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "经度" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_longitude"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "纬度" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_latitude"></span>
+                                        </div>
+                                        {% if oemlimit.oem_type == "qingdao" %}
+                                            <div style="display:none">
+                                        {% endif %}
+                                        <hr class="col-md-11 config-window-hr" >
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "采集半径" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_collection_radius"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "设备类型" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_equipment_type"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "设备名称" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_equipment_name"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "设备地址" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_equipment_address"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "厂商编码" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_software_orgcode"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "厂商名称" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_software_orgname"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "厂商地址" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_software_address"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "联系人姓名" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_contactor"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "联系人电话" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_contactor_tel"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "联系人邮箱" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_contactor_mail"></span>
+                                        </div>
+                                        <hr class="col-md-11 config-window-hr" >
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "场所名称" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_place_name"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "场所地址" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_site_address"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "场所类型" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_netsite_type"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "场所经营性质" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_bussiness_nature"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "法人姓名" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_law_principal_name"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "证件类型" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_certificate_type"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "证件号码" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_certificate_id"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "电话号码" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_relationship_account"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "营业开始时间" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_start_time"></span>
+                                        </div>
+                                        <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "营业结束时间" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="status_end_time"></span>
+                                        </div>
+                                        {% if oemlimit.oem_type == 'qingdao' %}
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion2" href="#collapse1Two2">
+                                            {% trans "配置" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1Two2" class="accordion-body collapse ">
+                                    <div class="panel-body audit-config-input-group-padding">
+                                        <ul class="nav nav-tabs audit-config-tag-margin-top">
+                                            <li class="active">
+                                                <a href="#basic_message" data-toggle="tab" >{% trans "基本信息" %}</a>
+                                            </li>
+                                            {% if oemlimit.oem_type == 'qingdao' %}
+                                                <div style="display:none">
+                                            {% endif %}
+                                            <li>
+                                                <a href="#dev_messsage" data-toggle="tab" >{% trans "设备信息" %}</a>
+                                            </li>
+                                            <li>
+                                                <a href="#place_message" data-toggle="tab" >{% trans "场所信息" %}</a>
+                                            </li>
+                                            {% if oemlimit.oem_type == 'qingdao' %}
+                                                </div>
+                                            {% endif %}
+                                        </ul>
+                                        <div class="tab-content" style="float:left">
+                                            <div id="basic_message" class="tab-pane active">
+                                                <form id="audit_modify">
+                                                    <input class = "receive_mac" type="text" name="mac" hidden="hidden">
+                                                    <div class="col-md-12 penel-body-div-marign-bottom " >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "审计厂商" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <select name="audit_corp" id="audit_corp" class="form-control select-icon" >
+
+                                                            </select>
+
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 penel-body-div-marign-bottom" id="ftp_name_hide" >
+                                                            <span class="col-md-6 penel-body-title-font">{% trans "FTP用户名" %}:</span>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="form-control" name="ftp_name" id="ftp_name">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 penel-body-div-marign-bottom" id="ftp_passwd_hide" >
+                                                            <span class="col-md-6 penel-body-title-font">{% trans "FTP密码" %}:</span>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="form-control" name="ftp_passwd" id="ftp_passwd">
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-md-12 penel-body-div-marign-bottom" id="ftp_port_hide" >
+                                                            <span class="col-md-6 penel-body-title-font">{% trans "SFTP端口" %}:</span>
+                                                            <div class="col-md-6">
+                                                                <input type="text" class="form-control" name="ftp_port" id="ftp_port">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "审计服务器地址" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="audit_ip" id="audit_ip">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "审计服务器端口" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="audit_port" id="audit_port">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "场所编码" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="location_encode" id="location_encode">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "设备编码" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="device_encode" id="device_encode">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "经度" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="longitude" id="longitude">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "纬度" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="latitude" id="latitude">
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                            <div id="dev_messsage" class="tab-pane">
+
+
+                                                    <div class="col-md-12 penel-body-div-marign-bottom " >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "采集半径" %}(m):</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="collection_radius" id="collection_radius">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "设备类型" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <select name="equipment_type" id="equipment_type" class="form-control select-icon">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "设备名称" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="equipment_name" id="equipment_name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "设备地址" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="equipment_address" id="equipment_address">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "厂商编码" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="software_orgcode" id="software_orgcode">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "厂商名称" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="software_orgname" id="software_orgname">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "厂商地址" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="software_address" id="software_address">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "联系人姓名" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="contactor" id="contactor">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "联系人电话" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="contactor_tel" id="contactor_tel">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "联系人邮箱" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="contactor_mail" id="contactor_mail">
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                            <div id="place_message" class="tab-pane">
+
+                                                    <div class="col-md-12 penel-body-div-marign-bottom " >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "场所名称" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="place_name" id="place_name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "场所地址" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" id="site_address" name="site_address" class="form-control">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "场所类型" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <select name="netsite_type" id="netsite_type" class="form-control select-icon">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "场所经营性质" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <select name="bussiness_nature" id="bussiness_nature" class="form-control select-icon">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "法人姓名" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="law_principal_name" id="law_principal_name">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "证件类型" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <select name="certificate_type" id="certificate_type" class="form-control select-icon">
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "证件号码" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="certificate_id" id="certificate_id">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font">{% trans "电话号码" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="relationship_account" id="relationship_account">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font audit-config-padding">{% trans "营业开始时间(如8:00)" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="start_time" id="start_time">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                        <span class="col-md-6 penel-body-title-font audit-config-padding">{% trans "营业结束时间(如22:00)" %}:</span>
+                                                        <div class="col-md-6">
+                                                            <input type="text" class="form-control" name="end_time" id="end_time">
+                                                        </div>
+                                                    </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 penel-body-div-marign-bottom audit-config-tag-margin-top" >
+                                            <div class="col-md-4 ">
+
+                                            </div>
+                                            <div class="col-md-4">
+                                                <button type="button" class="btn btn-default table-btn-btnpad form-control button-border" onclick="audit_ajax();">{% trans "应用" %}</button>
+                                            </div>
+                                            <div class="col-md-4 ">
+
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <a id="a_locate" href="#" class="btn btn-default">{% trans "定位" %}</a>
+                        <a id="reboot" href="" class="btn btn-default">{% trans "重启" %}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock row %}
+{% block foot_js %}
+<script src=" {% static 'main/jquery-pretty-radio-checkbox/js/jquery-labelauty.js' %} "></script>
+<script src="{% static 'main/app-js/wlan.js' %}"></script>
+<script>
+  $(document).ready(function(){
+    pageWords = {
+      // allDeviceListPageSharedJS trans
+      // serialNumAlertInfo:'{% trans "序列号不能为空" %}',
+      // macAlertInfo:'{% trans "MAC 不能为空" %}',
+      // macLenghtErrorAlertInfo:'{% trans "MAC 有效字符不为12" %}',
+      // errorListDownload:'{% trans "错误列表下载" %}',
+      // fileTypeError:'{% trans "文件类型错误" %}',
+      // fileNotFound:'{% trans "未选择文件" %}',
+      // every
+      acAddressErrorInfo:'{% trans "AC地址不合法" %}',
+      // table trans
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+      // shared
+      online:'{% trans "在线" %}',
+      timeOut:'{% trans "超时" %}',
+      offline:'{% trans "离线" %}',
+      retired:'{% trans "退服" %}',
+      removed:'{% trans "已移除" %}',
+      reboot:'{% trans "重启" %}',
+      update:'{% trans "升级" %}',
+      privateip:'{% trans "私网地址" %}',
+      vpnip:'{% trans "远程地址" %}',
+      remove:'{% trans "移除" %}',
+      jump:'{% trans "跳转至" %}',
+      promptInfo:'{% trans "提示信息" %}',
+      fix:'{% trans "修改" %}',
+
+      ssidEmptyError:'{% trans "信号名称不能为空" %}',
+      speedLimitEmptyError:'{% trans "限速不能为空" %}',
+      vlanEmptyError:'{% trans "vlan不能为空" %}',
+      vlanValueError:'{% trans "vlan必须是1-4094范围内的整数" %}',
+      passwdEmptyError:'{% trans "密码不能为空" %}',
+      passwdValueError:'{% trans "密码必须是8-64位的ASCII码字符" %}',
+
+      // gpon
+      serverIPEmptyError:'{% trans "服务器地址不能为空" %}',
+      gponFileNameError:'{% trans "文件名称不能为空" %}',
+
+      nameEmptyError:'{% trans "别名不能为空" %}',
+      userNotFoundError:'{% trans "用户不存在" %}',
+
+      devUserRank:'{% trans "设备用户排行" %}',
+      userNum:'{% trans "用户数" %}',
+
+      dev:'{% trans "设备" %}',
+      name:'{% trans "别名" %}',
+      version:'{% trans "版本" %}',
+      status:'{% trans "状态" %}',
+      usage:'{% trans "使用率为" %}',
+      locatingError:'{% trans "定位执行失败" %}',
+    };
+    OEMLimitType = '{{oemlimit.oem_type}}';
+  });
+</script>
+
+<script src="{% static 'main/app-js/nonOperateIndexPage.js' %}"></script>
+<script src="{% static 'main/app-js/nonOperateSharedJS.js' %}"></script>
+<script src="{% static 'main/app-js/everyHaveDevicePopWindowPageSharedJS.js' %}"></script>
+
+<script>
+  //一定要放在最下面
+  // $(function(){
+
+  //     var error = JSON.parse('{{error_json|safe}}');
+
+  //     if(error.error_type === "failed"){
+  //         $("#position-4-error").click();
+  //     };
+  //     if(error.error_type === "success"){
+  //         $('#position-4-success').click();
+  //     }
+  // });
+</script>
+{% endblock foot_js %}

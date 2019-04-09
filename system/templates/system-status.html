@@ -1,0 +1,301 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+    <link rel="stylesheet" href="{% static 'main/jquery-pretty-radio-checkbox/css/jquery-labelauty.css' %} ">
+    <style>
+        ul.dowebok { list-style-type: none;}
+        ul.dowebok li { display: inline-block;}
+        ul.dowebok li { margin: 0;}
+        ul.dowebok input.labelauty + label { font: 12px "Microsoft Yahei";}
+    </style>
+
+{% endblock head_link %}
+{% block header %}
+    <li ><a href=""><i class="fa fa-cogs"></i>{% trans "系统" %}</a></li>
+    <li class="active"><i class="fa fa-download"></i>{% trans "状态" %}</li>
+{% endblock header %}
+{% block row %}
+    <div>
+        <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+        <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-download"></i>{% trans "系统状态" %}</h6>
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tabs">
+                        <div class="tab-content" style="float:left;width:100%;">
+                            <div id="web_server_version" class="tab-pane active">
+
+                                    <div class="col-md-12 config-window-message-div-padding">
+                                        <span class="col-md-4 penel-body-title-font">{% trans "CPU占用率:" %}</span>
+                                        <span class="col-md-8 penel-body-body-font" id="cpuused"></span>
+                                    </div>
+
+                                    <hr class="col-md-11 config-window-hr" >
+                                    <div class="col-md-12 config-window-message-div-padding">
+                                        <span class="col-md-4 penel-body-title-font">{% trans "内存利用率" %}:</span>
+                                        <span class="col-md-8 penel-body-body-font" id="memerused"></span>
+                                    </div>
+
+                                    <hr class="col-md-11 config-window-hr" >
+
+                                    <div class="col-md-12 config-window-message-div-padding">
+                                        <span class="col-md-4 penel-body-title-font">{% trans "磁盘空间利用率" %}:</span>
+                                        <span class="col-md-8 penel-body-body-font" id="diskused"></span>
+                                    </div>
+                                    <hr class="col-md-11 config-window-hr" >
+
+                                    <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "缓存利用率" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="cachedused"></span>
+                                    </div>
+                                    <hr class="col-md-11 config-window-hr" >
+
+                                    <div class="col-md-12 config-window-message-div-padding">
+                                            <span class="col-md-4 penel-body-title-font">{% trans "报文响应时间" %}:</span>
+                                            <span class="col-md-8 penel-body-body-font" id="restime"></span>
+                                    </div>
+                                    <hr class="col-md-11 config-window-hr" >
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalBasic" id="upgmessage" style="display:none;" ></a>
+    <div id="modalBasic" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">{% trans "正在升级" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <p id="upm"></p>
+                        <div class="progress light progress-xl " id="probardiv" style="display:none;">
+                          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; " id="probar">
+                            0%
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-default modal-dismiss" id="closeupm" style="display:none;">Cancel</button>
+                        <button class="btn btn-default modal-dismiss" onclick="cancel();" id="closeupm_1">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalconf" id="confinformation" style="display:none;" ></a>
+    <div id="modalconf" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导出备份" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 " id="infdiv1">
+                            <span class="penel-body-title-font">{% trans "备份导出中,请稍候" %}</span>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="infdiv2" style="display:none;">
+                            <span class="penel-body-title-font">{% trans "备份已导出,点击下载" %}</span>
+                            <p id="download_link" class="penel-body-title-font " style="margin-top:10px;" ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button id="download_link_close" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalinconf" id="importconf" style="display:none;" ></a>
+    <div id="modalinconf" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导入备份" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 penel-body-div-marign-bottom" >
+                            <div class="col-md-3 penel-body-title-font">
+                                <span>{% trans "导入备份" %}</span>
+                            </div>
+                            <div class="col-md-9 penel-body-title-font">
+                                <input type="file" id="import_file" >
+                                <!--accept="application/x-gzip,application/gzip"-->
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="importconf_wait" style="display:none;">
+                            <div class="col-md-12 penel-body-title-font">
+                                <span>{% trans "系统恢复中,请稍候" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-default " id="import_file_button">{% trans "确认" %}</button>
+                        <button type="button" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalsysset" id="syssetinformation" style="display:none;" ></a>
+    <div id="modalsysset" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导出配置" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 " id="syssetdiv1">
+                            <span class="penel-body-title-font">{% trans "配置导出中,请稍候" %}</span>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="syssetdiv2" style="display:none;">
+                            <span class="penel-body-title-font">{% trans "配置已导出,点击下载" %}</span>
+                            <p id="syssetdownload_link" class="penel-body-title-font " style="margin-top:10px;" ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button id="syssetdownload_link_close" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalinsysset" id="importsysset" style="display:none;" ></a>
+    <div id="modalinsysset" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导入配置" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 penel-body-div-marign-bottom" >
+                            <div class="col-md-3 penel-body-title-font">
+                                <span>{% trans "导入配置" %}</span>
+                            </div>
+                            <div class="col-md-9 penel-body-title-font">
+                                <input type="file" id="importsysset_file" >
+                                <!--accept="application/x-gzip,application/gzip"-->
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="importsysset_wait" style="display:none;">
+                            <div class="col-md-12 penel-body-title-font">
+                                <span>{% trans "配置导入中,请稍候" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-default " id="importsysset_file_button">{% trans "确认" %}</button>
+                        <button type="button" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock row %}
+{% block foot_js %}
+<script src=" {% static 'main/jquery-pretty-radio-checkbox/js/jquery-labelauty.js' %} "></script>
+<script>
+  $(document).ready(function() {
+    pageWords = {
+      // pleaseInputMac:'{% trans "请输入MAC地址的前三个字节" %}',
+      // passwdInputEmptyError:'{% trans "密码不能为空" %}',
+      // passwdInputError:'{% trans "密码长度应为6-18位" %}',
+      // passwdNotSameError:'{% trans "两次密码不一致" %}',
+      // usernameInputError:'{% trans "用户名应为6-18位的数字,字母,下划线" %}',
+      // adminPasswdEmptyError:'{% trans "管理员密码不能为空" %}',
+      serverIpEmptyError:'{% trans "服务器地址不能为空" %}',
+      fileNameEmptyError:'{% trans "文件名称不能为空" %}',
+      exportError:'{% trans "导出失败" %}',
+      fileIllegal:'{% trans "文件不合法" %}',
+      fileNoChoose:'{% trans "未选择文件" %}',
+      emailServerEmptyError:'{% trans "邮件服务器不能为空" %}',
+      portEmptyError:'{% trans "端口不能为空" %}',
+      senderEmptyError:'{% trans "指定发件人地址不能为空" %}',
+      senderPasswdEmptyError:'{% trans "指定发件人密码不能为空" %}',
+      testEmailEmptyError:'{% trans "测试邮件邮箱不能为空" %}',
+      notHaveNewVersion:'{% trans "没有最新版本可用" %}',
+      addressEmptyError:'{% trans "地址不能为空" %}',
+      versionDownloading:'{% trans "版本下载中,请稍后" %}',
+      versionUpdating:'{% trans "版本下载成功,正在升级" %}',
+      fileHaveChinese:'{% trans "文件名含有中文" %}',
+      fileUploading:'{% trans "正在上传文件,请耐心等待" %}',
+      versionUploadUpdating:'{% trans "版本上传成功,正在升级" %}',
+      open:'{% trans "开启" %} ',
+
+      promptInfo:'{% trans "提示信息" %}',
+
+      // table trans
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+    };
+  });
+</script>
+<script src=" {% static 'main/app-js/systemStatusPage.js' %} "></script>
+
+<script>
+  //一定要放在最下面
+  $(function(){
+
+    var error = JSON.parse('{{error_json|safe}}');
+
+    if(error.error_type == "failed"){
+        $("#position-4-error").click();
+    };
+    if(error.error_type == "success"){
+        $('#position-4-success').click();
+    }
+  });
+</script>
+{% endblock foot_js %}

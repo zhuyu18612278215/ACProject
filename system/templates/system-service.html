@@ -1,0 +1,853 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+    <link rel="stylesheet" href="{% static 'main/jquery-pretty-radio-checkbox/css/jquery-labelauty.css' %} ">
+    <style>
+        ul.dowebok { list-style-type: none;}
+        ul.dowebok li { display: inline-block;}
+        ul.dowebok li { margin: 0;}
+        ul.dowebok input.labelauty + label { font: 12px "Microsoft Yahei";}
+    </style>
+
+{% endblock head_link %}
+{% block header %}
+    <li ><a href=""><i class="fa fa-cogs"></i>{% trans "系统" %}</a></li>
+    <li class="active"><i class="fa fa-download"></i>{% trans "服务" %}</li>
+{% endblock header %}
+{% block row %}
+    <div>
+        <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+        <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+    </div>
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-download"></i>{% trans "基础配置" %}</h6>
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tabs">
+                        <div class="tab-content" style="float:left;width:100%;">
+                            <div class="col-md-12 penel-body-div-marign-bottom ">
+                                <div class="col-md-3">
+                                    <span class="penel-body-title-font">{% trans "国家码" %}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="countryCode" id="countryCode" class="form-control select-icon">
+                                        <option  countryname="Albania" value="AL">{%trans '阿尔巴尼亚' %}</option>
+                                        <option  countryname="Algeria" value="DZ">{%trans '阿尔及利亚' %}</option>
+                                        <option  countryname="Argentina" value="AR">{%trans '阿根廷' %}</option>
+                                        <option  countryname="Armenia" value="AM">{%trans '亚美尼亚' %}</option>
+                                        <option  countryname="Aruba" value="AW">{%trans '阿鲁巴' %}</option>
+                                        <option  countryname="Australia" value="AU">{%trans '澳大利亚' %}</option>
+                                        <option  countryname="Austria" value="AT">{%trans '奥地利' %}</option>
+                                        <option  countryname="Azerbaijan" value="AZ">{%trans '阿塞拜疆' %}</option>
+                                        <option  countryname="Bahrain" value="BH">{%trans '巴林' %}</option>
+                                        <option  countryname="Bangladesh" value="BD">{%trans '孟加拉' %}</option>
+                                        <option  countryname="Barbados" value="BB">{%trans '巴巴多斯' %}</option>
+                                        <option  countryname="Belarus" value="BY">{%trans '白俄罗斯' %}</option>
+                                        <option  countryname="Belgium" value="BE">{%trans '比利时' %}</option>
+                                        <option  countryname="Belize" value="BZ">{%trans '伯利兹' %}</option>
+                                        <option  countryname="Bolivia" value="BO">{%trans '玻利维亚' %}</option>
+                                        <option  countryname="Bosnia and Herzegovina" value="BA">{%trans '波斯尼亚和黑塞哥维那' %}</option>
+                                        <option  countryname="Brazil" value="BR">{%trans '巴西' %}</option>
+                                        <option  countryname="Brunei Darussalam" value="BN">{%trans '文莱' %}</option>
+                                        <option  countryname="Bulgaria" value="BG">{%trans '保加利亚' %}</option>
+                                        <option  countryname="Cambodia" value="KH">{%trans '柬埔寨' %}</option>
+                                        <option  countryname="Canada" value="CA">{%trans '加拿大' %}</option>
+                                        <option  countryname="Chile" value="CL">{%trans '智利' %}</option>
+                                        <option  countryname="China" value="CN">{%trans '中国' %}</option>
+                                        <option  countryname="Colombia" value="CO">{%trans '哥伦比亚' %}</option>
+                                        <option  countryname="Costa rica" value="CR">{%trans '哥斯达黎加' %}</option>
+                                        <option  countryname="Croatia" value="HR">{%trans '克罗地亚' %}</option>
+                                        <option  countryname="Cyprus" value="CY">{%trans '塞浦路斯' %}</option>
+                                        <option  countryname="Czech Republic" value="CZ">{%trans '捷克' %}</option>
+                                        <option  countryname="Denmark" value="DK">{%trans '丹麦' %}</option>
+                                        <option  countryname="Dominican Republic" value="DO">{%trans '多明尼加共和国' %}</option>
+                                        <option  countryname="Ecuador" value="EC">{%trans '厄瓜多尔' %}</option>
+                                        <option  countryname="Egypt" value="EG">{%trans '埃及' %}</option>
+                                        <option  countryname="El Salvador" value="SV">{%trans '萨尔瓦多' %}</option>
+                                        <option  countryname="Estonia" value="EE">{%trans '爱沙尼亚' %}</option>
+                                        <option  countryname="Finland" value="FI">{%trans '芬兰' %}</option>
+                                        <option  countryname="France" value="FR">{%trans '法国' %}</option>
+                                        <option  countryname="Georgia" value="GE">{%trans '格鲁吉亚' %}</option>
+                                        <option  countryname="Germany" value="DE">{%trans '德国' %}</option>
+                                        <option  countryname="Greece" value="GR">{%trans '希腊' %}</option>
+                                        <option  countryname="Greenland" value="GL">{%trans '格陵兰' %}</option>
+                                        <option  countryname="Grenada" value="GD">{%trans '格林纳达' %}</option>
+                                        <option  countryname="Guam" value="GU">{%trans '关岛' %}</option>
+                                        <option  countryname="Guatemala" value="GT">{%trans '危地马拉' %}</option>
+                                        <option  countryname="Haiti" value="HT">{%trans '海地' %}</option>
+                                        <option  countryname="Honduras" value="HN">{%trans '洪都拉斯' %}</option>
+                                        <option  countryname="Hong Kong" value="HK">{%trans '香港' %}</option>
+                                        <option  countryname="Hungary" value="HU">{%trans '匈牙利' %}</option>
+                                        <option  countryname="Iceland" value="IS">{%trans '冰岛' %}</option>
+                                        <option  countryname="India" value="IN">{%trans '印度' %}</option>
+                                        <option  countryname="Indonesia" value="ID">{%trans '印度尼西亚' %}</option>
+                                        <option  countryname="Iran" value="IR">{%trans '伊朗' %}</option>
+                                        <option  countryname="Ireland" value="IE">{%trans '爱尔兰' %}</option>
+                                        <option  countryname="Israel" value="IL">{%trans '以色列' %}</option>
+                                        <option  countryname="Italy" value="IT">{%trans '意大利' %}</option>
+                                        <option  countryname="Jamaica" value="JM">{%trans '牙买加' %}</option>
+                                        <option  countryname="Japan" value="JP">{%trans '日本' %}</option>
+                                        <option  countryname="Jordan" value="JO">{%trans '约旦' %}</option>
+                                        <option  countryname="Kazakhstan" value="KZ">{%trans '哈萨克斯坦' %}</option>
+                                        <option  countryname="Kenya" value="KE">{%trans '肯尼亚' %}</option>
+                                        <option  countryname="Korea Republic" value="KR">{%trans '韩国' %}</option>
+                                        <option  countryname="Kuwait" value="KW">{%trans '科威特' %}</option>
+                                        <option  countryname="Latvia" value="LV">{%trans '拉脱维亚' %}</option>
+                                        <option  countryname="Lebanon" value="LB">{%trans '黎巴嫩' %}</option>
+                                        <option  countryname="Liechtenstein" value="LI">{%trans '列支敦士登' %}</option>
+                                        <option  countryname="Lithuania" value="LT">{%trans '立陶宛' %}</option>
+                                        <option  countryname="Luxembourg" value="LU">{%trans '卢森堡' %}</option>
+                                        <option  countryname="Macau" value="MO">{%trans '澳门' %}</option>
+                                        <option  countryname="Macedonia" value="MK">{%trans '马其顿' %}</option>
+                                        <option  countryname="Malaysia" value="MY">{%trans '马来西亚' %}</option>
+                                        <option  countryname="Malta" value="MT">{%trans '马耳他' %}</option>
+                                        <option  countryname="Mexico" value="MX">{%trans '墨西哥' %}</option>
+                                        <option  countryname="Monaco" value="MC">{%trans '摩纳哥' %}</option>
+                                        <option  countryname="Montenegro" value="ME">{%trans '黑山' %}</option>
+                                        <option  countryname="Morocco" value="MA">{%trans '摩洛哥' %}</option>
+                                        <option  countryname="Nepal" value="NP">{%trans '尼泊尔' %}</option>
+                                        <option  countryname="Netherlands" value="NL">{%trans '荷兰' %}</option>
+                                        <option  countryname="Netherlands Antilles" value="AN">{%trans '荷属安的列斯' %}</option>
+                                        <option  countryname="New Zealand" value="NZ">{%trans '新西兰' %}</option>
+                                        <option  countryname="North Korea" value="KP">{%trans '朝鲜' %}</option>
+                                        <option  countryname="Norway" value="NO">{%trans '挪威' %}</option>
+                                        <option  countryname="Oman" value="OM">{%trans '阿曼' %}</option>
+                                        <option  countryname="Pakistan" value="PK">{%trans '巴基斯坦' %}</option>
+                                        <option  countryname="Panama" value="PA">{%trans '巴拿马' %}</option>
+                                        <option  countryname="Papua New Guinea" value="PG">{%trans '巴布亚新几内亚' %}</option>
+                                        <option  countryname="Peru" value="PE">{%trans '秘鲁' %}</option>
+                                        <option  countryname="Philippines" value="PH">{%trans '菲律宾' %}</option>
+                                        <option  countryname="Poland" value="PL">{%trans '波兰' %}</option>
+                                        <option  countryname="Portugal" value="PT">{%trans '葡萄牙' %}</option>
+                                        <option  countryname="Puerto Rico" value="PR">{%trans '波多黎各' %}</option>
+                                        <option  countryname="Qatar" value="QA">{%trans '卡塔尔' %}</option>
+                                        <option  countryname="Republic of Serbia" value="RS">{%trans '塞尔维亚共和国' %}</option>
+                                        <option  countryname="Romania" value="RO">{%trans '罗马尼亚' %}</option>
+                                        <option  countryname="Russia" value="RU">{%trans '俄罗斯' %}</option>
+                                        <option  countryname="Rwanda" value="RW">{%trans '卢旺达' %}</option>
+                                        <option  countryname="Saudi Arabia" value="SA">{%trans '沙特阿拉伯' %}</option>
+                                        <option  countryname="Singapore" value="SG">{%trans '新加坡' %}</option>
+                                        <option  countryname="Slovakia" value="SK">{%trans '斯洛伐克' %}</option>
+                                        <option  countryname="Slovenia" value="SI">{%trans '斯洛文尼亚' %}</option>
+                                        <option  countryname="South africa" value="ZA">{%trans '南非' %}</option>
+                                        <option  countryname="Spain" value="ES">{%trans '西班牙' %}</option>
+                                        <option  countryname="Sri Lanka" value="LK">{%trans '斯里兰卡' %}</option>
+                                        <option  countryname="Sweden" value="SE">{%trans '瑞典' %}</option>
+                                        <option  countryname="Switzerland" value="CH">{%trans '瑞士' %}</option>
+                                        <option  countryname="Syrian Arab Republic" value="SY">{%trans '阿拉伯叙利亚共和国' %}</option>
+                                        <option  countryname="Taiwan" value="TW">{%trans '台湾' %}</option>
+                                        <option  countryname="Thailand" value="TH">{%trans '泰国' %}</option>
+                                        <option  countryname="Trinidad and Tobago" value="TT">{%trans '特立尼达和多巴哥' %}</option>
+                                        <option  countryname="Tunisia" value="TN">{%trans '突尼斯' %}</option>
+                                        <option  countryname="Turkey" value="TR">{%trans '土耳其' %}</option>
+                                        <option  countryname="Uganda" value="UG">{%trans '乌干达' %}</option>
+                                        <option  countryname="Ukraine" value="UA">{%trans '乌克兰' %}</option>
+                                        <option  countryname="United Arab Emirates" value="AE">{%trans '阿拉伯联合酋长国' %}</option>
+                                        <option  countryname="United Kingdom" value="GB">{%trans '英国' %}</option>
+                                        <option  countryname="United States" value="US">{%trans '美国' %}</option>
+                                        <option  countryname="Uruguay" value="UY">{%trans '乌拉圭' %}</option>
+                                        <option  countryname="Uzbekistan" value="UZ">{%trans '乌兹别克斯坦' %}</option>
+                                        <option  countryname="Venezuela" value="VE">{%trans '委内瑞拉' %}</option>
+                                        <option  countryname="Viet Nam" value="VN">{%trans '越南' %}</option>
+                                        <option  countryname="Yemen" value="YE">{%trans '也门' %}</option>
+                                        <option  countryname="Zimbabwe" value="ZW">{%trans '津巴布韦' %}</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-2" >
+                                    <input type="button" class="form-control" value="{% trans '提交' %}" id="countryCodeSubmit">
+                                </div>
+                                <div class="col-md-3">
+
+                                </div>
+                            </div>
+                            <div class="col-md-12 penel-body-div-marign-bottom ">
+                                <div class="col-md-3">
+                                    <span class="penel-body-title-font">{% trans "时区" %}</span>
+                                </div>
+                                <div class="col-md-4">
+                                    <select name="timezoneCode" id="timezoneCode" class="form-control select-icon">
+                                        <option value="Pacific/Wake">(GMT-12:00) {% trans "国际日期变更线西" %}</option>
+                                        <option value="Pacific/Apia">(GMT-11:00) {% trans "中途岛, 萨摩亚" %}</option>
+                                        <option value="Pacific/Honolulu">(GMT-10:00) {% trans "夏威夷" %}</option>
+                                        <option value="America/Anchorage">(GMT-09:00) {% trans "阿拉斯加" %}</option>
+                                        <option value="America/Los_Angeles">(GMT-08:00) {% trans "太平洋时间 (美国 &amp; 加拿大)" %}</option>
+                                        <option value="America/Phoenix">(GMT-07:00) {% trans "亚利桑那州" %}</option>
+                                        <option value="America/Chihuahua">(GMT-07:00) {% trans "奇瓦瓦, 拉巴斯, 马萨特兰" %}</option>
+                                        <option value="America/Denver">(GMT-07:00) {% trans "山地区时间 (美国 &amp; 加拿大)" %}</option>
+                                        <option value="America/Managua">(GMT-06:00) {% trans "美国中部" %}</option>
+                                        <option value="America/Chicago">(GMT-06:00) {% trans "中部时间 (美国 &amp; 加拿大)" %}</option>
+                                        <option value="America/Mexico_City">(GMT-06:00) {% trans "瓜达拉哈拉, 墨西哥城, 蒙特雷" %}</option>
+                                        <option value="America/Regina">(GMT-06:00) {% trans "萨斯喀彻温省" %}</option>
+                                        <option value="America/Bogota">(GMT-05:00) {% trans "波哥大, 利马, 基多" %}</option>
+                                        <option value="America/New_York">(GMT-05:00) {% trans "东部时间 (美国 &amp; 加拿大)" %}</option>
+                                        <option value="America/Indiana/Indianapolis">(GMT-05:00) {% trans "印第安娜 (东)" %}</option>
+                                        <option value="America/Halifax">(GMT-04:00) {% trans "大西洋时间 (加拿大)" %}</option>
+                                        <option value="America/Caracas">(GMT-04:00) {% trans "加拉加斯, 拉巴斯" %}</option>
+                                        <option value="America/Santiago">(GMT-04:00) {% trans "圣地亚哥" %}</option>
+                                        <option value="America/St_Johns">(GMT-03:30) {% trans "纽芬兰岛" %}</option>
+                                        <option value="America/Sao_Paulo">(GMT-03:00) {% trans "巴西利亚" %}</option>
+                                        <option value="America/Argentina/Buenos_Aires">(GMT-03:00) {% trans "布宜诺斯艾利斯, 乔治敦" %}</option>
+                                        <option value="America/Godthab">(GMT-03:00) {% trans "格陵兰岛" %}</option>
+                                        <option value="America/Noronha">(GMT-02:00) {% trans "中大西洋" %}</option>
+                                        <option value="Atlantic/Azores">(GMT-01:00) {% trans "亚速尔群岛" %}</option>
+                                        <option value="Atlantic/Cape_Verde">(GMT-01:00) {% trans "佛得角群岛" %}</option>
+                                        <option value="Africa/Casablanca">(GMT) {% trans "卡萨布兰卡, 蒙罗维亚" %}</option>
+                                        <option value="Europe/London">(GMT) {% trans "爱丁堡, 格林尼治平均时间：都柏林, 里斯本, 伦敦" %}</option>
+                                        <option value="Europe/Berlin">(GMT+01:00) {% trans "阿姆斯特丹, 柏林, 伯尔尼, 罗马, 斯德哥尔摩, 维也纳" %}</option>
+                                        <option value="Europe/Belgrade">(GMT+01:00) {% trans "贝尔格莱德, 布拉迪斯拉发, 布达佩斯, 卢布尔雅那, 布拉格" %}</option>
+                                        <option value="Europe/Paris">(GMT+01:00) {% trans "布鲁塞尔, 哥本哈根, 马德里, 巴黎" %}</option>
+                                        <option value="Europe/Sarajevo">(GMT+01:00) {% trans "萨拉热窝, 斯科普里, 华沙, 萨格勒布" %}</option>
+                                        <option value="Africa/Lagos">(GMT+01:00) {% trans "非洲中西部" %}</option>
+                                        <option value="Europe/Istanbul">(GMT+02:00) {% trans "雅典, 伊斯坦布尔, 明斯克" %}</option>
+                                        <option value="Europe/Bucharest">(GMT+02:00) {% trans "布加勒斯特" %}</option>
+                                        <option value="Africa/Cairo">(GMT+02:00) {% trans "开罗" %}</option>
+                                        <option value="Africa/Johannesburg">(GMT+02:00) {% trans "哈拉雷, 比勒陀利亚" %}</option>
+                                        <option value="Europe/Helsinki">(GMT+02:00) {% trans "赫尔辛基, 基辅, 里加, 索非亚, 塔林, 维尔纽斯" %}</option>
+                                        <option value="Asia/Jerusalem">(GMT+02:00) {% trans "耶路撒冷" %}</option>
+                                        <option value="Asia/Baghdad">(GMT+03:00) {% trans "巴格达" %}</option>
+                                        <option value="Asia/Riyadh">(GMT+03:00) {% trans "科威特, 利雅得" %}</option>
+                                        <option value="Europe/Moscow">(GMT+03:00) {% trans "莫斯科, 圣彼得堡, 伏尔加格勒" %}</option>
+                                        <option value="Africa/Nairobi">(GMT+03:00) {% trans "内罗毕" %}</option>
+                                        <option value="Asia/Tehran">(GMT+03:30) {% trans "德黑兰" %}</option>
+                                        <option value="Asia/Muscat">(GMT+04:00) {% trans "阿布扎比, 马斯喀特" %}</option>
+                                        <option value="Asia/Tbilisi">(GMT+04:00) {% trans "巴库, 第比利斯, 埃里温" %}</option>
+                                        <option value="Asia/Kabul">(GMT+04:30) {% trans "喀布尔" %}</option>
+                                        <option value="Asia/Yekaterinburg">(GMT+05:00) {% trans "叶卡捷琳堡" %}</option>
+                                        <option value="Asia/Karachi">(GMT+05:00) {% trans "伊斯兰堡, 卡拉奇, 塔什干" %}</option>
+                                        <option value="Asia/Calcutta">(GMT+05:30) {% trans "金奈, 加尔各答, 孟买, 新德里" %}</option>
+                                        <option value="Asia/Katmandu">(GMT+05:45) {% trans "加德满都" %}</option>
+                                        <option value="Asia/Novosibirsk">(GMT+06:00) {% trans "阿拉木图, 新西伯利亚" %}</option>
+                                        <option value="Asia/Dhaka">(GMT+06:00) {% trans "阿斯塔纳, 达卡" %}</option>
+                                        <option value="Asia/Colombo">(GMT+05:30) {% trans "科伦坡" %}</option>
+                                        <option value="Asia/Rangoon">(GMT+06:30) {% trans "仰光" %}</option>
+                                        <option value="Asia/Bangkok">(GMT+07:00) {% trans "曼谷, 河内, 雅加达" %}</option>
+                                        <option value="Asia/Krasnoyarsk">(GMT+07:00) {% trans "克拉斯诺亚尔斯克" %}</option>
+                                        <option value="Asia/Hong_Kong">(GMT+08:00) {% trans "北京, 重庆, 香港, 乌鲁木齐" %}</option>
+                                        <option value="Asia/Irkutsk">(GMT+08:00) {% trans "伊尔库茨克, 乌兰巴托" %}</option>
+                                        <option value="Asia/Singapore">(GMT+08:00) {% trans "吉隆坡, 新加坡" %}</option>
+                                        <option value="Australia/Perth">(GMT+08:00) {% trans "珀斯" %}</option>
+                                        <option value="Asia/Taipei">(GMT+08:00) {% trans "台北" %}</option>
+                                        <option value="Asia/Tokyo">(GMT+09:00) {% trans "大阪, 札幌, 东京" %}</option>
+                                        <option value="Asia/Seoul">(GMT+09:00) {% trans "首尔" %}</option>
+                                        <option value="Asia/Yakutsk">(GMT+09:00) {% trans "雅库茨克" %}</option>
+                                        <option value="Australia/Adelaide">(GMT+09:30) {% trans "阿德莱德" %}</option>
+                                        <option value="Australia/Darwin">(GMT+09:30) {% trans "达尔文" %}</option>
+                                        <option value="Australia/Brisbane">(GMT+10:00) {% trans "布里斯班" %}</option>
+                                        <option value="Australia/Sydney">(GMT+10:00) {% trans "堪培拉, 墨尔本, 悉尼" %}</option>
+                                        <option value="Pacific/Guam">(GMT+10:00) {% trans "关岛, 莫尔斯比港" %}</option>
+                                        <option value="Australia/Hobart">(GMT+10:00) {% trans "霍巴特" %}</option>
+                                        <option value="Asia/Vladivostok">(GMT+10:00) {% trans "海参崴" %}</option>
+                                        <option value="Asia/Magadan">(GMT+11:00) {% trans "马加丹, 新喀里多尼亚, 所罗门群岛" %}</option>
+                                        <option value="Pacific/Auckland">(GMT+12:00) {% trans "奥克兰, 惠灵顿" %}</option>
+                                        <option value="Pacific/Fiji">(GMT+12:00) {% trans "斐济, 堪察加半岛, 马绍尔群岛" %}</option>
+                                        <option value="Pacific/Tongatapu">(GMT+13:00) {% trans "努库阿洛法" %}</option>
+
+                                    </select>
+                                </div>
+                                <div class="col-md-2" >
+                                    <input type="button" class="form-control" value="{% trans '提交' %}" id="timezoneCodeSubmit">
+                                </div>
+                                <div class="col-md-3">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-download"></i>{% trans "服务配置" %}</h6>
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div class="tabs">
+                        <ul class="nav nav-tabs">
+                            <li class="active">
+                                <a href="#web_server_version" data-toggle="tab">{% trans "系统版本服务器" %}</a>
+                            </li>
+                            <li >
+                                <a href="#email_server" data-toggle="tab">{% trans "邮件服务器" %}</a>
+                            </li>
+                            <li>
+                                <a href="#device_version_server" data-toggle="tab">{% trans "设备版本服务器" %}</a>
+                            </li>
+                            {% if request.user.administrator_permission == 6 %}
+                                <!-- <li>
+                                    <a href="#issue_config_switch_page" data-toggle="tab">{% trans "配置下发控制" %}</a>
+                                </li> -->
+                            {% endif %}
+                            {% if oemlimit.oem_type == "sugpon" %}
+                            <li>
+                                <a href="#gpon_config_system" data-toggle="tab">{% trans "GPON升级服务器" %}</a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        <div class="tab-content" style="float:left;width:100%;">
+                            <div id="web_server_version" class="tab-pane active">
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "系统当前版本" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span class="penel-body-title-font" id="server_version_now">
+
+                                            </span>
+                                        </div>
+                                        <div class="col-md-5">
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "系统版本服务器" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" class="form-control acUpdateAddressOption" id="version_server" onchange="change_system_version();" >
+                                        </div>
+                                        <div class="col-md-5" style="padding:0;">
+                                            <span class="penel-body-title-font such_as_font_color" >({% trans "如 http://115.28.241.216:81/" %})</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "最新版本" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <span class="penel-body-title-font" id="new_version">
+                                            </span>
+                                        </div>
+                                        <div class="col-md-2" >
+                                            <a href="#" class="btn btn-default form-control" id="upgrade_ajax" hidden="hidden">{% trans "升级" %}</a>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom local_upload_hide">
+                                    <form id="local_upload" action="{% url 'local_upload' %}"enctype="multipart/form-data" method="post">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "本地升级" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="file" name="upfile" id="upfile" >
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a  class="btn btn-default form-control" onclick="upfile();" id="limit_1">{% trans "上传" %}</a>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                        </div>
+                                    </form>
+                                    </div>
+                                    {% if request.user.administrator_permission == 6 %}
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "系统备份" %}</span>
+                                        </div>
+                                        <div class="col-md-6" >
+                                            <div class="col-md-2" style="padding-left:0px;">
+                                                <button type="button" class="btn btn-default form-control" onclick="exportconf();">{% trans "导出" %}</button>
+                                            </div>
+                                            <div class="col-md-2" style="padding-left:0px;">
+                                                <button type="button" class="btn btn-default form-control" onclick="importconf();">{% trans "导入" %}</button>
+                                            </div>
+                                            <div class="col-md-8">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom " style="display:none;">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "系统配置" %}</span>
+                                        </div>
+                                        <div class="col-md-6" >
+                                            <div class="col-md-2" style="padding-left:0px;">
+                                                <button type="button" class="btn btn-default form-control" onclick="exportsysset();">{% trans "导出" %}</button>
+                                            </div>
+                                            <div class="col-md-2" style="padding-left:0px;">
+                                                <button type="button" class="btn btn-default form-control" onclick="importsysset();">{% trans "导入" %}</button>
+                                            </div>
+                                            <div class="col-md-8">
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                        </div>
+                                    </div>
+                                    {% endif %}
+                            </div>
+                            <div id="email_server" class="tab-pane ">
+                                <form action="{% url 'email_address' %}" method="POST">
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "邮件服务器" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" id="email_service_address" class="form-control" name="email_service_address" required>
+                                        </div>
+                                        <div class="col-md-5">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "启用 SSL" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="switch-div" >
+                                                <div class="switch-button">
+                                                    <input type="checkbox" id="ssl" name="ssl"/>
+                                                    <label for="ssl"></label>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-md-5">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "端口" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" id="email_port" class="form-control" name="email_port" required>
+                                        </div>
+                                        <div class="col-md-5">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "指定发件人地址" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="text" id="sender_address" class="form-control" name="sender_address" required>
+                                        </div>
+                                        <div class="col-md-5">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "指定发件人密码" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="password" id="sender_password" class="form-control" name="sender_password" required>
+                                        </div>
+                                        <div class="col-md-5">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3">
+                                            <span class="penel-body-title-font">{% trans "发送测试邮件到" %}</span>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <input type="email" id="send_to" class="form-control" >
+                                        </div>
+                                        <div class="col-md-2">
+                                            <a href="#" class="btn btn-default form-control" onclick="test_email();" id="test_email">{% trans "发送" %}</a>
+                                        </div>
+                                        <div class="col-md-3">
+
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12 penel-body-div-marign-bottom ">
+                                        <div class="col-md-3"></div>
+                                        <div class="col-md-2">
+                                            <button class="btn btn-default form-control" type="submit" id="limit_2">{% trans "应用" %}</button>
+                                        </div>
+                                        <div class="col-md-7">
+
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div id="device_version_server" class="tab-pane">
+                                <div class="col-md-12 penel-body-div-marign-bottom ">
+                                    <span class="col-md-2 penel-body-title-font">{% trans "设备版本服务器" %}</span>
+                                    <form action="{% url 'device_version_address' %}" method="POST">
+                                        <div class="col-md-3">
+                                            <input type="text" id="version_service_address" class="form-control" name="version_service_address" required>
+                                        </div>
+                                        <span class="col-md-5 penel-body-title-font such_as_font_color">({% trans "如 http://115.28.241.216:81/" %})</span>
+                                        <div class="col-md-2">
+                                            <input class="btn btn-default form-control" type="submit" value="{% trans '提交' %}" id="limit_3" />
+                                        </div>
+                                    </form>
+
+                                </div>
+                            </div>
+                            <div id="issue_config_switch_page" class="tab-pane">
+                                <div class="col-md-12 penel-body-div-marign-bottom ">
+                                    <table class="table table-bordered table-striped" id="datatable-issue_config_switch_page">
+                                        <thead>
+                                            <tr>
+                                                <th>{% trans "管理域名" %}</th>
+                                                <th>{% trans "下发状态" %}</th>
+                                                <th>{% trans "操作" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div id="gpon_config_system" class="tab-pane">
+                                <div class="col-md-12 penel-body-div-marign-bottom penel-body-title-font">
+                                    <div class="gpon-flex-config-box" style="margin-left:3%;">
+                                        <div class="gpon-flex-config">
+                                            <span class="penel-body-div-marign-bottom" style="width:25%;">{% trans "升级地址" %}</span>
+                                            <input type="text" class="penel-body-div-marign-bottom" style="width:25%;" id="gpon_update_link" maxlength=63>
+                                        </div>
+                                        <div class="gpon-flex-config">
+                                            <span class="penel-body-div-marign-bottom" style="width:25%;">{% trans "升级文件" %}</span>
+                                            <input type="text" class="penel-body-div-marign-bottom" style="width:25%;" id="gpon_update_file" maxlength=63>
+                                        </div>
+                                        <div class="gpon-flex-config" id="save_update_button">
+                                            <span class="penel-body-div-marign-bottom" style="width:25%;">{% trans "保存配置" %}</span>
+                                            <button type="button" class="penel-body-div-marign-bottom penel-body-title-font" style="width:10%;" id="gpon_update_button">{% trans "保存" %}</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalBasic" id="upgmessage" style="display:none;" ></a>
+    <div id="modalBasic" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title">{% trans "正在升级" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <p id="upm"></p>
+                        <div class="progress light progress-xl " id="probardiv" style="display:none;">
+                          <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="min-width: 2em; " id="probar">
+                            0%
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button class="btn btn-default modal-dismiss" id="closeupm" style="display:none;">Cancel</button>
+                        <button class="btn btn-default modal-dismiss" onclick="cancel();" id="closeupm_1">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalconf" id="confinformation" style="display:none;" ></a>
+    <div id="modalconf" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导出备份" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 " id="infdiv1">
+                            <span class="penel-body-title-font">{% trans "备份导出中,请稍候" %}</span>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="infdiv2" style="display:none;">
+                            <span class="penel-body-title-font">{% trans "备份已导出,点击下载" %}</span>
+                            <p id="download_link" class="penel-body-title-font " style="margin-top:10px;" ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button id="download_link_close" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalinconf" id="importconf" style="display:none;" ></a>
+    <div id="modalinconf" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导入备份" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 penel-body-div-marign-bottom" >
+                            <div class="col-md-3 penel-body-title-font">
+                                <span>{% trans "导入备份" %}</span>
+                            </div>
+                            <div class="col-md-9 penel-body-title-font">
+                                <input type="file" id="import_file" >
+                                <!--accept="application/x-gzip,application/gzip"-->
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="importconf_wait" style="display:none;">
+                            <div class="col-md-12 penel-body-title-font">
+                                <span>{% trans "系统恢复中,请稍候" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-default " id="import_file_button">{% trans "确认" %}</button>
+                        <button type="button" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalsysset" id="syssetinformation" style="display:none;" ></a>
+    <div id="modalsysset" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导出配置" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 " id="syssetdiv1">
+                            <span class="penel-body-title-font">{% trans "配置导出中,请稍候" %}</span>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="syssetdiv2" style="display:none;">
+                            <span class="penel-body-title-font">{% trans "配置已导出,点击下载" %}</span>
+                            <p id="syssetdownload_link" class="penel-body-title-font " style="margin-top:10px;" ></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button id="syssetdownload_link_close" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="bk-margin-top-10 bk-margin-bottom-10 modal-basic btn btn-default" href="#modalinsysset" id="importsysset" style="display:none;" ></a>
+    <div id="modalinsysset" class="modal-block mfp-hide">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h2 class="panel-title penel-body-title-font">{% trans "导入配置" %}</h2>
+            </div>
+            <div class="panel-body bk-noradius">
+                <div class="modal-wrapper">
+                    <div class="modal-text">
+                        <div class="col-md-12 penel-body-div-marign-bottom" >
+                            <div class="col-md-3 penel-body-title-font">
+                                <span>{% trans "导入配置" %}</span>
+                            </div>
+                            <div class="col-md-9 penel-body-title-font">
+                                <input type="file" id="importsysset_file" >
+                                <!--accept="application/x-gzip,application/gzip"-->
+                            </div>
+                        </div>
+                        <div class="col-md-12 penel-body-div-marign-bottom" id="importsysset_wait" style="display:none;">
+                            <div class="col-md-12 penel-body-title-font">
+                                <span>{% trans "配置导入中,请稍候" %}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="btn btn-default " id="importsysset_file_button">{% trans "确认" %}</button>
+                        <button type="button" class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm_produceUpdateURL" id="produceUpdateURLModal" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm_produceUpdateURL" class="modal-block modal-block-primary mfp-hide ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "系统版本下载链接" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="col-md-12 config-window-message-div-padding penel-body-div-marign-bottom" style="margin-top:10px;">
+                    <div class="col-md-12 penel-body-title-font">
+                        <span>{% trans "点击链接下载系统升级版本" %}</span>
+                    </div>
+                </div>
+                <div class="col-md-12 config-window-message-div-padding penel-body-div-marign-bottom" style="margin-top:10px;">
+                    <div class="col-md-12 " id="showProduceUpdateURL">
+
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+{% endblock row %}
+{% block foot_js %}
+<script src=" {% static 'main/jquery-pretty-radio-checkbox/js/jquery-labelauty.js' %} "></script>
+<script>
+$(document).ready(function(){
+  lim = 0;
+});
+</script>
+{% if request.user.administrator_permission != 6 and request.user.administrator_permission != 5 %}
+  <script>
+    $(document).ready(function(){
+      limit();
+      lim = 1;
+    });
+  </script>
+  <script>
+  function limit() {
+    // body...
+    $('#version_server').attr('readonly','readonly');
+    $('#limit_1').hide();
+    $('.local_upload_hide').hide();
+    $('#email_service_address').attr('readonly','readonly');
+    $('#ssl').attr('readonly','readonly');
+    $('#email_port').attr('readonly','readonly');
+    $('#sender_address').attr('readonly','readonly');
+    $('#sender_password').attr('readonly','readonly');
+    $('#send_to').attr('readonly','readonly');
+    $('#test_email').hide();
+    $('#limit_2').hide();
+    $('#version_service_address').attr('readonly','readonly');
+    $('#limit_3').hide();
+  }
+  </script>
+{% endif %}
+
+<script>
+  $(document).ready(function() {
+    pageWords = {
+      // pleaseInputMac:'{% trans "请输入MAC地址的前三个字节" %}',
+      // passwdInputEmptyError:'{% trans "密码不能为空" %}',
+      // passwdInputError:'{% trans "密码长度应为6-18位" %}',
+      // passwdNotSameError:'{% trans "两次密码不一致" %}',
+      // usernameInputError:'{% trans "用户名应为6-18位的数字,字母,下划线" %}',
+      // adminPasswdEmptyError:'{% trans "管理员密码不能为空" %}',
+      serverIpEmptyError:'{% trans "服务器地址不能为空" %}',
+      fileNameEmptyError:'{% trans "文件名称不能为空" %}',
+      exportError:'{% trans "导出失败" %}',
+      fileIllegal:'{% trans "文件不合法" %}',
+      fileNoChoose:'{% trans "未选择文件" %}',
+      emailServerEmptyError:'{% trans "邮件服务器不能为空" %}',
+      portEmptyError:'{% trans "端口不能为空" %}',
+      senderEmptyError:'{% trans "指定发件人地址不能为空" %}',
+      senderPasswdEmptyError:'{% trans "指定发件人密码不能为空" %}',
+      testEmailEmptyError:'{% trans "测试邮件邮箱不能为空" %}',
+      notHaveNewVersion:'{% trans "没有最新版本可用" %}',
+      addressEmptyError:'{% trans "地址不能为空" %}',
+      versionDownloading:'{% trans "版本下载中,请稍后" %}',
+      versionUpdating:'{% trans "版本下载成功,正在升级" %}',
+      fileHaveChinese:'{% trans "文件名含有中文" %}',
+      fileUploading:'{% trans "正在上传文件,请耐心等待" %}',
+      versionUploadUpdating:'{% trans "版本上传成功,正在升级" %}',
+      open:'{% trans "开启" %} ',
+
+      promptInfo:'{% trans "提示信息" %}',
+
+      // table trans
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+
+      internetError:'{% trans "网络错误" %}',
+    };
+  });
+</script>
+<script src=" {% static 'main/app-js/systemServicePage.js' %} "></script>
+
+<script>
+  //一定要放在最下面
+  $(function(){
+
+    var error = JSON.parse('{{error_json|safe}}');
+
+    if(error.error_type == "failed"){
+        $("#position-4-error").click();
+    };
+    if(error.error_type == "success"){
+        $('#position-4-success').click();
+    }
+  });
+  function refresh() {
+    var pro = '{{pro}}';
+    if (pro != 0) {
+      $('#probar').width(parseFloat(pro) + '%');
+      $('#probar').text(parseFloat(pro) + '%');
+      $('#upgmessage').click();
+      $('#upm').text('{% trans "版本下载中,请稍后" %}');
+      $('#probardiv').show();
+      down_pro();
+      $.getJSON("{% url 'upgrade_ajax' %}", function(ret) {
+        if ($.trim(ret.error) == '') {
+          $('#closeupm_1').hide();
+          $('#upm').text('{% trans "版本下载成功,正在升级" %}');
+          $('#probar').width(0 + '%');
+          $('#probar').text(0 + '%');
+          bar_time();
+        } else {
+          alert(ret.error);
+          $('#closeupm').click();
+        }
+      });
+      // alert(pro);
+    }
+  }
+</script>
+
+{% endblock foot_js %}

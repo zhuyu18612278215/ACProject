@@ -1,0 +1,477 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-12-14 11:13+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/audit_dl.html:9 templates/audit_group.html:8
+msgid "审计设备"
+msgstr "Audit"
+
+#: templates/audit_dl.html:16
+msgid "已管理的审计设备"
+msgstr "Managed Audit"
+
+#: templates/audit_dl.html:27 templates/audit_group.html:162
+#: templates/audit_group.html.py:286 templates/audit_group.html:300
+msgid "名称/MAC地址"
+msgstr "Name/MAC Address"
+
+#: templates/audit_dl.html:28
+msgid "IP地址"
+msgstr "IP Address"
+
+#: templates/audit_dl.html:29
+msgid "状态"
+msgstr "Status"
+
+#: templates/audit_dl.html:30
+msgid "上传"
+msgstr "Upload"
+
+#: templates/audit_dl.html:31
+msgid "下载"
+msgstr "Download"
+
+#: templates/audit_dl.html:32
+msgid "版本号"
+msgstr "Version"
+
+#: templates/audit_dl.html:33
+msgid "特征库版本"
+msgstr "Library Version"
+
+#: templates/audit_dl.html:34
+msgid "最后心跳"
+msgstr "Last Heartbeat"
+
+#: templates/audit_dl.html:36 templates/audit_group.html:39
+msgid "操作"
+msgstr "Operate"
+
+#: templates/audit_dl.html:73
+msgid "详细信息"
+msgstr "Detail"
+
+#: templates/audit_dl.html:83
+msgid "概要"
+msgstr "Overview"
+
+#: templates/audit_dl.html:90
+msgid "MAC地址:"
+msgstr "MAC Address:"
+
+#: templates/audit_dl.html:94
+msgid "序列号:"
+msgstr "Serial Number:"
+
+#: templates/audit_dl.html:98
+msgid "型号:"
+msgstr "Model:"
+
+#: templates/audit_dl.html:102
+msgid "版本:"
+msgstr "Version:"
+
+#: templates/audit_dl.html:106
+msgid "特征库版本:"
+msgstr "Library Version:"
+
+#: templates/audit_dl.html:113
+msgid "IP地址:"
+msgstr "IP Address:"
+
+#: templates/audit_dl.html:117
+msgid "运行时间:"
+msgstr "Running Time:"
+
+#: templates/audit_dl.html:121
+msgid "最后看到:"
+msgstr "Last Seen:"
+
+#: templates/audit_dl.html:127
+msgid "CPU占用率:"
+msgstr "CPU Usage:"
+
+#: templates/audit_dl.html:131
+msgid "内存占用率:"
+msgstr "Memory Usage:"
+
+#: templates/audit_dl.html:135
+msgid "Flash占用率:"
+msgstr "Flash Usage:"
+
+#: templates/audit_dl.html:141
+msgid "上传:"
+msgstr "Upload:"
+
+#: templates/audit_dl.html:145
+msgid "下载:"
+msgstr "Download:"
+
+#: templates/audit_dl.html:186 templates/audit_group.html:484
+#: templates/audit_group.html.py:530 templates/audit_group.html:587
+#: templates/audit_group.html.py:647
+msgid "处理中..."
+msgstr "Processing..."
+
+#: templates/audit_dl.html:187 templates/audit_group.html:485
+#: templates/audit_group.html.py:531 templates/audit_group.html:588
+#: templates/audit_group.html.py:648
+msgid "显示"
+msgstr "Showing"
+
+#: templates/audit_dl.html:192 templates/audit_group.html:490
+#: templates/audit_group.html.py:536 templates/audit_group.html:593
+#: templates/audit_group.html.py:653
+msgid "记录"
+msgstr "Records"
+
+#: templates/audit_dl.html:193 templates/audit_group.html:491
+#: templates/audit_group.html.py:537 templates/audit_group.html:594
+#: templates/audit_group.html.py:654
+msgid "没有匹配结果"
+msgstr "No matching records found"
+
+#: templates/audit_dl.html:194 templates/audit_group.html:492
+#: templates/audit_group.html.py:538 templates/audit_group.html:595
+#: templates/audit_group.html.py:655
+msgid "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项"
+msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+
+#: templates/audit_dl.html:195 templates/audit_group.html:493
+#: templates/audit_group.html.py:539 templates/audit_group.html:596
+#: templates/audit_group.html.py:656
+msgid "显示第 0 至 0 项结果，共 0 项"
+msgstr "Showing 0 to 0 of 0 entries"
+
+#: templates/audit_dl.html:196 templates/audit_group.html:494
+#: templates/audit_group.html.py:540 templates/audit_group.html:597
+#: templates/audit_group.html.py:657
+msgid "由 _MAX_ 项结果过滤"
+msgstr "filtered from _MAX_ total entries"
+
+#: templates/audit_dl.html:198 templates/audit_group.html:496
+#: templates/audit_group.html.py:542 templates/audit_group.html:599
+#: templates/audit_group.html.py:659
+msgid "搜索 : "
+msgstr "Search : "
+
+#: templates/audit_dl.html:200 templates/audit_group.html:498
+#: templates/audit_group.html.py:544 templates/audit_group.html:601
+#: templates/audit_group.html.py:661
+msgid "表中数据为空"
+msgstr "No data available in table"
+
+#: templates/audit_dl.html:201 templates/audit_group.html:499
+#: templates/audit_group.html.py:545 templates/audit_group.html:602
+#: templates/audit_group.html.py:662
+msgid "载入中..."
+msgstr "Loading..."
+
+#: templates/audit_dl.html:229 templates/audit_dl.html.py:467 views.py:282
+msgid "退服"
+msgstr "Retired"
+
+#: templates/audit_dl.html:232 templates/audit_dl.html.py:460 views.py:284
+msgid "离线"
+msgstr "Offline"
+
+#: templates/audit_dl.html:232 templates/audit_dl.html.py:255
+#: templates/audit_dl.html:270 templates/audit_dl.html.py:474 views.py:277
+msgid "重启"
+msgstr "Reboot"
+
+#: templates/audit_dl.html:232 templates/audit_dl.html.py:257
+#: templates/audit_dl.html:261 templates/audit_dl.html.py:264
+#: templates/audit_dl.html:270 templates/audit_dl.html.py:474 views.py:279
+msgid "升级"
+msgstr "Upgrade"
+
+#: templates/audit_dl.html:235 templates/audit_dl.html.py:453 views.py:286
+msgid "超时"
+msgstr "Time out"
+
+#: templates/audit_dl.html:238 templates/audit_dl.html.py:254
+#: templates/audit_dl.html:446 views.py:288
+msgid "在线"
+msgstr "Online"
+
+#: templates/audit_dl.html:248 templates/audit_dl.html.py:250
+msgid "私网地址"
+msgstr "Private Address"
+
+#: templates/audit_dl.html:248
+msgid "远程地址"
+msgstr "Remote Address"
+
+#: templates/audit_dl.html:273
+msgid "移除"
+msgstr "Remove"
+
+#: templates/audit_dl.html:279
+msgid "跳转至"
+msgstr "Go"
+
+#: templates/audit_dl.html:364 templates/audit_dl.html.py:375
+#: templates/audit_group.html:450 templates/audit_group.html.py:461
+msgid "提示信息"
+msgstr "Prompt Information"
+
+#: templates/audit_dl.html:387
+msgid "设备已存在！"
+msgstr "Device already exists!"
+
+#: templates/audit_dl.html:387
+msgid "准入失败！"
+msgstr "Admition failed"
+
+#: templates/audit_dl.html:387 views.py:369 views.py:401 views.py:405
+#: views.py:436 views.py:474 views.py:478
+msgid "执行失败！"
+msgstr "Execute failed"
+
+#: templates/audit_dl.html:387
+msgid "修改失败！"
+msgstr "Modify failed!"
+
+#: templates/audit_dl.html:387 views.py:382
+msgid "没有此型号对应的版本文件"
+msgstr "This model is no corresponding version of the file"
+
+#: templates/audit_dl.html:390
+msgid "准入成功！"
+msgstr "Admition successed !"
+
+#: templates/audit_dl.html:390 views.py:345 views.py:392 views.py:433
+#: views.py:465
+msgid "执行成功！"
+msgstr "Execute successed!"
+
+#: templates/audit_dl.html:390
+msgid "修改成功！"
+msgstr "Modify successed!"
+
+#: templates/audit_dl.html:467
+msgid "已移除"
+msgstr "Removed"
+
+#: templates/audit_group.html:9 templates/audit_group.html.py:20
+msgid "群组"
+msgstr "Group"
+
+#: templates/audit_group.html:23
+msgid "添加"
+msgstr "Add"
+
+#: templates/audit_group.html:36 templates/audit_group.html.py:111
+#: templates/audit_group.html:198
+msgid "群组名称"
+msgstr "Group Name"
+
+#: templates/audit_group.html:37
+msgid "管理域名"
+msgstr "Domain Names"
+
+#: templates/audit_group.html:38
+msgid "设备数量"
+msgstr "Device Count"
+
+#: templates/audit_group.html:51 templates/audit_group.html.py:55
+msgid "查看"
+msgstr "View"
+
+#: templates/audit_group.html:67
+msgid "删除"
+msgstr "Delete"
+
+#: templates/audit_group.html:88
+msgid "添加群组"
+msgstr "Add Group"
+
+#: templates/audit_group.html:95 templates/audit_group.html.py:210
+msgid "应用于"
+msgstr "Apply For"
+
+#: templates/audit_group.html:123 templates/audit_group.html.py:226
+msgid "准入规则"
+msgstr "Access Rules"
+
+#: templates/audit_group.html:127 templates/audit_group.html.py:230
+msgid "按型号分组"
+msgstr "Group By Model"
+
+#: templates/audit_group.html:137 templates/audit_group.html.py:240
+msgid "具体约束"
+msgstr "Specific Constraints"
+
+#: templates/audit_group.html:154 templates/audit_group.html.py:272
+msgid "加入群组"
+msgstr "Join to Group"
+
+#: templates/audit_group.html:163 templates/audit_group.html.py:287
+#: templates/audit_group.html:301
+msgid "MAC地址"
+msgstr "MAC Address"
+
+#: templates/audit_group.html:164 templates/audit_group.html.py:302
+msgid "加入"
+msgstr "Add"
+
+#: templates/audit_group.html:177 templates/audit_group.html.py:316
+msgid "应用"
+msgstr "Apply"
+
+#: templates/audit_group.html:178 templates/audit_group.html.py:317
+msgid "取消"
+msgstr "Cancel"
+
+#: templates/audit_group.html:191
+msgid "查看群组"
+msgstr "View Group"
+
+#: templates/audit_group.html:252
+msgid "自动升级"
+msgstr "Auto Update"
+
+#: templates/audit_group.html:269
+msgid "移出群组"
+msgstr "Remove From Group"
+
+#: templates/audit_group.html:278
+msgid "群组成员"
+msgstr "Group Members"
+
+#: templates/audit_group.html:288
+msgid "移出"
+msgstr "Remove"
+
+#: templates/audit_group.html:353 templates/audit_group.html.py:367
+msgid "无可选型号"
+msgstr "No Optional Models"
+
+#: templates/audit_group.html:708
+msgid "不能输入空值"
+msgstr "Can Not Enter Null Value"
+
+#: templates/audit_group.html:762
+msgid "请输入群组名称"
+msgstr "Please Enter The Group Name"
+
+#: templates/audit_group.html:764
+msgid "无可用约束,无法创建"
+msgstr "No Constraints Available, Can Not Be Created"
+
+#: views.py:456
+msgid "没有对应的版本文件"
+msgstr "There Is No Corresponding Version Of The File"
+
+#: views.py:562
+msgid "该组已存在"
+msgstr "This Group Is Already Exists"
+
+#: views.py:575
+msgid "添加成功"
+msgstr "Add Successed"
+
+#: views.py:578
+msgid "添加失败"
+msgstr "Add Failed"
+
+#: views.py:595
+msgid "删除成功"
+msgstr "Delete Successed"
+
+#: views.py:598
+msgid "删除失败"
+msgstr "Delete Failed"
+
+#: views.py:672
+msgid "组名已存在"
+msgstr "This Group Name Is Already Exists"
+
+#: views.py:701
+msgid "编辑成功"
+msgstr "Edit successed"
+
+#: views.py:704
+msgid "编辑失败"
+msgstr "Edit Failed"
+
+#: views.py:718
+msgid "自动升级已开启"
+msgstr "Automatic Upgrade Is On"
+
+#: views.py:720
+msgid "自动升级已关闭"
+msgstr "Automatic Upgrade Is Off"
+
+#: views.py:723
+msgid "操作失败"
+msgstr "Operation Failed"
+
+#~ msgid "审计设备 | 设备云平台"
+#~ msgstr "Audit | Wicloud"
+
+#~ msgid "探针"
+#~ msgstr "Probe"
+
+#~ msgid "接入点"
+#~ msgstr "AP"
+
+#~ msgid "AP群组"
+#~ msgstr "AP Group"
+
+#~ msgid "无线配置"
+#~ msgstr "Wireless Config"
+
+#~ msgid "用户策略"
+#~ msgstr "User Policy"
+
+#~ msgid "来宾策略"
+#~ msgstr "Guest Policy"
+
+#, fuzzy
+#~| msgid "审计设备"
+#~ msgid "设备"
+#~ msgstr "Audit"
+
+#~ msgid "系统"
+#~ msgstr "System"
+
+#~ msgid "基础配置"
+#~ msgstr "Basic"
+
+#~ msgid "服务"
+#~ msgstr "Service"
+
+#~ msgid "账户"
+#~ msgstr "Account"
+
+#~ msgid "支持"
+#~ msgstr "Support"
+
+#~ msgid "实用工具"
+#~ msgstr "Utility"
+
+#~ msgid "群组 | 设备云平台"
+#~ msgstr "Group | Wicloud"
+
+#~ msgid "主页"
+#~ msgstr "Home"
+
+#~ msgid "开启"
+#~ msgstr "Open"

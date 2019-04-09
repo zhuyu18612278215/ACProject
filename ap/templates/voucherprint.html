@@ -1,0 +1,215 @@
+<html>
+{% load staticfiles %}
+{% load i18n %}
+{% load tags %}
+
+<head>
+<title>
+{% trans "卡券打印" %}
+</title>
+<style>
+body
+{
+    font-family: 'Microsoft YAHEI';
+    font-size: 14px;
+}
+div.main_container
+{
+    position: relative;
+    float: left;
+    width: 710px;
+    left: 50%;
+    margin-left: -355px;
+}
+.voucher_list
+{
+    position: relative;
+    float: left;
+    width: 100%;
+    padding: 5px;
+}
+.one_voucher
+{
+    position: relative;
+    float: left;
+    width: 200px;
+    border: 2px dashed black;
+    margin-left: -1px;
+    margin-top: -1px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+.one_voucher label
+{
+    float: left;
+    text-align: center;
+    width: 100%;
+    color: #555555;
+}
+.one_voucher label span
+{
+    margin-left: 5px;
+}
+.one_voucher label span.value
+{
+    font-weight: bold;
+    color: black;
+}
+.one_voucher label.bold
+{
+    font-weight: bold;
+    color: black;
+}
+.one_voucher label.code
+{
+    font-size: 24px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.voucher_template
+{
+    display: none;
+}
+.print_button_div
+{
+    float: left;
+    width: 100%;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.print_button_div input.print_button
+{
+    height: 30px;
+    width: 100px;
+    background: #259980;
+    color: white;
+    border: none;
+    border-radius: 4px;
+}
+div.forprint,
+div.forprint div.voucher_list
+{
+    float: none;
+}
+div.forprint input.print_button
+{
+    display: none;
+}
+div.break_after
+{
+    page-break-after: always;
+}
+</style>
+<!-- <meta name="viewport" content="width=device-width, initial-scale=1" /> -->
+<!--<script type="text/javascript" src="lib/js/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="lib/js/jquery-ui.min.js"></script>-->
+<script src="{% static 'main/jquery-3.2.1.js' %}"></script>
+<script src="{% static 'assets/plugins/jquery-ui/js/jquery-ui-1.10.4.min.js' %}"></script>
+<script type="text/javascript">
+$(function()
+{
+
+    var do_print = function()
+    {
+        $(".main_container").addClass("forprint");
+        var ret = window.print();
+        $(".main_container").removeClass("forprint");
+    };
+
+    if(!(window && window.print))
+    {
+        $("input.print_button").hide();
+    }
+    $("input.print_button").click(do_print);
+});
+</script>
+{% if data != '' and data.type == 'one' %}
+{% else %}
+<script>
+        $(function () {
+            // body...
+            var i = 0;
+            // var row = JSON.parse('{{row}}');
+            var row = JSON.parse('{{row|safe}}');
+            var count = row.length;
+            var container = "";
+            for(i = 0; i < count; i++)
+            {
+                if(0 == (i % 21))
+                {
+                    // container && container.addClass("break_after");
+                    // container = $(".voucher_template .voucher_list").clone();
+                    // $(".main_container .voucher_list_container").append(container);
+
+                    if(i > 0){
+                        // $('.voucher_list_container').append('</div>');
+                        container = container + '</div>';
+                    }
+                    if((count - i > 21) ){
+                        // $('.voucher_list_container').append('<div class="voucher_list break_after" >');
+                        container = container + '<div class="voucher_list break_after" >';
+                    }else{
+                        // $('.voucher_list_container').append('<div class="voucher_list " >');
+                        container = container + '<div class="voucher_list " >';
+                    }
+                }
+                container = container + '<div class=\"one_voucher\"><label class=\"bold essid\">'+row[i].essid+'</label><label class=\"bold code\">'+row[i].code+'</label><label>Byte Quota<span class=\"value\">'+row[i].flow+'</span><span class=\"unit\">MB</span></label><label>Duration<span class=\"value\">'+row[i].duration+'</span><span class=\"unit\">hours</span></label>';
+                if(row[i].support=='single'){
+                    container = container + '<label>One User Only</label>';
+                }else{
+                    container = container + '<label>Multiple User</label>';
+                }
+                container = container + '</div>';
+                // $('.voucher_list_container').append(container);
+                // var one_voucher = $(".voucher_template .one_voucher").clone();
+                // container.append(one_voucher);
+            }
+            $('.voucher_list_container').append(container);
+            if(i > 0){
+                $('.voucher_list_container').append('</div>');
+            }
+        });
+    </script>
+{% endif %}
+</head>
+<body>
+<div class="main_container">
+<div class="voucher_list_container">
+{% if data != '' and data.type == 'one' %}
+<div class="voucher_list" >
+<div class="one_voucher">
+<label class="bold essid">{{data.essid}}</label>
+<label class="bold code">{{data.code}}</label>
+<label>Byte Quota<span class="value">{{data.flow}}</span><span class="unit">MB</span></label>
+<label>Duration<span class="value">{{data.duration}}</span><span class="unit">hours</span></label>
+    {% if data.support == "single" %}
+        <label>One User Only</label>
+    {% else %}
+        <label>Multiple User</label>
+    {% endif %}
+</div>
+</div>
+{% else %}
+
+{% endif %}
+</div>
+<div class="voucher_template">
+<div class="voucher_list" >
+</div>
+<div class="one_voucher">
+<label class="bold essid">ESSID</label>
+<label class="bold code">12345-67890</label>
+<label>Byte Quota<span class="value">80</span><span class="unit">MB</span></label>
+<label>Duration<span class="value">8</span><span class="unit">hours</span></label>
+<label>One User Only</label>
+</div>
+</div>
+<div class="print_button_div">
+    <input type="button" class="print_button" value="Print"/>
+</div>
+</div>
+</body>
+</html>

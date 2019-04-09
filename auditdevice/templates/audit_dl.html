@@ -1,0 +1,490 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+
+{% endblock head_link %}
+{% block header %}
+    <li class="active"><i class="fa fa-hdd-o"></i>{% trans "审计设备" %}</li>
+{% endblock header %}
+{% block row %}
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                            <div class="panel panel-default bk-bg-white" >
+                                <div class="panel-heading bk-bg-white ">
+                                    <h6><i class="fa fa-hdd-o red"></i><span class="break"></span>{% trans "已管理的审计设备" %}</h6>
+                                    <div class="panel-actions">
+                                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                                    </div>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-bordered table-striped" id="datatable-default">
+                                        <thead>
+                                            <tr>
+                                                <th class="table-icon-width"></th>
+                                                <th>{% trans "名称/MAC地址" %}</th>
+                                                <th>{% trans "IP地址" %}</th>
+                                                <th>{% trans "状态" %}</th>
+                                                <!--<th>{% trans "上传" %}</th>
+                                                <th>{% trans "下载" %}</th>-->
+                                                <th class="hidden-phone">{% trans "版本号" %}</th>
+                                                <th>{% trans "特征库版本" %}</th>
+                                                <th class="hidden-phone">{% trans "最后心跳" %}</th>
+
+                                                <th>{% trans "操作" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <button id="position-4-success" hidden="hidden" data-a = "{{errors}}">1</button>
+                        <button id="position-4-error" hidden="hidden" data-a = "{{errors}}">2</button>
+                    </div>
+                    <div class="panel-body">
+                        <a class=" modal-with-form " href="#modalForm" id="open_form" hidden="True">Open Form</a>
+                        <!-- Modal Form -->
+                        <div id="modalForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+                            <div class="panel panel-default" >
+                                <div class="panel-heading">
+                                    <h2 class="panel-title"><span id="name"></span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+                                </div>
+
+                                <div class="panel-body bk-noradius" >
+                                    <div class="form-group">
+                                        <div class="panel-heading" id="head-state">
+                                            <h4 class="panel-title " style="text-align:center">
+                                                <span id="state" ></span>
+                                            </h4>
+                                        </div>
+                                    </div>
+
+
+                                    <ul class="nav nav-tabs drag">
+                                        <li class="active">
+                                            <a href="#detail_message" data-toggle="tab" ><span class="fa fa-bars tab-icon-color"></span> {% trans "详细信息" %}</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content drag">
+                                        <div id="detail_message" class="tab-pane active">
+                                            <div class="panel-group" id="accordion">
+                                                <div class="panel panel-accordion">
+                                                    <div class="panel-heading bk-fg-primary">
+                                                        <h4 class="panel-title">
+                                                            <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion" href="#collapse1One">
+                                                                {% trans "概要" %}
+                                                            </a>
+                                                        </h4>
+                                                    </div>
+                                                    <div id="collapse1One" class="accordion-body collapse in">
+                                                        <div class="panel-body">
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "MAC地址:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="mac"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "序列号:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="sn"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "型号:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="model"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "版本:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="version"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "特征库版本:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="library_version"></span>
+                                                            </div>
+                                                            <!--<span class="col-md-4 penel-body-title-font">场所信息:</span>
+                                                            <span class="col-md-8 penel-body-body-font" id="place"></span>-->
+                                                            <hr class="col-md-11 config-window-hr" >
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "IP地址:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="ip"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "运行时间:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="running_time"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "最后看到:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="last_time"></span>
+                                                            </div>
+
+                                                            <hr class="col-md-11 config-window-hr" >
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "CPU占用率:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="cpu"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "内存占用率:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="memory"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "Flash占用率:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="flash"></span>
+                                                            </div>
+
+                                                            <hr class="col-md-11 config-window-hr" >
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "上传:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="upload"></span>
+                                                            </div>
+                                                            <div class="col-md-12 config-window-message-div-padding">
+                                                                <span class="col-md-4 penel-body-title-font">{% trans "下载:" %}</span>
+                                                                <span class="col-md-8 penel-body-body-font" id="download"></span>
+                                                            </div>
+                                                            <hr class="col-md-11 config-window-hr" >
+
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="panel-footer">
+                                    <div class="row">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+{% endblock row %}
+
+{% block foot_js %}
+    <script>
+        $(document).ready(function(){
+            al_access_table();
+        })
+    </script>
+    <script>
+        function al_access_table() {
+            // body...
+            oTable = $('#datatable-default').DataTable({
+                "dom":"<'row'<'col-sm-6' l><'col-sm-6' f>>rt<'row '<'col-sm-5' i><'col-sm-6 table_page_controller_div'p><'#ch.col-sm-1 table_page_jump_div'>>",
+                "pagingType": "simple_numbers",
+                "processing": true,
+                "searching": true,
+                "autoWidth": true,
+                "deferRender": true,
+                "destroy":true,
+                'language':{
+                    "sProcessing":   "{% trans '处理中...' %}",
+                    "sLengthMenu":   '{% trans "显示" %} <select>'+
+                                     '<option value="5">5</option>'+
+                                     '<option value="10">10</option>'+
+                                     '<option value="20">20</option>'+
+                                     '<option value="50">50</option>'+
+                                     '</select> {% trans "记录" %}',
+                    "sZeroRecords":  "{% trans '没有匹配结果' %}",
+                    "sInfo":         "{% trans '显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项' %}",
+                    "sInfoEmpty":    "{% trans '显示第 0 至 0 项结果，共 0 项' %}",
+                    "sInfoFiltered": "({% trans '由 _MAX_ 项结果过滤' %})",
+                    "sInfoPostFix":  "",
+                    "sSearch":       '{% trans "搜索 : " %}',
+                    "sUrl":          "",
+                    "sEmptyTable":     "{% trans '表中数据为空' %}",
+                    "sLoadingRecords": "{% trans '载入中...' %}",
+                    "sInfoThousands":  ",",
+                    "oPaginate": {
+                        "sFirst":    "<span class=\"fa fa-angle-double-left\"></span>",
+                        "sPrevious": "<span class=\"fa fa-angle-left\"></span>",
+                        "sNext":     "<span class=\"fa fa-angle-right\"></span>",
+                        "sLast":     "<span class=\"fa fa-angle-double-right\"></span>"
+                    },
+                    // "oAria": {
+                    //     "sSortAscending":  ": 以升序排列此列",
+                    //     "sSortDescending": ": 以降序排列此列"
+                    // }
+                },
+                "serverSide": true,
+                "ajax": "{% url 'ad_already_access_ajax' %}",
+                "columns": [
+                    { "data": "state" },
+                    { "data": "name" },
+                    { "data": "lastip" },
+                    { "data": "state" },
+                    // { "data": "upload" },
+                    // { "data": "download" },
+                    { "data": "version" },
+                    { "data": "library_version" },
+                    { "data": "last_heart_time" },
+                    { "data": "state" }
+                ],
+                'createdRow': function ( row, data, index ) {
+                    if(data.state == "{% trans '退服' %}"){
+                        $('td',row).eq(0).html("<span class=\"fa fa-hdd-o table-icon-span-gray\" title=\""+data.model+"\"></span>");
+                    }
+                    if(data.state == "{% trans '离线' %}" || data.state == "{% trans '重启' %}" || data.state == "{% trans '升级' %}" ){
+                        $('td',row).eq(0).html("<span class=\"fa fa-hdd-o table-icon-span-red\" title=\""+data.model+"\"></span>");
+                    }
+                    if(data.state == "{% trans '超时' %}"){
+                        $('td',row).eq(0).html("<span class=\"fa fa-hdd-o table-icon-span-yellow\" title=\""+data.model+"\"></span>");
+                    }
+                    if(data.state == "{% trans '在线' %}"){
+                        $('td',row).eq(0).html("<span class=\"fa fa-hdd-o table-icon-span-green\" title=\""+data.model+"\"></span>");
+                    }
+                    if($.trim(data.name) != ""){
+                        $('td',row).eq(1).html("<a href=\"#\" onclick=\"ajaxfunc('"+data.mac+"','"+data.state+"')\" class=\"table-a-color\">"+data.name+"</a>");
+                    }else{
+                        $('td',row).eq(1).html("<a href=\"#\" onclick=\"ajaxfunc('"+data.mac+"','"+data.state+"')\" class=\"table-a-color\">"+data.model+"_"+(data.mac).substring(6)+"</a>");
+
+                    }
+                    // if(data.vpn == 'on' && data.vpnip != ''){
+                    //     $('td',row).eq(2).html("<span class=\"fa fa-cloud\" title=\"{% trans '私网地址' %}:"+data.privateip+" {% trans '远程地址' %}:"+data.vpnip+"\" style=\"color:#3bbfb4\"></span>"+data.lastip+"");
+                    // }else{
+                    //     $('td',row).eq(2).html("<span class=\"fa fa-cloud\" title=\"{% trans '私网地址' %}:"+data.privateip+"\" ></span>"+data.lastip+"");
+                    // }
+                    var a = '';
+
+                    if(data.state == "{% trans '在线' %}"){
+                        // a = a + "<a class=\"btn btn-default table-btn-btnpad button-border button-margin\" href=\"#\" onclick=\"audit_reboot('"+data.mac+"');\">{% trans '重启' %}</a>";
+                        if(data.upgrade_button == true && data.library_upgrade_button == true){
+                            a = a + "<a class=\"btn btn-default table-btn-btnpad button-border button-margin\" href=\"#\" title=\""+data.upgrade_version+"\" onclick=\"audit_upgrade('"+data.mac+"');\">{% trans '升级' %}</a>";
+                        }
+                        else{
+                            if(data.upgrade_button == true){
+                                a = a + "<a class=\"btn btn-default table-btn-btnpad button-border button-margin\" href=\"#\" title=\""+data.upgrade_version+"\" onclick=\"audit_upgrade('"+data.mac+"');\">{% trans '升级' %}</a>";
+                            }
+                            if(data.library_upgrade_button == true){
+                                a = a + "<a class=\"btn btn-default table-btn-btnpad button-border button-margin\" href=\"#\" title=\""+data.library_upgrade_version+"\" onclick=\"library_upgrade('"+data.mac+"');\">{% trans '升级' %}</a>";
+                            }
+                        }
+
+
+                    }
+                    if(data.state == "{% trans '重启' %}"  || data.state == "{% trans '升级' %}" ){
+                        a = '';
+                    }else{
+                        a = a + "<a class=\"btn btn-default table-btn-btnpad button-margin\" href=\"#\" onclick=\"audit_del('"+data.mac+"');\">{% trans '移除' %}</a>";
+                    }
+                    $('td',row).eq(7).html(a);
+
+                }
+            });
+            $('#ch').html('<input type="text" class="form-control input-sm" id="change_page" placeholder=\"{% trans "跳转至" %}\" style="margin-top: 2px;padding-right: 0px;padding-left: 5px;width: 57px; "/>');
+            $('#change_page').change(function () {
+                var page = parseInt($('#change_page').val());
+                if(!isNaN(page)){
+                    oTable.page( page - 1 ).draw( false );
+                }else{
+                    $('#change_page').val('');
+                }
+
+            } );
+        }
+
+    </script>
+    <script>
+        function audit_reboot(mac) {
+            // body...
+            $.post("{% url 'auditdevice_reboot' %}", {'mac': mac}, function(ret) {
+                /*optional stuff to do after success */
+                if($.trim(ret) != ''){
+                    alert(ret);
+                    oTable.ajax.reload(null,false);
+                }
+            });
+            // $.getJSON("{% url 'auditdevice_reboot' %}?mac="+mac,function(ret){
+            //     if(ret != ''){
+            //         alert(ret);
+            //         oTable.ajax.reload(null,false);
+            //     }
+            // });
+        };
+        function audit_upgrade(mac) {
+            // body...
+            $.post("{% url 'auditdevice_update' %}", {'mac': mac}, function(ret) {
+                /*optional stuff to do after success */
+                if($.trim(ret) != ''){
+                    alert(ret);
+                    oTable.ajax.reload(null,false);
+                }
+            });
+            // $.getJSON("{% url 'auditdevice_update' %}?mac="+mac,function(ret){
+            //     if(ret != ''){
+            //         alert(ret);
+            //         oTable.ajax.reload(null,false);
+            //     }
+            // });
+        };
+        function library_upgrade(mac) {
+            // body...
+            $.post("{% url 'auditdevice_library_update' %}", {'mac': mac}, function(ret) {
+                /*optional stuff to do after success */
+                if($.trim(ret) != ''){
+                    alert(ret);
+                    oTable.ajax.reload(null,false);
+                }
+            });
+            // $.getJSON("{% url 'auditdevice_library_update' %}?mac="+mac,function(ret){
+            //     if(ret != ''){
+            //         alert(ret);
+            //         oTable.ajax.reload(null,false);
+            //     }
+            // });
+        };
+        function audit_del(mac) {
+            // body...
+            $.post("{% url 'auditdevice_del' %}", {'mac': mac}, function(ret) {
+                /*optional stuff to do after success */
+                if($.trim(ret) != ''){
+                    alert(ret);
+                    oTable.ajax.reload(null,false);
+                }
+            });
+            // $.getJSON("{% url 'auditdevice_del' %}?mac="+mac,function (ret) {
+            //     if(ret != ''){
+            //         alert(ret);
+            //         oTable.ajax.reload(null,false);
+            //     }
+            // });
+        };
+    </script>
+
+    <script>
+        var stack_bar_top = {"dir1": "down", "dir2": "right", "push": "top", "spacing1": 0, "spacing2": 0};
+        $('#position-4-success').click(function() {
+            var errors = $(this).attr('data-a');
+            var notice = new PNotify({
+                title: "{% trans '提示信息' %}",
+                text: errors,
+                type: 'success',
+                addclass: 'stack-bar-top',
+                stack: stack_bar_top,
+                width: "100%"
+            });
+        });
+        $('#position-4-error').click(function() {
+            var errors = $(this).attr('data-a');
+            var notice = new PNotify({
+                title: "{% trans '提示信息' %}",
+                text: errors,
+                type: 'error',
+                addclass: 'stack-bar-top',
+                stack: stack_bar_top,
+                width: "100%"
+            });
+        });
+    </script>
+    <script>
+        $(function(){
+            var error = {{errors_json|safe}};
+            if(error == "{% trans '设备已存在！' %}" || error == "{% trans '准入失败！' %}" || error == "{% trans '执行失败！' %}" || error == "{% trans '修改失败！' %}" || error == "{% trans '没有此型号对应的版本文件' %}"){
+                $('#position-4-error').click();
+            }
+            if(error == "{% trans '准入成功！' %}" || error == "{% trans '执行成功！' %}" || error == "{% trans '修改成功！' %}"){
+                $('#position-4-success').click();
+            }
+        });
+    </script>
+
+
+    <script>
+       function ajaxfunc(value,value2){
+        // bk-bg-danger
+        // console.log(value);
+        $('#open_form').click();
+        $.getJSON("{% url 'auditdevice_detail' %}?mac="+value, function(ret){
+                // console.log(value2);
+                var m = (ret.mac).substr(0,2)+'-'+(ret.mac).substr(2,2)+'-'+(ret.mac).substr(4,2)+'-'+(ret.mac).substr(6,2)+'-'+(ret.mac).substr(8,2)+'-'+(ret.mac).substr(10,2);
+                $('#mac').text(m.toUpperCase());
+                $('#sn').text(ret.sn);
+                $('#model').text(ret.model);
+                $('#version').text(ret.version);
+                $('#place').text(ret.place);
+                $('#ip').text(ret.ip);
+                $('#library_version').text(ret.library_version);
+                console.log(ret);
+                $('#upload').text(ret.upload);
+                $('#download').text(ret.download);
+                var a = parseInt(ret.running_time);
+                var b = parseInt(a/(24*3600));
+                var c = parseInt(a%(24*3600)/3600);
+                var d = parseInt(a%(24*3600)%3600/60);
+                var e = parseInt(a%(24*3600)%3600%60);
+                var f = '';
+                if(b == 0 && c == 0 && d == 0){
+                    f = e+'s';
+                }else if(b == 0 && c == 0){
+                    f = d+'m '+e+'s';
+                }else if(b == 0){
+                    f = c+'h '+d+'m '+e+'s';
+                }else{
+                    f = b+'d '+c+'h '+d+'m '+e+'s';
+                }
+                // console.log(a,'@#',b,'#$',c,'#@',d,'@',e,'@#',f,'@!');
+                $('#running_time').text(f);
+                $('#last_time').text(ret.last_time);
+                $('#cpu').text(ret.cpu);
+                $('#memory').text(ret.memory);
+                $('#flash').text(ret.flash);
+                if($.trim(ret.name) == ""){
+                    $('#name').text(ret.model + '_' + ret.mac.substring(6));
+                }else{
+                    $('#name').text(ret.name);
+                    $('#d_name').val(ret.name);
+
+                }
+                $('.receive_mac').val(value);
+        });
+        $('#state').text(value2);
+        if(value2 == "{% trans '在线' %}"){
+            $('#head-state').removeClass("state-color-green");
+            $('#head-state').removeClass("state-color-yellow");
+            $('#head-state').removeClass("state-color-red");
+            $('#head-state').removeClass("state-color-gray");
+
+            $('#head-state').addClass("state-color-green");
+        }else if(value2 == "{% trans '超时' %}"){
+            $('#head-state').removeClass("state-color-green");
+            $('#head-state').removeClass("state-color-yellow");
+            $('#head-state').removeClass("state-color-red");
+            $('#head-state').removeClass("state-color-gray");
+
+            $('#head-state').addClass("state-color-yellow");
+        }else if(value2 == "{% trans '离线' %}"){
+            $('#head-state').removeClass("state-color-green");
+            $('#head-state').removeClass("state-color-yellow");
+            $('#head-state').removeClass("state-color-red");
+            $('#head-state').removeClass("state-color-gray");
+
+            $('#head-state').addClass("state-color-red");
+        }else if(value2 == "{% trans '退服' %}" || value2 == "{% trans '已移除' %}"){
+            $('#head-state').removeClass("state-color-green");
+            $('#head-state').removeClass("state-color-yellow");
+            $('#head-state').removeClass("state-color-red");
+            $('#head-state').removeClass("state-color-gray");
+
+            $('#head-state').addClass("state-color-gray");
+        }else if(value2 == "{% trans '重启' %}" || value2 == "{% trans '升级' %}" ){
+            $('#head-state').removeClass("state-color-green");
+            $('#head-state').removeClass("state-color-yellow");
+            $('#head-state').removeClass("state-color-red");
+            $('#head-state').removeClass("state-color-gray");
+
+            $('#head-state').addClass("state-color-red");
+        }
+
+      }
+    </script>
+    <script>
+        $(function() {
+        $( "#modalForm" ).draggable({cancel:".drag"});
+        });
+    </script>
+{% endblock foot_js %}

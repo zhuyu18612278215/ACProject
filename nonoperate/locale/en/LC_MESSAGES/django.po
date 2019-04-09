@@ -1,0 +1,2556 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-22 14:36+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/non-operate-list.html:15
+#: templates/nonoperate-byzoroXinyangList.html:8
+#: templates/nonoperate-customer.html:15 templates/nonoperate-group.html:9
+#: templates/nonoperate-guest-policy.html:13
+#: templates/nonoperate-user-policy-config.html:9
+#: templates/nonoperate-wlan.html:18
+msgid "非经设备"
+msgstr "Audit Device"
+
+#: templates/non-operate-list.html:23
+msgid "已管理的设备"
+msgstr "Managed Devices"
+
+#: templates/non-operate-list.html:26 templates/non-operate-list.html:1480
+#: templates/nonoperate-group.html:24
+#: templates/nonoperate-guest-policy.html:106
+#: templates/nonoperate-guest-policy.html:492
+#: templates/nonoperate-user-policy-config.html:252
+#: templates/nonoperate-user-policy-config.html:292
+#: templates/nonoperate-wlan.html:33 templates/nonoperate-wlan.html.py:85
+msgid "添加"
+msgstr "Add"
+
+#: templates/non-operate-list.html:27 templates/non-operate-list.html:1532
+msgid "导入"
+msgstr "Import"
+
+#: templates/non-operate-list.html:28 templates/non-operate-list.html:1582
+#: templates/nonoperate-byzoroXinyangList.html:17
+#: templates/nonoperate-byzoroXinyangList.html:49
+msgid "导出"
+msgstr "Export"
+
+#: templates/non-operate-list.html:52
+msgid "待准入的接入点"
+msgstr "AP to be admitted"
+
+#: templates/non-operate-list.html:63 templates/non-operate-list.html:333
+#: templates/non-operate-list.html:1862 templates/nonoperate-customer.html:37
+#: templates/nonoperate-customer.html:443 templates/nonoperate-group.html:114
+#: templates/nonoperate-group.html:193 templates/nonoperate-group.html:207
+#: templates/nonoperate-user-policy-config.html:259
+#: templates/nonoperate-user-policy-config.html:299
+#: templates/nonoperate-user-policy-config.html:351
+#: templates/nonoperate-user-policy-config.html:417
+#: templates/nonoperate-wlan.html:96 templates/nonoperate-wlan.html.py:804
+#: templates/nonoperate_index.html:616
+msgid "名称/MAC地址"
+msgstr "Name/MAC Address"
+
+#: templates/non-operate-list.html:64 templates/non-operate-list.html:765
+#: templates/non-operate-list.html:1666 templates/non-operate-list.html:1863
+#: templates/nonoperate-customer.html:38
+#: templates/nonoperate-customer.html:112
+#: templates/nonoperate-customer.html:875 templates/nonoperate_index.html:285
+#: templates/nonoperate_index.html:1048
+msgid "IP地址"
+msgstr "IP Address"
+
+#: templates/non-operate-list.html:65 templates/non-operate-list.html:918
+#: templates/non-operate-list.html:1036 templates/non-operate-list.html:1864
+#: templates/nonoperate-customer.html:1028
+#: templates/nonoperate-customer.html:1146
+#: templates/nonoperate-guest-policy.html:509
+#: templates/nonoperate-guest-policy.html:950
+#: templates/nonoperate_index.html:1201 templates/nonoperate_index.html:1320
+#: templates/nonoperate_index.html:1786
+msgid "状态"
+msgstr "Status"
+
+#: templates/non-operate-list.html:67 templates/non-operate-list.html:1867
+msgid "版本号"
+msgstr "Version"
+
+#: templates/non-operate-list.html:68 templates/non-operate-list.html:1868
+msgid "最后心跳"
+msgstr "Last Heartbeat"
+
+#: templates/non-operate-list.html:69 templates/non-operate-list.html:118
+#: templates/non-operate-list.html:335 templates/non-operate-list.html:594
+#: templates/non-operate-list.html:1870 templates/nonoperate-customer.html:48
+#: templates/nonoperate-customer.html:445
+#: templates/nonoperate-customer.html:704 templates/nonoperate-group.html:41
+#: templates/nonoperate-guest-policy.html:512
+#: templates/nonoperate-guest-policy.html:951
+#: templates/nonoperate-user-policy-config.html:260
+#: templates/nonoperate-user-policy-config.html:300
+#: templates/nonoperate-user-policy-config.html:352
+#: templates/nonoperate-user-policy-config.html:418
+#: templates/nonoperate-wlan.html:50 templates/nonoperate-wlan.html.py:97
+#: templates/nonoperate-wlan.html:805 templates/nonoperate_index.html:618
+#: templates/nonoperate_index.html:877
+msgid "操作"
+msgstr "Operate"
+
+#: templates/non-operate-list.html:89
+msgid "事件通知与提示"
+msgstr "Event notifications and prompts"
+
+#: templates/non-operate-list.html:92
+msgid "管理员"
+msgstr "Administrator"
+
+#: templates/non-operate-list.html:97
+msgid "1小时"
+msgstr "1 hour"
+
+#: templates/non-operate-list.html:98
+#: templates/nonoperate-guest-policy.html:658
+#: templates/nonoperate-guest-policy.html:812
+msgid "8小时"
+msgstr "8 hours"
+
+#: templates/non-operate-list.html:99
+#: templates/nonoperate-guest-policy.html:813
+msgid "1天"
+msgstr "1 day"
+
+#: templates/non-operate-list.html:100
+msgid "2天"
+msgstr "2 days"
+
+#: templates/non-operate-list.html:101
+#: templates/nonoperate-guest-policy.html:661
+#: templates/nonoperate-guest-policy.html:814
+msgid "7天"
+msgstr "7 days"
+
+#: templates/non-operate-list.html:102
+msgid "2周"
+msgstr "2 weeks"
+
+#: templates/non-operate-list.html:103
+msgid "1月"
+msgstr "1 month"
+
+#: templates/non-operate-list.html:116
+msgid "时间"
+msgstr "Time"
+
+#: templates/non-operate-list.html:117
+msgid "信息"
+msgstr "Information"
+
+#: templates/non-operate-list.html:152 templates/non-operate-list.html:1626
+#: templates/nonoperate-customer.html:72
+#: templates/nonoperate-customer.html:262 templates/nonoperate_index.html:245
+#: templates/nonoperate_index.html:435
+msgid "详细信息"
+msgstr "Details"
+
+#: templates/non-operate-list.html:155 templates/non-operate-list.html:846
+#: templates/nonoperate-customer.html:16 templates/nonoperate-customer.html:27
+#: templates/nonoperate-customer.html:265
+#: templates/nonoperate-customer.html:956 templates/nonoperate_index.html:438
+#: templates/nonoperate_index.html:1129
+msgid "用户"
+msgstr "User"
+
+#: templates/non-operate-list.html:158 templates/non-operate-list.html:971
+#: templates/non-operate-list.html:1189 templates/non-operate-list.html:1635
+#: templates/non-operate-list.html:1764 templates/nonoperate-customer.html:81
+#: templates/nonoperate-customer.html:210
+#: templates/nonoperate-customer.html:268
+#: templates/nonoperate-customer.html:1081
+#: templates/nonoperate-customer.html:1287 templates/nonoperate-group.html:238
+#: templates/nonoperate_index.html:254 templates/nonoperate_index.html:383
+#: templates/nonoperate_index.html:441 templates/nonoperate_index.html:1254
+#: templates/nonoperate_index.html:1461
+msgid "配置"
+msgstr "Config"
+
+#: templates/non-operate-list.html:164 templates/nonoperate-customer.html:274
+#: templates/nonoperate_index.html:444
+msgid "审计"
+msgstr "Audit"
+
+#: templates/non-operate-list.html:167 templates/nonoperate-customer.html:277
+#: templates/nonoperate_index.html:450
+msgid "诊断"
+msgstr "Diagnosis"
+
+#: templates/non-operate-list.html:177 templates/non-operate-list.html:1645
+#: templates/nonoperate-customer.html:91
+#: templates/nonoperate-customer.html:287 templates/nonoperate_index.html:15
+#: templates/nonoperate_index.html:264 templates/nonoperate_index.html:460
+msgid "概要"
+msgstr "Overview"
+
+#: templates/non-operate-list.html:184 templates/nonoperate-customer.html:294
+#: templates/nonoperate_index.html:467
+msgid "MAC地址:"
+msgstr "MAC Address"
+
+#: templates/non-operate-list.html:188 templates/nonoperate-customer.html:298
+#: templates/nonoperate_index.html:471
+msgid "序列号:"
+msgstr "Serial Number"
+
+#: templates/non-operate-list.html:192 templates/nonoperate-customer.html:302
+#: templates/nonoperate_index.html:475
+msgid "型号:"
+msgstr "Model:"
+
+#: templates/non-operate-list.html:196 templates/nonoperate-customer.html:306
+#: templates/nonoperate_index.html:479
+msgid "版本:"
+msgstr "Version"
+
+#: templates/non-operate-list.html:203 templates/nonoperate-customer.html:313
+#: templates/nonoperate_index.html:486
+msgid "IP地址:"
+msgstr "IP Address"
+
+#: templates/non-operate-list.html:207 templates/nonoperate-customer.html:317
+#: templates/nonoperate_index.html:490
+msgid "运行时间:"
+msgstr "Run time"
+
+#: templates/non-operate-list.html:211 templates/nonoperate-customer.html:321
+#: templates/nonoperate_index.html:494
+msgid "最后看到:"
+msgstr "Last Seen:"
+
+#: templates/non-operate-list.html:217 templates/nonoperate-customer.html:327
+#: templates/nonoperate_index.html:500
+msgid "CPU占用率:"
+msgstr "CPU Usage"
+
+#: templates/non-operate-list.html:221 templates/nonoperate-customer.html:331
+#: templates/nonoperate_index.html:504
+msgid "内存占用率:"
+msgstr "Memory Usage:"
+
+#: templates/non-operate-list.html:225 templates/nonoperate-customer.html:335
+#: templates/nonoperate_index.html:508
+msgid "Flash占用率:"
+msgstr "Flash Usage:"
+
+#: templates/non-operate-list.html:231 templates/non-operate-list.html:284
+#: templates/non-operate-list.html:315 templates/nonoperate-customer.html:341
+#: templates/nonoperate-customer.html:394
+#: templates/nonoperate-customer.html:425 templates/nonoperate_index.html:514
+#: templates/nonoperate_index.html:567 templates/nonoperate_index.html:598
+msgid "用户数量"
+msgstr "User Number"
+
+#: templates/non-operate-list.html:235 templates/non-operate-list.html:288
+#: templates/non-operate-list.html:319 templates/nonoperate-customer.html:345
+#: templates/nonoperate-customer.html:398
+#: templates/nonoperate-customer.html:429 templates/nonoperate_index.html:518
+#: templates/nonoperate_index.html:571 templates/nonoperate_index.html:602
+msgid "来宾数量"
+msgstr "Guest Number"
+
+#: templates/non-operate-list.html:246 templates/nonoperate-customer.html:356
+#: templates/nonoperate_index.html:529
+msgid "流量"
+msgstr "Traffic"
+
+#: templates/non-operate-list.html:253 templates/non-operate-list.html:1733
+#: templates/nonoperate-customer.html:179
+#: templates/nonoperate-customer.html:363 templates/nonoperate_index.html:352
+#: templates/nonoperate_index.html:536
+msgid "下载(报文/字节)"
+msgstr "Download(Pkts / Bytes)"
+
+#: templates/non-operate-list.html:257 templates/non-operate-list.html:1729
+#: templates/nonoperate-customer.html:175
+#: templates/nonoperate-customer.html:367 templates/nonoperate_index.html:348
+#: templates/nonoperate_index.html:540
+msgid "上传(报文/字节)"
+msgstr "Upload(Pkts / Bytes)"
+
+#: templates/non-operate-list.html:268 templates/nonoperate-customer.html:378
+#: templates/nonoperate_index.html:551
+msgid "射频卡(2G)"
+msgstr "Radio(2G)"
+
+#: templates/non-operate-list.html:275 templates/non-operate-list.html:306
+#: templates/non-operate-list.html:420 templates/non-operate-list.html:491
+#: templates/non-operate-list.html:1716 templates/nonoperate-customer.html:42
+#: templates/nonoperate-customer.html:162
+#: templates/nonoperate-customer.html:385
+#: templates/nonoperate-customer.html:416
+#: templates/nonoperate-customer.html:530
+#: templates/nonoperate-customer.html:601 templates/nonoperate_index.html:335
+#: templates/nonoperate_index.html:558 templates/nonoperate_index.html:589
+#: templates/nonoperate_index.html:703 templates/nonoperate_index.html:774
+msgid "信道"
+msgstr "Channel"
+
+#: templates/non-operate-list.html:279 templates/non-operate-list.html:310
+#: templates/nonoperate-customer.html:389
+#: templates/nonoperate-customer.html:420 templates/nonoperate_index.html:562
+#: templates/nonoperate_index.html:593
+msgid "传输功率"
+msgstr "Transmission Power"
+
+#: templates/non-operate-list.html:299 templates/nonoperate-customer.html:409
+#: templates/nonoperate_index.html:582
+msgid "射频卡(5G)"
+msgstr "Radio(5G)"
+
+#: templates/non-operate-list.html:334 templates/nonoperate-customer.html:39
+#: templates/nonoperate-customer.html:444 templates/nonoperate_index.html:617
+msgid "WLAN"
+msgstr "WLAN"
+
+#: templates/non-operate-list.html:349 templates/nonoperate-customer.html:459
+#: templates/nonoperate_index.html:632
+msgid "一般配置"
+msgstr "Basic Config"
+
+#: templates/non-operate-list.html:357 templates/non-operate-list.html:1772
+#: templates/nonoperate-customer.html:218
+#: templates/nonoperate-customer.html:467 templates/nonoperate_index.html:391
+#: templates/nonoperate_index.html:640 templates/nonoperate_index.html:1784
+msgid "别名"
+msgstr "Alias"
+
+#: templates/non-operate-list.html:363 templates/non-operate-list.html:375
+#: templates/non-operate-list.html:387 templates/non-operate-list.html:981
+#: templates/non-operate-list.html:996 templates/nonoperate-customer.html:473
+#: templates/nonoperate-customer.html:485
+#: templates/nonoperate-customer.html:497
+#: templates/nonoperate-customer.html:1091
+#: templates/nonoperate-customer.html:1106 templates/nonoperate-wlan.html:146
+#: templates/nonoperate_index.html:646 templates/nonoperate_index.html:658
+#: templates/nonoperate_index.html:670 templates/nonoperate_index.html:1265
+#: templates/nonoperate_index.html:1280
+msgid "提交"
+msgstr "Submit"
+
+#: templates/non-operate-list.html:369 templates/nonoperate-customer.html:479
+#: templates/nonoperate_index.html:652
+msgid "AC地址"
+msgstr "AC Address"
+
+#: templates/non-operate-list.html:381 templates/nonoperate-customer.html:491
+#: templates/nonoperate_index.html:664
+msgid "LOG地址"
+msgstr "LOG Server Address"
+
+#: templates/non-operate-list.html:398 templates/nonoperate-customer.html:508
+#: templates/nonoperate_index.html:681
+msgid "射频卡"
+msgstr "Radio"
+
+#: templates/non-operate-list.html:424 templates/non-operate-list.html:456
+#: templates/non-operate-list.html:480 templates/non-operate-list.html:495
+#: templates/non-operate-list.html:529 templates/non-operate-list.html:554
+#: templates/nonoperate-customer.html:534
+#: templates/nonoperate-customer.html:566
+#: templates/nonoperate-customer.html:590
+#: templates/nonoperate-customer.html:605
+#: templates/nonoperate-customer.html:639
+#: templates/nonoperate-customer.html:664 templates/nonoperate_index.html:707
+#: templates/nonoperate_index.html:739 templates/nonoperate_index.html:763
+#: templates/nonoperate_index.html:778 templates/nonoperate_index.html:812
+#: templates/nonoperate_index.html:837
+msgid "自动"
+msgstr "AUTO"
+
+#: templates/non-operate-list.html:452 templates/non-operate-list.html:525
+#: templates/nonoperate-customer.html:562
+#: templates/nonoperate-customer.html:635 templates/nonoperate_index.html:735
+#: templates/nonoperate_index.html:808
+msgid "发送功率"
+msgstr "Transmit Power"
+
+#: templates/non-operate-list.html:457 templates/non-operate-list.html:530
+#: templates/nonoperate-customer.html:567
+#: templates/nonoperate-customer.html:640 templates/nonoperate_index.html:740
+#: templates/nonoperate_index.html:813
+msgid "高"
+msgstr "High"
+
+#: templates/non-operate-list.html:458 templates/non-operate-list.html:531
+#: templates/nonoperate-customer.html:568
+#: templates/nonoperate-customer.html:641
+#: templates/nonoperate-guest-policy.html:90
+#: templates/nonoperate-wlan.html:873 templates/nonoperate_index.html:741
+#: templates/nonoperate_index.html:814
+msgid "中"
+msgstr "Medium"
+
+#: templates/non-operate-list.html:459 templates/non-operate-list.html:532
+#: templates/nonoperate-customer.html:569
+#: templates/nonoperate-customer.html:642 templates/nonoperate_index.html:742
+#: templates/nonoperate_index.html:815
+msgid "低"
+msgstr "Low"
+
+#: templates/non-operate-list.html:460 templates/non-operate-list.html:533
+#: templates/nonoperate-customer.html:570
+#: templates/nonoperate-customer.html:643
+#: templates/nonoperate-guest-policy.html:663
+#: templates/nonoperate_index.html:743 templates/nonoperate_index.html:816
+msgid "自定义"
+msgstr "Customize"
+
+#: templates/non-operate-list.html:476 templates/non-operate-list.html:550
+#: templates/nonoperate-customer.html:586
+#: templates/nonoperate-customer.html:660 templates/nonoperate_index.html:759
+#: templates/nonoperate_index.html:833
+msgid "兼容性"
+msgstr "Compatibility"
+
+#: templates/non-operate-list.html:481 templates/non-operate-list.html:482
+#: templates/non-operate-list.html:483 templates/non-operate-list.html:555
+#: templates/non-operate-list.html:556 templates/nonoperate-customer.html:591
+#: templates/nonoperate-customer.html:592
+#: templates/nonoperate-customer.html:593
+#: templates/nonoperate-customer.html:665
+#: templates/nonoperate-customer.html:666 templates/nonoperate_index.html:764
+#: templates/nonoperate_index.html:765 templates/nonoperate_index.html:766
+#: templates/nonoperate_index.html:838 templates/nonoperate_index.html:839
+msgid "仅"
+msgstr "Only"
+
+#: templates/non-operate-list.html:565 templates/non-operate-list.html:726
+#: templates/non-operate-list.html:799 templates/non-operate-list.html:835
+#: templates/non-operate-list.html:865 templates/non-operate-list.html:1445
+#: templates/non-operate-list.html:1774 templates/nonoperate-customer.html:220
+#: templates/nonoperate-customer.html:675
+#: templates/nonoperate-customer.html:836
+#: templates/nonoperate-customer.html:909
+#: templates/nonoperate-customer.html:945
+#: templates/nonoperate-customer.html:975
+#: templates/nonoperate-customer.html:1522 templates/nonoperate-group.html:129
+#: templates/nonoperate-group.html:224 templates/nonoperate-group.html:484
+#: templates/nonoperate-guest-policy.html:531
+#: templates/nonoperate-guest-policy.html:542
+#: templates/nonoperate-guest-policy.html:553
+#: templates/nonoperate-guest-policy.html:564
+#: templates/nonoperate-guest-policy.html:575
+#: templates/nonoperate-guest-policy.html:614
+#: templates/nonoperate-guest-policy.html:751
+#: templates/nonoperate-guest-policy.html:872
+#: templates/nonoperate-user-policy-config.html:213
+#: templates/nonoperate-user-policy-config.html:368
+#: templates/nonoperate-user-policy-config.html:434
+#: templates/nonoperate-wlan.html:467 templates/nonoperate-wlan.html.py:782
+#: templates/nonoperate-wlan.html:817 templates/nonoperate_index.html:393
+#: templates/nonoperate_index.html:848 templates/nonoperate_index.html:1009
+#: templates/nonoperate_index.html:1082 templates/nonoperate_index.html:1118
+#: templates/nonoperate_index.html:1148 templates/nonoperate_index.html:1696
+msgid "应用"
+msgstr "Apply"
+
+#: templates/non-operate-list.html:592 templates/non-operate-list.html:1487
+#: templates/nonoperate-customer.html:702 templates/nonoperate_index.html:875
+msgid "名称"
+msgstr "Name"
+
+#: templates/non-operate-list.html:593 templates/nonoperate-customer.html:703
+#: templates/nonoperate_index.html:876
+msgid "改动"
+msgstr "Change"
+
+#: templates/non-operate-list.html:606 templates/nonoperate-customer.html:716
+#: templates/nonoperate-wlan.html:198 templates/nonoperate-wlan.html.py:514
+#: templates/nonoperate_index.html:889
+msgid "应用于"
+msgstr "Apply For"
+
+#: templates/non-operate-list.html:610 templates/non-operate-list.html:1594
+#: templates/non-operate-list.html:1804
+#: templates/nonoperate-byzoroXinyangList.html:82
+#: templates/nonoperate-customer.html:720
+#: templates/nonoperate-customer.html:1559 templates/nonoperate-wlan.html:202
+#: templates/nonoperate-wlan.html.py:518 templates/nonoperate_index.html:893
+msgid "全部"
+msgstr "ALL"
+
+#: templates/non-operate-list.html:618 templates/nonoperate-customer.html:728
+#: templates/nonoperate_index.html:901
+msgid "在此接入点启用"
+msgstr "Apply for this AP"
+
+#: templates/non-operate-list.html:632 templates/nonoperate-customer.html:742
+#: templates/nonoperate-wlan.html:417 templates/nonoperate-wlan.html.py:733
+#: templates/nonoperate_index.html:915
+msgid "启用VLAN"
+msgstr "Enable VLAN"
+
+#: templates/non-operate-list.html:645 templates/nonoperate-customer.html:755
+#: templates/nonoperate-wlan.html:434 templates/nonoperate-wlan.html.py:749
+#: templates/nonoperate_index.html:928
+msgid "VLAN ID"
+msgstr "VLAN ID"
+
+#: templates/non-operate-list.html:656 templates/nonoperate-customer.html:766
+#: templates/nonoperate_index.html:939
+msgid "SSID"
+msgstr "SSID"
+
+#: templates/non-operate-list.html:667 templates/nonoperate-customer.html:777
+#: templates/nonoperate_index.html:950
+msgid "PSK"
+msgstr "PSK"
+
+#: templates/non-operate-list.html:678 templates/nonoperate-customer.html:788
+#: templates/nonoperate-wlan.html:245 templates/nonoperate-wlan.html.py:561
+#: templates/nonoperate_index.html:961
+msgid "下载限速"
+msgstr "Download Limit"
+
+#: templates/non-operate-list.html:701 templates/nonoperate-customer.html:811
+#: templates/nonoperate-wlan.html:268 templates/nonoperate-wlan.html.py:584
+#: templates/nonoperate_index.html:984
+msgid "上传限速"
+msgstr "Upload Limit"
+
+#: templates/non-operate-list.html:729 templates/nonoperate-customer.html:839
+#: templates/nonoperate_index.html:1012
+msgid "还原"
+msgstr "Recover"
+
+#: templates/non-operate-list.html:732 templates/nonoperate-customer.html:842
+#: templates/nonoperate-group.html:130 templates/nonoperate-group.html:485
+#: templates/nonoperate-guest-policy.html:530
+#: templates/nonoperate-guest-policy.html:541
+#: templates/nonoperate-guest-policy.html:552
+#: templates/nonoperate-guest-policy.html:563
+#: templates/nonoperate-guest-policy.html:574
+#: templates/nonoperate-guest-policy.html:894
+#: templates/nonoperate-user-policy-config.html:369
+#: templates/nonoperate-user-policy-config.html:435
+#: templates/nonoperate-wlan.html:468 templates/nonoperate-wlan.html.py:783
+#: templates/nonoperate-wlan.html:818 templates/nonoperate_index.html:1015
+msgid "取消"
+msgstr "Cancel"
+
+#: templates/non-operate-list.html:746 templates/nonoperate-customer.html:856
+#: templates/nonoperate_index.html:1029
+msgid "网络"
+msgstr "Network"
+
+#: templates/non-operate-list.html:756 templates/nonoperate-customer.html:866
+#: templates/nonoperate_index.html:1039
+msgid "配置IP"
+msgstr "IP Config"
+
+#: templates/non-operate-list.html:760 templates/nonoperate-customer.html:870
+#: templates/nonoperate_index.html:1043
+msgid "静态IP"
+msgstr "Static IP"
+
+#: templates/non-operate-list.html:771 templates/nonoperate-customer.html:881
+#: templates/nonoperate_index.html:1054
+msgid "子网掩码"
+msgstr "Netmask"
+
+#: templates/non-operate-list.html:777 templates/nonoperate-customer.html:887
+#: templates/nonoperate_index.html:1060
+msgid "网关"
+msgstr "Gateway"
+
+#: templates/non-operate-list.html:783 templates/nonoperate-customer.html:893
+#: templates/nonoperate_index.html:1066
+msgid "首选DNS"
+msgstr "Preferred DNS"
+
+#: templates/non-operate-list.html:789 templates/nonoperate-customer.html:899
+#: templates/nonoperate_index.html:1072
+msgid "备选DNS"
+msgstr "Alternate DNS"
+
+#: templates/non-operate-list.html:810 templates/nonoperate-customer.html:920
+#: templates/nonoperate_index.html:1093
+msgid "NTP配置"
+msgstr "NTP Config"
+
+#: templates/non-operate-list.html:819 templates/nonoperate-customer.html:929
+#: templates/nonoperate_index.html:1102
+msgid "首选NTP地址"
+msgstr "Preferred NTP Address"
+
+#: templates/non-operate-list.html:825 templates/nonoperate-customer.html:935
+#: templates/nonoperate_index.html:1108
+msgid "备选NTP地址"
+msgstr "Alternate NTP Address"
+
+#: templates/non-operate-list.html:855 templates/nonoperate-customer.html:965
+#: templates/nonoperate-user-policy-config.html:32
+#: templates/nonoperate_index.html:1138
+msgid "最大用户数"
+msgstr "Maximum number of users"
+
+#: templates/non-operate-list.html:876 templates/non-operate-list.html:890
+#: templates/non-operate-list.html:1841
+#: templates/nonoperate-byzoroXinyangList.html:118
+#: templates/nonoperate-customer.html:986
+#: templates/nonoperate-customer.html:1000
+#: templates/nonoperate-customer.html:1595 templates/nonoperate-group.html:529
+#: templates/nonoperate_index.html:1159 templates/nonoperate_index.html:1173
+#: templates/nonoperate_index.html:1761
+msgid "移除"
+msgstr "Remove"
+
+#: templates/non-operate-list.html:883 templates/nonoperate-customer.html:993
+#: templates/nonoperate_index.html:1166
+msgid ""
+"如果您不希望继续管理此接入点,您可以移除它.请注意所有与此接入点相关的配置和历"
+"史记录都将删除."
+msgstr ""
+"If you wanna stop to manage this AP, you can remove it. But this operation "
+"will reset all of the configurations in this AP."
+
+#: templates/non-operate-list.html:903 templates/nonoperate-customer.html:1013
+#: templates/nonoperate_index.html:1186
+msgid "远程诊断："
+msgstr "Remote Diagnosis:"
+
+#: templates/non-operate-list.html:926 templates/non-operate-list.html:979
+#: templates/non-operate-list.html:1496
+#: templates/nonoperate-customer.html:1036
+#: templates/nonoperate-customer.html:1089
+#: templates/nonoperate_index.html:1209 templates/nonoperate_index.html:1263
+msgid "序列号"
+msgstr "Serial Number"
+
+#: templates/non-operate-list.html:927 templates/non-operate-list.html:984
+#: templates/nonoperate-customer.html:1037
+#: templates/nonoperate-customer.html:1094
+#: templates/nonoperate-guest-policy.html:82
+#: templates/nonoperate-guest-policy.html:948
+#: templates/nonoperate_index.html:1210 templates/nonoperate_index.html:1268
+msgid "密码"
+msgstr "Password"
+
+#: templates/non-operate-list.html:928 templates/nonoperate-customer.html:1038
+#: templates/nonoperate_index.html:1211
+msgid "光口los状态"
+msgstr "Optical Port los State"
+
+#: templates/non-operate-list.html:929 templates/nonoperate-customer.html:1039
+#: templates/nonoperate_index.html:1212
+msgid "PON口的发射光功率"
+msgstr "PON Optical Power of the PON Port"
+
+#: templates/non-operate-list.html:930 templates/nonoperate-customer.html:1040
+#: templates/nonoperate_index.html:1213
+msgid "PON口的接收光功率"
+msgstr "Received Optical Power of PON Port"
+
+#: templates/non-operate-list.html:931 templates/nonoperate-customer.html:1041
+#: templates/nonoperate_index.html:1214
+msgid "光模块工作温度"
+msgstr "Operating Temperature of the Optical Module"
+
+#: templates/non-operate-list.html:932 templates/nonoperate-customer.html:1042
+#: templates/nonoperate_index.html:1215
+msgid "光模块供电电压"
+msgstr "Optical Module Supply Voltage"
+
+#: templates/non-operate-list.html:933 templates/nonoperate-customer.html:1043
+#: templates/nonoperate_index.html:1216
+msgid "光发送机的偏置电流"
+msgstr "Optical Transmitter Bias Current"
+
+#: templates/non-operate-list.html:934 templates/nonoperate-customer.html:1044
+#: templates/nonoperate_index.html:1217
+msgid "O1-O5状态"
+msgstr "01-05 Status"
+
+#: templates/non-operate-list.html:935 templates/nonoperate-customer.html:1045
+#: templates/nonoperate_index.html:1218
+msgid "注册状态"
+msgstr "Registration Status"
+
+#: templates/non-operate-list.html:936 templates/nonoperate-customer.html:1046
+#: templates/nonoperate_index.html:1219
+msgid "认证状态"
+msgstr "Certification Status"
+
+#: templates/non-operate-list.html:937 templates/non-operate-list.html:1107
+#: templates/non-operate-list.html:1318
+#: templates/nonoperate-customer.html:1047
+#: templates/nonoperate-customer.html:1217
+#: templates/nonoperate-customer.html:1415 templates/nonoperate-group.html:368
+#: templates/nonoperate_index.html:1220 templates/nonoperate_index.html:1391
+#: templates/nonoperate_index.html:1589
+msgid "厂商名称"
+msgstr "Trade Names"
+
+#: templates/non-operate-list.html:938 templates/nonoperate-customer.html:1048
+#: templates/nonoperate_index.html:1221
+msgid "厂商 OUI"
+msgstr "Trade OUI"
+
+#: templates/non-operate-list.html:939 templates/nonoperate-customer.html:1049
+#: templates/nonoperate_index.html:1222
+msgid "运营商"
+msgstr "Operator"
+
+#: templates/non-operate-list.html:940 templates/nonoperate-customer.html:1050
+#: templates/nonoperate_index.html:1223
+msgid "设备型号"
+msgstr "Device Model"
+
+#: templates/non-operate-list.html:941 templates/nonoperate-customer.html:1051
+#: templates/nonoperate_index.html:1224
+msgid "硬件版本号"
+msgstr "Hardware Version"
+
+#: templates/non-operate-list.html:942 templates/nonoperate-customer.html:1052
+#: templates/nonoperate_index.html:1225
+msgid "软件版本号"
+msgstr "Software Version"
+
+#: templates/non-operate-list.html:989 templates/non-operate-list.html:1008
+#: templates/nonoperate-customer.html:1099
+#: templates/nonoperate-customer.html:1118
+#: templates/nonoperate_index.html:1273 templates/nonoperate_index.html:1292
+msgid "保存"
+msgstr "Save"
+
+#: templates/non-operate-list.html:994 templates/nonoperate-customer.html:1104
+#: templates/nonoperate_index.html:1278
+msgid "厂商唯一标识"
+msgstr "Vendor Unique Identifier"
+
+#: templates/non-operate-list.html:999 templates/nonoperate-customer.html:1109
+#: templates/nonoperate_index.html:1283
+msgid "升级地址"
+msgstr "Upgrade URL"
+
+#: templates/non-operate-list.html:1003
+#: templates/nonoperate-customer.html:1113
+#: templates/nonoperate_index.html:1287
+msgid "升级文件"
+msgstr "Upgrade File"
+
+#: templates/non-operate-list.html:1011
+#: templates/nonoperate-customer.html:1121
+#: templates/nonoperate_index.html:1295
+msgid "升级GPON"
+msgstr "Upgrade GPON"
+
+#: templates/non-operate-list.html:1012 templates/non-operate-list.html:1838
+#: templates/nonoperate-byzoroXinyangList.html:115
+#: templates/nonoperate-customer.html:1122
+#: templates/nonoperate-customer.html:1592 templates/nonoperate-group.html:526
+#: templates/nonoperate_index.html:1296 templates/nonoperate_index.html:1758
+#: views.py:387 views.py:2703 views.py:2839
+msgid "升级"
+msgstr "Upgrade"
+
+#: templates/non-operate-list.html:1017
+#: templates/nonoperate-customer.html:1127
+#: templates/nonoperate_index.html:1301
+msgid "重启GPON"
+msgstr "Reboot GPON"
+
+#: templates/non-operate-list.html:1018 templates/non-operate-list.html:1465
+#: templates/non-operate-list.html:1837
+#: templates/nonoperate-byzoroXinyangList.html:114
+#: templates/nonoperate-customer.html:1128
+#: templates/nonoperate-customer.html:1543
+#: templates/nonoperate-customer.html:1591 templates/nonoperate-group.html:525
+#: templates/nonoperate_index.html:1302 templates/nonoperate_index.html:1716
+#: templates/nonoperate_index.html:1757 views.py:385 views.py:2701
+#: views.py:2837
+msgid "重启"
+msgstr "Reboot"
+
+#: templates/non-operate-list.html:1021
+#: templates/nonoperate-customer.html:1131
+#: templates/nonoperate_index.html:1305
+msgid "保存数据"
+msgstr "Save Data"
+
+#: templates/non-operate-list.html:1022
+#: templates/nonoperate-customer.html:1132
+#: templates/nonoperate_index.html:1306
+msgid "恢复出厂"
+msgstr "Restore Factory"
+
+#: templates/non-operate-list.html:1043 templates/non-operate-list.html:1217
+#: templates/nonoperate-customer.html:1153
+#: templates/nonoperate-customer.html:1315 templates/nonoperate-group.html:265
+#: templates/nonoperate_index.html:1327 templates/nonoperate_index.html:1489
+msgid "审计厂商"
+msgstr "Audit"
+
+#: templates/non-operate-list.html:1047 templates/non-operate-list.html:1227
+#: templates/nonoperate-customer.html:1157
+#: templates/nonoperate-customer.html:1324 templates/nonoperate-group.html:275
+#: templates/nonoperate_index.html:1331 templates/nonoperate_index.html:1498
+msgid "FTP用户名"
+msgstr "FTP Username"
+
+#: templates/non-operate-list.html:1051 templates/non-operate-list.html:1233
+#: templates/nonoperate-customer.html:1161
+#: templates/nonoperate-customer.html:1330 templates/nonoperate-group.html:281
+#: templates/nonoperate_index.html:1335 templates/nonoperate_index.html:1504
+msgid "FTP密码"
+msgstr "FTP Password"
+
+#: templates/non-operate-list.html:1055 templates/non-operate-list.html:1239
+#: templates/nonoperate-customer.html:1165
+#: templates/nonoperate-customer.html:1336 templates/nonoperate-group.html:287
+#: templates/nonoperate_index.html:1339 templates/nonoperate_index.html:1510
+msgid "SFTP端口"
+msgstr "SFTP Port"
+
+#: templates/non-operate-list.html:1059 templates/non-operate-list.html:1245
+#: templates/nonoperate-customer.html:1169
+#: templates/nonoperate-customer.html:1342 templates/nonoperate-group.html:294
+#: templates/nonoperate_index.html:1343 templates/nonoperate_index.html:1516
+msgid "审计服务器地址"
+msgstr "Audit Server Address"
+
+#: templates/non-operate-list.html:1063 templates/non-operate-list.html:1251
+#: templates/nonoperate-customer.html:1173
+#: templates/nonoperate-customer.html:1348 templates/nonoperate-group.html:300
+#: templates/nonoperate_index.html:1347 templates/nonoperate_index.html:1522
+msgid "审计服务器端口"
+msgstr "Audit Server Port"
+
+#: templates/non-operate-list.html:1067 templates/non-operate-list.html:1257
+#: templates/nonoperate-byzoroXinyangList.html:29
+#: templates/nonoperate-customer.html:1177
+#: templates/nonoperate-customer.html:1354 templates/nonoperate-group.html:306
+#: templates/nonoperate_index.html:1351 templates/nonoperate_index.html:1528
+msgid "场所编码"
+msgstr "Location Code"
+
+#: templates/non-operate-list.html:1071 templates/non-operate-list.html:1263
+#: templates/nonoperate-customer.html:1181
+#: templates/nonoperate-customer.html:1360 templates/nonoperate-group.html:312
+#: templates/nonoperate_index.html:1355 templates/nonoperate_index.html:1534
+msgid "设备编码"
+msgstr "Device Code"
+
+#: templates/non-operate-list.html:1075 templates/non-operate-list.html:1269
+#: templates/nonoperate-customer.html:1185
+#: templates/nonoperate-customer.html:1366 templates/nonoperate-group.html:318
+#: templates/nonoperate_index.html:1359 templates/nonoperate_index.html:1540
+msgid "经度"
+msgstr "Longitude"
+
+#: templates/non-operate-list.html:1079 templates/non-operate-list.html:1275
+#: templates/nonoperate-customer.html:1189
+#: templates/nonoperate-customer.html:1372 templates/nonoperate-group.html:324
+#: templates/nonoperate_index.html:1363 templates/nonoperate_index.html:1546
+msgid "纬度"
+msgstr "Latitude"
+
+#: templates/non-operate-list.html:1087 templates/non-operate-list.html:1286
+#: templates/nonoperate-customer.html:1197
+#: templates/nonoperate-customer.html:1383 templates/nonoperate-group.html:336
+#: templates/nonoperate_index.html:1371 templates/nonoperate_index.html:1557
+msgid "采集半径"
+msgstr "Radius"
+
+#: templates/non-operate-list.html:1091 templates/non-operate-list.html:1292
+#: templates/nonoperate-customer.html:1201
+#: templates/nonoperate-customer.html:1389 templates/nonoperate-group.html:342
+#: templates/nonoperate_index.html:1375 templates/nonoperate_index.html:1563
+msgid "设备类型"
+msgstr "Device Model"
+
+#: templates/non-operate-list.html:1095 templates/non-operate-list.html:1300
+#: templates/nonoperate-customer.html:1205
+#: templates/nonoperate-customer.html:1397 templates/nonoperate-group.html:350
+#: templates/nonoperate_index.html:1379 templates/nonoperate_index.html:1571
+msgid "设备名称"
+msgstr "Device Name"
+
+#: templates/non-operate-list.html:1099 templates/non-operate-list.html:1306
+#: templates/nonoperate-customer.html:1209
+#: templates/nonoperate-customer.html:1403 templates/nonoperate-group.html:356
+#: templates/nonoperate_index.html:1383 templates/nonoperate_index.html:1577
+msgid "设备地址"
+msgstr "Device Location"
+
+#: templates/non-operate-list.html:1103 templates/non-operate-list.html:1312
+#: templates/nonoperate-customer.html:1213
+#: templates/nonoperate-customer.html:1409 templates/nonoperate-group.html:362
+#: templates/nonoperate_index.html:1387 templates/nonoperate_index.html:1583
+msgid "厂商编码"
+msgstr "Vendor Code"
+
+#: templates/non-operate-list.html:1111 templates/non-operate-list.html:1324
+#: templates/nonoperate-customer.html:1221
+#: templates/nonoperate-customer.html:1421 templates/nonoperate-group.html:374
+#: templates/nonoperate_index.html:1395 templates/nonoperate_index.html:1595
+msgid "厂商地址"
+msgstr "Vendor Address"
+
+#: templates/non-operate-list.html:1115 templates/non-operate-list.html:1330
+#: templates/nonoperate-customer.html:1225
+#: templates/nonoperate-customer.html:1427 templates/nonoperate-group.html:380
+#: templates/nonoperate_index.html:1399 templates/nonoperate_index.html:1601
+msgid "联系人姓名"
+msgstr "Contactor Name"
+
+#: templates/non-operate-list.html:1119 templates/non-operate-list.html:1336
+#: templates/nonoperate-customer.html:1229
+#: templates/nonoperate-customer.html:1433 templates/nonoperate-group.html:386
+#: templates/nonoperate_index.html:1403 templates/nonoperate_index.html:1607
+msgid "联系人电话"
+msgstr "Tel/Cell phone"
+
+#: templates/non-operate-list.html:1123 templates/non-operate-list.html:1342
+#: templates/nonoperate-customer.html:1233
+#: templates/nonoperate-customer.html:1439 templates/nonoperate-group.html:392
+#: templates/nonoperate_index.html:1407 templates/nonoperate_index.html:1613
+msgid "联系人邮箱"
+msgstr "Contactor E-mail"
+
+#: templates/non-operate-list.html:1128 templates/non-operate-list.html:1352
+#: templates/nonoperate-byzoroXinyangList.html:28
+#: templates/nonoperate-customer.html:1238
+#: templates/nonoperate-customer.html:1449 templates/nonoperate-group.html:401
+#: templates/nonoperate_index.html:1412 templates/nonoperate_index.html:1623
+msgid "场所名称"
+msgstr "Site Name"
+
+#: templates/non-operate-list.html:1132 templates/non-operate-list.html:1358
+#: templates/nonoperate-customer.html:1242
+#: templates/nonoperate-customer.html:1455 templates/nonoperate-group.html:407
+#: templates/nonoperate_index.html:1416 templates/nonoperate_index.html:1629
+msgid "场所地址"
+msgstr "Site Address"
+
+#: templates/non-operate-list.html:1136 templates/non-operate-list.html:1364
+#: templates/nonoperate-byzoroXinyangList.html:30
+msgid "所属区县"
+msgstr "District"
+
+#: templates/non-operate-list.html:1140 templates/non-operate-list.html:1372
+msgid "派出所地址"
+msgstr "Police address"
+
+#: templates/non-operate-list.html:1144 templates/non-operate-list.html:1378
+#: templates/nonoperate-group.html:421
+msgid "派出所编码"
+msgstr "Police station code"
+
+#: templates/non-operate-list.html:1148 templates/non-operate-list.html:1384
+#: templates/nonoperate-customer.html:1246
+#: templates/nonoperate-customer.html:1461 templates/nonoperate-group.html:413
+#: templates/nonoperate_index.html:1420 templates/nonoperate_index.html:1635
+msgid "场所类型"
+msgstr "Site Type"
+
+#: templates/non-operate-list.html:1152 templates/non-operate-list.html:1392
+#: templates/nonoperate-customer.html:1250
+#: templates/nonoperate-customer.html:1469 templates/nonoperate-group.html:427
+#: templates/nonoperate_index.html:1424 templates/nonoperate_index.html:1643
+msgid "场所经营性质"
+msgstr "Site Business Type"
+
+#: templates/non-operate-list.html:1156 templates/non-operate-list.html:1400
+#: templates/nonoperate-customer.html:1254
+#: templates/nonoperate-customer.html:1477 templates/nonoperate-group.html:435
+#: templates/nonoperate_index.html:1428 templates/nonoperate_index.html:1651
+msgid "法人姓名"
+msgstr "Authorized Representative"
+
+#: templates/non-operate-list.html:1160 templates/non-operate-list.html:1406
+#: templates/nonoperate-customer.html:1258
+#: templates/nonoperate-customer.html:1483 templates/nonoperate-group.html:441
+#: templates/nonoperate_index.html:1432 templates/nonoperate_index.html:1657
+msgid "证件类型"
+msgstr "Credentials Type"
+
+#: templates/non-operate-list.html:1164 templates/non-operate-list.html:1414
+#: templates/nonoperate-customer.html:1262
+#: templates/nonoperate-customer.html:1491 templates/nonoperate-group.html:449
+#: templates/nonoperate_index.html:1436 templates/nonoperate_index.html:1665
+msgid "证件号码"
+msgstr "Credentials Number"
+
+#: templates/non-operate-list.html:1168 templates/non-operate-list.html:1420
+#: templates/nonoperate-customer.html:1266
+#: templates/nonoperate-customer.html:1497 templates/nonoperate-group.html:455
+#: templates/nonoperate_index.html:1440 templates/nonoperate_index.html:1671
+msgid "电话号码"
+msgstr "Tel/Cell phone"
+
+#: templates/non-operate-list.html:1172
+#: templates/nonoperate-customer.html:1270
+#: templates/nonoperate_index.html:1444
+msgid "营业开始时间"
+msgstr "Openning Time"
+
+#: templates/non-operate-list.html:1176
+#: templates/nonoperate-customer.html:1274
+#: templates/nonoperate_index.html:1448
+msgid "营业结束时间"
+msgstr "Closing Time"
+
+#: templates/non-operate-list.html:1197
+#: templates/nonoperate-customer.html:1295 templates/nonoperate-group.html:246
+#: templates/nonoperate-wlan.html:191 templates/nonoperate-wlan.html.py:507
+#: templates/nonoperate_index.html:1469
+msgid "基本信息"
+msgstr "Basic Information"
+
+#: templates/non-operate-list.html:1203
+#: templates/nonoperate-customer.html:1301 templates/nonoperate-group.html:252
+#: templates/nonoperate_index.html:1475
+msgid "设备信息"
+msgstr "Device Info"
+
+#: templates/non-operate-list.html:1206
+#: templates/nonoperate-byzoroXinyangList.html:15
+#: templates/nonoperate-customer.html:1304 templates/nonoperate-group.html:255
+#: templates/nonoperate_index.html:1478
+msgid "场所信息"
+msgstr "Place Info"
+
+#: templates/non-operate-list.html:1426
+#: templates/nonoperate-customer.html:1503 templates/nonoperate-group.html:461
+#: templates/nonoperate_index.html:1677
+msgid "营业开始时间(如8:00)"
+msgstr "Openning Time(Such as 8:00)"
+
+#: templates/non-operate-list.html:1432
+#: templates/nonoperate-customer.html:1509 templates/nonoperate-group.html:467
+#: templates/nonoperate_index.html:1683
+msgid "营业结束时间(如22:00)"
+msgstr "Closing Time(Such as 22:00)"
+
+#: templates/non-operate-list.html:1464
+#: templates/nonoperate-customer.html:1542
+#: templates/nonoperate_index.html:1715
+msgid "定位"
+msgstr "Locate"
+
+#: templates/non-operate-list.html:1490
+msgid "选填"
+msgstr "Optional"
+
+#: templates/non-operate-list.html:1505 templates/non-operate-list.html:1653
+#: templates/non-operate-list.html:1871 templates/nonoperate-customer.html:99
+#: templates/nonoperate-group.html:115 templates/nonoperate-group.html:194
+#: templates/nonoperate-group.html:208 templates/nonoperate_index.html:272
+msgid "MAC地址"
+msgstr "MAC Address"
+
+#: templates/non-operate-list.html:1508
+msgid "例"
+msgstr "Example"
+
+#: templates/non-operate-list.html:1519 templates/non-operate-list.html:1569
+#: templates/non-operate-list.html:1605
+#: templates/nonoperate-byzoroXinyangList.html:68
+#: templates/nonoperate-guest-policy.html:893
+msgid "确定"
+msgstr "Confirm"
+
+#: templates/non-operate-list.html:1539
+msgid "请上传数据文件"
+msgstr "Please upload a data file"
+
+#: templates/non-operate-list.html:1542
+msgid "数据模板"
+msgstr "Data template"
+
+#: templates/non-operate-list.html:1549
+msgid "上传文件"
+msgstr "Upload Files"
+
+#: templates/non-operate-list.html:1558
+msgid "处理结果"
+msgstr "Process Result"
+
+#: templates/non-operate-list.html:1590
+#: templates/nonoperate-byzoroXinyangList.html:55
+msgid "导出类型: "
+msgstr "Export type: "
+
+#: templates/non-operate-list.html:1595 templates/non-operate-list.html:1805
+#: templates/non-operate-list.html:1832
+#: templates/nonoperate-byzoroXinyangList.html:83
+#: templates/nonoperate-byzoroXinyangList.html:109
+#: templates/nonoperate-customer.html:1586 templates/nonoperate-group.html:520
+#: templates/nonoperate_index.html:33 templates/nonoperate_index.html:1752
+#: views.py:389 views.py:912 views.py:2705 views.py:2841
+msgid "在线"
+msgstr "Online"
+
+#: templates/non-operate-list.html:1596
+msgid "其他"
+msgstr "Others"
+
+#: templates/non-operate-list.html:1629 templates/non-operate-list.html:1695
+#: templates/nonoperate-customer.html:75
+#: templates/nonoperate-customer.html:141 templates/nonoperate_index.html:248
+#: templates/nonoperate_index.html:314
+msgid "统计"
+msgstr "Statistics"
+
+#: templates/non-operate-list.html:1632 templates/nonoperate-customer.html:78
+#: templates/nonoperate_index.html:251
+msgid "历史记录"
+msgstr "History"
+
+#: templates/non-operate-list.html:1657 templates/nonoperate-customer.html:103
+#: templates/nonoperate_index.html:276
+msgid "主机名"
+msgstr "Host"
+
+#: templates/non-operate-list.html:1661 templates/nonoperate-customer.html:107
+#: templates/nonoperate_index.html:280
+msgid "操作系统"
+msgstr "Operating System"
+
+#: templates/non-operate-list.html:1670 templates/nonoperate-customer.html:45
+#: templates/nonoperate-customer.html:116 templates/nonoperate_index.html:289
+msgid "运行时间"
+msgstr "Running Time"
+
+#: templates/non-operate-list.html:1674 templates/non-operate-list.html:1707
+#: templates/nonoperate-customer.html:40
+#: templates/nonoperate-customer.html:120
+#: templates/nonoperate-customer.html:153 templates/nonoperate_index.html:293
+#: templates/nonoperate_index.html:326
+msgid "接入点"
+msgstr "AP"
+
+#: templates/non-operate-list.html:1678 templates/nonoperate-customer.html:124
+#: templates/nonoperate_index.html:297
+msgid "最后看到"
+msgstr "Last Seen"
+
+#: templates/non-operate-list.html:1712 templates/nonoperate-customer.html:41
+#: templates/nonoperate-customer.html:158 templates/nonoperate_index.html:331
+msgid "信号"
+msgstr "Signal"
+
+#: templates/non-operate-list.html:1720 templates/nonoperate-customer.html:166
+#: templates/nonoperate_index.html:339
+msgid "下载速率"
+msgstr "Download Rate"
+
+#: templates/non-operate-list.html:1724 templates/nonoperate-customer.html:170
+#: templates/nonoperate_index.html:343
+msgid "上传速率"
+msgstr "Upload Rate"
+
+#: templates/non-operate-list.html:1747 templates/nonoperate-customer.html:193
+#: templates/nonoperate_index.html:366
+msgid "日期/时间"
+msgstr "Date/Time"
+
+#: templates/non-operate-list.html:1748 templates/nonoperate-customer.html:194
+#: templates/nonoperate_index.html:367
+msgid "时长"
+msgstr "Duration"
+
+#: templates/non-operate-list.html:1749 templates/non-operate-list.html:1865
+#: templates/nonoperate-customer.html:44
+#: templates/nonoperate-customer.html:195 templates/nonoperate_index.html:368
+msgid "上传"
+msgstr "Upload"
+
+#: templates/non-operate-list.html:1750 templates/non-operate-list.html:1866
+#: templates/nonoperate-customer.html:43
+#: templates/nonoperate-customer.html:196 templates/nonoperate_index.html:369
+msgid "下载"
+msgstr "Download"
+
+#: templates/non-operate-list.html:1806 templates/non-operate-list.html:1834
+#: templates/nonoperate-byzoroXinyangList.html:84
+#: templates/nonoperate-byzoroXinyangList.html:111
+#: templates/nonoperate-customer.html:1588 templates/nonoperate-group.html:522
+#: templates/nonoperate_index.html:40 templates/nonoperate_index.html:1754
+#: views.py:375 views.py:379 views.py:908 views.py:2691 views.py:2695
+#: views.py:2827 views.py:2831
+msgid "离线"
+msgstr "Offline"
+
+#: templates/non-operate-list.html:1807
+msgid "刷新"
+msgstr "Refresh"
+
+#: templates/non-operate-list.html:1811
+#: templates/nonoperate-byzoroXinyangList.html:88
+#: templates/nonoperate-customer.html:1565 templates/nonoperate-group.html:500
+#: templates/nonoperate-user-policy-config.html:451
+#: templates/nonoperate-wlan.html:839 templates/nonoperate_index.html:1732
+msgid "序列号不能为空"
+msgstr "Serial Number cannot be empty"
+
+#: templates/non-operate-list.html:1812
+#: templates/nonoperate-byzoroXinyangList.html:89
+#: templates/nonoperate-customer.html:1566 templates/nonoperate-group.html:501
+#: templates/nonoperate-user-policy-config.html:452
+#: templates/nonoperate-wlan.html:840 templates/nonoperate_index.html:1733
+msgid "MAC 不能为空"
+msgstr "MAC Address cannot be empty"
+
+#: templates/non-operate-list.html:1813
+#: templates/nonoperate-byzoroXinyangList.html:90
+#: templates/nonoperate-customer.html:1567 templates/nonoperate-group.html:502
+#: templates/nonoperate-user-policy-config.html:453
+#: templates/nonoperate-wlan.html:841 templates/nonoperate_index.html:1734
+msgid "MAC 有效字符不为12"
+msgstr "MAC Address length must be 12"
+
+#: templates/non-operate-list.html:1814
+#: templates/nonoperate-byzoroXinyangList.html:91
+#: templates/nonoperate-customer.html:1568 templates/nonoperate-group.html:503
+#: templates/nonoperate-user-policy-config.html:454
+#: templates/nonoperate-wlan.html:842 templates/nonoperate_index.html:1735
+msgid "错误列表下载"
+msgstr "Download List Error"
+
+#: templates/non-operate-list.html:1815
+#: templates/nonoperate-byzoroXinyangList.html:92
+#: templates/nonoperate-customer.html:1569 templates/nonoperate-group.html:504
+#: templates/nonoperate-user-policy-config.html:455
+#: templates/nonoperate-wlan.html:843 templates/nonoperate_index.html:1736
+msgid "文件类型错误"
+msgstr "File Type Error"
+
+#: templates/non-operate-list.html:1816
+#: templates/nonoperate-byzoroXinyangList.html:93
+#: templates/nonoperate-customer.html:1570 templates/nonoperate-group.html:505
+#: templates/nonoperate-user-policy-config.html:456
+#: templates/nonoperate-wlan.html:844 templates/nonoperate_index.html:1737
+msgid "未选择文件"
+msgstr "File not selected"
+
+#: templates/non-operate-list.html:1818
+#: templates/nonoperate-byzoroXinyangList.html:95
+#: templates/nonoperate-customer.html:1572 templates/nonoperate-group.html:507
+#: templates/nonoperate-user-policy-config.html:457
+#: templates/nonoperate-wlan.html:845 templates/nonoperate_index.html:1739
+msgid "AC地址不合法"
+msgstr "The AC address is invalid."
+
+#: templates/non-operate-list.html:1820
+#: templates/nonoperate-byzoroXinyangList.html:97
+#: templates/nonoperate-customer.html:1574 templates/nonoperate-group.html:509
+#: templates/nonoperate-guest-policy.html:930
+#: templates/nonoperate-user-policy-config.html:459
+#: templates/nonoperate-wlan.html:847 templates/nonoperate_index.html:1741
+msgid "处理中..."
+msgstr "Processing..."
+
+#: templates/non-operate-list.html:1821
+#: templates/nonoperate-byzoroXinyangList.html:98
+#: templates/nonoperate-customer.html:1575 templates/nonoperate-group.html:510
+#: templates/nonoperate-guest-policy.html:931
+#: templates/nonoperate-user-policy-config.html:460
+#: templates/nonoperate-wlan.html:848 templates/nonoperate_index.html:1742
+msgid "显示"
+msgstr "Display"
+
+#: templates/non-operate-list.html:1822
+#: templates/nonoperate-byzoroXinyangList.html:99
+#: templates/nonoperate-customer.html:1576 templates/nonoperate-group.html:511
+#: templates/nonoperate-guest-policy.html:932
+#: templates/nonoperate-user-policy-config.html:461
+#: templates/nonoperate-wlan.html:849 templates/nonoperate_index.html:1743
+msgid "记录"
+msgstr "Records"
+
+#: templates/non-operate-list.html:1823
+#: templates/nonoperate-byzoroXinyangList.html:100
+#: templates/nonoperate-customer.html:1577 templates/nonoperate-group.html:512
+#: templates/nonoperate-guest-policy.html:933
+#: templates/nonoperate-user-policy-config.html:462
+#: templates/nonoperate-wlan.html:850 templates/nonoperate_index.html:1744
+msgid "没有匹配结果"
+msgstr "No matching results"
+
+#: templates/non-operate-list.html:1824
+#: templates/nonoperate-byzoroXinyangList.html:101
+#: templates/nonoperate-customer.html:1578 templates/nonoperate-group.html:513
+#: templates/nonoperate-guest-policy.html:934
+#: templates/nonoperate-user-policy-config.html:463
+#: templates/nonoperate-wlan.html:851 templates/nonoperate_index.html:1745
+msgid "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项"
+msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+
+#: templates/non-operate-list.html:1825
+#: templates/nonoperate-byzoroXinyangList.html:102
+#: templates/nonoperate-customer.html:1579 templates/nonoperate-group.html:514
+#: templates/nonoperate-guest-policy.html:935
+#: templates/nonoperate-user-policy-config.html:464
+#: templates/nonoperate-wlan.html:852 templates/nonoperate_index.html:1746
+msgid "显示第 0 至 0 项结果，共 0 项"
+msgstr "Showing 0 to 0 of 0 entries"
+
+#: templates/non-operate-list.html:1826
+#: templates/nonoperate-byzoroXinyangList.html:103
+#: templates/nonoperate-customer.html:1580 templates/nonoperate-group.html:515
+#: templates/nonoperate-guest-policy.html:936
+#: templates/nonoperate-user-policy-config.html:465
+#: templates/nonoperate-wlan.html:853 templates/nonoperate_index.html:1747
+msgid "由 _MAX_ 项结果过滤"
+msgstr "filtered from _MAX_ total entries"
+
+#: templates/non-operate-list.html:1827
+#: templates/nonoperate-byzoroXinyangList.html:104
+#: templates/nonoperate-customer.html:1581 templates/nonoperate-group.html:516
+#: templates/nonoperate-guest-policy.html:937
+#: templates/nonoperate-user-policy-config.html:466
+#: templates/nonoperate-wlan.html:854 templates/nonoperate_index.html:1748
+msgid "搜索 : "
+msgstr "Search: "
+
+#: templates/non-operate-list.html:1828
+#: templates/nonoperate-byzoroXinyangList.html:105
+#: templates/nonoperate-customer.html:1582 templates/nonoperate-group.html:517
+#: templates/nonoperate-guest-policy.html:938
+#: templates/nonoperate-user-policy-config.html:467
+#: templates/nonoperate-wlan.html:855 templates/nonoperate_index.html:1749
+msgid "表中数据为空"
+msgstr "The data in the table is empty"
+
+#: templates/non-operate-list.html:1829
+#: templates/nonoperate-byzoroXinyangList.html:106
+#: templates/nonoperate-customer.html:1583 templates/nonoperate-group.html:518
+#: templates/nonoperate-guest-policy.html:939
+#: templates/nonoperate-user-policy-config.html:468
+#: templates/nonoperate-wlan.html:856 templates/nonoperate_index.html:1750
+msgid "载入中..."
+msgstr "Loading..."
+
+#: templates/non-operate-list.html:1833
+#: templates/nonoperate-byzoroXinyangList.html:110
+#: templates/nonoperate-customer.html:1587 templates/nonoperate-group.html:521
+#: templates/nonoperate_index.html:1753 views.py:381 views.py:910
+#: views.py:2697 views.py:2833
+msgid "超时"
+msgstr "Time out"
+
+#: templates/non-operate-list.html:1835
+#: templates/nonoperate-byzoroXinyangList.html:112
+#: templates/nonoperate-customer.html:1589 templates/nonoperate-group.html:523
+#: templates/nonoperate_index.html:1755 views.py:377 views.py:906
+#: views.py:2693 views.py:2710 views.py:2829 views.py:2854
+msgid "退服"
+msgstr "Retired"
+
+#: templates/non-operate-list.html:1836
+#: templates/nonoperate-byzoroXinyangList.html:113
+#: templates/nonoperate-customer.html:1590 templates/nonoperate-group.html:524
+#: templates/nonoperate_index.html:1756 views.py:916
+msgid "已移除"
+msgstr "Removed"
+
+#: templates/non-operate-list.html:1839
+#: templates/nonoperate-byzoroXinyangList.html:116
+#: templates/nonoperate-customer.html:1593 templates/nonoperate-group.html:527
+#: templates/nonoperate_index.html:1759
+msgid "私网地址"
+msgstr "Private network address"
+
+#: templates/non-operate-list.html:1840
+#: templates/nonoperate-byzoroXinyangList.html:117
+#: templates/nonoperate-customer.html:1594 templates/nonoperate-group.html:528
+#: templates/nonoperate_index.html:1760
+msgid "远程地址"
+msgstr "Remote Address"
+
+#: templates/non-operate-list.html:1842
+#: templates/nonoperate-byzoroXinyangList.html:119
+#: templates/nonoperate-customer.html:1596 templates/nonoperate-group.html:530
+#: templates/nonoperate_index.html:1762
+msgid "跳转至"
+msgstr "Jump to"
+
+#: templates/non-operate-list.html:1843
+#: templates/nonoperate-byzoroXinyangList.html:120
+#: templates/nonoperate-customer.html:1597 templates/nonoperate-group.html:531
+#: templates/nonoperate-guest-policy.html:941
+#: templates/nonoperate-user-policy-config.html:470
+#: templates/nonoperate-wlan.html:858 templates/nonoperate_index.html:1763
+msgid "提示信息"
+msgstr "Prompt Message"
+
+#: templates/non-operate-list.html:1844
+#: templates/nonoperate-byzoroXinyangList.html:121
+#: templates/nonoperate-customer.html:1598 templates/nonoperate-group.html:532
+#: templates/nonoperate_index.html:1764
+msgid "修改"
+msgstr "Modify"
+
+#: templates/non-operate-list.html:1846
+#: templates/nonoperate-customer.html:1600 templates/nonoperate-group.html:534
+#: templates/nonoperate-wlan.html:861 templates/nonoperate_index.html:1766
+msgid "信号名称不能为空"
+msgstr "SSID cannot be empty"
+
+#: templates/non-operate-list.html:1847
+#: templates/nonoperate-customer.html:1601 templates/nonoperate-group.html:535
+#: templates/nonoperate-wlan.html:862 templates/nonoperate_index.html:1767
+msgid "限速不能为空"
+msgstr "Speed limit cannot be empty"
+
+#: templates/non-operate-list.html:1848
+#: templates/nonoperate-customer.html:1602 templates/nonoperate-group.html:536
+#: templates/nonoperate-wlan.html:863 templates/nonoperate_index.html:1768
+msgid "vlan不能为空"
+msgstr "Vlan cannot be empty"
+
+#: templates/non-operate-list.html:1849
+#: templates/nonoperate-customer.html:1603 templates/nonoperate-group.html:537
+#: templates/nonoperate-wlan.html:864 templates/nonoperate_index.html:1769
+msgid "vlan必须是1-4094范围内的整数"
+msgstr "Vlan must be an integer in the range 1-4094"
+
+#: templates/non-operate-list.html:1850
+#: templates/nonoperate-customer.html:1604 templates/nonoperate-group.html:538
+#: templates/nonoperate-wlan.html:865 templates/nonoperate_index.html:1770
+msgid "密码不能为空"
+msgstr "Password can not be blank"
+
+#: templates/non-operate-list.html:1851
+#: templates/nonoperate-customer.html:1605 templates/nonoperate-group.html:539
+#: templates/nonoperate-wlan.html:866 templates/nonoperate_index.html:1771
+msgid "密码必须是8-64位的ASCII码字符"
+msgstr "Password must be 8-64-bit ASCII characters"
+
+#: templates/non-operate-list.html:1854
+#: templates/nonoperate-customer.html:1608 templates/nonoperate-group.html:542
+#: templates/nonoperate_index.html:1774
+msgid "服务器地址不能为空"
+msgstr "Server address cannot be empty"
+
+#: templates/non-operate-list.html:1855
+#: templates/nonoperate-customer.html:1609 templates/nonoperate-group.html:543
+#: templates/nonoperate_index.html:1775
+msgid "文件名称不能为空"
+msgstr "File name cannot be empty"
+
+#: templates/non-operate-list.html:1857
+#: templates/nonoperate-customer.html:1611 templates/nonoperate-group.html:545
+#: templates/nonoperate_index.html:1777
+msgid "别名不能为空"
+msgstr "Aliase cannot be empty"
+
+#: templates/non-operate-list.html:1858
+#: templates/nonoperate-customer.html:1612 templates/nonoperate-group.html:546
+#: templates/nonoperate_index.html:1778
+msgid "用户不存在"
+msgstr "User does not exist"
+
+#: templates/non-operate-list.html:1859
+msgid "定位中"
+msgstr "Positioning"
+
+#: templates/non-operate-list.html:1860
+#: templates/nonoperate-customer.html:1616
+#: templates/nonoperate_index.html:1788
+msgid "定位执行失败"
+msgstr "Position execution failed"
+
+#: templates/non-operate-list.html:1869 templates/nonoperate-group.html:37
+#: templates/nonoperate-group.html.py:91 templates/nonoperate-group.html:150
+msgid "群组名称"
+msgstr "Group Name"
+
+#: templates/non-operate-list.html:1872
+msgid "CPU占用率"
+msgstr "CPU Usage"
+
+#: templates/non-operate-list.html:1885 views.py:162
+msgid "设备已存在！"
+msgstr "The device already exists!"
+
+#: templates/non-operate-list.html:1885 views.py:242
+msgid "准入失败！"
+msgstr "Access failed!"
+
+#: templates/non-operate-list.html:1885 views.py:458 views.py:498 views.py:540
+msgid "执行失败！"
+msgstr "Execution failed!"
+
+#: templates/non-operate-list.html:1885 views.py:770 views.py:2241
+#: views.py:2403
+msgid "修改失败！"
+msgstr "Fail to edit!"
+
+#: templates/non-operate-list.html:1885 views.py:469
+msgid "没有此型号对应的版本文件"
+msgstr "There is no version file corresponding to this model"
+
+#: templates/non-operate-list.html:1888 views.py:226
+msgid "准入成功！"
+msgstr "Successful entry!"
+
+#: templates/non-operate-list.html:1888 views.py:434 views.py:476 views.py:519
+msgid "执行成功！"
+msgstr "Execute Successfully"
+
+#: templates/non-operate-list.html:1888 views.py:767 views.py:2223
+msgid "修改成功！"
+msgstr "Modify Successfully!"
+
+#: templates/nonoperate-byzoroXinyangList.html:31
+msgid "所属派出所"
+msgstr "Subordinate police"
+
+#: templates/nonoperate-byzoroXinyangList.html:32
+msgid "设备状态"
+msgstr "Device Status"
+
+#: templates/nonoperate-byzoroXinyangList.html:33
+msgid "场所状态"
+msgstr "Location status"
+
+#: templates/nonoperate-byzoroXinyangList.html:59
+msgid "导出当前数据"
+msgstr "Export current data"
+
+#: templates/nonoperate-customer.html:46
+msgid "用户类型"
+msgstr "User Type"
+
+#: templates/nonoperate-customer.html:47
+msgid "认证账号"
+msgstr "Certified Account"
+
+#: templates/nonoperate-customer.html:1614
+msgid "来宾接入"
+msgstr "Guest access"
+
+#: templates/nonoperate-customer.html:1615
+msgid "用户接入"
+msgstr "User access"
+
+#: templates/nonoperate-group.html:10 templates/nonoperate-group.html.py:21
+msgid "群组"
+msgstr "Group"
+
+#: templates/nonoperate-group.html:38
+msgid "管理域名"
+msgstr "Domain Names"
+
+#: templates/nonoperate-group.html:39
+msgid "设备数量"
+msgstr "Device Number"
+
+#: templates/nonoperate-group.html:40 templates/nonoperate-group.html:171
+#: templates/nonoperate-group.html:182 templates/nonoperate-group.html:221
+#: templates/nonoperate-guest-policy.html:502
+#: templates/nonoperate-wlan.html:46
+msgid "无线网络"
+msgstr "Wireless"
+
+#: templates/nonoperate-group.html:53 templates/nonoperate-wlan.html:62
+msgid "查看"
+msgstr "View"
+
+#: templates/nonoperate-group.html:63
+#: templates/nonoperate-guest-policy.html:952
+#: templates/nonoperate-user-policy-config.html:472
+#: templates/nonoperate-wlan.html:66 templates/nonoperate-wlan.html.py:877
+msgid "删除"
+msgstr "Delete"
+
+#: templates/nonoperate-group.html:84
+msgid "添加群组"
+msgstr "Add Group"
+
+#: templates/nonoperate-group.html:106 templates/nonoperate-group.html:168
+msgid "加入群组"
+msgstr "Join Group"
+
+#: templates/nonoperate-group.html:116 templates/nonoperate-group.html:209
+msgid "加入"
+msgstr "Join"
+
+#: templates/nonoperate-group.html:143
+msgid "查看群组"
+msgstr "View the group"
+
+#: templates/nonoperate-group.html:165
+msgid "移出群组"
+msgstr "Move out of the group"
+
+#: templates/nonoperate-group.html:174 templates/nonoperate-group.html:185
+msgid "审计配置"
+msgstr "Audit Config"
+
+#: templates/nonoperate-group.html:179
+msgid "群组成员"
+msgstr "Group Members"
+
+#: templates/nonoperate-group.html:195
+msgid "移出"
+msgstr "Remove"
+
+#: templates/nonoperate-group.html:222
+msgid "安全类型"
+msgstr "Security Type"
+
+#: templates/nonoperate-group.html:223
+#: templates/nonoperate-guest-policy.html:14
+#: templates/nonoperate-guest-policy.html:25 templates/nonoperate-wlan.html:49
+#: templates/nonoperate-wlan.html.py:291 templates/nonoperate-wlan.html:607
+msgid "来宾策略"
+msgstr "Guest Policy"
+
+#: templates/nonoperate-group.html:548
+msgid "开启"
+msgstr "Open"
+
+#: templates/nonoperate-group.html:549
+msgid "关闭"
+msgstr "Close"
+
+#: templates/nonoperate-group.html:550
+msgid "请输入群组名称"
+msgstr "Please input group name"
+
+#: templates/nonoperate-group.html:552
+msgid "SSID不能为空"
+msgstr "SSID cannot be empty"
+
+#: templates/nonoperate-group.html:553
+msgid "已加密"
+msgstr "Encrypted"
+
+#: templates/nonoperate-group.html:554
+msgid "加密"
+msgstr "Encryption"
+
+#: templates/nonoperate-group.html:555
+msgid "不加密"
+msgstr "Clear"
+
+#: templates/nonoperate-group.html:556
+msgid "SSID最多8个"
+msgstr "The length of SSID should be 8"
+
+#: templates/nonoperate-guest-policy.html:34
+msgid "内置 认证服务器"
+msgstr "Built-in authentication server"
+
+#: templates/nonoperate-guest-policy.html:37
+msgid "通用配置"
+msgstr "General Config"
+
+#: templates/nonoperate-guest-policy.html:38
+msgid "认证帐号"
+msgstr "Certified account"
+
+#: templates/nonoperate-guest-policy.html:39
+#: templates/nonoperate-guest-policy.html:127
+msgid "短信网关"
+msgstr "SMS Gateway"
+
+#: templates/nonoperate-guest-policy.html:40
+msgid "微信认证配置"
+msgstr "WeChat Authentication Config"
+
+#: templates/nonoperate-guest-policy.html:41
+#: templates/nonoperate-guest-policy.html:569
+#: templates/nonoperate-guest-policy.html:1002
+#: templates/nonoperate-wlan.html:886
+msgid "卡券认证"
+msgstr "Card certificate"
+
+#: templates/nonoperate-guest-policy.html:42
+#: templates/nonoperate-guest-policy.html:905
+msgid "门户自定义"
+msgstr "Portal customization"
+
+#: templates/nonoperate-guest-policy.html:48
+#: templates/nonoperate-wlan.html:389 templates/nonoperate-wlan.html.py:705
+msgid "认证后跳转"
+msgstr "Jump after authentication"
+
+#: templates/nonoperate-guest-policy.html:51
+msgid "原始页面"
+msgstr "Original Page"
+
+#: templates/nonoperate-guest-policy.html:61
+msgid "自定义门户页面"
+msgstr "Custom Portal Page"
+
+#: templates/nonoperate-guest-policy.html:73
+#: templates/nonoperate-guest-policy.html:947
+msgid "账号"
+msgstr "Account"
+
+#: templates/nonoperate-guest-policy.html:89
+#: templates/nonoperate-wlan.html:229 templates/nonoperate-wlan.html.py:545
+#: templates/nonoperate-wlan.html:872
+msgid "弱"
+msgstr "Weak"
+
+#: templates/nonoperate-guest-policy.html:91
+#: templates/nonoperate-wlan.html:874
+msgid "强"
+msgstr "Strong"
+
+#: templates/nonoperate-guest-policy.html:103
+msgid "显示/隐藏列表"
+msgstr "Dispaly/Hide list"
+
+#: templates/nonoperate-guest-policy.html:133
+msgid "请选择"
+msgstr "Please select"
+
+#: templates/nonoperate-guest-policy.html:134
+msgid "阿里大于"
+msgstr "alidayu"
+
+#: templates/nonoperate-guest-policy.html:135
+msgid "阿里云"
+msgstr "Ali Cloud"
+
+#: templates/nonoperate-guest-policy.html:136
+msgid "互亿无线"
+msgstr "ihuyi"
+
+#: templates/nonoperate-guest-policy.html:137
+msgid "云片"
+msgstr "yunpian"
+
+#: templates/nonoperate-guest-policy.html:175
+#: templates/nonoperate-guest-policy.html:342
+msgid "签名"
+msgstr "Signature"
+
+#: templates/nonoperate-guest-policy.html:187
+#: templates/nonoperate-guest-policy.html:354
+msgid "中文模板ID"
+msgstr "Chinese template ID"
+
+#: templates/nonoperate-guest-policy.html:199
+#: templates/nonoperate-guest-policy.html:366
+msgid "英文模板ID"
+msgstr "English template ID"
+
+#: templates/nonoperate-guest-policy.html:211
+#, python-brace-format
+msgid "注: 模板内容中验证码部分请用\"${code}\"代替"
+msgstr ""
+"Note: Please use \"${code}\" instead of the verification code part in the "
+"template content."
+
+#: templates/nonoperate-guest-policy.html:257
+msgid "中文短信模板"
+msgstr "Chinese SMS template"
+
+#: templates/nonoperate-guest-policy.html:269
+msgid "英文短信模板"
+msgstr "English SMS template"
+
+#: templates/nonoperate-guest-policy.html:330
+msgid "主题名称"
+msgstr "Subject Name"
+
+#: templates/nonoperate-guest-policy.html:378
+#, python-brace-format
+msgid "注: 模板内容中验证码部分请用'${code}'代替"
+msgstr ""
+"Note: Please use '${code}' instead of the verification code part in the "
+"template content."
+
+#: templates/nonoperate-guest-policy.html:436
+#: templates/nonoperate-wlan.html:313 templates/nonoperate-wlan.html.py:629
+msgid "应用ID"
+msgstr "Application ID"
+
+#: templates/nonoperate-guest-policy.html:445
+#: templates/nonoperate-wlan.html:324 templates/nonoperate-wlan.html.py:640
+msgid "应用秘钥"
+msgstr "Application Key"
+
+#: templates/nonoperate-guest-policy.html:450
+msgid "开启'强制关注'时必填"
+msgstr "Required when 'forced attention' is turned on"
+
+#: templates/nonoperate-guest-policy.html:454
+msgid "门店ID"
+msgstr "Store ID"
+
+#: templates/nonoperate-guest-policy.html:463
+msgid "秘钥"
+msgstr "Key"
+
+#: templates/nonoperate-guest-policy.html:472
+#: templates/nonoperate-wlan.html:357 templates/nonoperate-wlan.html.py:673
+msgid "强制关注"
+msgstr "Forced attention"
+
+#: templates/nonoperate-guest-policy.html:495
+msgid "卡券打印"
+msgstr "Card coupon printing"
+
+#: templates/nonoperate-guest-policy.html:503
+#: templates/nonoperate-guest-policy.html:798
+msgid "卡券码"
+msgstr "Voucher Code"
+
+#: templates/nonoperate-guest-policy.html:504
+#: templates/nonoperate-guest-policy.html:845
+msgid "类型"
+msgstr "Card code"
+
+#: templates/nonoperate-guest-policy.html:505
+#: templates/nonoperate-guest-policy.html:808
+msgid "有效期(小时)"
+msgstr "Validity (hours)"
+
+#: templates/nonoperate-guest-policy.html:506
+#: templates/nonoperate-guest-policy.html:823
+msgid "流量(MB)"
+msgstr "Traffic(MB)"
+
+#: templates/nonoperate-guest-policy.html:507
+#: templates/nonoperate-guest-policy.html:949
+msgid "创建时间"
+msgstr "Creation time"
+
+#: templates/nonoperate-guest-policy.html:508
+msgid "已用流量(KB)"
+msgstr "Used traffic (KB)"
+
+#: templates/nonoperate-guest-policy.html:510
+msgid "MAC"
+msgstr "MAC"
+
+#: templates/nonoperate-guest-policy.html:511
+#: templates/nonoperate-guest-policy.html:858
+msgid "备注"
+msgstr "Remarks"
+
+#: templates/nonoperate-guest-policy.html:522
+msgid "认证方式"
+msgstr "Verification Method"
+
+#: templates/nonoperate-guest-policy.html:525
+#: templates/nonoperate-guest-policy.html:998
+msgid "一键认证"
+msgstr "One-click Authentication"
+
+#: templates/nonoperate-guest-policy.html:532
+#: templates/nonoperate-guest-policy.html:543
+#: templates/nonoperate-guest-policy.html:554
+#: templates/nonoperate-guest-policy.html:565
+#: templates/nonoperate-guest-policy.html:576
+#: templates/nonoperate-guest-policy.html:953
+msgid "编辑"
+msgstr "Edit"
+
+#: templates/nonoperate-guest-policy.html:536
+#: templates/nonoperate-guest-policy.html:1001
+msgid "账户认证"
+msgstr "Account Authentication"
+
+#: templates/nonoperate-guest-policy.html:547
+#: templates/nonoperate-guest-policy.html:999
+#: templates/nonoperate-wlan.html:883
+msgid "短信认证"
+msgstr "SMS Authentication"
+
+#: templates/nonoperate-guest-policy.html:558
+#: templates/nonoperate-guest-policy.html:1000
+#: templates/nonoperate-wlan.html:884
+msgid "微信认证"
+msgstr "WeChat Certification"
+
+#: templates/nonoperate-guest-policy.html:588
+#: templates/nonoperate-wlan.html:888
+msgid "外部认证服务器"
+msgstr "External Authentication Server"
+
+#: templates/nonoperate-guest-policy.html:591
+#: templates/nonoperate-wlan.html:378 templates/nonoperate-wlan.html.py:694
+msgid "登录页URL"
+msgstr "Login Page URL"
+
+#: templates/nonoperate-guest-policy.html:596
+msgid "认证登录页面, 如: "
+msgstr "Auth Login Page:"
+
+#: templates/nonoperate-guest-policy.html:600
+msgid "门户页URL"
+msgstr "Portal Page URL"
+
+#: templates/nonoperate-guest-policy.html:605
+msgid "认证成功后跳转的URL, 如:"
+msgstr "The URL to jump after successful authentication, such as:"
+
+#: templates/nonoperate-guest-policy.html:609
+msgid "注: 认证服务器须支持wifidog协议"
+msgstr "Note: The authentication server must support the wifidog protocol."
+
+#: templates/nonoperate-guest-policy.html:624
+msgid "全局配置"
+msgstr "Global Config"
+
+#: templates/nonoperate-guest-policy.html:637
+msgid "认证服务器离线时用户全部放行"
+msgstr "The user is released when the authentication server is offline."
+
+#: templates/nonoperate-guest-policy.html:641
+msgid "微信放行"
+msgstr "WeChat Release"
+
+#: templates/nonoperate-guest-policy.html:651
+msgid "认证成功之前允许使用微信"
+msgstr "Allow WeChat before authentication is successful"
+
+#: templates/nonoperate-guest-policy.html:655
+msgid "认证有效期"
+msgstr "Validity period of certification"
+
+#: templates/nonoperate-guest-policy.html:659
+msgid "24小时"
+msgstr "24 Hours"
+
+#: templates/nonoperate-guest-policy.html:660
+msgid "3天"
+msgstr "3 Days"
+
+#: templates/nonoperate-guest-policy.html:662
+#: templates/nonoperate-guest-policy.html:815
+msgid "30天"
+msgstr "30 Days"
+
+#: templates/nonoperate-guest-policy.html:667
+msgid "从用户认证成功起的认证有效期(自定义时间请输入整数)"
+msgstr ""
+"Validity period from the successful user authentication (please enter an "
+"integer for custom time)"
+
+#: templates/nonoperate-guest-policy.html:685
+msgid "超时下线"
+msgstr "Timeout offline"
+
+#: templates/nonoperate-guest-policy.html:700
+msgid "流量无变化超时下线的时间(自定义时间请输入整数)"
+msgstr ""
+"The time when the traffic has not changed and the timeout is offline (please "
+"enter an integer for the custom time)"
+
+#: templates/nonoperate-guest-policy.html:718
+msgid "白名单"
+msgstr "White List"
+
+#: templates/nonoperate-guest-policy.html:720
+msgid "IP、IP/Mask 或域名, 如: '1.1.1.1', '1.1.1.1/24', 'www.abc.com'"
+msgstr "IP, IP/Mask or domain name, eg: '1.1.1.1', '1.1.1.1/24', 'www.abc.com'"
+
+#: templates/nonoperate-guest-policy.html:733
+msgid "Portal用户白名单"
+msgstr "Portal user whitelist"
+
+#: templates/nonoperate-guest-policy.html:735
+msgid "MAC地址, 如: '00:01:02:03:04:05'"
+msgstr "MAC Address,like : '00:01:02:03:04:05'"
+
+#: templates/nonoperate-guest-policy.html:765
+msgid "卡券添加"
+msgstr "Card coupon"
+
+#: templates/nonoperate-guest-policy.html:770
+msgid "无线网络名称"
+msgstr "SSID"
+
+#: templates/nonoperate-guest-policy.html:787
+msgid "数量"
+msgstr "Number"
+
+#: templates/nonoperate-guest-policy.html:849
+msgid "单人使用"
+msgstr "Single use"
+
+#: templates/nonoperate-guest-policy.html:850
+msgid "多人使用"
+msgstr "Multiplayer use"
+
+#: templates/nonoperate-guest-policy.html:864
+msgid "最多80字"
+msgstr "Up to 80 words"
+
+#: templates/nonoperate-guest-policy.html:883
+msgid "确认窗口"
+msgstr "Confirmation Window"
+
+#: templates/nonoperate-guest-policy.html:887
+msgid "确认删除此卡券吗?"
+msgstr "Are you sure to delete this card?"
+
+#: templates/nonoperate-guest-policy.html:943
+msgid "自定义有效期须为整数"
+msgstr "Custom validity period must be an integer"
+
+#: templates/nonoperate-guest-policy.html:944
+msgid "自定义有效期单位为时时允许1-23"
+msgstr "Custom validity period unit is allowed for 1-23"
+
+#: templates/nonoperate-guest-policy.html:945
+msgid "自定义下线时间须为整数"
+msgstr "Custom offline time must be an integer"
+
+#: templates/nonoperate-guest-policy.html:946
+msgid "自定义下线时间单位为分时允许1-59,单位为时时允许1-23"
+msgstr ""
+"The custom offline time unit is 1-59 for time-sharing, and the time is "
+"allowed for 1-23."
+
+#: templates/nonoperate-guest-policy.html:954
+msgid "打印"
+msgstr "Print"
+
+#: templates/nonoperate-guest-policy.html:955
+msgid "单人"
+msgstr "Individual"
+
+#: templates/nonoperate-guest-policy.html:956
+msgid "多人"
+msgstr "Multi-person"
+
+#: templates/nonoperate-guest-policy.html:957
+msgid "未启用"
+msgstr "Not Enabled"
+
+#: templates/nonoperate-guest-policy.html:958
+msgid "已过期"
+msgstr "Expired"
+
+#: templates/nonoperate-guest-policy.html:959
+msgid "已用完"
+msgstr "Run out"
+
+#: templates/nonoperate-guest-policy.html:960
+msgid "使用中，过期时间"
+msgstr "Using,Expired Time"
+
+#: templates/nonoperate-guest-policy.html:961
+msgid "时效性"
+msgstr "Expired Time"
+
+#: templates/nonoperate-guest-policy.html:985
+msgid "操作执行成功!"
+msgstr "Operate Successfully"
+
+#: templates/nonoperate-guest-policy.html:986
+msgid "操作执行失败!"
+msgstr "Operate failed"
+
+#: templates/nonoperate-guest-policy.html:987
+msgid "模板"
+msgstr "Template"
+
+#: templates/nonoperate-guest-policy.html:988
+msgid "不能为空值"
+msgstr "Cannot be null"
+
+#: templates/nonoperate-guest-policy.html:989
+msgid "密码至少包含四个字符！"
+msgstr "The password must contain at least four characters!"
+
+#: templates/nonoperate-guest-policy.html:990
+msgid "密码只允许使用0-9a-zA-Z，不允许使用其他特殊字符！"
+msgstr ""
+"Passwords are only allowed to use 0-9a-zA-Z, no other special characters are "
+"allowed!"
+
+#: templates/nonoperate-guest-policy.html:991
+msgid "账号只允许使用0-9a-zA-Z及下划线，不允许使用其他特殊字符！"
+msgstr ""
+"Only 0-9a-zA-Z and underscores are allowed for accounts. Other special "
+"characters are not allowed!"
+
+#: templates/nonoperate-guest-policy.html:992
+msgid "添加用户成功！"
+msgstr "Add user successfully!"
+
+#: templates/nonoperate-guest-policy.html:993
+msgid "添加失败，用户已存在！"
+msgstr "Add failed, user already exists!"
+
+#: templates/nonoperate-guest-policy.html:994
+msgid "添加失败，网络错误！"
+msgstr "Add failed, network error!"
+
+#: templates/nonoperate-guest-policy.html:995
+msgid "删除用户成功！"
+msgstr "Delete User successfully"
+
+#: templates/nonoperate-guest-policy.html:996
+msgid "删除失败, 用户不存在！"
+msgstr "The deletion failed, the user does not exist!"
+
+#: templates/nonoperate-guest-policy.html:997
+msgid "删除失败，网络错误！"
+msgstr "Delete failed, network error!"
+
+#: templates/nonoperate-user-policy-config.html:10
+msgid "用户策略"
+msgstr "User Policy"
+
+#: templates/nonoperate-user-policy-config.html:21
+msgid "接入策略"
+msgstr "Access Policy"
+
+#: templates/nonoperate-user-policy-config.html:39
+msgid "双频"
+msgstr "Dual frequency"
+
+#: templates/nonoperate-user-policy-config.html:42
+msgid "双频设备最大接入用户数"
+msgstr "Maximum number of users accessing dual-band devices"
+
+#: templates/nonoperate-user-policy-config.html:53
+msgid "单频"
+msgstr "Single frequency"
+
+#: templates/nonoperate-user-policy-config.html:56
+msgid "单频设备最大接入用户数"
+msgstr "Maximum number of users accessing single-frequency devices"
+
+#: templates/nonoperate-user-policy-config.html:61
+msgid "信号门限"
+msgstr "Signal threshold"
+
+#: templates/nonoperate-user-policy-config.html:71
+msgid "低信号用户拒绝接入"
+msgstr "Low signal users refuse access"
+
+#: templates/nonoperate-user-policy-config.html:76
+msgid "二层隔离"
+msgstr "Two-layer isolation"
+
+#: templates/nonoperate-user-policy-config.html:91
+msgid "同一接入点下的终端之间不能互相直接通信"
+msgstr ""
+"Terminals under the same AP cannot communicate directly with each other"
+
+#: templates/nonoperate-user-policy-config.html:96
+msgid "接入优化"
+msgstr "Access Optimization"
+
+#: templates/nonoperate-user-policy-config.html:111
+msgid "引导用户接入到最优的设备"
+msgstr "Guide users to access the best equipment"
+
+#: templates/nonoperate-user-policy-config.html:116
+msgid "拒绝次数"
+msgstr "Number of rejections"
+
+#: templates/nonoperate-user-policy-config.html:126
+msgid "最大拒绝接入次数"
+msgstr "Maximum number of denied accesses"
+
+#: templates/nonoperate-user-policy-config.html:131
+msgid "负载均衡"
+msgstr "Load balancing"
+
+#: templates/nonoperate-user-policy-config.html:146
+msgid "将用户均衡到多个无线接入点上,更好利用带宽资源"
+msgstr ""
+"Balance users to multiple wireless AP to better utilize bandwidth resources"
+
+#: templates/nonoperate-user-policy-config.html:151
+msgid "5G优先"
+msgstr "5G Priority"
+
+#: templates/nonoperate-user-policy-config.html:166
+msgid ""
+"在高密度用户或者2.4G 干扰较为严重的环境中，充分利用5G 频段可以更好的提供接入"
+"能力以及容量"
+msgstr ""
+"In the environment of high-density users or 2.4G interference, the 5G "
+"frequency band can be fully utilized to provide better access capability and "
+"capacity."
+
+#: templates/nonoperate-user-policy-config.html:171
+msgid "漫游策略"
+msgstr "Roaming strategy"
+
+#: templates/nonoperate-user-policy-config.html:186
+msgid "无线网卡能够自动发现附近信号强度最大的AP, 保持不间断的网络连接"
+msgstr ""
+"The wireless network card can automatically discover the AP with the "
+"strongest signal strength nearby, and maintain an uninterrupted network "
+"connection."
+
+#: templates/nonoperate-user-policy-config.html:191
+msgid "漫游灵敏度"
+msgstr "Roaming sensitivity"
+
+#: templates/nonoperate-user-policy-config.html:201
+msgid "无线设备在移动状态下连接网络, 网卡对网络连接状态的调整速率"
+msgstr ""
+"The rate at which the wireless device connects to the network while in the "
+"mobile state, and the network card adjusts the state of the network "
+"connection."
+
+#: templates/nonoperate-user-policy-config.html:236
+#: templates/nonoperate-user-policy-config.html:317
+msgid "用户黑名单"
+msgstr "User blacklist"
+
+#: templates/nonoperate-user-policy-config.html:251
+#: templates/nonoperate-user-policy-config.html:291
+msgid "黑白名单只能同时开启一个"
+msgstr "Black and white list can only be opened at the same time"
+
+#: templates/nonoperate-user-policy-config.html:276
+#: templates/nonoperate-user-policy-config.html:383
+msgid "用户白名单"
+msgstr "User whitelist"
+
+#: templates/nonoperate-user-policy-config.html:326
+#: templates/nonoperate-user-policy-config.html:392
+msgid "手动输入"
+msgstr "Manual input"
+
+#: templates/nonoperate-user-policy-config.html:332
+#: templates/nonoperate-user-policy-config.html:398
+msgid "你可以在右侧输入框中输入用户MAC地址进行添加(每行一条)"
+msgstr ""
+"You can add the user MAC address in the input box on the right to add (one "
+"per line)"
+
+#: templates/nonoperate-user-policy-config.html:342
+#: templates/nonoperate-user-policy-config.html:408
+msgid "选择添加"
+msgstr "Choose to add"
+
+#: templates/nonoperate-user-policy-config.html:347
+msgid "您可能想要阻止下面的用户"
+msgstr "You may want to block the users below"
+
+#: templates/nonoperate-user-policy-config.html:413
+msgid "您可能想要添加下面的用户"
+msgstr "You may want to add the following users"
+
+#: templates/nonoperate-user-policy-config.html:473
+msgid "黑白名单不能同时开启"
+msgstr "Black and white list cannot be opened at the same time"
+
+#: templates/nonoperate-user-policy-config.html:474
+msgid "双频设备最大接入用户数需为1-128范围内的整数"
+msgstr ""
+"The maximum number of access users of dual-band devices needs to be an "
+"integer in the range of 1-128."
+
+#: templates/nonoperate-user-policy-config.html:475
+msgid "单频设备最大接入用户数需为1-64范围内的整数"
+msgstr ""
+"The maximum number of access users of a single-frequency device needs to be "
+"an integer in the range of 1-64."
+
+#: templates/nonoperate-user-policy-config.html:476
+msgid "信号门限需为-95-0范围内的整数"
+msgstr "The signal threshold needs to be an integer in the range -95-0"
+
+#: templates/nonoperate-user-policy-config.html:477
+msgid "拒绝次数需为1-5范围内的整数"
+msgstr "The number of rejections needs to be an integer in the range of 1-5"
+
+#: templates/nonoperate-wlan.html:19
+msgid "无线"
+msgstr "WLAN"
+
+#: templates/nonoperate-wlan.html:30
+msgid "无线配置"
+msgstr "Wlan Config"
+
+#: templates/nonoperate-wlan.html:47
+msgid "管理域名/群组名称"
+msgstr "Domain Names/Group Name"
+
+#: templates/nonoperate-wlan.html:48
+msgid "安全类型 "
+msgstr "Security Type"
+
+#: templates/nonoperate-wlan.html:83
+msgid "接入点MAC过滤"
+msgstr "AP MAC filtering"
+
+#: templates/nonoperate-wlan.html:114
+msgid "非经策略"
+msgstr "Nonoperate device Policy"
+
+#: templates/nonoperate-wlan.html:122
+msgid "自动升级"
+msgstr "Auto Update"
+
+#: templates/nonoperate-wlan.html:126
+msgid "升级规则"
+msgstr "Upgrade Rule"
+
+#: templates/nonoperate-wlan.html:134
+msgid "快捷操作"
+msgstr "Quick Operation"
+
+#: templates/nonoperate-wlan.html:137
+msgid "全选"
+msgstr "Select All"
+
+#: templates/nonoperate-wlan.html:138
+msgid "清空"
+msgstr "Clear"
+
+#: templates/nonoperate-wlan.html:143
+msgid "确定修改"
+msgstr "Confirm Modification"
+
+#: templates/nonoperate-wlan.html:166
+msgid "添加无线网络"
+msgstr "Add wireless network"
+
+#: templates/nonoperate-wlan.html:174 templates/nonoperate-wlan.html.py:490
+msgid "AP群组"
+msgstr "AP Group"
+
+#: templates/nonoperate-wlan.html:210 templates/nonoperate-wlan.html.py:526
+msgid "信号名称"
+msgstr "SSID"
+
+#: templates/nonoperate-wlan.html:221 templates/nonoperate-wlan.html.py:537
+msgid "安全"
+msgstr "Security"
+
+#: templates/nonoperate-wlan.html:234 templates/nonoperate-wlan.html.py:550
+msgid "连接密码"
+msgstr "Connection Password"
+
+#: templates/nonoperate-wlan.html:335 templates/nonoperate-wlan.html.py:651
+msgid "门店id"
+msgstr "Store ID"
+
+#: templates/nonoperate-wlan.html:346 templates/nonoperate-wlan.html.py:662
+msgid "密钥"
+msgstr "Key"
+
+#: templates/nonoperate-wlan.html:401 templates/nonoperate-wlan.html.py:717
+msgid "隐藏信号"
+msgstr "Hidden SSID"
+
+#: templates/nonoperate-wlan.html:445 templates/nonoperate-wlan.html.py:760
+msgid "启用"
+msgstr "Enable"
+
+#: templates/nonoperate-wlan.html:482
+msgid "编辑无线网络"
+msgstr "Edit WLAN"
+
+#: templates/nonoperate-wlan.html:797
+msgid "AP黑名单"
+msgstr "AP Blacklist"
+
+#: templates/nonoperate-wlan.html:867
+msgid "微信配置不能为空"
+msgstr "WeChat configuration cannot be empty"
+
+#: templates/nonoperate-wlan.html:868
+msgid "强制关注时,应用秘钥不能为空"
+msgstr "Application key cannot be empty when forced attention"
+
+#: templates/nonoperate-wlan.html:869
+msgid "认证服务器配置不能为空"
+msgstr "Authentication server configuration cannot be empty"
+
+#: templates/nonoperate-wlan.html:876
+msgid "没有选择群组"
+msgstr "No group selected"
+
+#: templates/nonoperate-wlan.html:878
+msgid "请选择群组"
+msgstr "Please select a group"
+
+#: templates/nonoperate-wlan.html:879
+msgid "已满4个WLAN"
+msgstr "4 WLANs full"
+
+#: templates/nonoperate-wlan.html:881
+msgid "无认证"
+msgstr "No certification"
+
+#: templates/nonoperate-wlan.html:882
+msgid "账号/密码"
+msgstr "Account/Password"
+
+#: templates/nonoperate-wlan.html:885
+msgid "短信+微信认证"
+msgstr "SMS + WeChat authentication"
+
+#: templates/nonoperate-wlan.html:887
+msgid "本地微信"
+msgstr "Local Wechat"
+
+#: templates/nonoperate_index.html:26 templates/nonoperate_index.html:1783
+msgid "设备"
+msgstr "Device"
+
+#: templates/nonoperate_index.html:49
+msgid "在线用户"
+msgstr "Online Users"
+
+#: templates/nonoperate_index.html:56
+msgid "PC/笔记本"
+msgstr "PC/Laptop"
+
+#: templates/nonoperate_index.html:63
+msgid "移动设备"
+msgstr "Mobile devices"
+
+#: templates/nonoperate_index.html:76
+msgid "设备排行"
+msgstr "Device ranking"
+
+#: templates/nonoperate_index.html:81
+msgid "在线时长"
+msgstr "Online Time"
+
+#: templates/nonoperate_index.html:82
+msgid "上行流量"
+msgstr "Upload Traffic"
+
+#: templates/nonoperate_index.html:83
+msgid "下行流量"
+msgstr "Download Traffic"
+
+#: templates/nonoperate_index.html:140
+msgid "网络使用情况"
+msgstr "Network usage"
+
+#: templates/nonoperate_index.html:142 templates/nonoperate_index.html:167
+#: views.py:3072
+msgid "普通"
+msgstr "Normal"
+
+#: templates/nonoperate_index.html:145 templates/nonoperate_index.html:170
+#: views.py:3069
+msgid "车载"
+msgstr "Car"
+
+#: templates/nonoperate_index.html:165 templates/nonoperate_index.html:1780
+msgid "设备用户排行"
+msgstr "Device User Ranking"
+
+#: templates/nonoperate_index.html:190
+msgid "用户数量统计"
+msgstr "User Count"
+
+#: templates/nonoperate_index.html:212
+msgid "设备状态预警"
+msgstr "Device Status Alert"
+
+#: templates/nonoperate_index.html:1781
+msgid "用户数"
+msgstr "User Number"
+
+#: templates/nonoperate_index.html:1785
+msgid "版本"
+msgstr "Version"
+
+#: templates/nonoperate_index.html:1787
+msgid "使用率为"
+msgstr "Utilization rate"
+
+#: views.py:1191
+msgid "该组已存在"
+msgstr "This group already exists"
+
+#: views.py:1236
+msgid "添加成功"
+msgstr "Added successfully"
+
+#: views.py:1239
+msgid "添加失败"
+msgstr "Add Failed"
+
+#: views.py:1285 views.py:2119
+msgid "删除成功"
+msgstr "Deleted Successfully"
+
+#: views.py:1288 views.py:2122
+msgid "删除失败"
+msgstr "Delete Failed"
+
+#: views.py:1392
+msgid "组名已存在"
+msgstr "Group name already exists"
+
+#: views.py:1619
+msgid "编辑成功"
+msgstr "Edit Successfully"
+
+#: views.py:1624
+msgid "编辑失败"
+msgstr "Edit Failed"
+
+#: views.py:2061
+msgid "创建成功！"
+msgstr "Created successfully!"
+
+#: views.py:2081
+msgid "创建失败！"
+msgstr "Created Failed"
+
+#: views.py:2428
+msgid "还原失败！"
+msgstr "Recover Failed!"
+
+#: views.py:2440 views.py:2457 views.py:2501 views.py:2921
+msgid "修改成功"
+msgstr "Modify Successfully"
+
+#: views.py:2443 views.py:2460 views.py:2504 views.py:2925
+msgid "修改失败"
+msgstr "Fail to edit"
+
+#: views.py:2519
+msgid "执行成功"
+msgstr "Execute successfully"
+
+#: views.py:2523
+msgid "执行失败"
+msgstr "Execute failed"
+
+#: views.py:2570
+msgid "操作成功"
+msgstr "Operate Successfully"
+
+#: views.py:2573
+msgid "操作失败"
+msgstr "Operate failed"
+
+#: views.py:3107 views.py:3109 views.py:3215 views.py:3217
+msgid "小于1"
+msgstr "Less than 1"

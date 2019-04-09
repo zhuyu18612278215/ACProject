@@ -1,0 +1,610 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+<link rel="stylesheet" href="{% static 'main/select2-4.0.6-rc.1/dist/css/select2.min.css' %}">
+{% endblock head_link %}
+{% block header %}
+<li><a href=""><i class="fa fa-hdd-o"></i>{% trans "探针" %}</a></li>
+<li class="active"><i class="fa fa-hdd-o"></i>{% trans "群组" %}</li>
+{% endblock header %}
+{% block row %}
+<div>
+    <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+    <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+</div>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="panel bk-bg-white">
+            <div class="panel-heading">
+                <h6><i class="fa fa-hdd-o"></i>{% trans "群组" %}</h6>
+                <p class="penel-heading-inlink-block penel-heading-right" >
+                    {% if request.user.administrator_permission == 2 or request.user.administrator_permission == 3 or request.user.administrator_permission == 5 or request.user.administrator_permission == 6 or request.user.administrator_permission == 0%}
+                        <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="open_form();device_add_ajax();"><i class="fa fa-plus"></i>{% trans "添加" %}</button>
+                    {% endif %}
+
+                </p>
+                <div class="panel-actions">
+                    <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                    <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                </div>
+            </div>
+            <div class="panel-body">
+                <table class="table table-bordered table-striped" id="datatable-default-2">
+                    <thead>
+                        <tr>
+                            <th>{% trans "群组名称" %}</th>
+                            <th>{% trans "管理域名" %}</th>
+                            <th>{% trans "设备数量" %}</th>
+                            <th>{% trans "操作" %}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for gp in group %}
+                            <tr class="gradeA">
+                                <td> {{gp.group_name}} </td>
+                                <td> {{gp.account_group_name}} </td>
+                                <td> {{gp.device_count}} </td>
+                                <td class="table-botton-pad">
+                                    <a class="btn btn-default table-btn-btnpad" onclick="open_form1('{{gp.group_name}}','{{gp.account_group_name}}','{{request.user.administrator_permission}}','{{gp.pk}}');add_device_ajax('{{gp.pk}}');remove_device_ajax('{{gp.pk}}');device_setting_ajax('{{gp.pk}}');">
+                                        {% trans "查看" %}
+                                    </a>
+                                    {% if gp.group_name == "DefaultGroup" and gp.account_group_name == "admin" %}
+
+                                    {% else %}
+                                        {% if gp.group_name == gp.account_group_name  %}
+
+                                        {% else %}
+                                            {% if issue_config_switch == "on" %}
+                                                {% if request.user.administrator_permission == 0 or request.user.administrator_permission == 6 or request.user.administrator_permission == 5 or request.user.administrator_permission == 3 or request.user.administrator_permission == 2 %}
+                                                    <a class="btn btn-default table-btn-btnpad" href="{% url 'device_group_del' %}?group_id={{gp.pk}}">
+                                                        {% trans "删除" %}
+                                                    </a>
+                                                {% endif %}
+                                            {% endif %}
+
+                                        {% endif %}
+                                    {% endif %}
+
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% if request.user.administrator_permission == 6 or request.user.administrator_permission == 5 or request.user.administrator_permission == 3 or request.user.administrator_permission == 2 %}
+    <div class="row" style="width:40%;float:left;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-gear"></i>{% trans "探针策略" %}</h6>
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <fieldset class="auto-update-fieldset">
+                        <legend class="auto-update-legend">{% trans "自动升级" %}</legend>
+                        <div class="flex-box margin-l-5 margin-r-5">
+                            <div class="flex-item margin-t-5">
+                                <div>
+                                    <label for="update_rule">{% trans "升级规则" %}</label>
+                                </div>
+                                <div class="flex-7 ">
+                                    <select data-option-type="probe" class="form-control " name="rules[]" id="update_rule" multiple="multiple"></select>
+                                </div>
+                            </div>
+                            <div class="flex-item margin-t-5 margin-b-5">
+                                <div>
+                                    <label for="">{% trans "快捷操作" %}</label>
+                                </div>
+                                <div class="flex-7">
+                                    <button type="button" class="btn btn-default" id="update_rule_every_one">{% trans "全选" %}</button>
+                                    <button type="button" class="btn btn-default margin-l-5" id="update_rule_clear">{% trans "清空" %}</button>
+                                </div>
+                            </div>
+                            <div class="flex-item margin-b-5">
+                                <div>
+                                    <label >{% trans "确定修改" %}</label>
+                                </div>
+                                <div class="flex-7">
+                                    <button type="button" class="btn btn-default" id="update_rule_submit">{% trans "提交" %}</button>
+                                </div>
+                            </div>
+                        </div>
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endif %}
+
+
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm" id="open_form" hidden="True">Open Form</a>
+    <!-- Modal Form -->
+    <div id="modalForm" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "添加群组" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="form-group" >
+                    <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                        <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                            <span>{% trans "群组名称" %}:</span>
+                        </div>
+                        <div class="col-md-6" style="padding-left:0px;">
+                            <input type="text" class="form-control" id="add_group_name">
+                        </div>
+                        <div class="col-md-3">
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <ul class="nav nav-tabs drag">
+                    <li class="active">
+                        <a href="#add_group" data-toggle="tab" ><span class="fa fa-plus tab-icon-color"></span> {% trans "加入群组" %}</a>
+                    </li>
+                </ul>
+                <div class="tab-content drag">
+                    <div id="add_group" class="tab-pane active">
+                        <table class="table table-bordered table-striped" id="datatable-default-3">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "名称/MAC地址" %}</th>
+                                    <th>{% trans "MAC地址" %}</th>
+                                    <th>{% trans "加入" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="device_add_table">
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-default " onclick="create_group();">{% trans "应用" %}</button>
+                        <button class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel-body">
+    <a class=" modal-with-form " href="#modalForm1" id="open_form1" hidden="True">Open Form1</a>
+    <!-- Modal Form -->
+    <div id="modalForm1" class="modal-block modal-block-primary mfp-hide config-window-width ">
+        <div class="panel panel-default" >
+            <div class="panel-heading">
+                <h2 class="panel-title"><span >{% trans "查看群组" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+            </div>
+
+            <div class="panel-body bk-noradius" >
+                <div class="form-group" >
+                    <div class="col-md-12" style="padding-left:0px; margin-bottom:10px;">
+                        <div class="col-md-3 penel-body-title-font" style="padding-left:0px;">
+                            <span>{% trans "群组名称" %}:</span>
+                        </div>
+                        <div class="col-md-6" style="padding-left:0px;">
+                            <input type="text" class="form-control" id="fix_group_name">
+                        </div>
+                        <div class="col-md-3">
+
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <ul class="nav nav-tabs drag" id="d-1">
+                    <li class="active">
+                        <a href="#remove_device" data-toggle="tab" ><span class="fa fa-minus tab-icon-color" id="remove_device_href"></span> {% trans "移出群组" %}</a>
+                    </li>
+                    <li >
+                        <a href="#add_device" data-toggle="tab" ><span class="fa fa-plus tab-icon-color"></span> {% trans "加入群组" %}</a>
+                    </li>
+                    {% if issue_config_switch == "on" %}
+                        <li>
+                            <a id="a_audit_fix" href="#audit_fix" data-toggle="tab" ><span class="fa fa-cog tab-icon-color"></span> {% trans "审计配置" %}</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+                <ul class="nav nav-tabs drag" id="d-2" hidden="hidden">
+                    <li class="active">
+                        <a href="#remove_device" data-toggle="tab" ><span class="fa fa-minus tab-icon-color"></span> {% trans "群组成员" %}</a>
+                    </li>
+                    {% if issue_config_switch == "on" %}
+                        <li>
+                            <a href="#audit_fix" data-toggle="tab" ><span class="fa fa-cog tab-icon-color"></span> {% trans "审计配置" %}</a>
+                        </li>
+                    {% endif %}
+
+                </ul>
+                <div class="tab-content drag">
+                    <div id="remove_device" class="tab-pane active">
+                        <table class="table table-bordered table-striped" id="datatable-default-remove_device">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "名称/MAC地址" %}</th>
+                                    <th>{% trans "MAC地址" %}</th>
+                                    <th>{% trans "移出" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="remove_device_table">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="add_device" class="tab-pane">
+                        <table class="table table-bordered table-striped" id="datatable-default-add_device">
+                            <thead>
+                                <tr>
+                                    <th>{% trans "名称/MAC地址" %}</th>
+                                    <th>{% trans "MAC地址" %}</th>
+                                    <th>{% trans "加入" %}</th>
+                                </tr>
+                            </thead>
+                            <tbody id="add_device_table">
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <div id="audit_fix" class="tab-pane">
+                        <div class="panel-group" id="accordion2">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse" data-parent="#accordion2" href="#collapse1Two2">
+                                            {% trans "配置" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse1Two2" class="accordion-body collapse in">
+                                    <div class="panel-body audit-config-input-group-padding">
+                                        <ul class="nav nav-tabs audit-config-tag-margin-top">
+                                            <li class="active">
+                                                <a href="#basic_message" data-toggle="tab" >{% trans "基本信息" %}</a>
+                                            </li>
+                                            {% if oemlimit.oem_type == 'qingdao' %}
+                                                <div style="display:none">
+                                            {% endif %}
+                                            <li>
+                                                <a href="#dev_messsage" data-toggle="tab" >{% trans "设备信息" %}</a>
+                                            </li>
+                                            <li>
+                                                <a href="#place_message" data-toggle="tab" >{% trans "场所信息" %}</a>
+                                            </li>
+                                            {% if oemlimit.oem_type == 'qingdao' %}
+                                                </div>
+                                            {% endif %}
+                                        </ul>
+                                        <div class="tab-content" style="float:left">
+                                            <div id="basic_message" class="tab-pane active">
+                                                <input class = "device_setting_ajax_receive_mac" type="text" name="mac" hidden="hidden">
+                                                <div class="col-md-12 penel-body-div-marign-bottom " >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "审计厂商" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <select name="audit_corp" id="device_setting_ajax_audit_corp" class="form-control select-icon" >
+
+                                                        </select>
+
+                                                    </div>
+                                            </div>
+
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="ftp_name_hide" >
+                                                <span class="col-md-6 penel-body-title-font">{% trans "FTP用户名" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="ftp_name" id="ftp_name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="ftp_passwd_hide" >
+                                                <span class="col-md-6 penel-body-title-font">{% trans "FTP密码" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="ftp_passwd" id="ftp_passwd">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 penel-body-div-marign-bottom" id="ftp_port_hide" >
+                                                <span class="col-md-6 penel-body-title-font">{% trans "SFTP端口" %}:</span>
+                                                <div class="col-md-6">
+                                                    <input type="text" class="form-control" name="ftp_port" id="ftp_port">
+                                                </div>
+                                            </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "审计服务器地址" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="audit_ip" id="device_setting_ajax_audit_ip">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "审计服务器端口" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="audit_port" id="device_setting_ajax_audit_port">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "场所编码" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="location_encode" id="device_setting_ajax_location_encode">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom">
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "设备编码" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="device_encode" id="device_setting_ajax_device_encode">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "经度" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="longitude" id="device_setting_ajax_longitude">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "纬度" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="latitude" id="device_setting_ajax_latitude">
+                                                    </div>
+                                                </div>
+                                                <!--style="display:none;"-->
+												<div class="col-md-12 penel-body-div-marign-bottom" id="ssid_div_0">
+                                                    <span class="col-md-4 penel-body-title-font">SSID:</span>
+                                                    <span class="col-md-1"></span>
+                                                    <span class="col-md-1"></span>
+
+                                                    <div class="col-md-6">
+                                                        <div class="probe-ssid-box">
+                                                            <div class="input-group">
+                                                                <input type="text" class="form-control ssid" id="ssid_0">
+                                                                <span class=" input-group-btn penel-body-title-font"><a href="#" class="add_input btn btn-default ssid-group-button"><i class="fa fa-plus ssid-group-button-i-color"></i></a></span>
+                                                            </div>
+
+                                                            <div class="probe-ssid-encryption">
+                                                                <input type="radio" name="encyption_0" value="psk2" id="enc_true_0">
+                                                                <label for="enc_true_0">{% trans "加密" %}</label>
+                                                                <input type="radio" name="encyption_0" value="none" id="enc_false_0" checked="checked">
+                                                                <label for="enc_false_0">{% trans "不加密" %}</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <!--style="display:none;"-->
+                                                <div id="wlan_append">
+
+                                                </div>
+
+
+
+                                            </div>
+                                            <div id="dev_messsage" class="tab-pane">
+                                                <div class="col-md-12 penel-body-div-marign-bottom " >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "采集半径" %}(m):</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="collection_radius" id="device_setting_ajax_collection_radius">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "设备类型" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <select name="equipment_type" id="device_setting_ajax_equipment_type" class="form-control select-icon">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "设备名称" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="equipment_name" id="device_setting_ajax_equipment_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "设备地址" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="equipment_address" id="device_setting_ajax_equipment_address">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "厂商编码" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="software_orgcode" id="device_setting_ajax_software_orgcode">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "厂商名称" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="software_orgname" id="device_setting_ajax_software_orgname">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "厂商地址" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="software_address" id="device_setting_ajax_software_address">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "联系人姓名" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="contactor" id="device_setting_ajax_contactor">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "联系人电话" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="contactor_tel" id="device_setting_ajax_contactor_tel">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "联系人邮箱" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="contactor_mail" id="device_setting_ajax_contactor_mail">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                            <div id="place_message" class="tab-pane">
+                                                <div class="col-md-12 penel-body-div-marign-bottom " >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "场所名称" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="place_name" id="device_setting_ajax_place_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "场所地址" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" id="device_setting_ajax_site_address" name="site_address" class="form-control">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" id="device_setting_ajax_site_type_hide">
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "场所类型" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <select name="site_type" id="device_setting_ajax_site_type" class="form-control select-icon">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" id="device_setting_ajax_police_station_code_hide">
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "派出所编码" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <select name="police_station_code" id="device_setting_ajax_police_station_code" class="form-control select-icon">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "场所服务类型" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <select name="netsite_type" id="device_setting_ajax_netsite_type" class="form-control select-icon">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "场所经营性质" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <select name="bussiness_nature" id="device_setting_ajax_bussiness_nature" class="form-control select-icon">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "法人姓名" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="law_principal_name" id="device_setting_ajax_law_principal_name">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "证件类型" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <select name="certificate_type" id="device_setting_ajax_certificate_type" class="form-control select-icon">
+
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "证件号码" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="certificate_id" id="device_setting_ajax_certificate_id">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font">{% trans "电话号码" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="relationship_account" id="device_setting_ajax_relationship_account">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font audit-config-padding">{% trans "营业开始时间(如8:00)" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="start_time" id="device_setting_ajax_start_time">
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-12 penel-body-div-marign-bottom" >
+                                                    <span class="col-md-6 penel-body-title-font audit-config-padding">{% trans "营业结束时间(如22:00)" %}:</span>
+                                                    <div class="col-md-6">
+                                                        <input type="text" class="form-control" name="end_time" id="device_setting_ajax_end_time">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-md-12 text-center">
+                        <button class="btn btn-default " onclick="modify_device_group();" >{% trans "应用" %}</button>
+                        <button class="btn btn-default modal-dismiss">{% trans "取消" %}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock row %}
+{% block foot_js %}
+<script src="{% static 'main/select2-4.0.6-rc.1/dist/js/select2.min.js' %}"></script>
+<script src="{% static 'main/app-js/auto_update.js' %}"></script>
+<script src="{% static 'main/app-js/device_audit.js' %}"></script>
+
+<script >
+  $(document).ready(function(){
+    pageWords = {
+      ssidError:'{% trans "SSID不能为空" %}',
+      alreadyEncrypt:'{% trans "已加密" %}',
+      encrypt:'{% trans "加密" %}',
+      noEncrypt:'{% trans "不加密" %}',
+      ssidLengthError:'{% trans "SSID最多8个" %}',
+      promptInfo:'{% trans "提示信息" %}',
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+      inputGroupNameError:'{% trans "请输入群组名称" %}',
+    };
+    OEMLimitType = '{{oemlimit.oem_type}}';
+  });
+</script>
+<script src="{% static 'main/app-js/probeGroupPage.js' %}"></script>
+
+
+<script>
+    //一定要放在最下面
+    $(function(){
+
+        var error = JSON.parse('{{error_json|safe}}');
+
+        if(error.error_type === "failed"){
+            $("#position-4-error").click();
+        };
+        if(error.error_type === "success"){
+            $('#position-4-success').click();
+        }
+    });
+</script>
+{% endblock foot_js %}

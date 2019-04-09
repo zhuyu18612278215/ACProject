@@ -1,0 +1,778 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-03-22 14:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: forms.py:20
+msgid "验证码有误，请重新输入"
+msgstr "Verification code error. Please re-enter it."
+
+#: templates/index.html:10 templates/page-login.html:9
+#: templates/page-register.html:9 templates/reSendCheckMail.html:8
+msgid "设备云平台"
+msgstr "Wicloud"
+
+#: templates/index.html:101 templates/index.html.py:204
+msgid "系统"
+msgstr "System"
+
+#: templates/index.html:104 templates/index.html.py:208
+#: templates/index.html:284
+msgid "账户"
+msgstr "Account"
+
+#: templates/index.html:111 templates/index.html.py:242
+#: templates/index.html:506
+msgid "概要"
+msgstr "Overview"
+
+#: templates/index.html:117 templates/index.html.py:161
+#: templates/index.html:164
+msgid "探针"
+msgstr "Probe"
+
+#: templates/index.html:124 templates/index.html.py:143
+#: templates/index.html:146
+msgid "接入点"
+msgstr "AP"
+
+#: templates/index.html:131 templates/index.html.py:188
+msgid "非经"
+msgstr "Audit Device"
+
+#: templates/index.html:147
+msgid "AP群组"
+msgstr "AP Group"
+
+#: templates/index.html:148 templates/index.html.py:194
+msgid "无线配置"
+msgstr "Wlan Config"
+
+#: templates/index.html:149 templates/index.html.py:195
+msgid "用户策略"
+msgstr "User Policy"
+
+#: templates/index.html:150 templates/index.html.py:196
+msgid "来宾策略"
+msgstr "Guest Policy"
+
+#: templates/index.html:151 templates/index.html.py:197
+msgid "用户信息"
+msgstr "User Info"
+
+#: templates/index.html:165 templates/index.html.py:180
+#: templates/index.html:193
+msgid "群组"
+msgstr "Group"
+
+#: templates/index.html:176 templates/index.html.py:179
+msgid "审计设备"
+msgstr "Audit Module"
+
+#: templates/index.html:191 templates/index.html.py:304
+#: templates/index.html:1404
+msgid "设备"
+msgstr "Device"
+
+#: templates/index.html:192
+msgid "场所"
+msgstr "Location"
+
+#: templates/index.html:207
+msgid "服务"
+msgstr "Service"
+
+#: templates/index.html:209 templates/index.html.py:759
+#: templates/index.html:1407
+msgid "状态"
+msgstr "Status"
+
+#: templates/index.html:214
+msgid "支持"
+msgstr "Support"
+
+#: templates/index.html:217
+msgid "实用工具"
+msgstr "Utility"
+
+#: templates/index.html:240
+msgid "主页"
+msgstr "Home"
+
+#: templates/index.html:279
+msgid "切换为"
+msgstr "Change to"
+
+#: templates/index.html:287
+msgid "退出"
+msgstr "Logout"
+
+#: templates/index.html:310 templates/index.html.py:1386
+msgid "在线"
+msgstr "Online"
+
+#: templates/index.html:316 templates/index.html.py:1388
+msgid "离线"
+msgstr "Offline"
+
+#: templates/index.html:325
+msgid "类型"
+msgstr "Type"
+
+#: templates/index.html:337 templates/index.html.py:424 views.py:474
+msgid "车载"
+msgstr "Car"
+
+#: templates/index.html:343 templates/index.html.py:421 views.py:482
+msgid "普通"
+msgstr "Normal"
+
+#: templates/index.html:356
+msgid "设备排行"
+msgstr "Device ranking"
+
+#: templates/index.html:361
+msgid "在线时长"
+msgstr "Online Time"
+
+#: templates/index.html:362
+msgid "上行流量"
+msgstr "Upload Traffic"
+
+#: templates/index.html:419 templates/index.html.py:1400
+msgid "网络使用情况"
+msgstr "Network usage"
+
+#: templates/index.html:445
+msgid "设备状态预警"
+msgstr "Device Status Alert"
+
+#: templates/index.html:485
+msgid "详细信息"
+msgstr "Details"
+
+#: templates/index.html:489 templates/index.html.py:908
+msgid "配置"
+msgstr "Config"
+
+#: templates/index.html:492
+msgid "审计"
+msgstr "Audit"
+
+#: templates/index.html:495
+msgid "诊断"
+msgstr "Diagnosis"
+
+#: templates/index.html:513
+msgid "MAC地址:"
+msgstr "MAC Address:"
+
+#: templates/index.html:517
+msgid "序列号:"
+msgstr "Serial Number:"
+
+#: templates/index.html:521
+msgid "型号:"
+msgstr "Model:"
+
+#: templates/index.html:525
+msgid "版本:"
+msgstr "Version:"
+
+#: templates/index.html:532
+msgid "IP地址:"
+msgstr "IP Address:"
+
+#: templates/index.html:536
+msgid "运行时间:"
+msgstr "Running Time:"
+
+#: templates/index.html:540
+msgid "最后看到:"
+msgstr "Last Seen:"
+
+#: templates/index.html:546
+msgid "CPU占用率:"
+msgstr "CPU Usage:"
+
+#: templates/index.html:550
+msgid "内存占用率:"
+msgstr "Memory Usage:"
+
+#: templates/index.html:554
+msgid "Flash占用率:"
+msgstr "Flash Usage:"
+
+#: templates/index.html:576
+msgid "一般配置"
+msgstr "Basic Config"
+
+#: templates/index.html:584 templates/index.html.py:1405
+msgid "别名"
+msgstr "Alias"
+
+#: templates/index.html:590 templates/index.html.py:602
+#: templates/index.html:614 templates/page-login.html:98
+msgid "提交"
+msgstr "Submit"
+
+#: templates/index.html:596
+msgid "AC地址"
+msgstr "AC Address"
+
+#: templates/index.html:608
+msgid "LOG地址"
+msgstr "LOG Server Address"
+
+#: templates/index.html:625
+msgid "网络"
+msgstr "Network"
+
+#: templates/index.html:635
+msgid "配置IP"
+msgstr "IP Config"
+
+#: templates/index.html:639
+msgid "静态IP"
+msgstr "Static IP"
+
+#: templates/index.html:644
+msgid "IP地址"
+msgstr "IP Address"
+
+#: templates/index.html:650
+msgid "子网掩码"
+msgstr "Subnet Mask"
+
+#: templates/index.html:656
+msgid "网关"
+msgstr "Gateway"
+
+#: templates/index.html:662
+msgid "首选DNS"
+msgstr "Preferred DNS"
+
+#: templates/index.html:668
+msgid "备选DNS"
+msgstr "Alternate DNS"
+
+#: templates/index.html:678 templates/index.html.py:715
+#: templates/index.html:1159
+msgid "应用"
+msgstr "Apply"
+
+#: templates/index.html:690
+msgid "NTP配置"
+msgstr "NTP Config"
+
+#: templates/index.html:699
+msgid "首选NTP地址"
+msgstr "Preferred NTP Address"
+
+#: templates/index.html:705
+msgid "备选NTP地址"
+msgstr "Alternate NTP Address"
+
+#: templates/index.html:727 templates/index.html.py:741
+#: templates/index.html:1395
+msgid "移除"
+msgstr "Remove"
+
+#: templates/index.html:734
+msgid ""
+"如果您不希望继续管理此探针,您可以移除它.请注意所有与此探针相关的配置和历史记"
+"录都将删除."
+msgstr ""
+"If you do not want to continue managing this probe, you can remove it. "
+"Please note that all configurations and history associated with this probe "
+"are deleted."
+
+#: templates/index.html:766 templates/index.html.py:936
+msgid "审计厂商"
+msgstr "Corporation"
+
+#: templates/index.html:770 templates/index.html.py:945
+msgid "FTP用户名"
+msgstr "FTP Username"
+
+#: templates/index.html:774 templates/index.html.py:951
+msgid "FTP密码"
+msgstr "FTP Password"
+
+#: templates/index.html:778 templates/index.html.py:957
+msgid "SFTP端口"
+msgstr "SFTP Port"
+
+#: templates/index.html:782 templates/index.html.py:963
+msgid "审计服务器地址"
+msgstr "Server IP"
+
+#: templates/index.html:786 templates/index.html.py:969
+msgid "审计服务器端口"
+msgstr "Server Port"
+
+#: templates/index.html:790 templates/index.html.py:975
+msgid "场所编码"
+msgstr "Location Code"
+
+#: templates/index.html:794 templates/index.html.py:981
+msgid "设备编码"
+msgstr "Device Code"
+
+#: templates/index.html:798 templates/index.html.py:987
+msgid "经度"
+msgstr "Longitude"
+
+#: templates/index.html:802 templates/index.html.py:993
+msgid "纬度"
+msgstr "Latitude"
+
+#: templates/index.html:810 templates/index.html.py:1004
+msgid "采集半径"
+msgstr "Radius"
+
+#: templates/index.html:814 templates/index.html.py:1010
+msgid "设备类型"
+msgstr "Device Type"
+
+#: templates/index.html:818 templates/index.html.py:1018
+msgid "设备名称"
+msgstr "Device Name"
+
+#: templates/index.html:822 templates/index.html.py:1024
+msgid "设备地址"
+msgstr "Device Location"
+
+#: templates/index.html:826 templates/index.html.py:1030
+msgid "厂商编码"
+msgstr "Vendor Code"
+
+#: templates/index.html:830 templates/index.html.py:1036
+msgid "厂商名称"
+msgstr "Vendor Name"
+
+#: templates/index.html:834 templates/index.html.py:1042
+msgid "厂商地址"
+msgstr "Vendor Address"
+
+#: templates/index.html:838 templates/index.html.py:1048
+msgid "联系人姓名"
+msgstr "Contactor Name"
+
+#: templates/index.html:842 templates/index.html.py:1054
+msgid "联系人电话"
+msgstr "Tel/Cell phone"
+
+#: templates/index.html:846 templates/index.html.py:1060
+msgid "联系人邮箱"
+msgstr "Contactor E-mail"
+
+#: templates/index.html:851 templates/index.html.py:1070
+msgid "场所名称"
+msgstr "Site Name"
+
+#: templates/index.html:855 templates/index.html.py:1076
+msgid "场所地址"
+msgstr "Site Address"
+
+#: templates/index.html:859 templates/index.html.py:1082
+msgid "场所类型"
+msgstr "Site Type"
+
+#: templates/index.html:863 templates/index.html.py:1090
+msgid "派出所编码"
+msgstr "Police Station Code"
+
+#: templates/index.html:867 templates/index.html.py:1098
+msgid "场所服务类型"
+msgstr "Site Service Type"
+
+#: templates/index.html:871 templates/index.html.py:1106
+msgid "场所经营性质"
+msgstr "Site Operate Type"
+
+#: templates/index.html:875 templates/index.html.py:1114
+msgid "法人姓名"
+msgstr "Authorized Representative"
+
+#: templates/index.html:879 templates/index.html.py:1120
+msgid "证件类型"
+msgstr "Credentials Type"
+
+#: templates/index.html:883 templates/index.html.py:1128
+msgid "证件号码"
+msgstr "Credentials Number"
+
+#: templates/index.html:887 templates/index.html.py:1134
+msgid "电话号码"
+msgstr "Tel/Cell phone"
+
+#: templates/index.html:891
+msgid "营业开始时间"
+msgstr "Openning Time"
+
+#: templates/index.html:895
+msgid "营业结束时间"
+msgstr "Closing Time"
+
+#: templates/index.html:916
+msgid "基本信息"
+msgstr "Basic Information"
+
+#: templates/index.html:922
+msgid "设备信息"
+msgstr "Device Info"
+
+#: templates/index.html:925
+msgid "场所信息"
+msgstr "Place Info"
+
+#: templates/index.html:1140
+msgid "营业开始时间(如8:00)"
+msgstr "Openning Time(Such as 8:00)"
+
+#: templates/index.html:1146
+msgid "营业结束时间(如22:00)"
+msgstr "Closing Time(Such as 22:00)"
+
+#: templates/index.html:1174
+msgid "远程诊断："
+msgstr "Remote Diagnosis:"
+
+#: templates/index.html:1221
+msgid "定位"
+msgstr "Locate"
+
+#: templates/index.html:1222 templates/index.html.py:1391
+msgid "重启"
+msgstr "Reboot"
+
+#: templates/index.html:1329 templates/index.html.py:1397
+msgid "提示信息"
+msgstr "Prompt Message"
+
+#: templates/index.html:1366
+msgid "序列号不能为空"
+msgstr "Serial number cannot be empty"
+
+#: templates/index.html:1367
+msgid "MAC 不能为空"
+msgstr "MAC cannot be empty"
+
+#: templates/index.html:1368
+msgid "MAC 有效字符不为12"
+msgstr "MAC valid characters length are not 12"
+
+#: templates/index.html:1369
+msgid "错误列表下载"
+msgstr "Download error list"
+
+#: templates/index.html:1370
+msgid "文件类型错误"
+msgstr "File type error"
+
+#: templates/index.html:1371
+msgid "未选择文件"
+msgstr "File not selected"
+
+#: templates/index.html:1373
+msgid "AC地址不合法"
+msgstr "The AC address is invalid."
+
+#: templates/index.html:1375
+msgid "处理中..."
+msgstr "Processing..."
+
+#: templates/index.html:1376
+msgid "显示"
+msgstr "Dispaly"
+
+#: templates/index.html:1377
+msgid "记录"
+msgstr "Records"
+
+#: templates/index.html:1378
+msgid "没有匹配结果"
+msgstr "No matching results"
+
+#: templates/index.html:1379
+msgid "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项"
+msgstr "Showing _START_ to _END_ of _TOTAL_ entries"
+
+#: templates/index.html:1380
+msgid "显示第 0 至 0 项结果，共 0 项"
+msgstr "Showing 0 to 0 of 0 entries"
+
+#: templates/index.html:1381
+msgid "由 _MAX_ 项结果过滤"
+msgstr "filtered from _MAX_ total entries"
+
+#: templates/index.html:1382
+msgid "搜索 : "
+msgstr "Search : "
+
+#: templates/index.html:1383
+msgid "表中数据为空"
+msgstr "The data in the table is empty"
+
+#: templates/index.html:1384
+msgid "载入中..."
+msgstr "Loading..."
+
+#: templates/index.html:1387
+msgid "超时"
+msgstr "Time Out"
+
+#: templates/index.html:1389
+msgid "退服"
+msgstr "Retired"
+
+#: templates/index.html:1390
+msgid "已移除"
+msgstr "Removed"
+
+#: templates/index.html:1392
+msgid "升级"
+msgstr "Upgrade"
+
+#: templates/index.html:1393
+msgid "私网地址"
+msgstr "Private network address"
+
+#: templates/index.html:1394
+msgid "远程地址"
+msgstr "Remote Address"
+
+#: templates/index.html:1396
+msgid "跳转至"
+msgstr "Jump to"
+
+#: templates/index.html:1401
+msgid "流量"
+msgstr "Traffic"
+
+#: templates/index.html:1402
+msgid "上传"
+msgstr "Upload"
+
+#: templates/index.html:1403
+msgid "下载"
+msgstr "Download"
+
+#: templates/index.html:1406
+msgid "版本"
+msgstr "Version"
+
+#: templates/index.html:1408
+msgid "使用率为"
+msgstr "Utilization rate"
+
+#: templates/index.html:1409
+msgid "定位执行失败"
+msgstr "Position execution failed!"
+
+#: templates/page-login.html:83 templates/page-login.html.py:154
+#: templates/page-login.html:155
+msgid "登录"
+msgstr "Login"
+
+#: templates/page-login.html:88 templates/page-register.html:133
+msgid "语言"
+msgstr "Language"
+
+#: templates/page-login.html:109 templates/page-register.html:78
+msgid "用户名"
+msgstr "Username"
+
+#: templates/page-login.html:111 templates/page-register.html:80
+msgid "请输入用户名"
+msgstr "Please input username"
+
+#: templates/page-login.html:120 templates/page-register.html:103
+msgid "密码"
+msgstr "Password"
+
+#: templates/page-login.html:122 templates/page-register.html:105
+msgid "请输入密码"
+msgstr "Please input password"
+
+#: templates/page-login.html:131
+msgid "验证码"
+msgstr "Verification code"
+
+#: templates/page-login.html:133
+msgid "请输入验证码"
+msgstr "Please input verification code"
+
+#: templates/page-login.html:145
+msgid "换一张"
+msgstr "Change one"
+
+#: templates/page-login.html:166
+msgid "还没有账号?"
+msgstr "No account yet?"
+
+#: templates/page-login.html:166
+msgid "点此注册!"
+msgstr "Click here to register!"
+
+#: templates/page-register.html:73
+msgid "注册新账户"
+msgstr "Register a new account"
+
+#: templates/page-register.html:90
+msgid "电子邮箱"
+msgstr "Email"
+
+#: templates/page-register.html:92
+msgid "请输入电子邮箱"
+msgstr "Please input email"
+
+#: templates/page-register.html:114
+msgid "确认密码"
+msgstr "Confirm password"
+
+#: templates/page-register.html:116
+msgid "请再次输入密码"
+msgstr "Please input password again"
+
+#: templates/page-register.html:156 templates/page-register.html.py:157
+msgid "注册"
+msgstr "Register"
+
+#: templates/page-register.html:167
+msgid "已经有账户了?"
+msgstr "Already have an account?"
+
+#: templates/page-register.html:167
+msgid "点此登录!"
+msgstr "Click here to login!"
+
+#: templates/page-register.html:212
+msgid "用户名应为6-18位的数字,字母,下划线"
+msgstr "Username should be 6-18 digits, letter, underline"
+
+#: templates/page-register.html:213
+msgid "密码长度应为6-18位"
+msgstr "The password should be 6-18 characters"
+
+#: templates/page-register.html:214
+msgid "两次输入的密码不一致"
+msgstr "Two passwords are inconsistent"
+
+#: templates/reSendCheckMail.html:72
+msgid "重新激活"
+msgstr "Reactivate"
+
+#: templates/reSendCheckMail.html:77
+msgid "您的账户尚未激活,无法登录"
+msgstr "The account is not active yet,cannot login"
+
+#: templates/reSendCheckMail.html:77
+msgid "点此重新发送激活邮件"
+msgstr "Click here to resend the activation email"
+
+#: templates/reSendCheckMail.html:83
+msgid "返回登录页"
+msgstr "Return to login page"
+
+#: views.py:250
+msgid "用户名或密码错误"
+msgstr "User name or password error!"
+
+#: views.py:252
+msgid "验证码错误"
+msgstr "Verification code error."
+
+#: views.py:294
+msgid "密码不一致！"
+msgstr "Two passwords are inconsistent"
+
+#: views.py:296
+msgid "用户名存在！"
+msgstr "Username exists!"
+
+#: views.py:298
+msgid "邮箱已存在"
+msgstr "Email exists!"
+
+#: views.py:313
+msgid "注册成功,邮件激活后方可登录,邮件有效期12小时"
+msgstr ""
+"Registration success,after the e-mail activation can login,e-mail is valid "
+"for 12 hours"
+
+#: views.py:320 views.py:582
+msgid "欢迎注册成为我们的用户"
+msgstr "Welcome to register as our users"
+
+#: views.py:320 views.py:582
+msgid "请访问以下链接,完成验证"
+msgstr "Please visit the following link to complete the verification"
+
+#: views.py:321 views.py:583
+msgid "注册用户验证"
+msgstr "Registered user authentication"
+
+#: views.py:330 views.py:592
+msgid "邮件发送失败,请联系管理员"
+msgstr "Sending a message fails, contact your administrator"
+
+#: views.py:333
+msgid "用户信息不符合要求！"
+msgstr "User information does not meet the requirements!"
+
+#: views.py:341
+msgid "验证链接已过期，请重新验证"
+msgstr "Verify that the link has expired. Please re-verify"
+
+#: views.py:346
+msgid "您所验证的用户不存在，请重新注册"
+msgstr "The user you verified does not exist. Please re-register"
+
+#: views.py:350
+msgid "验证成功"
+msgstr "Verification is successful"
+
+#: views.py:574
+msgid "邮件发送成功"
+msgstr "Email sent successfully"
+
+#: views.py:595
+msgid "用户名不存在！"
+msgstr "Username does not exist!"
+
+#~ msgid "基础配置"
+#~ msgstr "Basic"
+
+#~ msgid "用户名长度应为6-18位"
+#~ msgstr "The username should be 6-18 characters"
+
+#~ msgid "设备已存在！"
+#~ msgstr "The device already exists!"
+
+#~ msgid "准入失败！"
+#~ msgstr "Access failed!"
+
+#~ msgid "修改失败！"
+#~ msgstr "Fail to edit!"
+
+#~ msgid "注册成功！"
+#~ msgstr "Registration successful!"
+
+#~ msgid "排行"
+#~ msgstr "Ranking"

@@ -1,0 +1,497 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+{% load tags %}
+{% load i18n %}
+{% block head_link %}
+    <link href="{% static 'main/bootstrap-slider/css/bootstrap-slider.css' %}" rel="stylesheet">
+{% endblock head_link %}
+{% block header %}
+    <li><a href=""><i class="fa fa-hdd-o"></i>{% trans "非经设备" %}</a></li>
+    <li class="active"><i class="fa fa-list"></i>{% trans "用户策略" %}</li>
+{% endblock header %}
+{% block row %}
+    <div>
+        <button id="position-4-success" hidden="hidden" data-a = "{{error.error_msg}}">1</button>
+        <button id="position-4-error" hidden="hidden" data-a = "{{error.error_msg}}">2</button>
+    </div>
+    <div class="row" >
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <h6><i class="fa fa-list"></i>{% trans "接入策略" %}</h6>
+
+                    <div class="panel-actions">
+                        <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                        <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <form id="policy_config_ajax">
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "最大用户数" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="dual_max_user" name="dual_max_user">
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "双频" %}</span>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "双频设备最大接入用户数" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="single_max_user" name="single_max_user">
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "单频" %}</span>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "单频设备最大接入用户数" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "信号门限" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="rssi_threshold" name="rssi_threshold">
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >dBm</span>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "低信号用户拒绝接入" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "二层隔离" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="l2_isolation" id="l2_isolation"/>
+                                        <label for="l2_isolation"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "同一接入点下的终端之间不能互相直接通信" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "接入优化" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="access_policy"  id="access_policy"/>
+                                        <label for="access_policy"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "引导用户接入到最优的设备" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom" id="reject_max_hide" hidden="hidden">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "拒绝次数" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <input type="text" class="form-control" id="reject_max" name="reject_max">
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "最大拒绝接入次数" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "负载均衡" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="load_balance"  id="load_balance"/>
+                                        <label for="load_balance"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "将用户均衡到多个无线接入点上,更好利用带宽资源" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "5G优先" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="band_steering" id="band_steering"/>
+                                        <label for="band_steering"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "在高密度用户或者2.4G 干扰较为严重的环境中，充分利用5G 频段可以更好的提供接入能力以及容量" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                            <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "漫游策略" %}</span>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="switch-div" >
+                                    <div class="switch-button">
+                                        <input type="checkbox" name="roaming_policy"  id="roaming_policy"/>
+                                        <label for="roaming_policy"></label>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "无线网卡能够自动发现附近信号强度最大的AP, 保持不间断的网络连接" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom" id="roaming_assoc_rssi_hide" hidden="hidden">
+                        <div class="col-md-2 penel-body-title-font">
+                                <span >{% trans "漫游灵敏度" %}</span>
+                            </div>
+                            <div class="col-md-3" id="ff">
+                                <input id="ex6" type="text" data-provide="slider" data-slider-min="0" data-slider-max="35" data-slider-step="1" data-slider-value="0" data-slider-tooltip="hide" name="roaming_assoc_rssi" />
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+                                <span id="ex6CurrentSliderValLabel"><span id="ex6SliderVal" style="color:white;background-color:green">-95&nbsp;dBM</span></span>
+                            </div>
+                            <div class="col-md-5">
+                                <span>{% trans "无线设备在移动状态下连接网络, 网卡对网络连接状态的调整速率" %}</span>
+                            </div>
+                    </div>
+                    <div class="col-md-12 penel-body-div-marign-bottom">
+                        <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-1">
+
+
+                            </div>
+                            <div class="col-md-1">
+                                <button class="btn btn-default table-btn-btnpad form-control button-border" type="button" onclick="policy_config_ajax();">{% trans "应用" %}</button>
+                            </div>
+                            <div class="col-md-1">
+
+                            </div>
+                            <div class="col-md-2 penel-body-title-font">
+
+                            </div>
+                            <div class="col-md-5">
+
+                            </div>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="width:50%;float:left;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <div>
+                        <h6><i class="fa fa-toggle-on"></i>{% trans "用户黑名单" %}</h6>
+
+                        <div class="panel-actions">
+                            <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                            <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                        </div>
+                    </div>
+
+                    <div class="penel-heading-inlink-block penel-heading-all" >
+                        <div class="switch-div" style="float:left;">
+                            <div class="switch-button">
+                                <input type="checkbox" name="blacklist_start" id="blacklist_start"/>
+                                <label for="blacklist_start"></label>
+                            </div>
+                        </div>
+                        <span style="float:left;margin-left:3%;">{% trans "黑白名单只能同时开启一个" %}</span>
+                        <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="open_form_customer_black_list();customer_black_list_add_table();"><i class="fa fa-plus"></i>{% trans "添加" %}</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped" id="datatable-customer-black-list">
+                        <thead>
+                            <tr>
+                                <th>{% trans "名称/MAC地址" %}</th>
+                                <th>{% trans "操作" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="width:50%;float:right;">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="panel bk-bg-white">
+                <div class="panel-heading">
+                    <div>
+                        <h6><i class="fa fa-toggle-on"></i>{% trans "用户白名单" %}</h6>
+
+                        <div class="panel-actions">
+                            <a href="#" class="btn-minimize"><i class="fa fa-caret-up"></i></a>
+                            <!--<a href="#" class="btn-close"><i class="fa fa-times"></i></a>-->
+                        </div>
+                    </div>
+
+                    <div class="penel-heading-inlink-block penel-heading-all" >
+                        <div class="switch-div" style="float:left;">
+                            <div class="switch-button">
+                                <input type="checkbox" name="whitelist_start" id="whitelist_start"/>
+                                <label for="whitelist_start"></label>
+                            </div>
+                        </div>
+                        <span style="float:left;margin-left:3%;">{% trans "黑白名单只能同时开启一个" %}</span>
+                        <button class="btn btn-default penel-heading-button" style="padding-left:0 !important;" onclick="open_form_customer_white_list();customer_white_list_add_table();"><i class="fa fa-plus"></i>{% trans "添加" %}</button>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table table-bordered table-striped" id="datatable-customer-white-list">
+                        <thead>
+                            <tr>
+                                <th>{% trans "名称/MAC地址" %}</th>
+                                <th>{% trans "操作" %}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <a class=" modal-with-form " href="#modalForm_customer_black_list" id="open_form_customer_black_list" hidden="True"></a>
+        <!-- Modal Form -->
+        <div id="modalForm_customer_black_list" class="modal-block modal-block-primary mfp-hide config-window-width ">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span >{% trans "用户黑名单" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+                </div>
+
+                <div class="panel-body bk-noradius" >
+                    <div class="panel-group" id="accordion-custome-blacklist">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse"  href="#collapse-input-mac">
+                                            {% trans "手动输入" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-input-mac" class="accordion-body collapse in ">
+                                    <div class="customer-input-mac-box">
+                                        <span class="flex-4">{% trans "你可以在右侧输入框中输入用户MAC地址进行添加(每行一条)" %}</span>
+                                        <textarea class="flex-5" id="input-customer-blacklist-mac" cols="30" rows="2"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion ">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse"  href="#collapse-choose-mac">
+                                            {% trans "选择添加" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-choose-mac" class="accordion-body collapse in">
+                                    <span class="col-md-10 text-center" style="margin:5%;">{% trans "您可能想要阻止下面的用户" %}</span>
+                                    <table class="table table-bordered table-striped" id="datatable-customer-black-list-add">
+                                        <thead>
+                                            <tr>
+                                                <th>{% trans "名称/MAC地址" %}</th>
+                                                <th>{% trans "操作" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-default " type="button" id="blacklist_add">{% trans "应用" %}</button>
+                            <button class="btn btn-default modal-dismiss" id="blacklist_add_cancel">{% trans "取消" %}</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <a class=" modal-with-form " href="#modalForm_customer_white_list" id="open_form_customer_white_list" hidden="True"></a>
+        <!-- Modal Form -->
+        <div id="modalForm_customer_white_list" class="modal-block modal-block-primary mfp-hide config-window-width ">
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <h2 class="panel-title"><span >{% trans "用户白名单" %}</span> <a href="#" class=" modal-dismiss close-icon-right "><span class="fa fa-times tab-icon-color"></span></a></h2>
+                </div>
+
+                <div class="panel-body bk-noradius" >
+                    <div class="panel-group" id="accordion-custome-whitelist">
+                            <div class="panel panel-accordion">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse"  href="#collapse-input-mac">
+                                            {% trans "手动输入" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-input-mac" class="accordion-body collapse in ">
+                                    <div class="customer-input-mac-box">
+                                        <span class="flex-4">{% trans "你可以在右侧输入框中输入用户MAC地址进行添加(每行一条)" %}</span>
+                                        <textarea class="flex-5" id="input-customer-whitelist-mac" cols="30" rows="2"></textarea>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="panel panel-accordion ">
+                                <div class="panel-heading bk-fg-primary">
+                                    <h4 class="panel-title">
+                                        <a class="accordion-toggle toggle-a-color" data-toggle="collapse"  href="#collapse-choose-mac">
+                                            {% trans "选择添加" %}
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapse-choose-mac" class="accordion-body collapse in">
+                                    <span class="col-md-10 text-center" style="margin:5%;">{% trans "您可能想要添加下面的用户" %}</span>
+                                    <table class="table table-bordered table-striped" id="datatable-customer-white-list-add">
+                                        <thead>
+                                            <tr>
+                                                <th>{% trans "名称/MAC地址" %}</th>
+                                                <th>{% trans "操作" %}</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                    </div>
+
+                </div>
+
+                <div class="panel-footer">
+                    <div class="row">
+                        <div class="col-md-12 text-center">
+                            <button class="btn btn-default " type="button" id="whitelist_add">{% trans "应用" %}</button>
+                            <button class="btn btn-default modal-dismiss" id="whitelist_add_cancel">{% trans "取消" %}</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+{% endblock row %}
+{% block foot_js %}
+<script type='text/javascript' src="{% static 'main/bootstrap-slider/js/bootstrap-slider.min.js' %}"></script>
+<script>
+  $(document).ready(function(){
+    pageWords = {
+      // allDeviceListPageSharedJS trans
+      // serialNumAlertInfo:'{% trans "序列号不能为空" %}',
+      // macAlertInfo:'{% trans "MAC 不能为空" %}',
+      // macLenghtErrorAlertInfo:'{% trans "MAC 有效字符不为12" %}',
+      // errorListDownload:'{% trans "错误列表下载" %}',
+      // fileTypeError:'{% trans "文件类型错误" %}',
+      // fileNotFound:'{% trans "未选择文件" %}',
+      // acAddressErrorInfo:'{% trans "AC地址不合法" %}',
+      // table trans
+      processing:'{% trans "处理中..." %}',
+      show:'{% trans "显示" %}',
+      record:'{% trans "记录" %}',
+      sZeroRecords:'{% trans "没有匹配结果" %}',
+      sInfo:'{% trans "显示第 _START_ 至 _END_ 项结果，共 _TOTAL_ 项" %}',
+      sInfoEmpty:'{% trans "显示第 0 至 0 项结果，共 0 项" %}',
+      sInfoFiltered:'({% trans "由 _MAX_ 项结果过滤" %})',
+      sSearch:'{% trans "搜索 : " %}',
+      sEmptyTable:'{% trans "表中数据为空" %}',
+      sLoadingRecords:'{% trans "载入中..." %}',
+
+      promptInfo:'{% trans "提示信息" %}',
+
+      delete:'{% trans "删除" %}',
+      blackWhiteListOpenError:'{% trans "黑白名单不能同时开启" %}',
+      doubleMaxUserErrorInfo:'{% trans "双频设备最大接入用户数需为1-128范围内的整数" %}',
+      singleMaxUserErrorInfo:'{% trans "单频设备最大接入用户数需为1-64范围内的整数" %}',
+      rssiErrorInfo:'{% trans "信号门限需为-95-0范围内的整数" %}',
+      rejectMaxErrorInfo:'{% trans "拒绝次数需为1-5范围内的整数" %}',
+    };
+  });
+</script>
+<script src="{% static 'main/app-js/apUserPolicyConfigPage.js' %}"></script>
+
+<script>
+  //一定要放在最下面
+  $(function(){
+
+      var error = JSON.parse('{{error_json|safe}}');
+
+      if(error.error_type === "failed"){
+          $("#position-4-error").click();
+      };
+      if(error.error_type === "success"){
+          $('#position-4-success').click();
+      }
+  });
+</script>
+{% endblock foot_js %}
