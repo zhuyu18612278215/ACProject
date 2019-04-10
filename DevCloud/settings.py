@@ -161,17 +161,8 @@ CAPTCHA_LENGTH = 4 # 字符个数
 CAPTCHA_TIMEOUT = 1 # 超时(minutes)
 
 
-# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-# EMAIL_HOST = 'smtp.qq.com'
-# EMAIL_HOST_USER = '1026845074@qq.com'
-# EMAIL_HOST_PASSWORD = 'ivwcxvkfolazbbbc'
-# EMAIL_PORT = 465
-# EMAIL_USE_TLS = False
-# EMAIL_USE_SSL = True
-# DEFAULT_FROM_EMAIL = 'Admin'
 DOMAIN = ""
 
-# VERSION_SERVER_URL = "http://115.28.241.216:81/version/byz/"
 CORS_ORIGIN_ALLOW_ALL = True
 # CORS_ORIGIN_WHITELIST = (
 #     'localhost:80',
